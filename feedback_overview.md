@@ -4,8 +4,8 @@
 - Problem: What features we implement is still an open question.
 - Fix: Commit to the 3 handling classes (translate, keep, transliterate), a fixed list of 6-8 TEI elements, and one language per pair (Latin -> English for example). Move linking between original and translation for future work.
 
-***OPTIONS Tag list** (which 6-8 TEI elements are in scope)*
-
+***OPTIONS Tag list** (which 6-8 TEI elements are in scope)* \
+FIND MOST COMMON - TEI P5 (OR PICK ONE OF THE TEI STANDARDS)
 - *A: `<p>`, `<l>`, `<q>`, `<foreign>`, `<persName>`, `<placeName>`, `<note>`, `<head>` (recommended, covers prose, verse, quotes, names, and notes)*
 - *B: A, minus `<note>` and `<head>` (smaller, faster to label)*
 - *C: Let the Perseus files decide: take the 8 most frequent elements in the chosen subset.*
@@ -16,6 +16,7 @@
     - Structural validity: pass/fail on well-formedness, TEI schema, and element/attribute comparison with the input.
     - Tag handling: a hand-labelled set of 50-100 snippets with expected behaviour per element, reported as accuracy per tag type.
     - Translation quality: chrF and COMET on translated spans against the Perseus scholarly translations.
+BLEU, COMET, and others
 
 **Only a single score (Analysis: "Partial")**
 - Problem: Results would be one number, which hides where the tool fails.
@@ -52,3 +53,7 @@
 **Scope vs. time budget (Scope: "at risk")**
 - Problem: It's unclear whether the plan fits the 55 hours.
 - Fix: Include three-person split (about 18 hours each) with a week 1 shared decisions time frame, so the workload is visible.
+
+
+
+supervised tests
