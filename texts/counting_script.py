@@ -5,12 +5,19 @@ import subprocess
 import csv
 import xml.etree.ElementTree as ET
 
-repo = Path("canonical-greekLit")
+# All paths are built from this script's folder (texts/), so the script
+# reads and writes the same files no matter where it is run from.
+HERE = Path(__file__).resolve().parent
+repo = HERE / "canonical-greekLit"
+texts_csv = HERE / "greek_english_texts.csv"
+pairs_csv = HERE / "greek_english_pairs.csv"
+tags_csv = HERE / "tei_tag_frequencies.csv"
 
 if not repo.exists():
     subprocess.run([
         "git", "clone", "--depth", "1",
-        "https://github.com/PerseusDL/canonical-greekLit.git"
+        "https://github.com/PerseusDL/canonical-greekLit.git",
+        str(repo)
     ], check=True)
 
 works = defaultdict(lambda: {"grc": [], "eng": []})
@@ -62,7 +69,7 @@ def get_metadata(path):
 
 # Save one row per Greek/English file pair
 # (a work with 1 Greek edition and 4 English translations gets 4 rows)
-with open("greek_english_pairs.csv", "w", newline="",
+with open(pairs_csv, "w", newline="",
           encoding="utf-8") as f:
 
     writer = csv.writer(f)
@@ -106,7 +113,7 @@ for versions in paired.values():
 totals = counts["grc"] + counts["eng"]
 ranked = sorted(totals.items(), key=lambda item: (-item[1], item[0]))
 
-with open("tei_tag_frequencies.csv", "w", newline="",
+with open(tags_csv, "w", newline="",
           encoding="utf-8") as f:
 
     writer = csv.writer(f)
@@ -127,7 +134,7 @@ with open("tei_tag_frequencies.csv", "w", newline="",
 
 
 # Save one row per unique work
-with open("greek_english_texts.csv", "w", newline="",
+with open(texts_csv, "w", newline="",
           encoding="utf-8") as f:
 
     writer = csv.writer(f)
@@ -185,6 +192,6 @@ for work_id, versions in sorted(paired.items()):
     print(f"  English translations: {len(versions['eng'])}")
 
 print("\nSaved:")
-print("  greek_english_texts.csv")
-print("  greek_english_pairs.csv")
-print("  tei_tag_frequencies.csv")
+print("  texts/greek_english_texts.csv")
+print("  texts/greek_english_pairs.csv")
+print("  texts/tei_tag_frequencies.csv")
