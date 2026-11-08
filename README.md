@@ -28,4 +28,11 @@ On the first run it clones the Perseus Greek texts ([canonical-greekLit](https:/
 It writes three CSV files to `texts/`:
 - `greek_english_texts.csv`: one row per work that has both a Greek edition and an English translation, with all of its files and a GitHub link
 - `greek_english_pairs.csv`: one row per Greek file/English translation pair (a work with 4 English translations gets 4 rows)
-- `tei_tag_frequencies.csv`: how often each TEI tag appears in the Greek and English files, most frequent first
+- `tei_tag_frequencies.csv`: statistics for each TEI tag, counted only inside `<text>` (the `<teiHeader>` metadata is skipped). Rows are sorted by `greek_with_text`, highest first. Columns:
+  - `greek_count`: how often the tag appears in the Greek files
+  - `greek_with_text`: how often it has text directly inside it (not only inside its child tags). Empty markers such as `<pb/>` and containers such as `<div>` get 0 or close to it
+  - `greek_script_share`: share of that text written in Greek letters (0–1). A low value means the tag mostly holds Latin or English, e.g. editors' notes
+  - `greek_inline_share`: share of occurrences found inside a `<p>` or `<l>`, i.e. in the middle of a sentence (0–1)
+  - `english_count`, `english_with_text`: the same counts for the English translations
+
+At the end the script prints the 15 most frequent inline tags (tags with text and a `greek_inline_share` of at least 0.5). These are the candidates for the tag list.
