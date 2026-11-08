@@ -272,13 +272,27 @@ inline_tags = [
     if with_text["grc"][tag] and inline[tag] / counts["grc"][tag] >= 0.5
 ]
 
-print("\nTop 15 inline tags in the Greek files:")
-print(f"  {'tag':<10}{'with text':>10}{'Greek script':>14}{'inline':>8}")
+def percent(part, whole):
+    """part / whole as a whole-number percentage, e.g. "57%"."""
+    return f"{part / whole:.0%}" if whole else "-"
+
+
+greek_files = sum(len(versions["grc"]) for versions in paired.values())
+
+print(f"\nTop 15 inline tags in the <text> of the {greek_files} Greek files:")
+print("  with text    = occurrences with text directly inside / all occurrences")
+print("  Greek script = share of that text written in Greek letters")
+print("  inline       = share of occurrences inside a <p> or <l>")
+print()
+print(f"  {'tag':<10}{'with text':>24}{'Greek script':>14}{'inline':>8}")
 for tag in inline_tags[:15]:
+    total = counts["grc"][tag]
+    text_count = with_text["grc"][tag]
     print(
-        f"  {tag:<10}{with_text['grc'][tag]:>10}"
-        f"{share(greek_letters[tag], letters[tag]):>14}"
-        f"{share(inline[tag], counts['grc'][tag]):>8}"
+        f"  {tag:<10}"
+        f"{f'{text_count:,} / {total:,} ({percent(text_count, total)})':>24}"
+        f"{percent(greek_letters[tag], letters[tag]):>14}"
+        f"{percent(inline[tag], total):>8}"
     )
 
 print("\nSaved:")
