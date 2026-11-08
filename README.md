@@ -9,6 +9,7 @@ Translate TEI XML documents while preserving tag structure and meaning.
 - `Essentials_Proposal.pdf`: project proposal
 - `feedback_overview.md`: feedback on the proposal and the open decisions
 - `proposed_tasks.md`: who does what
+- `tag_decisions.md`: which TEI tags the tool handles, how, and why
 - `texts/counting_script.py`: finds the Perseus works that have both Greek and English versions and counts their TEI tags
 - `texts/*.csv`: the output of `counting_script.py` (see below)
 
