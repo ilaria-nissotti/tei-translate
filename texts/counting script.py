@@ -82,8 +82,8 @@ with open("greek_english_texts.csv", "w", newline="",
                     work_id,
                     author,
                     title,
-                    str(grc.relative_to(repo)),
-                    str(eng.relative_to(repo))
+                    grc.relative_to(repo).as_posix(),
+                    eng.relative_to(repo).as_posix()
                 ])
 
 # Count TEI tags in the matched texts
@@ -139,11 +139,11 @@ with open("greek_english_texts.csv", "w", newline="",
             len(greek_files),
             len(english_files),
             "; ".join(
-                str(p.relative_to(repo))
+                p.relative_to(repo).as_posix()
                 for p in greek_files
             ),
             "; ".join(
-                str(p.relative_to(repo))
+                p.relative_to(repo).as_posix()
                 for p in english_files
             ),
             github_url
