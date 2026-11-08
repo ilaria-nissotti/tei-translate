@@ -60,8 +60,9 @@ def get_metadata(path):
     except ET.ParseError:
         return "", ""
 
-# Save a complete catalog of matching texts
-with open("greek_english_texts.csv", "w", newline="",
+# Save one row per Greek/English file pair
+# (a work with 1 Greek edition and 4 English translations gets 4 rows)
+with open("greek_english_pairs.csv", "w", newline="",
           encoding="utf-8") as f:
 
     writer = csv.writer(f)
@@ -185,4 +186,5 @@ for work_id, versions in sorted(paired.items()):
 
 print("\nSaved:")
 print("  greek_english_texts.csv")
+print("  greek_english_pairs.csv")
 print("  tei_tag_frequencies.csv")
