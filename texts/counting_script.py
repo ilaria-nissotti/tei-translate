@@ -100,6 +100,30 @@ for versions in paired.values():
             except ET.ParseError:
                 print("Invalid XML:", path)
 
+# Save the tag counts, most frequent tag first
+# (ties sorted alphabetically so the file is identical on every computer)
+totals = counts["grc"] + counts["eng"]
+ranked = sorted(totals.items(), key=lambda item: (-item[1], item[0]))
+
+with open("tei_tag_frequencies.csv", "w", newline="",
+          encoding="utf-8") as f:
+
+    writer = csv.writer(f)
+    writer.writerow([
+        "tag",
+        "greek_count",
+        "english_count",
+        "total"
+    ])
+
+    for tag, total in ranked:
+        writer.writerow([
+            tag,
+            counts["grc"][tag],
+            counts["eng"][tag],
+            total
+        ])
+
 
 # Save one row per unique work
 with open("greek_english_texts.csv", "w", newline="",
