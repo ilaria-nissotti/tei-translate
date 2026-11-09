@@ -1,0 +1,854 @@
+[
+  {
+    "id": "01_identical_said_label",
+    "group": "correct",
+    "description": "Hypothesis identical to reference: speech with speaker label.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. What matters do you mean?",
+      "reference_tag_count": 4,
+      "correct_count": 4,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "02_identical_milestone",
+    "group": "correct",
+    "description": "Hypothesis identical to reference: empty milestone in the middle of a sentence.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 5,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "03_identical_many_tags",
+    "group": "correct",
+    "description": "Hypothesis identical to reference: nested said/label plus quote and bibl next to each other.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Σωκράτης\"><label>ΣΩ.</label> πάνυ γὰρ ἇνδρες οὗτοι παντοῖοι φανταζόμενοι <quote>ἐπιστρωφῶσι πόληας</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl>, καθορῶντες ὑψόθεν τὸν τῶν κάτω βίον.</said>",
+    "reference": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit the cities,</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "hypothesis": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit the cities,</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Soc. These men appear disguised in all sorts of shapes, and visit the cities,Hom. Od. 17.485-7 beholding from above the life of those below.",
+      "reference_tag_count": 8,
+      "correct_count": 8,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "quote": {
+          "correct": 2,
+          "total": 2
+        },
+        "bibl": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "04_formatting_differences_only",
+    "group": "correct",
+    "description": "Same tags in the same places, but different XML formatting: attribute order, line breaks, extra spaces, and <milestone></milestone> instead of <milestone/>. Should still score 100%.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\">\n    <label>Theo.</label>   And though I do not think he is a god at all,\n    <milestone n=\"216c\" resp=\"Stephanus\" unit=\"section\"></milestone>I certainly do think he is divine,\n    for I give that epithet to all philosophers.\n</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 5,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "05_identical_two_milestones",
+    "group": "correct",
+    "description": "Hypothesis identical to reference: two milestones and a quotation in one passage.",
+    "source": "Plato, Republic 327a-327b (tlg0059.tlg030.perseus-eng2)",
+    "reference": "<said who=\"#Socrates\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>I thought the procession of the citizens very fine, but it was no better than the show. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>After we had said our prayers we were starting for town, and the boy said, <q type=\"spoken\">Polemarchus wants you to wait.</q></said>",
+    "hypothesis": "<said who=\"#Socrates\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>I thought the procession of the citizens very fine, but it was no better than the show. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>After we had said our prayers we were starting for town, and the boy said, <q type=\"spoken\">Polemarchus wants you to wait.</q></said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "I thought the procession of the citizens very fine, but it was no better than the show. After we had said our prayers we were starting for town, and the boy said, Polemarchus wants you to wait.",
+      "reference_tag_count": 6,
+      "correct_count": 6,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 2,
+          "total": 2
+        },
+        "q": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "06_paper_figure3_hyp1",
+    "group": "paper_check",
+    "description": "Example from Zenkel et al. (2021), Figure 3, hypothesis 1. Paper reports 50% accuracy, average distance 2.",
+    "source": "Zenkel et al. 2021, Figure 3",
+    "reference": "<b>But this</b> is not what happens.",
+    "hypothesis": "But <b>this</b> is not what happens.",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "But this is not what happens.",
+      "reference_tag_count": 2,
+      "correct_count": 1,
+      "tag_accuracy": 0.5,
+      "average_distance": 2.0,
+      "misplaced_tags": [
+        {
+          "tag": "<b>",
+          "reference_position": 0,
+          "hypothesis_position": 4,
+          "distance": 4
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "b": {
+          "correct": 1,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "07_paper_figure3_hyp2",
+    "group": "paper_check",
+    "description": "Example from Zenkel et al. (2021), Figure 3, hypothesis 2. Paper reports 50% accuracy, average distance 10.",
+    "source": "Zenkel et al. 2021, Figure 3",
+    "reference": "<b>But this</b> is not what happens.",
+    "hypothesis": "<b>But this is not what happens</b>.",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "But this is not what happens.",
+      "reference_tag_count": 2,
+      "correct_count": 1,
+      "tag_accuracy": 0.5,
+      "average_distance": 10.0,
+      "misplaced_tags": [
+        {
+          "tag": "</b>",
+          "reference_position": 8,
+          "hypothesis_position": 28,
+          "distance": 20
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "b": {
+          "correct": 1,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "08_span_too_wide",
+    "group": "placement",
+    "description": "placeName opening tag moved one word to the left: wraps 'from Elea' instead of 'Elea'.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καὶ τόνδε τινὰ ξένον ἄγομεν, τὸ μὲν γένος ἐξ Ἐλέας, ἑταῖρον δὲ τῶν ἀμφὶ Παρμενίδην καὶ Ζήνωνα.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger <placeName key=\"perseus,Elea\">from Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno.",
+      "reference_tag_count": 6,
+      "correct_count": 5,
+      "tag_accuracy": 0.8333,
+      "average_distance": 0.8333,
+      "misplaced_tags": [
+        {
+          "tag": "<placeName>",
+          "reference_position": 60,
+          "hypothesis_position": 55,
+          "distance": 5
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "placeName": {
+          "correct": 1,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "09_span_too_short",
+    "group": "placement",
+    "description": "quote closing tag too early: wraps 'visit' instead of 'visit the cities,'.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Σωκράτης\"><label>ΣΩ.</label> πάνυ γὰρ ἇνδρες οὗτοι παντοῖοι φανταζόμενοι <quote>ἐπιστρωφῶσι πόληας</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl>, καθορῶντες ὑψόθεν τὸν τῶν κάτω βίον.</said>",
+    "reference": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit the cities,</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "hypothesis": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit</quote> the cities,<bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Soc. These men appear disguised in all sorts of shapes, and visit the cities,Hom. Od. 17.485-7 beholding from above the life of those below.",
+      "reference_tag_count": 8,
+      "correct_count": 7,
+      "tag_accuracy": 0.875,
+      "average_distance": 1.5,
+      "misplaced_tags": [
+        {
+          "tag": "</quote>",
+          "reference_position": 77,
+          "hypothesis_position": 65,
+          "distance": 12
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "quote": {
+          "correct": 1,
+          "total": 2
+        },
+        "bibl": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "10_wrong_word",
+    "group": "placement",
+    "description": "placeName around the wrong word entirely ('Zeno' instead of 'Elea'). Both tags far off.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καὶ τόνδε τινὰ ξένον ἄγομεν, τὸ μὲν γένος ἐξ Ἐλέας, ἑταῖρον δὲ τῶν ἀμφὶ Παρμενίδην καὶ Ζήνωνα.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and <placeName key=\"perseus,Elea\">Zeno</placeName>.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno.",
+      "reference_tag_count": 6,
+      "correct_count": 4,
+      "tag_accuracy": 0.6667,
+      "average_distance": 15.0,
+      "misplaced_tags": [
+        {
+          "tag": "</placeName>",
+          "reference_position": 64,
+          "hypothesis_position": 109,
+          "distance": 45
+        },
+        {
+          "tag": "<placeName>",
+          "reference_position": 60,
+          "hypothesis_position": 105,
+          "distance": 45
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "placeName": {
+          "correct": 0,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "11_milestone_off_by_one_word",
+    "group": "placement",
+    "description": "Milestone moved one word later ('I' before the milestone instead of after).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, I <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 4,
+      "tag_accuracy": 0.8,
+      "average_distance": 0.4,
+      "misplaced_tags": [
+        {
+          "tag": "<milestone[n=216c]/>",
+          "reference_position": 52,
+          "hypothesis_position": 54,
+          "distance": 2
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 0,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "12_milestone_end_of_sentence",
+    "group": "placement",
+    "description": "Milestone moved to the end of the speech (what a simple 'put markers at the end of the block' rule would do).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/></said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 4,
+      "tag_accuracy": 0.8,
+      "average_distance": 15.8,
+      "misplaced_tags": [
+        {
+          "tag": "<milestone[n=216c]/>",
+          "reference_position": 52,
+          "hypothesis_position": 131,
+          "distance": 79
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 0,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "13_milestones_swapped",
+    "group": "placement",
+    "description": "The two milestones 327a and 327b swapped. Only detectable because labels include the n attribute (with tag name only, this would score 100%).",
+    "source": "Plato, Republic 327a-327b (tlg0059.tlg030.perseus-eng2)",
+    "reference": "<said who=\"#Socrates\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>I thought the procession of the citizens very fine, but it was no better than the show. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>After we had said our prayers we were starting for town, and the boy said, <q type=\"spoken\">Polemarchus wants you to wait.</q></said>",
+    "hypothesis": "<said who=\"#Socrates\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>I thought the procession of the citizens very fine, but it was no better than the show. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>After we had said our prayers we were starting for town, and the boy said, <q type=\"spoken\">Polemarchus wants you to wait.</q></said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "I thought the procession of the citizens very fine, but it was no better than the show. After we had said our prayers we were starting for town, and the boy said, Polemarchus wants you to wait.",
+      "reference_tag_count": 6,
+      "correct_count": 4,
+      "tag_accuracy": 0.6667,
+      "average_distance": 29.3333,
+      "misplaced_tags": [
+        {
+          "tag": "<milestone[n=327a]/>",
+          "reference_position": 0,
+          "hypothesis_position": 88,
+          "distance": 88
+        },
+        {
+          "tag": "<milestone[n=327b]/>",
+          "reference_position": 88,
+          "hypothesis_position": 0,
+          "distance": 88
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 0,
+          "total": 2
+        },
+        "q": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "14_label_outside_said",
+    "group": "placement",
+    "description": "Nesting changed: label moved outside said. Text is identical, so only the <said> opening tag is misplaced.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<label>Theo.</label><said who=\"#Theodorus\"> What matters do you mean?</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. What matters do you mean?",
+      "reference_tag_count": 4,
+      "correct_count": 3,
+      "tag_accuracy": 0.75,
+      "average_distance": 1.25,
+      "misplaced_tags": [
+        {
+          "tag": "<said>",
+          "reference_position": 0,
+          "hypothesis_position": 5,
+          "distance": 5
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 1,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "15_whitespace_side_of_milestone",
+    "group": "placement",
+    "description": "Milestone on the other side of a space ('all, <milestone/>I' vs 'all,<milestone/> I'). Arguably the same position, but counted as 1 character off. Decide whether to accept this.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all,<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "note": "debatable",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 4,
+      "tag_accuracy": 0.8,
+      "average_distance": 0.2,
+      "misplaced_tags": [
+        {
+          "tag": "<milestone[n=216c]/>",
+          "reference_position": 52,
+          "hypothesis_position": 51,
+          "distance": 1
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 0,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "16_several_errors",
+    "group": "placement",
+    "description": "Several tags wrong at once: quote closes too early, and bibl closes at the end of the speech instead of after the reference. said and label correct.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Σωκράτης\"><label>ΣΩ.</label> πάνυ γὰρ ἇνδρες οὗτοι παντοῖοι φανταζόμενοι <quote>ἐπιστρωφῶσι πόληας</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl>, καθορῶντες ὑψόθεν τὸν τῶν κάτω βίον.</said>",
+    "reference": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit the cities,</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "hypothesis": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit</quote> the cities,<bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7 beholding from above the life of those below.</bibl></said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Soc. These men appear disguised in all sorts of shapes, and visit the cities,Hom. Od. 17.485-7 beholding from above the life of those below.",
+      "reference_tag_count": 8,
+      "correct_count": 6,
+      "tag_accuracy": 0.75,
+      "average_distance": 7.25,
+      "misplaced_tags": [
+        {
+          "tag": "</bibl[n=Hom. Od. 17.485]>",
+          "reference_position": 94,
+          "hypothesis_position": 140,
+          "distance": 46
+        },
+        {
+          "tag": "</quote>",
+          "reference_position": 77,
+          "hypothesis_position": 65,
+          "distance": 12
+        }
+      ],
+      "missing_tags": [],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "quote": {
+          "correct": 1,
+          "total": 2
+        },
+        "bibl": {
+          "correct": 1,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "17_missing_tag_pair",
+    "group": "missing_extra",
+    "description": "placeName removed entirely (text kept). Two reference tags missing; counted as wrong in accuracy.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καὶ τόνδε τινὰ ξένον ἄγομεν, τὸ μὲν γένος ἐξ Ἐλέας, ἑταῖρον δὲ τῶν ἀμφὶ Παρμενίδην καὶ Ζήνωνα.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno.",
+      "reference_tag_count": 6,
+      "correct_count": 4,
+      "tag_accuracy": 0.6667,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [
+        {
+          "tag": "</placeName>",
+          "reference_position": 64
+        },
+        {
+          "tag": "<placeName>",
+          "reference_position": 60
+        }
+      ],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "placeName": {
+          "correct": 0,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "18_missing_milestone",
+    "group": "missing_extra",
+    "description": "Milestone dropped.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 4,
+      "tag_accuracy": 0.8,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [
+        {
+          "tag": "<milestone[n=216c]/>",
+          "reference_position": 52
+        }
+      ],
+      "extra_tags": [],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 0,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "19_extra_tag_pair",
+    "group": "missing_extra",
+    "description": "Extra placeName added around 'Parmenides' (not in reference). Reference tags all correct.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καὶ τόνδε τινὰ ξένον ἄγομεν, τὸ μὲν γένος ἐξ Ἐλέας, ἑταῖρον δὲ τῶν ἀμφὶ Παρμενίδην καὶ Ζήνωνα.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of <placeName key=\"perseus,Elea\">Parmenides</placeName> and Zeno.</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno.",
+      "reference_tag_count": 6,
+      "correct_count": 6,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [
+        {
+          "tag": "</placeName>",
+          "hypothesis_position": 100
+        },
+        {
+          "tag": "<placeName>",
+          "hypothesis_position": 90
+        }
+      ],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "placeName": {
+          "correct": 2,
+          "total": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "20_duplicated_milestone",
+    "group": "missing_extra",
+    "description": "Milestone appears twice: once in the right place, once at the end. The copy is an extra tag.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/></said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": true,
+      "reference_text": "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+      "reference_tag_count": 5,
+      "correct_count": 5,
+      "tag_accuracy": 1.0,
+      "average_distance": 0.0,
+      "misplaced_tags": [],
+      "missing_tags": [],
+      "extra_tags": [
+        {
+          "tag": "<milestone[n=216c]/>",
+          "hypothesis_position": 131
+        }
+      ],
+      "per_tag": {
+        "said": {
+          "correct": 2,
+          "total": 2
+        },
+        "label": {
+          "correct": 2,
+          "total": 2
+        },
+        "milestone": {
+          "correct": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "21_not_well_formed",
+    "group": "structure",
+    "description": "Crossing tags (</said> before </label>): not well-formed XML. Placement metrics cannot be computed.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo. What matters do you mean?</said></label>",
+    "expected": {
+      "well_formed": false,
+      "same_text": false,
+      "reference_text": "Theo. What matters do you mean?",
+      "reference_tag_count": null,
+      "correct_count": null,
+      "tag_accuracy": null,
+      "average_distance": null,
+      "misplaced_tags": null,
+      "missing_tags": null,
+      "extra_tags": null,
+      "per_tag": null
+    }
+  },
+  {
+    "id": "22_text_changed",
+    "group": "structure",
+    "description": "Same tags, but the English wording differs from the reference (as with an independent MT output). Character positions are not comparable, so placement metrics cannot be computed.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> Which matters do you mean?</said>",
+    "expected": {
+      "well_formed": true,
+      "same_text": false,
+      "reference_text": "Theo. What matters do you mean?",
+      "reference_tag_count": null,
+      "correct_count": null,
+      "tag_accuracy": null,
+      "average_distance": null,
+      "misplaced_tags": null,
+      "missing_tags": null,
+      "extra_tags": null,
+      "per_tag": null
+    }
+  }
+]
