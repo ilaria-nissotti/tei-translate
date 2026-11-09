@@ -1,5 +1,13 @@
 """Tag-placement metrics (Zenkel et al. 2021), checked on hand-made test cases.
 
+- Tag accuracy: share of reference tags at exactly the right position in
+  the output.
+- Average distance: how many characters off the tags are, on average.
+
+A tag's position is the number of text characters before it. What the
+metrics mean, a worked example, and what they leave out are explained in
+metrics/test_data/README.md, section "The metrics".
+
 Run from the repository root:
 
     python metrics/placement_metrics.py

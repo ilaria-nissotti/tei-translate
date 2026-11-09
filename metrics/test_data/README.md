@@ -4,6 +4,44 @@ Small hand-made cases for checking that the tag-placement metrics are computed c
 
 The English text comes from real Perseus translations: Plato's *Sophist* 216a–d (`tlg0059.tlg007.perseus-eng2`) and *Republic* 327a–b (`tlg0059.tlg030.perseus-eng2`), shortened and with the editors' notes removed. Cases 06–07 are the example from Zenkel et al. (2021), Figure 3, so we can check that we reproduce the paper's numbers.
 
+## The metrics
+Both metrics come from Zenkel et al. (2021), "Automatic Bilingual Markup Transfer". They compare where each tag is in the output (the hypothesis) with where it is in the reference. They only work when both have exactly the same text, so that positions can be compared.
+
+**Position of a tag:** remove all tags and count the characters of text before the tag. In `<q>Hello</q> world`, `<q>` is at position 0 and `</q>` at position 5. An element with content has two tags (opening and closing), each with its own position; an empty element such as `<milestone/>` has one.
+
+**Tag accuracy:** the share of reference tags that are at exactly the same position in the output.
+
+```
+tag accuracy = tags at the right position / all tags in the reference
+```
+
+It answers "how many tags would someone have to fix by hand?". A tag is either right or wrong: one character off counts the same as fifty.
+
+**Average distance:** for each tag, how many characters its position in the output is from its position in the reference, averaged over all tags.
+
+```
+average distance = sum of |reference position - output position| / number of tags
+```
+
+It answers "how far off are the tags?". 0 means every tag is in the right place; a higher number means the tags are further away.
+
+**Why both:** two outputs can have the same accuracy but be wrong in very different ways. The example from the paper (Figure 3, our cases 06 and 07):
+
+| | Sentence | `<b>` | `</b>` | Accuracy | Distance |
+|---|---|---|---|---|---|
+| Reference | `<b>But this</b> is not what happens.` | 0 | 8 | | |
+| Output 1 | `But <b>this</b> is not what happens.` | 4 | 8 | 1 of 2 = 50% | (4 + 0) / 2 = **2** |
+| Output 2 | `<b>But this is not what happens</b>.` | 0 | 28 | 1 of 2 = 50% | (0 + 20) / 2 = **10** |
+
+Both have one tag right and one wrong, so both score 50% accuracy. But output 1 is off by one word and output 2 by most of the sentence, which only the distance shows.
+
+**What each metric leaves out:**
+- **Missing tags** (in the reference but not in the output) count as wrong in accuracy, but are left out of the distance, because they have no position to measure.
+- **Extra tags** (in the output but not in the reference) change neither metric. They are listed separately in `extra_tags`.
+- **Broken XML or changed text:** neither metric can be computed (`null`).
+
+So always read the two scores together with the lists of misplaced, missing and extra tags.
+
 ## Files
 - `cases.json`: all cases, as one JSON list. Load it with `json.load(open("cases.json", encoding="utf-8"))`.
 
