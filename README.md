@@ -12,6 +12,8 @@ Translate TEI XML documents while preserving tag structure and meaning.
 - `tag_decisions.md`: which TEI tags the tool handles, how, and why
 - `texts/counting_script.py`: finds the Perseus works that have both Greek and English versions and counts their TEI tags
 - `texts/*.csv`: the output of `counting_script.py` (see below)
+- `metrics/placement_metrics.py`: tag-placement metrics, checked on the test cases (see below)
+- `metrics/test_data/`: temporary hand-made cases for checking the tag-placement metrics (see its README)
 
 ## Running the scripts
 
@@ -39,3 +41,12 @@ It writes three CSV files to `texts/`:
 `texts/tei_tag_frequencies_prev.csv` is the previous version of `tei_tag_frequencies.csv`, kept for comparison. It counted whole files (including the `<teiHeader>`) and had a `total` column. It is not updated by the script.
 
 At the end the script prints the 15 most frequent inline tags (tags with text and a `greek_inline_share` of at least 0.5). These are the candidates for the tag list.
+
+### `placement_metrics.py`
+Run it from the repository root:
+
+```
+python metrics/placement_metrics.py
+```
+
+It contains the tag-placement metrics from Zenkel et al. (2021): tag accuracy (share of tags in exactly the right place) and average distance (how many characters off they are), plus lists of misplaced, missing and extra tags and a score per tag type. It runs them on every case in `metrics/test_data/cases.json` and prints `PASS` or `FAIL` for each one. For a failed case it shows which tags were judged differently from the expected result, with the tag marked in the sentence (e.g. `"Theo.[</label>] We bring..."`), and the expected and actual scores. If the output is not valid XML or its text differs from the reference, it shows where.
