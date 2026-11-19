@@ -1,6 +1,20 @@
-# Local clone of Perseus created by texts/counting_script.py
-texts/canonical-greekLit/
+# Large or generated data (re-created by scripts/data/)
+data/raw/
+data/perseus/
 
+# Local files: keep the folders, ignore their contents
+models/*
+!models/.gitkeep
+outputs/*
+!outputs/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
 
 # Personal files
 personal-notes.md

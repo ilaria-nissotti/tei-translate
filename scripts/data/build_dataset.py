@@ -3,12 +3,12 @@
 Build a Greek-English parallel-text dataset from the Perseus Digital Library
 (PerseusDL/canonical-greekLit on GitHub).
 
-Inputs (same folder as this script, or pass --pairs / --texts):
+Inputs (in data/catalog/, or pass --pairs / --texts):
     greek_english_pairs.csv   work_id, author, title, greek_file, english_file
     greek_english_texts.csv   work_id, author, title, ..., greek_files, english_files, ...
 
-Output layout:
-    dataset/
+Output layout (default: data/perseus/, or pass --out):
+    perseus/
       texts/
         tlg0003.tlg001/
           greek/   tlg0003.tlg001.perseus-grc2.xml
@@ -21,8 +21,8 @@ Output layout:
       failed_downloads.csv   (only if something failed)
 
 Usage:
-    python build_dataset.py
-    python build_dataset.py --out my_dataset --workers 16
+    python scripts/data/build_dataset.py
+    python scripts/data/build_dataset.py --out my_dataset --workers 16
 Re-running is safe: files already downloaded are skipped.
 """
 import argparse
@@ -37,8 +37,9 @@ from pathlib import Path
 RAW_BASE = "https://raw.githubusercontent.com/PerseusDL/canonical-greekLit/master/"
 
 # Poetry / prose / drama classification (by file content) lives in
-# make_work_types.py -- keep that file in the same folder as this script.
-from texts.make_work_types import build_work_types
+# make_work_types.py -- keep that file in the same folder as this script
+# (Python puts the script's folder on the import path).
+from make_work_types import build_work_types
 
 
 # ---------------------------------------------------------------------------
@@ -71,12 +72,12 @@ def download(rel_path: str, dest: Path, retries: int = 4) -> tuple[str, str | No
 
 
 def main():
-    here = Path(__file__).resolve().parent
+    data = Path(__file__).resolve().parents[2] / "data"
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pairs", default=str(here / "greek_english_pairs.csv"))
-    ap.add_argument("--texts", default=str(here / "greek_english_texts.csv"))
-    ap.add_argument("--out", default=str(here / "dataset"),
-                    help="output folder (default: a 'dataset' folder next to this script)")
+    ap.add_argument("--pairs", default=str(data / "catalog" / "greek_english_pairs.csv"))
+    ap.add_argument("--texts", default=str(data / "catalog" / "greek_english_texts.csv"))
+    ap.add_argument("--out", default=str(data / "perseus"),
+                    help="output folder (default: data/perseus)")
     ap.add_argument("--workers", type=int, default=12)
     args = ap.parse_args()
 

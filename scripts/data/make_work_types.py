@@ -22,8 +22,8 @@ details file.
 
 Run it AFTER build_dataset.py has downloaded the files:
 
-    python make_work_types.py
-    python make_work_types.py --dataset dataset --texts greek_english_texts.csv
+    python scripts/data/make_work_types.py
+    python scripts/data/make_work_types.py --dataset data/perseus --texts data/catalog/greek_english_texts.csv
 
 Writes:
     <dataset>/work_types.csv          work_id, type
@@ -165,12 +165,12 @@ def build_work_types(works: list[dict], dataset_dir: Path) -> dict:
 
 
 def main():
-    here = Path(__file__).resolve().parent
+    data = Path(__file__).resolve().parents[2] / "data"
     ap = argparse.ArgumentParser()
-    ap.add_argument("--texts", default=str(here / "greek_english_texts.csv"))
-    ap.add_argument("--dataset", default=str(here / "dataset"),
+    ap.add_argument("--texts", default=str(data / "catalog" / "greek_english_texts.csv"))
+    ap.add_argument("--dataset", default=str(data / "perseus"),
                     help="dataset folder made by build_dataset.py "
-                         "(default: a 'dataset' folder next to this script)")
+                         "(default: data/perseus)")
     args = ap.parse_args()
 
     with open(args.texts, newline="", encoding="utf-8-sig") as f:

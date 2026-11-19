@@ -1,6 +1,6 @@
 # Test data for the tag-placement metrics (temporary)
 
-Small hand-made cases for checking that the tag-placement metrics are computed correctly, before we use them on real output. Each case has a **reference** (tags in the correct place), a **hypothesis** (the tool's output) and the **expected** scores. A metric implementation should reproduce the expected values for every case. `metrics/placement_metrics.py` checks this: run `python metrics/placement_metrics.py` from the repository root.
+Small hand-made cases for checking that the tag-placement metrics are computed correctly, before we use them on real output. Each case has a **reference** (tags in the correct place), a **hypothesis** (the tool's output) and the **expected** scores. A metric implementation should reproduce the expected values for every case. `scripts/check_metric_cases.py` checks this: run `python scripts/check_metric_cases.py` (after `pip install -e .`).
 
 The English text comes from real Perseus translations: Plato's *Sophist* 216a–d (`tlg0059.tlg007.perseus-eng2`) and *Republic* 327a–b (`tlg0059.tlg030.perseus-eng2`), shortened and with the editors' notes removed. Cases 06–07 are the example from Zenkel et al. (2021), Figure 3, so we can check that we reproduce the paper's numbers.
 

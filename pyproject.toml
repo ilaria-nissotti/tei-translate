@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tei-translate"
+version = "0.1.0"
+description = "Translate TEI XML documents while preserving tag structure and meaning."
+readme = "README.md"
+requires-python = ">=3.10"
+# The code only uses the standard library so far. Add runtime dependencies
+# here (lxml, gradio, transformers, ...) when the code that needs them lands.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tei_translate"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

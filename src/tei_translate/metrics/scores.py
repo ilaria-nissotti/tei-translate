@@ -14,11 +14,11 @@ Structure (Hashimoto et al. 2019):
   as the input? (one output / share of all outputs)
 
 What the metrics mean, worked examples, and what they leave out are
-explained in metrics/test_data/README.md.
+explained in tests/fixtures/metrics/README.md.
 
 Usage (from any script in the repository, run from the repository root):
 
-    from metrics.scores import tag_accuracy, average_distance, same_structure
+    from tei_translate.metrics.scores import tag_accuracy, average_distance, same_structure
 
     ref = 'Then <name>Socrates</name> said.'
     hyp = 'Then Socrates <name>said</name>.'
@@ -30,7 +30,7 @@ Usage (from any script in the repository, run from the repository root):
     same_structure(source, hyp)  # True
 """
 
-from metrics.fragments import read_fragment, match_tags, parse_fragment, structure_key
+from tei_translate.metrics.fragments import read_fragment, match_tags, parse_fragment, structure_key
 
 
 # ---------------------------------------------------------------------------
@@ -41,7 +41,7 @@ def score(reference, hypothesis):
     """Compare the tags of a hypothesis with those of the reference.
 
     Both are XML fragments with the same text. Returns a dict with the
-    fields described in metrics/test_data/README.md.
+    fields described in tests/fixtures/metrics/README.md.
     """
     ref = read_fragment(reference)
     hyp = read_fragment(hypothesis)
@@ -140,7 +140,7 @@ def same_structure(source, hypothesis):
     The same tags, with the same attribute values, nested in the same way.
     Text is ignored, and so is the order of tags under the same parent
     (English word order differs from Greek). False if the output is not
-    valid XML. The rules and examples are in metrics/test_data/README.md.
+    valid XML. The rules and examples are in tests/fixtures/metrics/README.md.
     """
     src = parse_fragment(source)
     if src is None:

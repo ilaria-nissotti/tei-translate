@@ -1,16 +1,16 @@
 """Check the metrics in scores.py on the hand-made test cases.
 
-Run from the repository root:
+Needs the package installed (pip install -e .). Run:
 
-    python -m metrics.check_cases
+    python scripts/check_metric_cases.py
 
-The script scores every case in metrics/test_data/ and prints PASS or FAIL
+The script scores every case in tests/fixtures/metrics/ and prints PASS or FAIL
 for each one:
 - cases.json: tag placement (tag accuracy, average distance)
 - structure_cases.json: structure (XML accuracy, XML matching)
 
 For a failed case it explains, in words, how the result differs from the
-expected one. The cases are described in metrics/test_data/README.md.
+expected one. The cases are described in tests/fixtures/metrics/README.md.
 """
 
 from collections import Counter
@@ -18,12 +18,12 @@ from pathlib import Path
 import json
 import xml.etree.ElementTree as ET
 
-from metrics.fragments import read_fragment, parse_fragment, tag_signature
-from metrics.scores import score, is_valid_xml, xml_accuracy, same_structure, xml_matching
+from tei_translate.metrics.fragments import read_fragment, parse_fragment, tag_signature
+from tei_translate.metrics.scores import score, is_valid_xml, xml_accuracy, same_structure, xml_matching
 
-HERE = Path(__file__).resolve().parent
-cases_file = HERE / "test_data" / "cases.json"
-structure_cases_file = HERE / "test_data" / "structure_cases.json"
+FIXTURES = Path(__file__).resolve().parent.parent / "tests" / "fixtures" / "metrics"
+cases_file = FIXTURES / "cases.json"
+structure_cases_file = FIXTURES / "structure_cases.json"
 
 
 def as_sort_key(item):

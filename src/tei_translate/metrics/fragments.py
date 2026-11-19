@@ -7,7 +7,7 @@ The metrics themselves are in scores.py.
 
 A tag's position is the number of text characters before it. The rules
 (how text, positions and tags are defined) are described in
-metrics/test_data/README.md, section "The metrics".
+tests/fixtures/metrics/README.md, section "The metrics".
 """
 
 import xml.etree.ElementTree as ET

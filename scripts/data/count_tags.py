@@ -5,13 +5,13 @@ import subprocess
 import csv
 import xml.etree.ElementTree as ET
 
-# All paths are built from this script's folder (texts/), so the script
-# reads and writes the same files no matter where it is run from.
-HERE = Path(__file__).resolve().parent
-repo = HERE / "canonical-greekLit"
-texts_csv = HERE / "greek_english_texts.csv"
-pairs_csv = HERE / "greek_english_pairs.csv"
-tags_csv = HERE / "tei_tag_frequencies.csv"
+# All paths are built from the repository root (two folders up), so the
+# script reads and writes the same files no matter where it is run from.
+ROOT = Path(__file__).resolve().parents[2]
+repo = ROOT / "data" / "raw" / "canonical-greekLit"
+texts_csv = ROOT / "data" / "catalog" / "greek_english_texts.csv"
+pairs_csv = ROOT / "data" / "catalog" / "greek_english_pairs.csv"
+tags_csv = ROOT / "data" / "stats" / "tei_tag_frequencies.csv"
 
 if not repo.exists():
     subprocess.run([
@@ -296,6 +296,6 @@ for tag in inline_tags[:15]:
     )
 
 print("\nSaved:")
-print("  texts/greek_english_texts.csv")
-print("  texts/greek_english_pairs.csv")
-print("  texts/tei_tag_frequencies.csv")
+print("  data/catalog/greek_english_texts.csv")
+print("  data/catalog/greek_english_pairs.csv")
+print("  data/stats/tei_tag_frequencies.csv")

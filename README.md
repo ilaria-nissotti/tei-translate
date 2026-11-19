@@ -2,35 +2,62 @@
 Translate TEI XML documents while preserving tag structure and meaning.
 
 ## Requirements
-- Python 3 (the scripts only use the standard library, so no `pip install` is needed yet)
+- Python 3.10 or newer
 - `git` (used to download the Perseus texts)
 
+## Installation
+From the repository root (the folder this README is in), ideally in a virtual environment:
+
+```
+python -m venv .venv
+.venv\Scripts\activate          # Windows; on macOS/Linux: source .venv/bin/activate
+pip install -e .[dev]
+```
+
+This installs the `tei_translate` package in editable mode (your code changes apply straight away) plus `pytest`. The code only uses the standard library so far; third-party dependencies are added to `pyproject.toml` when code needs them.
+
 ## Repository layout
+```
+src/tei_translate/     the Python package (import it as tei_translate)
+  pipeline/            pipeline stages (empty for now)
+  engines/             MT engines (empty for now)
+  metrics/             evaluation metrics (fragments.py, scores.py)
+  ui/                  Gradio app (empty for now)
+scripts/
+  data/                download and describe the Perseus data (count_tags.py, build_dataset.py, make_work_types.py)
+  check_metric_cases.py   checks the metrics on the hand-made test cases
+config/                configuration files (tag policy, language pairs), later
+data/
+  catalog/             which Perseus works have Greek + English (output of count_tags.py)
+  stats/               TEI tag statistics (output of count_tags.py)
+  raw/                 local clone of Perseus (git-ignored)
+  perseus/             downloaded parallel dataset (output of build_dataset.py, git-ignored)
+models/                local and fine-tuned MT models (contents git-ignored)
+outputs/               translated files and evaluation results (contents git-ignored)
+logs/                  run logs (contents git-ignored)
+docs/                  proposal, handover, tag decisions, feedback, task split
+tests/                 tests and test fixtures (tests/fixtures/metrics/ holds the metric test cases)
+```
+
+Documents in `docs/`:
 - `Essentials_Proposal.pdf`: project proposal
+- `HANDOVER.md`: draft pipeline proposal (not yet reviewed by the team)
 - `feedback_overview.md`: feedback on the proposal and the open decisions
 - `proposed_tasks.md`: who does what
 - `tag_decisions.md`: which TEI tags the tool handles, how, and why
-- `texts/counting_script.py`: finds the Perseus works that have both Greek and English versions and counts their TEI tags
-- `texts/*.csv`: the output of `counting_script.py` (see below)
-- `metrics/fragments.py`: helpers that read XML fragments (plain text + tag positions) and match tags
-- `metrics/scores.py`: the metrics, one function per metric (tag accuracy, average distance, XML accuracy, XML matching)
-- `metrics/check_cases.py`: checks the metrics on the test cases (see below)
-- `metrics/test_data/`: temporary hand-made cases for checking the metrics (see its README)
 
 ## Running the scripts
 
-### `counting_script.py`
-Run it from the repository root (the folder this README is in):
-
+### `count_tags.py`
 ```
-python texts/counting_script.py
+python scripts/data/count_tags.py
 ```
 
-The script finds its files relative to its own folder (`texts/`), so it also works when run from any other folder.
+The script finds its files relative to the repository root, so it works from any folder.
 
-On the first run it clones the Perseus Greek texts ([canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit)) into `texts/canonical-greekLit/`. This folder is git-ignored, so it is never committed. Later runs reuse it.
+On the first run it clones the Perseus Greek texts ([canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit)) into `data/raw/canonical-greekLit/`. This folder is git-ignored, so it is never committed. Later runs reuse it.
 
-It writes three CSV files to `texts/`:
+It writes three CSV files, the first two to `data/catalog/` and the third to `data/stats/`:
 - `greek_english_texts.csv`: one row per work that has both a Greek edition and an English translation, with all of its files and a GitHub link
 - `greek_english_pairs.csv`: one row per Greek file/English translation pair (a work with 4 English translations gets 4 rows)
 - `tei_tag_frequencies.csv`: statistics for each TEI tag, counted only inside `<text>` (the `<teiHeader>` metadata is skipped). Rows are sorted by `greek_with_text`, highest first. Columns:
@@ -40,37 +67,37 @@ It writes three CSV files to `texts/`:
   - `greek_inline_share`: share of occurrences found inside a `<p>` or `<l>`, i.e. in the middle of a sentence (0–1)
   - `english_count`, `english_with_text`: the same counts for the English translations
 
-`texts/tei_tag_frequencies_prev.csv` is the previous version of `tei_tag_frequencies.csv`, kept for comparison. It counted whole files (including the `<teiHeader>`) and had a `total` column. It is not updated by the script.
+`data/stats/tei_tag_frequencies_prev.csv` is the previous version of `tei_tag_frequencies.csv`, kept for comparison. It counted whole files (including the `<teiHeader>`) and had a `total` column. It is not updated by the script.
 
 At the end the script prints the 15 most frequent inline tags (tags with text and a `greek_inline_share` of at least 0.5). These are the candidates for the tag list.
 
-### `check_cases.py`
-Run it from the repository root:
-
+### `build_dataset.py` and `make_work_types.py`
 ```
-python -m metrics.check_cases
+python scripts/data/build_dataset.py
 ```
 
-(`-m` runs it as part of the `metrics` package, so it must be run from the repository root.)
+Downloads every Greek/English file pair listed in `data/catalog/greek_english_pairs.csv` into `data/perseus/` (git-ignored), writes `data/perseus/pairs.csv`, and classifies each work as poetry, prose or drama from its Greek markup (`work_types.csv`, `work_type_details.csv`). Re-running skips files already downloaded. `python scripts/data/make_work_types.py` redoes only the classification. Both take `--help`.
 
-It checks the tag-placement metrics in `metrics/scores.py`, from Zenkel et al. (2021): tag accuracy (share of tags in exactly the right place) and average distance (how many characters off they are), plus lists of misplaced, missing and extra tags and a score per tag type. It runs them on every case in `metrics/test_data/cases.json` and prints `PASS` or `FAIL` for each one. For a failed case it shows which tags were judged differently from the expected result, with the tag marked in the sentence (e.g. `"Theo.[</label>] We bring..."`), and the expected and actual scores. If the output is not valid XML or its text differs from the reference, it shows where.
+### `check_metric_cases.py`
+Needs the package installed (see Installation):
 
-It also checks the structure metrics from Hashimoto et al. (2019) on every case in `metrics/test_data/structure_cases.json`: XML accuracy (is the output valid XML?) and XML matching (does it have exactly the same tags as the input?). For a failed case it lists which tags are in the input but not the output, or the other way round.
+```
+python scripts/check_metric_cases.py
+```
+
+It checks the tag-placement metrics in `src/tei_translate/metrics/scores.py`, from Zenkel et al. (2021): tag accuracy (share of tags in exactly the right place) and average distance (how many characters off they are), plus lists of misplaced, missing and extra tags and a score per tag type. It runs them on every case in `tests/fixtures/metrics/cases.json` and prints `PASS` or `FAIL` for each one. For a failed case it shows which tags were judged differently from the expected result, with the tag marked in the sentence (e.g. `"Theo.[</label>] We bring..."`), and the expected and actual scores. If the output is not valid XML or its text differs from the reference, it shows where.
+
+It also checks the structure metrics from Hashimoto et al. (2019) on every case in `tests/fixtures/metrics/structure_cases.json`: XML accuracy (is the output valid XML?) and XML matching (does it have exactly the same tags as the input?). For a failed case it lists which tags are in the input but not the output, or the other way round.
 
 ## Using the metrics in your own code
-The metrics are in `metrics/scores.py`, one function per metric. Import them from any script in the repository:
+The metrics are in `src/tei_translate/metrics/scores.py`, one function per metric. Once the package is installed (see Installation), import them from any script, in any folder:
 
 ```python
-from metrics.scores import tag_accuracy, average_distance, score
-from metrics.scores import is_valid_xml, xml_accuracy, same_structure, xml_matching
+from tei_translate.metrics.scores import tag_accuracy, average_distance, score
+from tei_translate.metrics.scores import is_valid_xml, xml_accuracy, same_structure, xml_matching
 ```
 
-Run that script **from the repository root with `-m`**, using dots instead of slashes and no `.py` (otherwise Python cannot find `metrics`):
-
-```
-python -m pipeline.translate        works
-python pipeline/translate.py        ModuleNotFoundError: No module named 'metrics'
-```
+If you get `ModuleNotFoundError: No module named 'tei_translate'`, the package is not installed in the Python you are using: activate the virtual environment, or run `pip install -e .` again.
 
 All inputs are XML fragments as strings, e.g. `'<said who="#Σωκράτης"><label>ΣΩ.</label> ...</said>'`. Arguments always come in the order reference (or Greek input) first, output second.
 
@@ -84,12 +111,12 @@ All inputs are XML fragments as strings, e.g. `'<said who="#Σωκράτης"><l
 | `same_structure(source, hypothesis)` | `True` if the output has exactly the same tags as the Greek input | one passage |
 | `xml_matching(sources, hypotheses)` | share of outputs with the same tags as their input (0–1) | two lists in the same order |
 
-A score that cannot be computed is `None`: e.g. `tag_accuracy` when the output is not valid XML, or its text differs from the reference. What each metric means, with examples, is explained in `metrics/test_data/README.md`.
+A score that cannot be computed is `None`: e.g. `tag_accuracy` when the output is not valid XML, or its text differs from the reference. What each metric means, with examples, is explained in `tests/fixtures/metrics/README.md`.
 
 Example:
 
 ```python
-from metrics.scores import tag_accuracy, average_distance, same_structure
+from tei_translate.metrics.scores import tag_accuracy, average_distance, same_structure
 
 ref = 'Then <name>Socrates</name> said.'
 hyp = 'Then Socrates <name>said</name>.'
@@ -103,4 +130,4 @@ same_structure(greek, output) # False: the <label> tag was lost
 
 `is_valid_xml` and `same_structure` can also be used **inside the pipeline**, to check each translated passage straight away (e.g. log or retry when the output lost a tag).
 
-To try the functions interactively, type `python` in the repository root and import them as above. If printing Greek text gives `UnicodeEncodeError: 'charmap' codec ...`, run `$env:PYTHONUTF8 = "1"` (PowerShell) once in that terminal first.
+To try the functions interactively, type `python` and import them as above. If printing Greek text gives `UnicodeEncodeError: 'charmap' codec ...`, run `$env:PYTHONUTF8 = "1"` (PowerShell) once in that terminal first.
