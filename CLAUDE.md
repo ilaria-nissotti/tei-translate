@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A university group project (Essentials of Text and Speech Processing): translate TEI XML documents from Ancient Greek to English while keeping the XML valid and respecting what each tag means. Corpus: Perseus `canonical-greekLit`. The design must stay language-pair agnostic.
 
-**State of the repo:** the translation pipeline does not exist yet. What exists is exploratory work (corpus/tag statistics, tag-placement metrics). We are now in the planning phase for building the pipeline; existing scripts are reference material, not a codebase to extend.
+**State of the repo:** the project skeleton is set up (installable package, folder layout, `pyproject.toml`), but the translation pipeline does not exist yet. What exists is exploratory work: Perseus data scripts, corpus/tag statistics, and the evaluation metrics (now part of the package, so they are meant to be reused). We are still planning the pipeline itself.
 
 ## Key documents (read before planning or coding)
 
@@ -18,6 +18,17 @@ A university group project (Essentials of Text and Speech Processing): translate
 ## Repo layout (set up)
 
 Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/`, `engines/`, `ui/` (empty placeholders), `metrics/` (`fragments.py`, `scores.py`). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (policy and pair configs, later), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases). `pyproject.toml` has no runtime dependencies yet: add each one when code that needs it lands.
+
+Layout decisions agreed with the user (don't relitigate):
+- **src layout, package `tei_translate`**, chosen over a flat package. Everyone runs `pip install -e .[dev]` first; anything that imports `tei_translate` fails with `ModuleNotFoundError` otherwise.
+- **Minimal dependencies**: the user chose not to pre-declare planned deps (lxml, gradio, transformers, ...). Add them to `pyproject.toml` together with the code that uses them; heavy ML deps should go in an optional extra so the base install stays light.
+- **Entry points live outside the package**: `scripts/` for one-off utilities, a root `app.py` for Gradio (needed by HF Spaces, which runs `app.py` from the repo root). When `app.py` is added, the Space also needs a `requirements.txt` containing `.` so it installs the package. A CLI, if built, goes in `src/tei_translate/cli.py` (`python -m tei_translate ...`).
+- Reusable code goes in the package; generated or large files have a fixed git-ignored home (`data/raw`, `data/perseus`, `models`, `outputs`, `logs`). Code writing there should still `mkdir(parents=True, exist_ok=True)`.
+
+Notes on the scripts:
+- `scripts/data/` scripts are stdlib-only and resolve paths from the repo root (`Path(__file__).resolve().parents[2]`), so they work from any folder without installing. `build_dataset.py` imports its sibling `make_work_types.py` by plain name (`from make_work_types import ...`), so the two must stay in the same folder.
+- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` and `check_metric_cases.py` were run and give the same results as before (44/44 metric checks pass, CSVs unchanged).
+- On Windows, printing Greek can raise `UnicodeEncodeError: 'charmap'`: set `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8 = "1"`).
 
 ## Proposed architecture (from HANDOVER.md, not yet agreed)
 
@@ -38,7 +49,7 @@ Why and what follows from it:
 
 ## Planning status
 
-Planning how the app works has only just started; no pipeline code exists yet. Still open:
+Done: project skeleton (layout, `pyproject.toml`, metrics moved into the package). No pipeline code exists yet. Still open:
 - The user raised "which languages to use and how to present them" in the UI. Settle this: which source/target language pairs to offer, and how language and option choices appear in the UI.
 - The engine choice (local and hosted), and the open questions at the end of `HANDOVER.md`.
 - The `<note>` conflict between `tag_decisions.md` and `HANDOVER.md`.
@@ -58,6 +69,6 @@ python scripts/check_metric_cases.py     # runs the tag-placement and structure 
 
 ## Existing assets worth reusing
 
-- `data/catalog/greek_english_pairs.csv` / `greek_english_texts.csv` — every Greek file in Perseus that has an English translation, with paths; useful for the data loader. Perseus file naming: `data/TEXTGROUP/WORK/TEXTGROUP.WORK.perseus-{grc,eng}N.xml`; prefer higher `N` (version 1 files are often not CTS-compliant).
+- `data/catalog/greek_english_pairs.csv` / `greek_english_texts.csv` — every Greek file in Perseus that has an English translation, with paths; useful for the data loader. Perseus file naming (paths inside the Perseus repo, i.e. under `data/raw/canonical-greekLit/`): `data/TEXTGROUP/WORK/TEXTGROUP.WORK.perseus-{grc,eng}N.xml`; prefer higher `N` (version 1 files are often not CTS-compliant).
 - `data/stats/tei_tag_frequencies.csv` — per-tag counts inside `<text>` (Greek vs English), basis for `tag_decisions.md`.
-- `tei_translate.metrics.scores` + `tests/fixtures/metrics/` — verified implementation of tag accuracy and average distance (positions = character offsets in tag-stripped text; requires identical text in reference and hypothesis) plus XML accuracy / XML matching.
+- `src/tei_translate/metrics/scores.py` (import as `tei_translate.metrics.scores`) + `tests/fixtures/metrics/` — verified implementation of tag accuracy and average distance (positions = character offsets in tag-stripped text; requires identical text in reference and hypothesis) plus XML accuracy / XML matching.
