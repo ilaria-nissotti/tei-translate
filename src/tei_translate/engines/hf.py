@@ -74,6 +74,25 @@ def _fit(text: str, length, max_len: int, level: int) -> list[str]:
     return [p for piece in pieces for p in _fit(piece, length, max_len, level + 1)]
 
 
+def tie_output_embeddings(model) -> bool:
+    """Tie the output layer to the input embeddings when the config says so.
+
+    Some Opus-MT checkpoints (e.g. opus-mt-tc-big-el-en) store a stray lm_head that
+    differs from the embeddings although tie_word_embeddings is true. Older
+    Transformers versions tied them on load and overwrote it; Transformers 5 keeps
+    the stray one, and the model then outputs random words. Returns True if it tied.
+    """
+    if not getattr(model.config, "tie_word_embeddings", False):
+        return False
+    out, inp = model.get_output_embeddings(), model.get_input_embeddings()
+    if out is None or inp is None or out.weight is inp.weight:
+        return False
+    log.warning("%s: output layer differs from the embeddings although the config ties them; "
+                "tying them", model.config.name_or_path)
+    out.weight = inp.weight
+    return True
+
+
 def _cache_dir():
     if os.environ.get("HF_HOME") or os.environ.get("HF_HUB_CACHE"):
         return None
@@ -110,23 +129,34 @@ class HFSeq2SeqEngine:
             return
         try:
             import torch
-            from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+            import transformers  # noqa: F401
         except ImportError as e:
             raise ImportError(f"engine {self.model_id} needs the MT extra: pip install -e .[mt]") from e
         device = self.device or ("cuda" if torch.cuda.is_available() else "cpu")
         dtype = self._gpu_dtype(torch) if device == "cuda" else torch.float32
         log.info("loading %s on %s (%s); first use downloads the model", self.model_id, device, dtype)
-        cache = _cache_dir()
-        self._tokenizer = AutoTokenizer.from_pretrained(self.model_id, cache_dir=cache)
-        model = AutoModelForSeq2SeqLM.from_pretrained(self.model_id, cache_dir=cache, dtype=dtype)
+        self._tokenizer, model = self._load(_cache_dir(), dtype)
         self._model = model.to(device).eval()
         self.device = device
 
-    # -- per-model input prefix ----------------------------------------------
+    def _load(self, cache, dtype):
+        """Return (tokenizer, model). Subclasses override for adapters etc."""
+        from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+        tokenizer = AutoTokenizer.from_pretrained(self.model_id, cache_dir=cache)
+        model = AutoModelForSeq2SeqLM.from_pretrained(self.model_id, cache_dir=cache, dtype=dtype)
+        tie_output_embeddings(model)
+        return tokenizer, model
+
+    # -- per-model input prefix and generation arguments ---------------------
 
     def prefix(self, src: str, tgt: str) -> str:
         """Text put in front of every input (e.g. a target-language token)."""
         return ""
+
+    def generation_args(self, src: str, tgt: str) -> dict:
+        """Extra arguments for model.generate (e.g. NLLB's forced target token)."""
+        return {}
 
     def _has_token(self, token: str) -> bool:
         tok = self._tokenizer
@@ -146,12 +176,12 @@ class HFSeq2SeqEngine:
         unique = list(dict.fromkeys(p for plan in plans for p in plan))
         log.info("%s: %d segments -> %d pieces to translate", self.model_id, len(segments), len(unique))
         start = time.perf_counter()
-        outputs = self._generate([prefix + p for p in unique])
+        outputs = self._generate([prefix + p for p in unique], **self.generation_args(src, tgt))
         log.info("%s: translated in %.1fs", self.model_id, time.perf_counter() - start)
         done = dict(zip(unique, outputs))
         return [" ".join(done[p] for p in plan) for plan in plans]
 
-    def _generate(self, texts: list[str]) -> list[str]:
+    def _generate(self, texts: list[str], **generation_args) -> list[str]:
         import torch
 
         tok, model = self._tokenizer, self._model
@@ -164,7 +194,8 @@ class HFSeq2SeqEngine:
                       max_length=self.max_input_tokens + 16).to(self.device)
             max_new = min(512, 2 * enc["input_ids"].shape[1] + 16)
             with torch.inference_mode():
-                out = model.generate(**enc, num_beams=self.num_beams, max_new_tokens=max_new)
+                out = model.generate(**enc, num_beams=self.num_beams, max_new_tokens=max_new,
+                                     **generation_args)
             for i, text in zip(idx, tok.batch_decode(out, skip_special_tokens=True)):
                 results[i] = text.strip()
         return results
@@ -214,3 +245,38 @@ class MadladEngine(HFSeq2SeqEngine):
         if not self._has_token(token):
             raise ValueError(f"{self.model_id} has no target token {token}")
         return token + " "
+
+
+class NllbLoraEngine(HFSeq2SeqEngine):
+    """NLLB-200 with a LoRA adapter, e.g. ILSP's Ancient -> Modern Greek model.
+
+    Loading follows the adapter's model card: the tokenizer comes from the adapter
+    repo (it adds 148 polytonic characters missing from NLLB), the base model's
+    embeddings are resized to match, then the adapter is applied and merged.
+    NLLB has no Ancient Greek code: the model uses `lang_code` (ell_Grek) on both
+    sides, so this engine only accepts the target it was trained for.
+    Needs `peft` (in the mt extra).
+    """
+
+    def __init__(self, adapter_id: str = "ilsp/nllb-200-600M-ag-mg-lora", *,
+                 base_id: str = "facebook/nllb-200-distilled-600M", lang_code: str = "ell_Grek",
+                 target: str = "el", **kwargs):
+        super().__init__(adapter_id, **kwargs)
+        self.base_id = base_id
+        self.lang_code = lang_code
+        self.target = target
+
+    def _load(self, cache, dtype):
+        from peft import PeftModel
+        from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+        tokenizer = AutoTokenizer.from_pretrained(self.model_id, cache_dir=cache, src_lang=self.lang_code)
+        model = AutoModelForSeq2SeqLM.from_pretrained(self.base_id, cache_dir=cache, dtype=dtype)
+        model.resize_token_embeddings(len(tokenizer))
+        model = PeftModel.from_pretrained(model, self.model_id, cache_dir=cache)
+        return tokenizer, model.merge_and_unload()
+
+    def generation_args(self, src: str, tgt: str) -> dict:
+        if tgt != self.target:
+            raise ValueError(f"{self.model_id} only translates into {self.target!r}, not {tgt!r}")
+        return {"forced_bos_token_id": self._tokenizer.convert_tokens_to_ids(self.lang_code)}

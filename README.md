@@ -97,6 +97,8 @@ python -m tei_translate translate IN.xml --engine opus-grk-en
 | `opus-grk-en` | `Helsinki-NLP/opus-mt-grk-en` | small (~300 MB), fast on CPU |
 | `opus-bible-ine` | `Helsinki-NLP/opus-mt-tc-bible-big-ine-deu_eng_nld` | larger (~0.9 GB), still fine on CPU |
 | `madlad-3b` | `google/madlad400-3b-mt` | 3B parameters (~12 GB): a GPU is strongly recommended |
+| `pivot-grc-el-en` | `ilsp/nllb-200-600M-ag-mg-lora` → `Helsinki-NLP/opus-mt-tc-big-el-en` | two steps: Ancient → Modern Greek (NLLB-600M + LoRA), then Modern Greek → English. ~7 GB download; the ILSP adapter is CC BY-NC 4.0 (non-commercial) |
+| `nllb-ag-mg`, `opus-el-en` | the two halves of `pivot-grc-el-en` | `nllb-ag-mg` only translates into Modern Greek (`el`) |
 | `marian:<model id>` | any Opus-MT model on Hugging Face | e.g. `marian:Helsinki-NLP/opus-mt-tc-big-el-en` |
 | `madlad:<model id>` | another MADLAD-400 size | e.g. `madlad:google/madlad400-7b-mt` |
 
@@ -108,9 +110,10 @@ Compares MT engines on Perseus passages (plain text, no XML) against the Perseus
 ```
 python scripts/compare_engines.py                                  # opus-grk-en vs opus-bible-ine
 python scripts/compare_engines.py --engines opus-grk-en madlad-3b --per-work 4
+python scripts/compare_engines.py --reuse outputs/compare/<earlier run> --engines opus-grk-en opus-bible-ine pivot-grc-el-en
 ```
 
-It writes `outputs/compare/<timestamp>/report.md` (scores overall and per work, with examples) and `translations.jsonl` (every passage with each engine's output).
+It writes `outputs/compare/<timestamp>/report.md` (scores overall and per work, with examples), `translations.jsonl` (every passage with each engine's output, plus the Modern Greek in between for `pivot-grc-el-en`) and `run.json` (settings, models, timings). `--reuse` takes the passages and translations of an earlier run and only runs the engines it doesn't have yet, so adding an engine to a comparison doesn't re-run the others.
 
 ### Running the tests
 From the repository root, with the package installed (see Installation):

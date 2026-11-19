@@ -9,7 +9,8 @@ import os
 import pytest
 
 from tei_translate.engines import get_engine
-from tei_translate.engines.hf import MadladEngine, MarianEngine, split_for_mt
+from tei_translate.engines.chain import ChainEngine
+from tei_translate.engines.hf import MadladEngine, MarianEngine, NllbLoraEngine, split_for_mt
 
 
 @pytest.mark.parametrize("name,cls,model_id", [
@@ -109,10 +110,77 @@ def test_translate_splits_joins_and_dedupes():
     assert engine.sent == ["ab cd.", "ef."]  # "ef." translated once
 
 
+def test_pivot_registry():
+    engine = get_engine("pivot-grc-el-en")
+    assert isinstance(engine, ChainEngine)
+    assert isinstance(engine.first, NllbLoraEngine) and isinstance(engine.second, MarianEngine)
+    assert engine.pivot == "el"
+    assert engine.name == "ilsp/nllb-200-600M-ag-mg-lora -> Helsinki-NLP/opus-mt-tc-big-el-en"
+
+
+class Recorder:
+    def __init__(self, name):
+        self.name = name
+        self.calls = []
+
+    def translate(self, segments, src, tgt):
+        self.calls.append((list(segments), src, tgt))
+        return [f"{tgt}({s})" for s in segments]
+
+
+def test_chain_passes_through_pivot():
+    first, second = Recorder("a"), Recorder("b")
+    chain = ChainEngine(first, second, pivot="el")
+    assert chain.translate(["x", "y"], "grc", "en") == ["en(el(x))", "en(el(y))"]
+    assert first.calls == [(["x", "y"], "grc", "el")]
+    assert second.calls == [(["el(x)", "el(y)"], "el", "en")]
+    assert chain.last_intermediate == ["el(x)", "el(y)"]
+    assert chain.name == "a -> b"
+
+
+class FakeNllbTokenizer:
+    def convert_tokens_to_ids(self, token):
+        return {"ell_Grek": 42}[token]
+
+
+def test_nllb_forces_target_and_rejects_other_targets():
+    engine = NllbLoraEngine()
+    engine._tokenizer = FakeNllbTokenizer()
+    assert engine.generation_args("grc", "el") == {"forced_bos_token_id": 42}
+    with pytest.raises(ValueError):
+        engine.generation_args("grc", "en")
+
+
+def test_tie_output_embeddings():
+    torch = pytest.importorskip("torch")
+    from types import SimpleNamespace
+
+    from tei_translate.engines.hf import tie_output_embeddings
+
+    class Model:
+        def __init__(self, tie):
+            self.config = SimpleNamespace(tie_word_embeddings=tie, name_or_path="m")
+            self.inp, self.out = torch.nn.Embedding(5, 3), torch.nn.Linear(3, 5, bias=False)
+
+        def get_input_embeddings(self):
+            return self.inp
+
+        def get_output_embeddings(self):
+            return self.out
+
+    model = Model(tie=True)
+    assert tie_output_embeddings(model)
+    assert model.out.weight is model.inp.weight
+    assert not tie_output_embeddings(model)  # already tied
+    untied = Model(tie=False)
+    assert not tie_output_embeddings(untied)
+    assert untied.out.weight is not untied.inp.weight
+
+
 @pytest.mark.skipif(os.environ.get("TEI_TRANSLATE_RUN_MODELS") != "1",
                     reason="set TEI_TRANSLATE_RUN_MODELS=1 to run real models")
-@pytest.mark.parametrize("name", ["opus-grk-en", "opus-bible-ine"])
-def test_real_opus_model_through_pipeline(name):
+@pytest.mark.parametrize("name", ["opus-grk-en", "opus-bible-ine", "pivot-grc-el-en"])
+def test_real_model_through_pipeline(name):
     from pathlib import Path
 
     from tei_translate.pipeline.document import translate_document

@@ -11,8 +11,13 @@ engines, pip install -e .[mt].
 
     python scripts/compare_engines.py                       # opus-grk-en vs opus-bible-ine
     python scripts/compare_engines.py --engines opus-grk-en madlad-3b --per-work 4
+    python scripts/compare_engines.py --reuse outputs/compare/<earlier run> --engines pivot-grc-el-en
 
-Writes outputs/compare/<timestamp>/report.md and translations.jsonl.
+--reuse takes the passages and translations of an earlier run and only runs the
+engines that run doesn't have yet; the new report has all of them.
+
+Writes outputs/compare/<timestamp>/report.md, translations.jsonl (each passage with every
+engine's output, and a chain engine's pivot text) and run.json (settings, models, timings).
 """
 
 from __future__ import annotations
@@ -110,12 +115,38 @@ def score(samples, hyps):
     return chrf(refs, hyps), bleu(refs, hyps)
 
 
+SAMPLE_KEYS = ("work", "label", "ref", "greek", "references")
+PIVOT = " (pivot)"   # jsonl column suffix for a chain engine's intermediate text
+
+
+def load_previous(run_dir: Path) -> tuple[list[dict], dict, dict]:
+    """Samples, results and settings of an earlier run (its translations.jsonl + run.json)."""
+    with open(run_dir / "translations.jsonl", encoding="utf-8") as f:
+        rows = [json.loads(line) for line in f]
+    meta_path = run_dir / "run.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
+    names = list(meta.get("engines") or
+                 [k for k in rows[0] if k not in SAMPLE_KEYS and not k.endswith(PIVOT)])
+    results = {}
+    for name in names:
+        info = meta.get("engines", {}).get(name, {})
+        results[name] = {"model": info.get("model", "?"), "seconds": info.get("seconds"),
+                         "hyps": [r[name] for r in rows],
+                         "pivot": [r[name + PIVOT] for r in rows] if name + PIVOT in rows[0] else None,
+                         "reused": str(run_dir)}
+    samples = [{k: r[k] for k in SAMPLE_KEYS} for r in rows]
+    return samples, results, meta
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--engines", nargs="+", default=["opus-grk-en", "opus-bible-ine"])
     parser.add_argument("--per-work", type=int, default=8, help="samples per work (default 8)")
     parser.add_argument("--min-words", type=int, default=15)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--reuse", type=Path, metavar="RUN_DIR",
+                        help="an earlier outputs/compare/<timestamp>/ folder: use its passages and "
+                             "translations, and only run the engines it doesn't have yet")
     parser.add_argument("--out", type=Path, help="default: outputs/compare/<timestamp>/")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
@@ -123,24 +154,40 @@ def main(argv=None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 
-    samples = load_samples(args.per_work, args.seed, args.min_words)
+    if args.reuse:
+        samples, results, meta = load_previous(args.reuse)
+        args.seed, args.per_work = meta.get("seed", args.seed), meta.get("per_work", args.per_work)
+    else:
+        samples, results = load_samples(args.per_work, args.seed, args.min_words), {}
     words = sum(len(s["greek"].split()) for s in samples)
     logging.getLogger("tei_translate").info("%d samples, %d Greek words", len(samples), words)
 
-    results = {}
     for name in args.engines:
+        if name in results:
+            logging.getLogger("tei_translate").info("%s: reusing translations from %s", name, args.reuse)
+            continue
         engine = get_engine(name)
         engine.translate(["λόγος."], "grc", "en")  # load the model outside the timing
         start = time.perf_counter()
         hyps = engine.translate([s["greek"] for s in samples], "grc", "en")
-        results[name] = {"model": engine.name, "hyps": hyps, "seconds": time.perf_counter() - start}
+        results[name] = {"model": engine.name, "hyps": hyps, "seconds": time.perf_counter() - start,
+                         "pivot": list(getattr(engine, "last_intermediate", [])) or None}
 
     out = args.out or REPO_ROOT / "outputs" / "compare" / datetime.now().strftime("%Y%m%d-%H%M%S")
     out.mkdir(parents=True, exist_ok=True)
     with open(out / "translations.jsonl", "w", encoding="utf-8") as f:
         for i, s in enumerate(samples):
-            row = dict(s, **{name: r["hyps"][i] for name, r in results.items()})
+            row = dict(s)
+            for name, r in results.items():
+                row[name] = r["hyps"][i]
+                if r.get("pivot"):
+                    row[name + PIVOT] = r["pivot"][i]
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    run = {"seed": args.seed, "per_work": args.per_work,
+           "engines": {name: {"model": r["model"], "seconds": r["seconds"],
+                              **({"reused_from": r["reused"]} if r.get("reused") else {})}
+                       for name, r in results.items()}}
+    (out / "run.json").write_text(json.dumps(run, indent=2), encoding="utf-8")
 
     lines = [f"# Engine comparison ({datetime.now():%Y-%m-%d})", "",
              f"{len(samples)} Perseus passages ({words} Greek words), seed {args.seed}, "
@@ -149,7 +196,8 @@ def main(argv=None) -> int:
              "| Engine | Model | chrF | BLEU | Time (s) |", "|---|---|---|---|---|"]
     for name, r in results.items():
         c, b = score(samples, r["hyps"])
-        lines.append(f"| {name} | `{r['model']}` | {c:.1f} | {b:.1f} | {r['seconds']:.0f} |")
+        secs = "?" if r["seconds"] is None else f"{r['seconds']:.0f}"
+        lines.append(f"| {name} | `{r['model']}` | {c:.1f} | {b:.1f} | {secs} |")
     lines += ["", "## chrF per work", "",
               "| Work | n | " + " | ".join(results) + " |", "|---|---|" + "---|" * len(results)]
     for work_id, label, _ in WORKS:
@@ -167,7 +215,10 @@ def main(argv=None) -> int:
         s = samples[i]
         lines += [f"### {label}, {s['ref']}", "", f"- **Greek:** {s['greek']}",
                   f"- **Reference:** {s['references'][0]}"]
-        lines += [f"- **{name}:** {r['hyps'][i]}" for name, r in results.items()]
+        for name, r in results.items():
+            if r.get("pivot"):
+                lines.append(f"- **{name}, pivot text:** {r['pivot'][i]}")
+            lines.append(f"- **{name}:** {r['hyps'][i]}")
         lines.append("")
     (out / "report.md").write_text("\n".join(lines), encoding="utf-8")
     print("\n".join(lines[:8 + len(results)]))

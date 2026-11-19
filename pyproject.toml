@@ -23,7 +23,8 @@ dev = ["pytest"]
 mt = [
     "torch",
     "transformers",
-    "sentencepiece",   # Marian (Opus-MT) and MADLAD tokenizers
+    "sentencepiece",   # Marian (Opus-MT), MADLAD and NLLB tokenizers
+    "peft",            # LoRA adapters (NLLB Ancient -> Modern Greek, pivot-grc-el-en)
 ]
 
 [tool.hatch.build.targets.wheel]

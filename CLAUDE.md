@@ -17,7 +17,7 @@ A university group project (Essentials of Text and Speech Processing): translate
 
 ## Repo layout (set up)
 
-Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/` (policy, spans, transliterate, document, validate), `engines/` (`MTEngine` protocol, test engines, `hf.py` = Hugging Face engines), `metrics/` (`fragments.py`, `scores.py`, `translation_scores.py`), `cli.py`, `ui/` (empty placeholder). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (`policy.yaml`, `pairs/grc-en.yaml`), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases, `tests/fixtures/tei/` = pipeline fixtures). Runtime dependencies: `lxml`, `pyyaml`, `sacrebleu` (chrF/BLEU in `metrics/translation_scores.py`); optional extra `mt` = `torch`, `transformers`, `sentencepiece` for the model engines. Add each new one when code that needs it lands.
+Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/` (policy, spans, transliterate, document, validate), `engines/` (`MTEngine` protocol, test engines, `hf.py` = Hugging Face engines), `metrics/` (`fragments.py`, `scores.py`, `translation_scores.py`), `cli.py`, `ui/` (empty placeholder). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (`policy.yaml`, `pairs/grc-en.yaml`), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases, `tests/fixtures/tei/` = pipeline fixtures). Runtime dependencies: `lxml`, `pyyaml`, `sacrebleu` (chrF/BLEU in `metrics/translation_scores.py`); optional extra `mt` = `torch`, `transformers`, `sentencepiece`, `peft` for the model engines. Add each new one when code that needs it lands.
 
 Layout decisions agreed with the user (don't relitigate):
 - **src layout, package `tei_translate`**, chosen over a flat package. Everyone runs `pip install -e .[dev]` first; anything that imports `tei_translate` fails with `ModuleNotFoundError` otherwise.
@@ -43,11 +43,14 @@ Flow (`pipeline/document.py: translate_document(path, pair, engine=None, policy=
 
 ## MT engines (`engines/hf.py`, registry in `engines/__init__.py`)
 
-- Names: `opus-grk-en`, `opus-bible-ine` (`Helsinki-NLP/opus-mt-tc-bible-big-ine-deu_eng_nld`), `madlad-3b`; any model via `marian:<HF id>` / `madlad:<HF id>`. `engine.name` is the HF model id (goes into the respStmt).
+- Names: `opus-grk-en`, `opus-bible-ine` (`Helsinki-NLP/opus-mt-tc-bible-big-ine-deu_eng_nld`), `madlad-3b`, `pivot-grc-el-en` (= `nllb-ag-mg` then `opus-el-en`); any model via `marian:<HF id>` / `madlad:<HF id>`. `engine.name` is the HF model id (goes into the respStmt); a chain's name is `first -> second`.
+- `engines/chain.py: ChainEngine(first, second, pivot)` runs src→pivot→tgt and keeps the pivot text in `last_intermediate`. `NllbLoraEngine` (ILSP `ilsp/nllb-200-600M-ag-mg-lora`, CC BY-NC): tokenizer from the adapter repo (148 added polytonic chars), base `facebook/nllb-200-distilled-600M` resized, adapter merged; `ell_Grek` on both sides (`forced_bos_token_id`), so it only accepts tgt `el`. The adapter repo is ~2 GB and the base downloads both .bin and .safetensors (~4.6 GB).
 - `HFSeq2SeqEngine` base: lazy import of torch/transformers on first `translate()` (pipeline works without the extra); models cached in `models/hf/` unless `HF_HOME`/`HF_HUB_CACHE` is set; GPU used if available. Each segment is split into sentences (`split_for_mt`: `. ! ? ;` and U+037E; over-long sentences at `, : ·` then words, measured in tokens), pieces deduplicated, translated in length-sorted batches (beam 4), joined with spaces.
 - `MarianEngine` finds a `>>eng<<`-style target token from the vocab (ISO 639-1 → 639-3 map) or takes `target_token`; single-target models get no prefix. `MadladEngine` prefixes `<2en>`, bfloat16 on GPU (T5 overflows in fp16). MADLAD has not been run yet (no GPU on the user's laptop; ~12 GB RAM in fp32 on CPU).
 - Generation uses each model's defaults (no repetition penalty); Opus models loop on input they don't understand (e.g. Homer).
-- `scripts/compare_engines.py`: plain-text bake-off on Perseus prose sections + Pindar odes aligned by citation ref (leaf textpart divs; notes/bibl/head/reg removed — `<reg>` holds gazetteer text in some English files), corpus chrF/BLEU overall and per work → `outputs/compare/<timestamp>/`. Results of the first Opus run: `docs/engine_comparison.md`.
+- `tie_output_embeddings` (called in `HFSeq2SeqEngine._load`): Transformers 5 no longer ties `lm_head` to the embeddings when a checkpoint stores both with different values; `opus-mt-tc-big-el-en` then outputs random words. We tie whenever `config.tie_word_embeddings` is true. If a new model outputs word salad even on easy input, check this first.
+- Current ranking (54 passages): `pivot-grc-el-en` chrF 30.4 > `opus-bible-ine` 23.7 ≈ `opus-grk-en` 22.6; most pivot errors come from step 1 (NLLB).
+- `scripts/compare_engines.py` (`--reuse RUN_DIR` reuses an earlier run's passages/translations and only runs new engines; writes `run.json` with models/timings): plain-text bake-off on Perseus prose sections + Pindar odes aligned by citation ref (leaf textpart divs; notes/bibl/head/reg removed — `<reg>` holds gazetteer text in some English files), corpus chrF/BLEU overall and per work → `outputs/compare/<timestamp>/`. Results (Opus models + pivot chain): `docs/engine_comparison.md`.
 
 Later (HANDOVER ideas, not agreed): alignment-based tag placement, placeholders, real engines after the bake-off, tei_all validation, name lists for standard English forms.
 
@@ -66,7 +69,7 @@ Why and what follows from it:
 
 ## Planning status
 
-Done: project skeleton, first span-wise pipeline with test engines and validation, Opus-MT/MADLAD engine wrappers and a first Opus comparison. Still open:
+Done: project skeleton, first span-wise pipeline with test engines and validation, Opus-MT/MADLAD/NLLB-LoRA engine wrappers, the `pivot-grc-el-en` chain, and a comparison of the Opus models and the chain. Still open:
 - The user raised "which languages to use and how to present them" in the UI. Settle this: which source/target language pairs to offer, and how language and option choices appear in the UI.
 - The engine choice (local and hosted), and the open questions at the end of `HANDOVER.md`.
 
