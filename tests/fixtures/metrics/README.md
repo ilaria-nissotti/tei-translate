@@ -1,6 +1,6 @@
 # Test data for the metrics (temporary)
 
-Small hand-made cases for checking that the metrics are computed correctly, before we use them on real output. A metric implementation should reproduce the expected values for every case. Two things check this for the metrics in `src/tei_translate/metrics/` (after `pip install -e .[dev]`): `pytest` runs `tests/test_metrics.py`, with one test per case; `python scripts/check_metric_cases.py` runs the same cases and explains each failure in words.
+Small hand-made cases for checking that the metrics are computed correctly, before we use them on real output. A metric implementation should reproduce the expected values for every case. `tests/test_metrics.py` checks this for the metrics in `src/tei_translate/metrics/`, with one test per case: run `pytest` from the repository root (after `pip install -e .[dev]`).
 
 There are three sets of cases:
 - `cases.json`: **tag placement** (tag accuracy, average distance). Described in the first part of this file.
@@ -159,7 +159,7 @@ These are choices. Change them if the team decides otherwise, and update the exp
 | `different` | 09–17 | valid XML, but a tag lost, duplicated, added, renamed, re-nested, or an attribute changed or lost; and plain text with all tags removed |
 | `invalid` | 18–20 | not valid XML: crossing tags, an unclosed tag, a bare `&` |
 
-Over all 20 cases, `xml_accuracy` should be 17/20 = **0.85** and `xml_matching` 8/20 = **0.40**. `scripts/check_metric_cases.py` checks these too.
+Over all 20 cases, `xml_accuracy` should be 17/20 = **0.85** and `xml_matching` 8/20 = **0.40**. `tests/test_metrics.py` checks these too.
 
 ## Adding a case
 Copy an existing case, change `greek`/`hypothesis`, and decide `expected` with the rules above.

@@ -6,10 +6,8 @@ Run from the repository root (after pip install -e .[dev]):
     pytest tests/test_metrics.py -v         # these tests, one line each
     pytest -k structure                     # only tests with "structure" in the name
 
-The test cases are the same hand-made cases that scripts/check_metric_cases.py
-uses, in tests/fixtures/metrics/ (described in its README). Each case becomes
-one test. The script gives longer explanations when a case fails; these
-tests are for checking quickly that nothing is broken.
+The test cases are the hand-made cases in tests/fixtures/metrics/ (described
+in that folder's README). Each case becomes one test.
 """
 
 import json

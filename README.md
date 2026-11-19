@@ -31,7 +31,6 @@ src/tei_translate/     the Python package (import it as tei_translate)
   ui/                  Gradio app (empty for now)
 scripts/
   data/                download and describe the Perseus data (count_tags.py, build_dataset.py, make_work_types.py)
-  check_metric_cases.py   checks the metrics on the hand-made test cases
 config/                configuration files (tag policy, language pairs), later
 data/
   catalog/             which Perseus works have Greek + English (output of count_tags.py)
@@ -122,22 +121,16 @@ From the repository root, with the package installed (see Installation):
 pytest
 ```
 
-This runs every test in `tests/` and prints one dot per passing test, or the details of a failing one. `pytest -v` prints one line per test, and `pytest -k structure` runs only the tests whose name contains "structure". For now the tests are in `tests/test_metrics.py`: each hand-made metric case in `tests/fixtures/metrics/` is one test. Run `pytest` after changing anything in the metrics.
+This runs every test in `tests/` and prints one dot per passing test, or the details of a failing one. `pytest -v` prints one line per test, and `pytest -k structure` runs only the tests whose name contains "structure". Run `pytest` after changing anything in the metrics.
 
 The tests that run real MT models (`tests/test_engines.py`) are skipped by default because they download models. To run them: `$env:TEI_TRANSLATE_RUN_MODELS = "1"; pytest tests/test_engines.py` (PowerShell).
 
-### `check_metric_cases.py`
-Runs the same metric cases as `pytest`, but explains each failure in words, which helps when a metric case fails. Needs the package installed (see Installation):
+The metric tests are in `tests/test_metrics.py`. Each hand-made case in `tests/fixtures/metrics/` is one test (the cases are described in that folder's README):
+- `cases.json`: the tag-placement metrics from Zenkel et al. (2021), tag accuracy and average distance, plus the lists of misplaced, missing and extra tags and the score per tag type.
+- `structure_cases.json`: the structure metrics from Hashimoto et al. (2019), XML accuracy (is the output valid XML?) and XML matching (does it have exactly the same tags as the input?).
+- `translation_cases.json`: removing tags (also from broken XML), and chrF and BLEU: several references are handled correctly, and the scores equal sacrebleu's on the plain text.
 
-```
-python scripts/check_metric_cases.py
-```
-
-It checks the tag-placement metrics in `src/tei_translate/metrics/scores.py`, from Zenkel et al. (2021): tag accuracy (share of tags in exactly the right place) and average distance (how many characters off they are), plus lists of misplaced, missing and extra tags and a score per tag type. It runs them on every case in `tests/fixtures/metrics/cases.json` and prints `PASS` or `FAIL` for each one. For a failed case it shows which tags were judged differently from the expected result, with the tag marked in the sentence (e.g. `"Theo.[</label>] We bring..."`), and the expected and actual scores. If the output is not valid XML or its text differs from the reference, it shows where.
-
-It also checks the structure metrics from Hashimoto et al. (2019) on every case in `tests/fixtures/metrics/structure_cases.json`: XML accuracy (is the output valid XML?) and XML matching (does it have exactly the same tags as the input?). For a failed case it lists which tags are in the input but not the output, or the other way round.
-
-Finally it checks the translation metrics on `tests/fixtures/metrics/translation_cases.json`: that tags are removed correctly (also from broken XML), that several references are handled correctly, and that `chrf`/`bleu` give the same result as sacrebleu on the plain text.
+A failing test shows the case's description and which values differ from the expected ones.
 
 ## Using the metrics in your own code
 The metrics are in `src/tei_translate/metrics/`, one function per metric: tag placement and structure in `scores.py`, translation quality (chrF, BLEU) in `translation_scores.py`. Once the package is installed (see Installation), import them from any script, in any folder:

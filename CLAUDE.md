@@ -27,7 +27,7 @@ Layout decisions agreed with the user (don't relitigate):
 
 Notes on the scripts:
 - `scripts/data/` scripts are stdlib-only and resolve paths from the repo root (`Path(__file__).resolve().parents[2]`), so they work from any folder without installing. `build_dataset.py` imports its sibling `make_work_types.py` by plain name (`from make_work_types import ...`), so the two must stay in the same folder.
-- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` and `check_metric_cases.py` were run and give the same results as before (44/44 metric checks passed then, CSVs unchanged; with the translation metrics added it is now 59/59).
+- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` was run and gives the same CSVs as before. The metric checks, then a script (`check_metric_cases.py`), are now pytest tests in `tests/test_metrics.py` (61 pass).
 - On Windows, printing Greek can raise `UnicodeEncodeError: 'charmap'`: set `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8 = "1"`).
 
 ## Pipeline (built)
@@ -96,14 +96,14 @@ pip install -e .[dev]                    # install the package (editable) + pyte
 python scripts/data/count_tags.py        # clones Perseus into data/raw/canonical-greekLit/ on first run, writes data/catalog/*.csv and data/stats/tei_tag_frequencies.csv
 python scripts/data/build_dataset.py     # downloads Greek/English pairs into data/perseus/, classifies works (poetry/prose/drama)
 python scripts/data/count_perseus_tags.py  # tag counts over data/perseus/ (needs build_dataset.py first): data/stats/perseus_tag_frequencies_{greek,all}.csv
-python scripts/check_metric_cases.py     # runs the tag-placement, structure and translation metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
+python -m pytest                         # runs all tests, incl. the metric cases in tests/fixtures/metrics/*.json
 python -m tei_translate translate IN.xml --engine tag   # writes outputs/<name>.en.xml, prints rules fired + validation; exit 1 if a check fails
 python -m tei_translate translate IN.xml --engine opus-grk-en --aligner ugarit   # hybrid (default); --placement spanwise for the old mode, --aligner none|monotone without a model
 python scripts/compare_engines.py --engines opus-grk-en opus-bible-ine   # MT bake-off on Perseus passages -> outputs/compare/
 python scripts/compare_spanwise.py --engine madlad-3b [--reuse outputs/compare/<run>] [--every 2] [--aligner ugarit]   # whole vs split vs span-wise vs hybrid on the same passages -> outputs/spanwise/
 ```
 
-`python -m pytest` runs the suite: `tests/test_metrics.py` (one test per hand-made metric case in `tests/fixtures/metrics/`), `tests/test_policy.py` and `tests/test_pipeline.py` (span-wise pipeline, on `tests/fixtures/tei/`), `tests/test_placement.py` (hybrid: identity+monotone, a word-reversing engine + exact-match aligner, single blocks with hand-made links), `tests/test_align.py` (tokenizer, sentences, ArgMax/IterMax), `tests/test_engines.py` (registry, splitting, prefixes); real-model tests only with `TEI_TRANSLATE_RUN_MODELS=1`. `python -m pytest tests/test_pipeline.py::test_names` runs one test. `scripts/check_metric_cases.py` runs the metric cases with longer failure explanations.
+`python -m pytest` runs the suite: `tests/test_metrics.py` (one test per hand-made metric case in `tests/fixtures/metrics/`), `tests/test_policy.py` and `tests/test_pipeline.py` (span-wise pipeline, on `tests/fixtures/tei/`), `tests/test_placement.py` (hybrid: identity+monotone, a word-reversing engine + exact-match aligner, single blocks with hand-made links), `tests/test_align.py` (tokenizer, sentences, ArgMax/IterMax), `tests/test_engines.py` (registry, splitting, prefixes); real-model tests only with `TEI_TRANSLATE_RUN_MODELS=1`. `python -m pytest tests/test_pipeline.py::test_names` runs one test.
 
 ## Existing assets worth reusing
 
