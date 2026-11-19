@@ -8,9 +8,9 @@ version = "0.1.0"
 description = "Translate TEI XML documents while preserving tag structure and meaning."
 readme = "README.md"
 requires-python = ">=3.10"
-# The code only uses the standard library so far. Add runtime dependencies
-# here (lxml, gradio, transformers, ...) when the code that needs them lands.
-dependencies = []
+# Runtime dependencies. Add new ones (gradio, transformers, ...) when the code
+# that needs them lands; heavy ML libraries go in an optional extra.
+dependencies = ["lxml", "pyyaml"]
 
 [project.optional-dependencies]
 dev = ["pytest"]

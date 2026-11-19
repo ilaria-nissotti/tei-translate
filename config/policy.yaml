@@ -1,0 +1,77 @@
+# Tag policy: how every TEI element inside <text> is handled.
+# Mirrors docs/tag_decisions.md. The pipeline code knows only roles and
+# treatments, never tag names, so decisions change here, not in code.
+#
+# role:       block      one unit of text to translate (p, l, head, ...)
+#             container  groups other elements, has no text of its own
+#             inline     sits inside a block and wraps a few words
+#             (empty elements are detected automatically, see `empty`)
+# treatment:  translate | keep | transliterate | keep-subtree
+# params:     optional options for the treatment's handler
+#
+# Lookup order for an element: overrides (first match) -> tags -> empty -> default.
+# Tag names are local names (the TEI namespace is ignored).
+
+# Tags not listed below: translate their text, keep the tag, log a warning.
+default: {role: inline, treatment: translate, warn: true}
+
+# Any element with no text and no child elements (pb, lb, milestone, gap, ...).
+# It is copied unchanged and stays in place. A `tags` entry wins over this.
+empty: {treatment: keep, params: {position: in-place}}
+
+# Copied as-is, never walked.
+untouched: [teiHeader]
+
+tags:
+  # Text blocks (tag_decisions §4)
+  p:       {role: block, treatment: translate}
+  l:       {role: block, treatment: translate}
+  head:    {role: block, treatment: translate}
+  item:    {role: block, treatment: translate}
+  stage:   {role: block, treatment: translate}
+  speaker: {role: block, treatment: transliterate, params: {scheme: simple}}
+
+  # Containers (tag_decisions §2)
+  text:    {role: container}
+  body:    {role: container}
+  front:   {role: container}
+  back:    {role: container}
+  div:     {role: container}
+  sp:      {role: container}
+  lg:      {role: container}
+  cit:     {role: container}
+  list:    {role: container}
+  choice:  {role: container}
+
+  # Editors' notes: copied unchanged, in place (tag_decisions §1)
+  note:    {role: inline, treatment: keep-subtree}
+
+  # Inline groups (tag_decisions §5)
+  num:     {role: inline, treatment: keep, params: {convert: none}}
+  bibl:    {role: inline, treatment: keep}
+  term:    {role: inline, treatment: keep}
+  foreign: {role: inline, treatment: keep}
+
+  name:      {role: inline, treatment: transliterate, params: {scheme: simple}}
+  rs:        {role: inline, treatment: transliterate, params: {scheme: simple}}
+  persName:  {role: inline, treatment: transliterate, params: {scheme: simple}}
+  placeName: {role: inline, treatment: transliterate, params: {scheme: simple}}
+  label:     {role: inline, treatment: transliterate, params: {scheme: simple}}
+
+  q:        {role: inline, treatment: translate}
+  said:     {role: inline, treatment: translate}
+  quote:    {role: inline, treatment: translate}
+  hi:       {role: inline, treatment: translate}
+  emph:     {role: inline, treatment: translate}
+  add:      {role: inline, treatment: translate}
+  del:      {role: inline, treatment: translate}
+  corr:     {role: inline, treatment: translate}
+  sic:      {role: inline, treatment: translate}
+  supplied: {role: inline, treatment: translate}
+  surplus:  {role: inline, treatment: translate}
+  unclear:  {role: inline, treatment: translate}
+  seg:      {role: inline, treatment: translate}
+
+# Attribute-based exceptions, checked first; the first match wins.
+overrides:
+  - {tag: name, attr: {type: ethnic}, role: inline, treatment: translate}

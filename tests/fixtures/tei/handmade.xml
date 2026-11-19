@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>Hand-made test document</title>
+            <author>tei-translate tests</author>
+         </titleStmt>
+         <publicationStmt><p>Not published.</p></publicationStmt>
+         <sourceDesc><p>Written for the tests; Greek adapted from Perseus.</p></sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text xml:lang="grc">
+      <body>
+         <div type="edition" n="urn:test" xml:lang="grc">
+            <div type="textpart" subtype="section" n="1">
+               <head>Περὶ τοῦ πολέμου</head>
+               <p>ὁ <name type="person">Περικλῆς</name> εἶπε <num>δʹ</num> λόγους<note xml:lang="lat" n="n1">coni. <foreign xml:lang="grc">Ἀπελτ</foreign> Apelt</note> τοῖς <name type="ethnic">Ἀθηναίοις</name> <milestone unit="para" n="2"/> καὶ ἀπῆλθεν.</p>
+               <p><pb n="12"/>ἔφη δὲ <q>ἴωμεν</q> καὶ <bibl>Hom. Il. 2.108</bibl> <unknownTag>ἄγνωστον</unknownTag> <hi rend="italic">ταχέως</hi>.</p>
+            </div>
+            <div type="textpart" subtype="section" n="2">
+               <sp>
+                  <speaker>Σωκράτης <num>α</num></speaker>
+                  <p xml:id="p2">τί <lb/>φής; <!-- a comment --> οὐδὲν <gap reason="lost"/> λέγεις.</p>
+               </sp>
+               <p>λέγει <quote><l n="1">μῆνιν ἄειδε θεὰ</l></quote> ὁ ποιητής.</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

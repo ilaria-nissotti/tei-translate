@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Δραπέται</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg043.perseus-grc2.xml</idno>
+<availability> <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence><p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date type="printing">1936</date>
+     </imprint>
+     <biblScope unit="volume">5</biblScope>
+    </monogr>
+    <series>
+     <title>Loeb Classical Library</title>
+    </series>
+    <ref target="https://archive.org/details/lucianhar05luciuoft/page/54/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+ <!--<refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-28">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="grc">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2">
+
+<div n="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" type="edition" xml:lang="grc">
+<pb n="v.5.p.54"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="1">
+<sp> <speaker>Ἀπόλλων</speaker>
+<p rend="align(indent)"> ἀληθῆ ταῦτά φασιν, πάτερ, ὡς ἐμβάλοι τις φέρων αὑτὸν εἰς τὸ πῦρ κατέναντι Ὀλυμπίων, ἤδη πρεσβύτης ἄνθρωπος, οὐκ ἀγεννὴς θαυματοποιὸς τὰ τοιαῦτα; ἡ Σελήνη γὰρ ἡμῖν διηγεῖτο, αὐτὴ ἑωρακέναι καιόμενον λέγουσα. </p> </sp>
+<sp> <speaker>Ζεύς</speaker>
+<p rend="align(indent)"> καὶ πάνυ ἀληθῆ, ὦ <corr>Ἄπολλον·</corr> ὡς μή ποτε γενέσθαι ὤφελεν. </p> </sp>
+<sp> <speaker>Ἀπόλλων</speaker>
+<p rend="align(indent)"> οὕτω χρηστὸς ὁ γέρων ἦν καὶ ἀνάξιος ἐν πυρὶ ἀπολωλέναι; </p> </sp>
+<sp> <speaker>Ζεύς</speaker>
+<p rend="align(indent)"> καὶ τοῦτο μὲν ἴσως· ἀλλʼ ἐγὼ πολλὴν τὴν ἀηδίαν μέμνημαι ἀνασχόμενος τότε ὑπὸ κνίσης πονηρᾶς, οἵαν εἰκὸς ἀποφέρεσθαι ὀπτωμένων ἀνθρωπείων σωμάτων. εἰ γοῦν μὴ εἰς τὴν Ἀραβίαν ὡς εἶχον εὐθὺς ἀπιὼν ᾠχόμην, ἀπολώλειν <pb n="v.5.p.56"/> ἄν, εὖ ἴσθι, ἀτοπίᾳ τοῦ καπνοῦ· καὶ ὅμως ἐν τοσαύτῃ εὐωδίᾳ καὶ ἀφθονίᾳ τῶν ἀρωμάτων καὶ ἐν λιβανωτῷ παμπόλλῳ μόλις αἱ ῥῖνες ἐπιλαθέσθαι μοι καὶ ἀπομαθεῖν ἤθελον τὴν κηλῖδα ἐκείνην τῆς ὀσμῆς, ἀλλὰ καὶ νῦν ὀλίγου δέω ναυτιᾶν ὑπομνησθεὶς αὐτῆς. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="2">
+<sp> <speaker>Ἀπόλλων</speaker>
+<p rend="align(indent)"> τί δὲ βουλόμενος, ὦ Ζεῦ, τοιαῦτα εἴργασται ἑαυτόν; ἢ τί τὸ ἀγαθόν, ἀπανθρακωθῆναι ἐμπεσόντα εἰς τὴν πυράν; </p> </sp>
+<sp> <speaker>Ζεύς</speaker>
+<p rend="align(indent)"> τοῦτο μὲν οὐκ ἄν, ὦ παῖ, φθάνοις καὶ <corr>Ἐμπεδοκλεῖ</corr> πρὸ αὐτοῦ ἐγκαλῶν, ὃς ἐς τοὺς κρατῆρας ἥλατο καὶ αὐτὸς ἐν Σικελίᾳ. </p> </sp>
+<sp> <speaker>Ἀπόλλων</speaker>
+<p rend="align(indent)"> μελαγχολίαν τινὰ δεινὴν λέγεις. <corr>ἀτὰρ</corr> <corr>οὗτός</corr> γε τίνα ποτὲ ἄρα τὴν αἰτίαν ἔσχε τῆς ἐπιθυμίας; </p> </sp>
+ <sp> <speaker>Ζεύς</speaker>
+  <p rend="align(indent)"> αὐτοῦ σοι λόγον ἐρῶ ὃν ἔλεξε πρὸς τὴν πανήγυριν, ἀπολογούμενος πρὸς αὐτοὺς ὑπὲρ τῆς τελευτῆς.</p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="6">
+<sp> <speaker>Ζεύς</speaker>
+<p rend="align(indent)"> οἶδα πολλὰ καὶ ταῦτα<note xml:lang="mul" type="footnote" n="v.5.p.60.n.1">Οἶδα πολλὰ καὶ ταῦτα: The expression is unusual, and possibly wrong. Various conjectures are πολλὰ καὶ τοιαῦτα, πολλὰ τοιαῦτα, and (Capps) ἄλλα πολλὰ καὶ ταῦτα. Perhaps πολλὰ κατ' αὐτά (i.e. τὰ γιγνόμενα)?</note> εἰπὼν τότε. σὺ δὲ τὰ μετὰ ταῦτα ἤδη λέγε, ὅπως μὲν ὑπεδέξαντό σε καταπταμένην τὸ πρῶτον, ἅτινα δὲ νῦν ὑπʼ αὐτῶν πέπονθας. </p> </sp><pb n="v.5.p.62"/>
+<sp> <speaker>Φιλοσοφία</speaker>
+<p rend="align(indent)"> ἦιξα μέν, ὦ πάτερ, οὐκ ἐπὶ τοὺς Ἕλληνας εὐθύς, ἀλλʼ ὅπερ ἐδόκει μοι χαλεπώτερον τοῦ ἔργου εἶναι, τὸ βαρβάρους παιδεύειν καὶ διδάσκειν, τοῦτο πρῶτον ἠξίουν ἐργάσασθαι· τὸ Ἑλληνικὸν δὲ εἴων ὡς ῥᾷστα ὑποβαλέσθαι οἷόν τε<note xml:lang="mul" type="footnote" n="v.5.p.62.n.1">οἷόν τε after ὑποβαλέσθαι Mras: after χαλινὸν MSS.</note> καὶ τάχιστα, ὥς γε ᾤμην, ἐνδεξόμενον τὸν χαλινὸν καὶ ὑπαχθησόμενον τῷ ζυγῷ. ὁρμήσασα δὲ εἰς Ἰνδοὺς τὸ πρῶτον, ἔθνος μέγιστον τῶν ἐν τῷ βίῳ, οὐ χαλεπῶς ἔπεισα καταβάντας ἀπὸ τῶν ἐλεφάντων ἐμοὶ συνεῖναι, ὥστε καὶ γένος ὅλον, οἱ Βραχμᾶνες, τοῖς Νεχραίοις καὶ Ὀξυδράκαις ὅμορον, οὗτοι πάντες ὑπʼ ἐμοὶ τάττονται καὶ βιοῦσίν τε<note xml:lang="mul" type="footnote" n="v.5.p.62.n.2">τε Fritzsche: γε MSS.</note> κατὰ τὰ ἡμῖν δοκοῦντα, τιμώμενοι πρὸς τῶν περιοίκων ἁπάντων, καὶ ἀποθνήσκουσι παράδοξόν τινα τοῦ θανάτου τρόπον. </p> </sp> </div>
+
+<pb n="v.5.p.64"/>
+
+<pb n="v.5.p.68"/>
+
+<pb n="v.5.p.78"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="27">
+<sp> <speaker>Ἑρμῆς</speaker>
+<p rend="align(indent)"> εὖ λέγεις. <corr>ἀλλὰ</corr> τίνες <corr>οὗτοί</corr> εἰσιν ἢ τί περισκοποῦσιν καὶ αὐτοί; μᾶλλον δὲ καὶ προσίασιν καί τι καὶ ἐρέσθαι θέλουσιν. </p> </sp>
+<sp> <speaker>Ἀνήρ</speaker>
+<p rend="align(indent)"> ἆρʼ ἂν ἔχοιτε ἡμῖν, ὦ ἄνδρες, εἰπεῖν, ἢ σύ, ὦ βελτίστη, εἴ τινας τρεῖς γόητας ἅμα εἴδετε καί τινα γυναῖκα ἐν χρῷ κεκαρμένην εἰς τὸ Λακωνικόν, ἀρρενωπὴν καὶ κομιδῇ ἀνδρικήν; </p> </sp>
+<sp> <speaker>Φιλοσοφία</speaker>
+<p rend="align(indent)"> παπαῖ, τὰ ἡμέτερα οὗτοι ζητοῦσιν. </p> </sp>
+<sp> <speaker>Ἀνήρ</speaker>
+<p rend="align(indent)"> πῶς τὰ ὑμέτερα; δραπέται γὰρ ἐκεῖνοι ἅπαντες. ἡμεῖς δὲ τὴν γυναῖκα μάλιστα μέτιμεν ἠνδραποδισμένην πρὸς αὐτῶν. </p> </sp>
+<sp> <speaker>Ἑρμῆς</speaker>
+<p rend="align(indent)"> εἴσεσθε δὴ<note xml:lang="mul" type="footnote" n="v.5.p.84.n.1">δὴ Gesner: δὲ MSS.</note> καθʼ ὅ τι καὶ ζητοῦμεν αὐτούς. τὸ νῦν δὲ ἅμα κηρύττωμεν. </p>
+<p rend="align(indent)">εἴ τις εἶδεν<note xml:lang="mul" type="footnote" n="v.5.p.84.n.2">εἶδεν Fritzsche: not in MSS.</note> ἀνδράποδον Παφλαγονικὸν τῶν ἀπὸ Σινώπης βαρβάρων, ὄνομα τοιοῦτον οἷον ἀπὸ κτημάτων, ὕπωχρον, ἐν χρῷ κουρίαν, ἐν γενείῳ βαθεῖ, πήραν ἐξημμένον καὶ τριβώνιον <pb n="v.5.p.86"/> ἀμπεχόμενον, ὀργίλον, ἄμουσον, τραχύφωνον, λοίδορον, μηνύειν ἐπὶ ῥητῷ αὐτόν. </p> </sp>
+<sp> <speaker>Δεσπότης <num>α</num> </speaker> <p/> </sp> </div>
+
+</div>
+</body>
+</text>
+</TEI>

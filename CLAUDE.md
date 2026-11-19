@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A university group project (Essentials of Text and Speech Processing): translate TEI XML documents from Ancient Greek to English while keeping the XML valid and respecting what each tag means. Corpus: Perseus `canonical-greekLit`. The design must stay language-pair agnostic.
 
-**State of the repo:** the project skeleton is set up (installable package, folder layout, `pyproject.toml`), but the translation pipeline does not exist yet. What exists is exploratory work: Perseus data scripts, corpus/tag statistics, and the evaluation metrics (now part of the package, so they are meant to be reused). We are still planning the pipeline itself.
+**State of the repo:** a first end-to-end pipeline exists (span-wise translation with test engines only, no real MT model yet), plus the Perseus data scripts, corpus/tag statistics and the evaluation metrics.
 
 ## Key documents (read before planning or coding)
 
@@ -17,7 +17,7 @@ A university group project (Essentials of Text and Speech Processing): translate
 
 ## Repo layout (set up)
 
-Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/`, `engines/`, `ui/` (empty placeholders), `metrics/` (`fragments.py`, `scores.py`). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (policy and pair configs, later), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases). `pyproject.toml` has no runtime dependencies yet: add each one when code that needs it lands.
+Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/` (policy, spans, transliterate, document, validate), `engines/` (`MTEngine` protocol + test engines), `metrics/` (`fragments.py`, `scores.py`), `cli.py`, `ui/` (empty placeholder). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (`policy.yaml`, `pairs/grc-en.yaml`), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases, `tests/fixtures/tei/` = pipeline fixtures). Runtime dependencies: `lxml`, `pyyaml`; add others when code that needs them lands.
 
 Layout decisions agreed with the user (don't relitigate):
 - **src layout, package `tei_translate`**, chosen over a flat package. Everyone runs `pip install -e .[dev]` first; anything that imports `tei_translate` fails with `ModuleNotFoundError` otherwise.
@@ -30,11 +30,20 @@ Notes on the scripts:
 - Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` and `check_metric_cases.py` were run and give the same results as before (44/44 metric checks pass, CSVs unchanged).
 - On Windows, printing Greek can raise `UnicodeEncodeError: 'charmap'`: set `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8 = "1"`).
 
-## Proposed architecture (from HANDOVER.md, not yet agreed)
+## Pipeline (built, first version)
 
-Per document: (1) parse with lxml and segment into block units (`<p>`, citation `<div>`s; verse `<l>` deferred until prose works) → (2) classify inline elements via a declarative policy table in `config/policy.yaml` (translate / protect / name-convention), logging which rule fired → (3) mask protected spans with placeholders like `⟦P3⟧` and strip remaining inline tags, recording offsets → (4) translate plain text through a pluggable `MTEngine` (the only language-pair-dependent stage, selected by `config/pairs/<src>-<tgt>.yaml`) → (5) restore protected spans byte-for-byte and project inline tags back via a pluggable `Aligner` (awesome-align default, UGARIT for Greek), with a fallback chain → (6) validate (well-formedness, tei_all RELAX NG, `@n`/`@xml:id` preservation) and count fallbacks.
+Agreed with the user (plan: span-wise first, alignment later):
+- **All tag decisions live in `config/policy.yaml`**, mirroring `docs/tag_decisions.md`. Code knows only *roles* (block / container / inline / empty) and *treatments* (translate / keep / transliterate / keep-subtree), never tag names. Each rule may carry `params` (e.g. `num: {treatment: keep, params: {convert: none}}`); unsupported values give a warning. Lookup order: `overrides` (attribute rules, first match) → `tags` → `empty` → `default`.
+- **Empty elements are detected per element** (no text, no children) and get the `empty` rule, so `pb`/`milestone`/`gap` aren't listed. A `tags` entry wins over detection.
+- **`<note>` is `keep-subtree`**: copied unchanged and kept in place (tag_decisions wins over HANDOVER's language detection).
+- **Span-wise translation** (stage 5 / tag placement is deferred): every text piece is translated where it is, so no element moves. `elem.text` gets the element's treatment, `child.tail` the parent's. Text outside blocks is never touched. Nested inline elements: the more protective treatment wins (keep > transliterate > translate). Mixed nesting is decided per element and counted in the report (`inline-as-block`, `inline-with-blocks`, `block-in-block`, ...).
+- No placeholders/masking yet: keep spans are never sent to MT.
 
-Core invariant: **the MT model never sees XML structure**; structure is never generated by a model. `MTEngine.translate(segments, src, tgt)` and `Aligner.align(src_tokens, tgt_tokens)` are batch-oriented.
+Flow (`pipeline/document.py: translate_document(path, pair, engine=None, policy=None) -> Result(tree, report)`): parse → `spans.collect_spans` → transliterate (`transliterate.grc_simple`) + one batch to `MTEngine.translate(segments, src, tgt)` → write back keeping whitespace → `xml:lang` src→tgt (not inside kept elements) → add a `<respStmt>` in `titleStmt` → `validate.validate` (well-formed, same elements/attributes in the same order, `@n`/`@xml:id` preserved, kept elements byte-identical, header unchanged). Engines: `identity`, `tag` (wraps output as `[EN:...]`).
+
+Later (HANDOVER ideas, not agreed): alignment-based tag placement, placeholders, real engines after the bake-off, tei_all validation, name lists for standard English forms.
+
+Core invariant: **the MT model never sees XML structure**; structure is never generated by a model.
 
 ## Frontend / deployment (decided)
 
@@ -49,14 +58,13 @@ Why and what follows from it:
 
 ## Planning status
 
-Done: project skeleton (layout, `pyproject.toml`, metrics moved into the package). No pipeline code exists yet. Still open:
+Done: project skeleton, first span-wise pipeline with test engines and validation. Still open:
 - The user raised "which languages to use and how to present them" in the UI. Settle this: which source/target language pairs to offer, and how language and option choices appear in the UI.
 - The engine choice (local and hosted), and the open questions at the end of `HANDOVER.md`.
-- The `<note>` conflict between `tag_decisions.md` and `HANDOVER.md`.
 
 ## Commands
 
-Python 3.10+ on Windows. Code uses only the standard library so far.
+Python 3.10+ on Windows. `pip` may not be on PATH: use `python -m pip` / `python -m pytest`.
 
 ```
 pip install -e .[dev]                    # install the package (editable) + pytest
@@ -64,9 +72,10 @@ python scripts/data/count_tags.py        # clones Perseus into data/raw/canonica
 python scripts/data/build_dataset.py     # downloads Greek/English pairs into data/perseus/, classifies works (poetry/prose/drama)
 python scripts/data/count_perseus_tags.py  # tag counts over data/perseus/ (needs build_dataset.py first): data/stats/perseus_tag_frequencies_{greek,all}.csv
 python scripts/check_metric_cases.py     # runs the tag-placement and structure metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
+python -m tei_translate translate IN.xml --engine tag   # writes outputs/<name>.en.xml, prints rules fired + validation; exit 1 if a check fails
 ```
 
-`pytest` runs the suite (no tests yet), `pytest tests/path::test_name` runs one test. A CLI (`list-units`, later `translate` / `evaluate` / `bakeoff`) is proposed in HANDOVER but not built.
+`python -m pytest` runs the suite, `python -m pytest tests/test_pipeline.py::test_names` runs one test.
 
 ## Existing assets worth reusing
 

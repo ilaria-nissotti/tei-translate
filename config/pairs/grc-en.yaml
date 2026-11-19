@@ -1,0 +1,6 @@
+# Language pair: Ancient Greek -> English.
+# The only pair-specific settings; the pipeline code is the same for every pair.
+src: grc
+tgt: en
+engine: identity        # identity | tag (test engines); real models come after the bake-off
+policy: config/policy.yaml   # relative to the repository root
