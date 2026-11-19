@@ -18,6 +18,13 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest"]
+# Real MT engines (tei_translate.engines.hf): pip install -e .[mt]
+# Kept out of the base install because torch is large.
+mt = [
+    "torch",
+    "transformers",
+    "sentencepiece",   # Marian (Opus-MT) and MADLAD tokenizers
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/tei_translate"]

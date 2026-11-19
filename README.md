@@ -16,11 +16,17 @@ pip install -e .[dev]
 
 This installs the `tei_translate` package in editable mode (your code changes apply straight away) plus `pytest`. It also installs the dependencies listed in `pyproject.toml` (for now only `sacrebleu`, used for chrF and BLEU); new ones are added there when code needs them.
 
+To translate with a real MT model, also install the `mt` extra (PyTorch, Transformers, SentencePiece; about 1 GB on disk):
+
+```
+pip install -e .[dev,mt]
+```
+
 ## Repository layout
 ```
 src/tei_translate/     the Python package (import it as tei_translate)
   pipeline/            pipeline stages (empty for now)
-  engines/             MT engines (empty for now)
+  engines/             MT engines: test engines + Hugging Face models (Opus-MT, MADLAD)
   metrics/             evaluation metrics (fragments.py, scores.py, translation_scores.py)
   ui/                  Gradio app (empty for now)
 scripts/
@@ -78,6 +84,34 @@ python scripts/data/build_dataset.py
 
 Downloads every Greek/English file pair listed in `data/catalog/greek_english_pairs.csv` into `data/perseus/` (git-ignored), writes `data/perseus/pairs.csv`, and classifies each work as poetry, prose or drama from its Greek markup (`work_types.csv`, `work_type_details.csv`). Re-running skips files already downloaded. `python scripts/data/make_work_types.py` redoes only the classification. Both take `--help`.
 
+### Translating a file with an MT engine
+Needs the `mt` extra (see Installation). The first use of a model downloads it into `models/hf/` (git-ignored).
+
+```
+python -m tei_translate translate IN.xml --engine opus-grk-en
+```
+
+| `--engine` | Model | Notes |
+|---|---|---|
+| `identity`, `tag` | none | test engines: return the input / wrap it as `[EN:...]` |
+| `opus-grk-en` | `Helsinki-NLP/opus-mt-grk-en` | small (~300 MB), fast on CPU |
+| `opus-bible-ine` | `Helsinki-NLP/opus-mt-tc-bible-big-ine-deu_eng_nld` | larger (~0.9 GB), still fine on CPU |
+| `madlad-3b` | `google/madlad400-3b-mt` | 3B parameters (~12 GB): a GPU is strongly recommended |
+| `marian:<model id>` | any Opus-MT model on Hugging Face | e.g. `marian:Helsinki-NLP/opus-mt-tc-big-el-en` |
+| `madlad:<model id>` | another MADLAD-400 size | e.g. `madlad:google/madlad400-7b-mt` |
+
+The default engine is set in `config/pairs/grc-en.yaml`.
+
+### `compare_engines.py`
+Compares MT engines on Perseus passages (plain text, no XML) against the Perseus English translations, with chrF and BLEU. Needs `data/perseus/` (`build_dataset.py`) and the `mt` extra:
+
+```
+python scripts/compare_engines.py                                  # opus-grk-en vs opus-bible-ine
+python scripts/compare_engines.py --engines opus-grk-en madlad-3b --per-work 4
+```
+
+It writes `outputs/compare/<timestamp>/report.md` (scores overall and per work, with examples) and `translations.jsonl` (every passage with each engine's output).
+
 ### Running the tests
 From the repository root, with the package installed (see Installation):
 
@@ -86,6 +120,8 @@ pytest
 ```
 
 This runs every test in `tests/` and prints one dot per passing test, or the details of a failing one. `pytest -v` prints one line per test, and `pytest -k structure` runs only the tests whose name contains "structure". For now the tests are in `tests/test_metrics.py`: each hand-made metric case in `tests/fixtures/metrics/` is one test. Run `pytest` after changing anything in the metrics.
+
+The tests that run real MT models (`tests/test_engines.py`) are skipped by default because they download models. To run them: `$env:TEI_TRANSLATE_RUN_MODELS = "1"; pytest tests/test_engines.py` (PowerShell).
 
 ### `check_metric_cases.py`
 Runs the same metric cases as `pytest`, but explains each failure in words, which helps when a metric case fails. Needs the package installed (see Installation):

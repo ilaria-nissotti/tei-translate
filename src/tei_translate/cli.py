@@ -19,11 +19,13 @@ def main(argv=None) -> int:
     t.add_argument("input", type=Path)
     t.add_argument("-o", "--output", type=Path, help="default: outputs/<input name>.<tgt>.xml")
     t.add_argument("--pair", type=Path, default=DEFAULT_PAIR, help="language pair config (default: grc-en)")
-    t.add_argument("--engine", help="override the engine from the pair config (identity, tag)")
+    t.add_argument("--engine", help="override the engine from the pair config: identity, tag, opus-grk-en, "
+                                    "opus-bible-ine, madlad-3b, marian:<HF model id>, madlad:<HF model id>")
     t.add_argument("--policy", type=Path, help="override the policy file from the pair config")
 
     args = parser.parse_args(argv)
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+    logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
+    logging.getLogger("tei_translate").setLevel(logging.INFO)
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 

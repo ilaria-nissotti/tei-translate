@@ -2,5 +2,8 @@
 # The only pair-specific settings; the pipeline code is the same for every pair.
 src: grc
 tgt: en
-engine: identity        # identity | tag (test engines); real models come after the bake-off
+# identity | tag (test engines, no model)
+# opus-grk-en | opus-bible-ine | madlad-3b | marian:<HF model id> | madlad:<HF model id>
+# (model engines need: pip install -e .[mt]; see tei_translate/engines/__init__.py)
+engine: identity
 policy: config/policy.yaml   # relative to the repository root
