@@ -62,6 +62,7 @@ Python 3.10+ on Windows. Code uses only the standard library so far.
 pip install -e .[dev]                    # install the package (editable) + pytest
 python scripts/data/count_tags.py        # clones Perseus into data/raw/canonical-greekLit/ on first run, writes data/catalog/*.csv and data/stats/tei_tag_frequencies.csv
 python scripts/data/build_dataset.py     # downloads Greek/English pairs into data/perseus/, classifies works (poetry/prose/drama)
+python scripts/data/count_perseus_tags.py  # tag counts over data/perseus/ (needs build_dataset.py first): data/stats/perseus_tag_frequencies_{greek,all}.csv
 python scripts/check_metric_cases.py     # runs the tag-placement and structure metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
 ```
 
