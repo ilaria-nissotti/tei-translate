@@ -14,7 +14,13 @@ engines, pip install -e .[mt].
     python scripts/compare_engines.py --reuse outputs/compare/<earlier run> --engines pivot-grc-el-en
 
 --reuse takes the passages and translations of an earlier run and only runs the
-engines that run doesn't have yet; the new report has all of them.
+engines that run doesn't have yet; the new report has all of them. For a slow
+engine, --subset N keeps only the first N passages of each work (and --max-words
+only passages up to that many Greek words); all engines are then scored on that
+subset only:
+
+    python scripts/compare_engines.py --reuse outputs/compare/<run> --engines opus-grk-en \\
+        opus-bible-ine pivot-grc-el-en madlad-3b --subset 2 --max-words 80
 
 Writes outputs/compare/<timestamp>/report.md, translations.jsonl (each passage with every
 engine's output, and a chain engine's pivot text) and run.json (settings, models, timings).
@@ -138,6 +144,24 @@ def load_previous(run_dir: Path) -> tuple[list[dict], dict, dict]:
     return samples, results, meta
 
 
+def take_subset(samples, results, per_work=None, max_words=None):
+    """Keep the first `per_work` passages of each work, of at most `max_words` words."""
+    keep, seen = [], {}
+    for i, s in enumerate(samples):
+        if max_words and len(s["greek"].split()) > max_words:
+            continue
+        if per_work and seen.get(s["work"], 0) >= per_work:
+            continue
+        seen[s["work"]] = seen.get(s["work"], 0) + 1
+        keep.append(i)
+    subset = {}
+    for name, r in results.items():
+        subset[name] = dict(r, hyps=[r["hyps"][i] for i in keep],
+                            pivot=[r["pivot"][i] for i in keep] if r.get("pivot") else None,
+                            seconds=None)   # timings were for the full set
+    return [samples[i] for i in keep], subset
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--engines", nargs="+", default=["opus-grk-en", "opus-bible-ine"])
@@ -147,6 +171,10 @@ def main(argv=None) -> int:
     parser.add_argument("--reuse", type=Path, metavar="RUN_DIR",
                         help="an earlier outputs/compare/<timestamp>/ folder: use its passages and "
                              "translations, and only run the engines it doesn't have yet")
+    parser.add_argument("--subset", type=int, metavar="N",
+                        help="with --reuse: keep only the first N passages of each work")
+    parser.add_argument("--max-words", type=int, metavar="W",
+                        help="with --reuse: keep only passages of at most W Greek words")
     parser.add_argument("--out", type=Path, help="default: outputs/compare/<timestamp>/")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
@@ -157,6 +185,10 @@ def main(argv=None) -> int:
     if args.reuse:
         samples, results, meta = load_previous(args.reuse)
         args.seed, args.per_work = meta.get("seed", args.seed), meta.get("per_work", args.per_work)
+        if args.subset or args.max_words:
+            samples, results = take_subset(samples, results, args.subset, args.max_words)
+    elif args.subset or args.max_words:
+        parser.error("--subset and --max-words need --reuse (otherwise use --per-work)")
     else:
         samples, results = load_samples(args.per_work, args.seed, args.min_words), {}
     words = sum(len(s["greek"].split()) for s in samples)
@@ -183,7 +215,7 @@ def main(argv=None) -> int:
                 if r.get("pivot"):
                     row[name + PIVOT] = r["pivot"][i]
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
-    run = {"seed": args.seed, "per_work": args.per_work,
+    run = {"seed": args.seed, "per_work": args.subset or args.per_work, "max_words": args.max_words,
            "engines": {name: {"model": r["model"], "seconds": r["seconds"],
                               **({"reused_from": r["reused"]} if r.get("reused") else {})}
                        for name, r in results.items()}}
@@ -191,8 +223,12 @@ def main(argv=None) -> int:
 
     lines = [f"# Engine comparison ({datetime.now():%Y-%m-%d})", "",
              f"{len(samples)} Perseus passages ({words} Greek words), seed {args.seed}, "
-             f"up to {args.per_work} per work. Corpus-level chrF / BLEU against the Perseus English "
-             "(several references where the work has several translations). Notes removed.", "",
+             f"up to {args.subset or args.per_work} per work"
+             + (f", at most {args.max_words} words each" if args.max_words else "")
+             + (f" (subset of {args.reuse})" if args.subset or args.max_words else "")
+             + ". Corpus-level chrF / BLEU against the Perseus English "
+             "(several references where the work has several translations). Notes removed. "
+             "Time is for this set; ? = reused from a run on a different set.", "",
              "| Engine | Model | chrF | BLEU | Time (s) |", "|---|---|---|---|---|"]
     for name, r in results.items():
         c, b = score(samples, r["hyps"])

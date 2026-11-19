@@ -77,10 +77,13 @@ def _fit(text: str, length, max_len: int, level: int) -> list[str]:
 def tie_output_embeddings(model) -> bool:
     """Tie the output layer to the input embeddings when the config says so.
 
-    Some Opus-MT checkpoints (e.g. opus-mt-tc-big-el-en) store a stray lm_head that
-    differs from the embeddings although tie_word_embeddings is true. Older
-    Transformers versions tied them on load and overwrote it; Transformers 5 keeps
-    the stray one, and the model then outputs random words. Returns True if it tied.
+    Only for Marian (Opus-MT) models, which always share them. Some Opus-MT
+    checkpoints (e.g. opus-mt-tc-big-el-en) store a stray lm_head that differs from
+    the embeddings. Older Transformers versions tied them on load and overwrote it;
+    Transformers 5 keeps the stray one, and the model then outputs random words.
+    Not generic: Transformers 5 reports tie_word_embeddings=True even for MADLAD,
+    whose config.json says false and whose separate lm_head is real (tying it
+    gives garbage). Returns True if it tied.
     """
     if not getattr(model.config, "tie_word_embeddings", False):
         return False
@@ -124,6 +127,9 @@ class HFSeq2SeqEngine:
     def _gpu_dtype(self, torch):
         return torch.float16
 
+    def _cpu_dtype(self, torch):
+        return torch.float32
+
     def load(self):
         if self._model is not None:
             return
@@ -133,7 +139,7 @@ class HFSeq2SeqEngine:
         except ImportError as e:
             raise ImportError(f"engine {self.model_id} needs the MT extra: pip install -e .[mt]") from e
         device = self.device or ("cuda" if torch.cuda.is_available() else "cpu")
-        dtype = self._gpu_dtype(torch) if device == "cuda" else torch.float32
+        dtype = self._gpu_dtype(torch) if device == "cuda" else self._cpu_dtype(torch)
         log.info("loading %s on %s (%s); first use downloads the model", self.model_id, device, dtype)
         self._tokenizer, model = self._load(_cache_dir(), dtype)
         self._model = model.to(device).eval()
@@ -145,7 +151,6 @@ class HFSeq2SeqEngine:
 
         tokenizer = AutoTokenizer.from_pretrained(self.model_id, cache_dir=cache)
         model = AutoModelForSeq2SeqLM.from_pretrained(self.model_id, cache_dir=cache, dtype=dtype)
-        tie_output_embeddings(model)
         return tokenizer, model
 
     # -- per-model input prefix and generation arguments ---------------------
@@ -213,6 +218,11 @@ class MarianEngine(HFSeq2SeqEngine):
         super().__init__(model_id, **kwargs)
         self.target_token = target_token
 
+    def _load(self, cache, dtype):
+        tokenizer, model = super()._load(cache, dtype)
+        tie_output_embeddings(model)
+        return tokenizer, model
+
     def prefix(self, src: str, tgt: str) -> str:
         if self.target_token:
             return self.target_token + " "
@@ -229,16 +239,21 @@ class MarianEngine(HFSeq2SeqEngine):
 class MadladEngine(HFSeq2SeqEngine):
     """MADLAD-400 (google/madlad400-*-mt): a T5 model, input prefixed with <2xx>.
 
-    3B parameters: about 12 GB of RAM in float32 on CPU (slow), bfloat16 on GPU.
+    3B parameters: 12 GB in float32, so it runs in bfloat16 by default (about 6 GB,
+    on CPU too; pass cpu_float32=True for full precision if you have the RAM).
     """
 
-    def __init__(self, model_id: str = "google/madlad400-3b-mt", **kwargs):
+    def __init__(self, model_id: str = "google/madlad400-3b-mt", *, cpu_float32: bool = False, **kwargs):
         kwargs.setdefault("batch_size", 4)
         super().__init__(model_id, **kwargs)
+        self.cpu_float32 = cpu_float32
 
     def _gpu_dtype(self, torch):
         # T5 models overflow in float16; bfloat16 is safe where supported.
         return torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float32
+
+    def _cpu_dtype(self, torch):
+        return torch.float32 if self.cpu_float32 else torch.bfloat16
 
     def prefix(self, src: str, tgt: str) -> str:
         token = f"<2{tgt}>"
