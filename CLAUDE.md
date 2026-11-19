@@ -17,7 +17,7 @@ A university group project (Essentials of Text and Speech Processing): translate
 
 ## Repo layout (set up)
 
-Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/`, `engines/`, `ui/` (empty placeholders), `metrics/` (`fragments.py`, `scores.py`). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (policy and pair configs, later), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases). `pyproject.toml` has no runtime dependencies yet: add each one when code that needs it lands.
+Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/`, `engines/`, `ui/` (empty placeholders), `metrics/` (`fragments.py`, `scores.py`, `translation_scores.py`). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (policy and pair configs, later), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases). `pyproject.toml` runtime dependencies: only `sacrebleu` (chrF/BLEU in `metrics/translation_scores.py`); add each new one when code that needs it lands.
 
 Layout decisions agreed with the user (don't relitigate):
 - **src layout, package `tei_translate`**, chosen over a flat package. Everyone runs `pip install -e .[dev]` first; anything that imports `tei_translate` fails with `ModuleNotFoundError` otherwise.
@@ -27,7 +27,7 @@ Layout decisions agreed with the user (don't relitigate):
 
 Notes on the scripts:
 - `scripts/data/` scripts are stdlib-only and resolve paths from the repo root (`Path(__file__).resolve().parents[2]`), so they work from any folder without installing. `build_dataset.py` imports its sibling `make_work_types.py` by plain name (`from make_work_types import ...`), so the two must stay in the same folder.
-- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` and `check_metric_cases.py` were run and give the same results as before (44/44 metric checks pass, CSVs unchanged).
+- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` and `check_metric_cases.py` were run and give the same results as before (44/44 metric checks passed then, CSVs unchanged; with the translation metrics added it is now 59/59).
 - On Windows, printing Greek can raise `UnicodeEncodeError: 'charmap'`: set `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8 = "1"`).
 
 ## Proposed architecture (from HANDOVER.md, not yet agreed)
@@ -56,20 +56,20 @@ Done: project skeleton (layout, `pyproject.toml`, metrics moved into the package
 
 ## Commands
 
-Python 3.10+ on Windows. Code uses only the standard library so far.
+Python 3.10+ on Windows. Only dependency so far: `sacrebleu` (installed by `pip install -e .`).
 
 ```
 pip install -e .[dev]                    # install the package (editable) + pytest
 python scripts/data/count_tags.py        # clones Perseus into data/raw/canonical-greekLit/ on first run, writes data/catalog/*.csv and data/stats/tei_tag_frequencies.csv
 python scripts/data/build_dataset.py     # downloads Greek/English pairs into data/perseus/, classifies works (poetry/prose/drama)
 python scripts/data/count_perseus_tags.py  # tag counts over data/perseus/ (needs build_dataset.py first): data/stats/perseus_tag_frequencies_{greek,all}.csv
-python scripts/check_metric_cases.py     # runs the tag-placement and structure metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
+python scripts/check_metric_cases.py     # runs the tag-placement, structure and translation metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
 ```
 
-`pytest` runs the suite (no tests yet), `pytest tests/path::test_name` runs one test. A CLI (`list-units`, later `translate` / `evaluate` / `bakeoff`) is proposed in HANDOVER but not built.
+`pytest` runs the suite (so far `tests/test_metrics.py`: one test per hand-made metric case in `tests/fixtures/metrics/`, 61 tests), `pytest tests/path::test_name` runs one test. `scripts/check_metric_cases.py` runs the same cases with longer failure explanations. A CLI (`list-units`, later `translate` / `evaluate` / `bakeoff`) is proposed in HANDOVER but not built.
 
 ## Existing assets worth reusing
 
 - `data/catalog/greek_english_pairs.csv` / `greek_english_texts.csv` — every Greek file in Perseus that has an English translation, with paths; useful for the data loader. Perseus file naming (paths inside the Perseus repo, i.e. under `data/raw/canonical-greekLit/`): `data/TEXTGROUP/WORK/TEXTGROUP.WORK.perseus-{grc,eng}N.xml`; prefer higher `N` (version 1 files are often not CTS-compliant).
 - `data/stats/tei_tag_frequencies.csv` — per-tag counts inside `<text>` (Greek vs English), basis for `tag_decisions.md`.
-- `src/tei_translate/metrics/scores.py` (import as `tei_translate.metrics.scores`) + `tests/fixtures/metrics/` — verified implementation of tag accuracy and average distance (positions = character offsets in tag-stripped text; requires identical text in reference and hypothesis) plus XML accuracy / XML matching.
+- `src/tei_translate/metrics/scores.py` (import as `tei_translate.metrics.scores`) + `tests/fixtures/metrics/` — verified implementation of tag accuracy and average distance (positions = character offsets in tag-stripped text; requires identical text in reference and hypothesis) plus XML accuracy / XML matching. `src/tei_translate/metrics/translation_scores.py` — corpus-level chrF and BLEU via sacrebleu, tags removed with `fragments.strip_tags` (best effort for broken XML), several references per passage allowed.

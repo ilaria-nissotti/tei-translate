@@ -1,0 +1,97 @@
+[
+  {
+    "id": "01_tags_removed",
+    "description": "Tags in both reference and hypothesis; the hypothesis wording differs a little.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "references": [
+      "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>"
+    ],
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> Which matters do you mean?</said>",
+    "reference_texts": [
+      "Theo. What matters do you mean?"
+    ],
+    "hypothesis_text": "Theo. Which matters do you mean?"
+  },
+  {
+    "id": "02_milestone_and_line_breaks",
+    "description": "An empty milestone tag and line breaks in the hypothesis: the tag adds no text and the line breaks become single spaces.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "references": [
+      "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>"
+    ],
+    "hypothesis": "<said who=\"#Θεόδωρος\">\n  <label>Theo.</label> And I do not think the man is a god at all,\n  <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>but he is divine; for that is what I call\n  all philosophers.\n</said>",
+    "reference_texts": [
+      "Theo. And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers."
+    ],
+    "hypothesis_text": "Theo. And I do not think the man is a god at all, but he is divine; for that is what I call all philosophers."
+  },
+  {
+    "id": "03_escaped_ampersand",
+    "description": "Valid XML with &amp; in the text: it is decoded to &.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "references": [
+      "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>"
+    ],
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> We also bring this stranger with us, from Elea, a companion of Parmenides &amp; Zeno.</said>",
+    "reference_texts": [
+      "Theo. We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno."
+    ],
+    "hypothesis_text": "Theo. We also bring this stranger with us, from Elea, a companion of Parmenides & Zeno."
+  },
+  {
+    "id": "04_broken_bare_ampersand",
+    "description": "Not valid XML (a bare &). Best effort: the tags are removed with a regular expression, giving the same text as case 03.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "references": [
+      "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>"
+    ],
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> We also bring this stranger with us, from Elea, a companion of Parmenides & Zeno.</said>",
+    "reference_texts": [
+      "Theo. We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno."
+    ],
+    "hypothesis_text": "Theo. We also bring this stranger with us, from Elea, a companion of Parmenides & Zeno."
+  },
+  {
+    "id": "05_broken_crossing_tags",
+    "description": "Not valid XML (</said> before </label>). Best effort: the words are all still there once the tags are removed.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "references": [
+      "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>"
+    ],
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo. What matters do you mean?</said></label>",
+    "reference_texts": [
+      "Theo. What matters do you mean?"
+    ],
+    "hypothesis_text": "Theo. What matters do you mean?"
+  },
+  {
+    "id": "06_no_tags_in_output",
+    "description": "Plain-text hypothesis (all tags lost) against a tagged reference: only the text counts, so it scores like a tagged output with the same words.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2)",
+    "references": [
+      "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>"
+    ],
+    "hypothesis": "Theo. What do you mean?",
+    "reference_texts": [
+      "Theo. What matters do you mean?"
+    ],
+    "hypothesis_text": "Theo. What do you mean?"
+  },
+  {
+    "id": "07_three_references",
+    "description": "One passage with three reference translations. The reference with <s/> markers and line breaks is a real Perseus file.",
+    "source": "Thucydides 1.1.1, first sentence, in three Perseus translations: Crawley (tlg0003.tlg001.perseus-eng6), Hobbes (perseus-eng4), C. F. Smith (1st1K-eng1). The hypothesis is hand-written, as a stand-in for machine translation.",
+    "references": [
+      "<p rend=\"align(indent)\">Thucydides, an Athenian, wrote the history of the war between the Peloponnesians and the Athenians, beginning at the moment that it broke out, and believing that it would be a great war, and more worthy of relation than any that had preceded it.</p>",
+      "<p rend=\"align(indent)\">Thucydides, an Athenian, wrote the war of the Peloponnesians and the Athenians as they warred against each other, beginning to write as soon as the war was on foot, with expectation it should prove a great one and most worthy the relation of all that had been before it.</p>",
+      "<p>\n<s />Thucydides, an Athenian, wrote the history of the war waged by the Peloponnesians and the Athenians against one another.\n<s />He began the task at the very outset of the war, in the belief that it would be great and noteworthy above all the wars that had gone before.\n\n</p>"
+    ],
+    "hypothesis": "<p rend=\"align(indent)\">Thucydides the Athenian wrote up the war of the Peloponnesians and the Athenians, how they fought against each other, beginning as soon as it started and expecting that it would be great and more noteworthy than all earlier wars.</p>",
+    "reference_texts": [
+      "Thucydides, an Athenian, wrote the history of the war between the Peloponnesians and the Athenians, beginning at the moment that it broke out, and believing that it would be a great war, and more worthy of relation than any that had preceded it.",
+      "Thucydides, an Athenian, wrote the war of the Peloponnesians and the Athenians as they warred against each other, beginning to write as soon as the war was on foot, with expectation it should prove a great one and most worthy the relation of all that had been before it.",
+      "Thucydides, an Athenian, wrote the history of the war waged by the Peloponnesians and the Athenians against one another. He began the task at the very outset of the war, in the belief that it would be great and noteworthy above all the wars that had gone before."
+    ],
+    "hypothesis_text": "Thucydides the Athenian wrote up the war of the Peloponnesians and the Athenians, how they fought against each other, beginning as soon as it started and expecting that it would be great and more noteworthy than all earlier wars."
+  }
+]
