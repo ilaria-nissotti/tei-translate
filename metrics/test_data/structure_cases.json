@@ -1,0 +1,248 @@
+[
+  {
+    "id": "01_identical_structure",
+    "group": "same",
+    "description": "Same tags, nesting and attributes as the input; only the text is translated. The who attribute keeps its Greek value, because the tool copies attributes unchanged.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> What matters do you mean?</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "02_milestone_moved",
+    "group": "same",
+    "description": "Milestone moved to the end of the speech. The structure is still the same: XML matching ignores where in the text a tag is.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/></said>",
+    "note": "Where the milestone sits is measured by tag accuracy and average distance, not by XML matching.",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "03_formatting_only",
+    "group": "same",
+    "description": "Only the XML formatting differs: line breaks, attribute order, and <milestone ...></milestone> instead of <milestone .../>. These are the same XML.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\">\n  <label>Theo.</label> And though I do not think he is a god at all,\n  <milestone n=\"216c\" resp=\"Stephanus\" unit=\"section\"></milestone>I certainly do think he is divine, for I give that epithet to all philosophers.\n</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "04_several_tags_kept",
+    "group": "same",
+    "description": "said, label, quote and bibl all kept, with their attributes.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Σωκράτης\"><label>ΣΩ.</label> πάνυ γὰρ ἇνδρες οὗτοι παντοῖοι φανταζόμενοι <quote>ἐπιστρωφῶσι πόληας</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl>, καθορῶντες ὑψόθεν τὸν τῶν κάτω βίον.</said>",
+    "hypothesis": "<said who=\"#Σωκράτης\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit the cities,</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "05_two_milestones_kept",
+    "group": "same",
+    "description": "Both milestones kept, in the same order.",
+    "source": "Plato, Republic 327a-327b (tlg0059.tlg030.perseus-grc2 / perseus-eng2), shortened",
+    "greek": "<said who=\"#Σωκράτης\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>καλὴ μὲν οὖν μοι καὶ ἡ τῶν ἐπιχωρίων πομπὴ ἔδοξεν εἶναι, οὐ μέντοι ἧττον ἐφαίνετο πρέπειν ἣν οἱ Θρᾷκες ἔπεμπον. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>προσευξάμενοι δὲ καὶ θεωρήσαντες ἀπῇμεν πρὸς τὸ ἄστυ.</said>",
+    "hypothesis": "<said who=\"#Σωκράτης\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>I thought the procession of the citizens very fine, but it was no better than the show. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>After we had said our prayers we were starting for town.</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "06_reordered_names",
+    "group": "same",
+    "description": "Greek 'ὁ Χῖος Ἴων' becomes English 'Ion of Chios', so the person and ethnic names swap order. The last two ethnic names also swap. The same five name tags are all there.",
+    "source": "Athenaeus, Deipnosophists 1.3f (tlg0008.tlg001.perseus-grc4 / perseus-eng2), key attributes left out for readability",
+    "greek": "ὁ δὲ <name type=\"ethnic\">Χῖος</name> <name type=\"person\">Ἴων</name> τραγῳδίαν νικήσας <name type=\"place\">Ἀθήνησιν</name> ἑκάστῳ τῶν <name type=\"ethnic\">Ἀθηναίων</name> ἔδωκε <name type=\"ethnic\">Χίου</name> κεράμιον.",
+    "hypothesis": "And <name type=\"person\">Ion</name> of <name type=\"ethnic\">Chios</name>, having gained the tragic crown at <name type=\"place\">Athens</name>, gave a pot of <name type=\"ethnic\">Chian</name> wine to every <name type=\"ethnic\">Athenian</name> citizen.",
+    "note": "DECISION: the order of tags under the same parent is ignored, because English word order legitimately differs from Greek. With a strict order rule (as in Hashimoto et al.) this would be False.",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "07_milestones_swapped",
+    "group": "same",
+    "description": "Milestones 327a and 327b swapped. With order ignored (see case 06), the structure counts as the same.",
+    "source": "Plato, Republic 327a-327b (tlg0059.tlg030.perseus-grc2 / perseus-eng2), shortened",
+    "greek": "<said who=\"#Σωκράτης\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>καλὴ μὲν οὖν μοι καὶ ἡ τῶν ἐπιχωρίων πομπὴ ἔδοξεν εἶναι, οὐ μέντοι ἧττον ἐφαίνετο πρέπειν ἣν οἱ Θρᾷκες ἔπεμπον. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>προσευξάμενοι δὲ καὶ θεωρήσαντες ἀπῇμεν πρὸς τὸ ἄστυ.</said>",
+    "hypothesis": "<said who=\"#Σωκράτης\"><milestone unit=\"section\" resp=\"Stephanus\" n=\"327b\"/>I thought the procession of the citizens very fine, but it was no better than the show. <milestone unit=\"section\" resp=\"Stephanus\" n=\"327a\"/>After we had said our prayers we were starting for town.</said>",
+    "note": "DECISION: a consequence of ignoring order. The swap is a placement error, caught by tag accuracy (placement case 13) but not by XML matching.",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "08_tag_emptied",
+    "group": "same",
+    "description": "The label element is still there, but its text moved outside it. XML matching ignores text, so the structure is the same.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label></label>Theo. What matters do you mean?</said>",
+    "note": "The lost content is caught by tag accuracy (on the gold set) and Node-chrF (on real output).",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": true
+    }
+  },
+  {
+    "id": "09_tag_dropped",
+    "group": "different",
+    "description": "label removed (its text kept).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\">Theo. What matters do you mean?</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "10_milestone_dropped",
+    "group": "different",
+    "description": "Milestone 216c lost.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "11_milestone_duplicated",
+    "group": "different",
+    "description": "Milestone 216c appears twice.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/></said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "12_extra_tag",
+    "group": "different",
+    "description": "An extra placeName around 'Elea'. The Perseus English translation has this tag, but the Greek input does not.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καὶ τόνδε τινὰ ξένον ἄγομεν, τὸ μὲν γένος ἐξ Ἐλέας, ἑταῖρον δὲ τῶν ἀμφὶ Παρμενίδην καὶ Ζήνωνα.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "note": "This is why XML matching compares with the input, not with the Perseus English reference.",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "13_tag_renamed",
+    "group": "different",
+    "description": "quote renamed to q.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Σωκράτης\"><label>ΣΩ.</label> πάνυ γὰρ ἇνδρες οὗτοι παντοῖοι φανταζόμενοι <quote>ἐπιστρωφῶσι πόληας</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl>, καθορῶντες ὑψόθεν τὸν τῶν κάτω βίον.</said>",
+    "hypothesis": "<said who=\"#Σωκράτης\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <q>visit the cities,</q><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "14_attribute_value_translated",
+    "group": "different",
+    "description": "The value of the who attribute was translated (#Θεόδωρος to #Theodorus), as a translation system that translates the whole XML might do.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "note": "DECISION: attribute values must stay exactly as in the input. The Perseus English uses #Theodorus, but our tool is meant to copy attributes unchanged.",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "15_attribute_dropped",
+    "group": "different",
+    "description": "The resp attribute of the milestone is lost.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καί μοι δοκεῖ θεὸς μὲν ἁνὴρ οὐδαμῶς εἶναι, θεῖος μήν· πάντας <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/> γὰρ ἐγὼ τοὺς φιλοσόφους τοιούτους προσαγορεύω.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "16_nesting_changed",
+    "group": "different",
+    "description": "label moved outside said: same tags, different nesting.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<label>Theo.</label><said who=\"#Θεόδωρος\"> What matters do you mean?</said>",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "17_all_tags_removed",
+    "group": "different",
+    "description": "Plain text with no tags, as from a translation system that ignores markup. Still valid XML (plain text is), but every tag is lost.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "Theo. What matters do you mean?",
+    "expected": {
+      "valid_xml": true,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "18_crossing_tags",
+    "group": "invalid",
+    "description": "Tags cross: </said> comes before </label>.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo. What matters do you mean?</said></label>",
+    "expected": {
+      "valid_xml": false,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "19_unclosed_tag",
+    "group": "invalid",
+    "description": "said is never closed.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> τὰ ποῖα δή;</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> What matters do you mean?",
+    "expected": {
+      "valid_xml": false,
+      "same_structure": false
+    }
+  },
+  {
+    "id": "20_unescaped_ampersand",
+    "group": "invalid",
+    "description": "A bare & in the text. In XML it must be written &amp;, so this does not parse. A translation system can easily produce it.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-grc2 / perseus-eng2)",
+    "greek": "<said who=\"#Θεόδωρος\"><label>ΘΕΟ.</label> καὶ τόνδε τινὰ ξένον ἄγομεν, τὸ μὲν γένος ἐξ Ἐλέας, ἑταῖρον δὲ τῶν ἀμφὶ Παρμενίδην καὶ Ζήνωνα.</said>",
+    "hypothesis": "<said who=\"#Θεόδωρος\"><label>Theo.</label> We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides & Zeno.</said>",
+    "expected": {
+      "valid_xml": false,
+      "same_structure": false
+    }
+  }
+]
