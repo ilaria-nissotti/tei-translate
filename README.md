@@ -129,16 +129,17 @@ The metric tests are in `tests/test_metrics.py`. Each hand-made case in `tests/f
 - `cases.json`: the tag-placement metrics from Zenkel et al. (2021), tag accuracy and average distance, plus the lists of misplaced, missing and extra tags and the score per tag type.
 - `structure_cases.json`: the structure metrics from Hashimoto et al. (2019), XML accuracy (is the output valid XML?) and XML matching (does it have exactly the same tags as the input?).
 - `translation_cases.json`: removing tags (also from broken XML), and chrF and BLEU: several references are handled correctly, and the scores equal sacrebleu's on the plain text.
+- `node_chrf_cases.json`: Node-chrF from Song et al. (2025): which elements are paired, with which texts, and the resulting scores.
 
 A failing test shows the case's description and which values differ from the expected ones.
 
 ## Using the metrics in your own code
-The metrics are in `src/tei_translate/metrics/`, one function per metric: tag placement and structure in `scores.py`, translation quality (chrF, BLEU) in `translation_scores.py`. Once the package is installed (see Installation), import them from any script, in any folder:
+The metrics are in `src/tei_translate/metrics/`, one function per metric: tag placement and structure in `scores.py`, translation quality (chrF, BLEU, Node-chrF) in `translation_scores.py`. Once the package is installed (see Installation), import them from any script, in any folder:
 
 ```python
 from tei_translate.metrics.scores import tag_accuracy, average_distance, score
 from tei_translate.metrics.scores import is_valid_xml, xml_accuracy, same_structure, xml_matching
-from tei_translate.metrics.translation_scores import chrf, bleu
+from tei_translate.metrics.translation_scores import chrf, bleu, node_chrf, node_chrf_corpus
 ```
 
 If you get `ModuleNotFoundError: No module named 'tei_translate'`, the package is not installed in the Python you are using: activate the virtual environment, or run `pip install -e .` again.
@@ -156,6 +157,8 @@ All inputs are XML fragments as strings, e.g. `'<said who="#Σωκράτης"><l
 | `xml_matching(sources, hypotheses)` | share of outputs with the same tags as their input (0–1) | two lists in the same order |
 | `chrf(references, hypotheses)` | chrF of the whole test set (0–100), tags removed | two lists in the same order; each reference can be one string or a list of several translations |
 | `bleu(references, hypotheses)` | BLEU of the whole test set (0–100), tags removed | as for `chrf` |
+| `node_chrf(reference, hypothesis)` | are the right words inside each tag? chrF per element, averaged (0–100) | one passage; the reference must have the same tags as the output should have |
+| `node_chrf_corpus(references, hypotheses)` | average `node_chrf` over passages (0–100) | two lists in the same order, one reference per passage |
 | `strip_tags(fragment)` (in `tei_translate.metrics.fragments`) | the text without tags, whitespace normalised | one fragment |
 
 `chrf` and `bleu` score the **whole test set at once**: averaging per-passage scores would give a different, wrong number. With several references, chrF uses the best-matching one for each passage; BLEU lets words match in any of them. Outputs that are not valid XML are still scored: everything of the form `<...>` is removed first, and the broken XML shows up in `xml_accuracy` instead.

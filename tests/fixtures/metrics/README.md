@@ -2,10 +2,11 @@
 
 Small hand-made cases for checking that the metrics are computed correctly, before we use them on real output. A metric implementation should reproduce the expected values for every case. `tests/test_metrics.py` checks this for the metrics in `src/tei_translate/metrics/`, with one test per case: run `pytest` from the repository root (after `pip install -e .[dev]`).
 
-There are three sets of cases:
+There are four sets of cases:
 - `cases.json`: **tag placement** (tag accuracy, average distance). Described in the first part of this file.
 - `structure_cases.json`: **structure** (XML accuracy, XML matching). Described in [Structure cases](#structure-cases-structure_casesjson) below.
 - `translation_cases.json`: **removing tags, chrF and BLEU**. Described in [Translation cases](#translation-cases-translation_casesjson) below.
+- `node_chrf_cases.json`: **Node-chrF** (the right words inside each tag). Described in [Node-chrF cases](#node-chrf-cases-node_chrf_casesjson) below.
 
 # Tag-placement cases (`cases.json`)
 
@@ -200,3 +201,51 @@ Cases for removing tags (`strip_tags`) and for the translation metrics chrF and 
 
 ## Open question: editors' notes
 `<note>` elements (the editors' notes, mostly in Latin) are copied unchanged into our output, but the Perseus English files have their own, different notes. If whole passages with notes are scored, the notes would count as "translation" in chrF and BLEU. Before scoring real output, decide whether to remove `<note>` elements (with their content) first.
+
+# Node-chrF cases (`node_chrf_cases.json`)
+
+Cases for Node-chrF (`node_chrf` in `src/tei_translate/metrics/translation_scores.py`), based on Song et al. (2025), "Structured Document Translation via Format Reinforcement Learning". It checks that the **right words are inside each tag**, and, unlike tag accuracy, it works when the output's wording differs from the reference.
+
+The passages are the ones from `cases.json` (Plato's *Sophist*), so many cases correspond to a tag-placement case, plus Athenaeus 1.3f for names in a different order.
+
+## The metric
+1. Every element of the output is paired with an element of the reference (rules below).
+2. Each pair scores the **chrF of the two elements' own texts** (0–100).
+3. Each element without a partner (a lost, extra or renamed tag) scores **0**.
+4. Node-chrF is the **average** of these scores.
+
+```
+node_chrf = (sum of chrF over pairs + 0 for each unpaired element) / (number of pairs + number of unpaired)
+```
+
+`node_chrf(reference, hypothesis)` scores one passage; `node_chrf_corpus(references, hypotheses)` averages over passages.
+
+**The reference must have the same tags as the output should have.** The Perseus translations usually do not have our tags, so Node-chrF needs a hand-tagged reference (the gold set).
+
+## Rules
+These are choices. Change them if the team decides otherwise, and update the expected values.
+
+1. **Pairing by tag and attributes.** Only elements with the same tag name and attribute values can be paired. Song et al. pair elements by position instead, but then one extra or lost tag shifts every element after it, and they all score 0 (case 09).
+2. **Best match first.** Among elements with the same tag and attributes, the pair whose texts match best is taken first, then the next best, and so on. So when the English word order differs, each name still pairs with the name it matches (case 07: "the Chian Ion" for "Ion of Chios"). This is close to the "Optimal Node-chrF" of Song et al. The cost: a tag around the wrong word gets credit if that word matches another element of the same kind.
+3. **An element's own text** is its text without the text of its children: in `<said><label>Theo.</label> What matters?</said>`, `said` has "What matters?" and `label` has "Theo.". Text outside any tag belongs to the fragment itself, which is also compared (case 12).
+4. **Empty elements.** A pair of two empty elements (e.g. two `<milestone/>`) is left out: there is nothing to compare (case 13). An empty element without a partner still scores 0 (case 11).
+5. **Not valid XML** scores 0 (case 16). **Nothing to compare** (no text and no unpaired element) gives `None`, and the passage is left out of `node_chrf_corpus` (case 17).
+6. **What Node-chrF does not see:** where an empty element sits (case 14, measured by tag accuracy) and how elements are nested (case 15, measured by XML matching).
+
+## How the cases are checked
+The chrF values themselves come from sacrebleu and are not worked out by hand. Each case lists instead, written by hand:
+- `pairs`: the text pairs that should be compared, as `[reference text, output text]`;
+- `unpaired`: how many elements should be left without a partner;
+- `node_chrf` (only where it follows directly): e.g. 100 when every pair is identical, 66.67 when one of three elements is lost.
+
+The tests check that `node_chrf` pairs exactly these texts, that its score is the average of sacrebleu's chrF on them (with 0 for each unpaired element), and the known scores.
+
+## Groups
+| Group | Cases | What they test |
+|---|---|---|
+| `all_paired` | 01–07 | every element has a partner: identical, different wording, text moved out of a tag, span too wide or too short, wrong word, names in a different order |
+| `unpaired` | 08–12 | a tag lost, an extra tag (also one with the same attributes before the right one), a lost milestone, all tags removed |
+| `not_seen` | 13–15 | a kept milestone, a moved milestone and changed nesting: all 100, by design |
+| `special` | 16–17 | broken XML (0) and nothing to compare (`None`) |
+
+The scores, for orientation: identical 100; one word wrong in the said text 89.9 (case 02); span one word too wide 88.9 (04); tag around the wrong word 65.7 (05); all tags removed 0 (12).

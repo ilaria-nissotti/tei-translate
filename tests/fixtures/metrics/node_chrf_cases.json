@@ -1,0 +1,385 @@
+[
+  {
+    "id": "01_identical",
+    "group": "all_paired",
+    "description": "Output identical to the reference: every element's text matches.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "expected": {
+      "pairs": [
+        [
+          "What matters do you mean?",
+          "What matters do you mean?"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0,
+      "node_chrf": 100.0
+    }
+  },
+  {
+    "id": "02_wording_differs",
+    "group": "all_paired",
+    "description": "Same tags, slightly different wording in the said text.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> Which matters do you mean?</said>",
+    "expected": {
+      "pairs": [
+        [
+          "What matters do you mean?",
+          "Which matters do you mean?"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0
+    }
+  },
+  {
+    "id": "03_text_moved_out_of_label",
+    "group": "all_paired",
+    "description": "The label is empty and its text moved outside it, into said: label scores 0, said is diluted.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label></label>Theo. What matters do you mean?</said>",
+    "expected": {
+      "pairs": [
+        [
+          "What matters do you mean?",
+          "Theo. What matters do you mean?"
+        ],
+        [
+          "Theo.",
+          ""
+        ]
+      ],
+      "unpaired": 0
+    }
+  },
+  {
+    "id": "04_span_too_wide",
+    "group": "all_paired",
+    "description": "placeName wraps 'from Elea' instead of 'Elea' (tag-placement case 08).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger <placeName key=\"perseus,Elea\">from Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "We bring also this man with us; he is a stranger from , one of the followers of Parmenides and Zeno.",
+          "We bring also this man with us; he is a stranger , one of the followers of Parmenides and Zeno."
+        ],
+        [
+          "Elea",
+          "from Elea"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0
+    }
+  },
+  {
+    "id": "05_wrong_word",
+    "group": "all_paired",
+    "description": "placeName around the wrong word, 'Zeno' instead of 'Elea' (tag-placement case 10).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and <placeName key=\"perseus,Elea\">Zeno</placeName>.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "We bring also this man with us; he is a stranger from , one of the followers of Parmenides and Zeno.",
+          "We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and ."
+        ],
+        [
+          "Elea",
+          "Zeno"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0
+    }
+  },
+  {
+    "id": "06_quote_too_short",
+    "group": "all_paired",
+    "description": "quote wraps 'visit' instead of 'visit the cities,' (tag-placement case 09).",
+    "source": "Plato, Sophist 216c (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit the cities,</quote><bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "hypothesis": "<said who=\"#Socrates\"><label>Soc.</label> These men appear disguised in all sorts of shapes, and <quote>visit</quote> the cities,<bibl n=\"Hom. Od. 17.485\">Hom. Od. 17.485-7</bibl> beholding from above the life of those below.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "These men appear disguised in all sorts of shapes, and beholding from above the life of those below.",
+          "These men appear disguised in all sorts of shapes, and the cities, beholding from above the life of those below."
+        ],
+        [
+          "visit the cities,",
+          "visit"
+        ],
+        [
+          "Hom. Od. 17.485-7",
+          "Hom. Od. 17.485-7"
+        ],
+        [
+          "Soc.",
+          "Soc."
+        ]
+      ],
+      "unpaired": 0
+    }
+  },
+  {
+    "id": "07_reordered_same_tags",
+    "group": "all_paired",
+    "description": "Three ethnic names in a different order than in the reference ('the Chian Ion' for 'Ion of Chios'). Best-match pairing gives Chian-Chian and Athenian-Athenian; only Chios-Chian differs.",
+    "source": "Athenaeus, Deipnosophists 1.3f (tlg0008.tlg001.perseus-eng2), tags added by hand; the hypothesis is hand-written, as a stand-in for machine translation",
+    "reference": "And <name type=\"person\">Ion</name> of <name type=\"ethnic\">Chios</name>, having gained the tragic crown at <name type=\"place\">Athens</name>, gave a pot of <name type=\"ethnic\">Chian</name> wine to every <name type=\"ethnic\">Athenian</name> citizen.",
+    "hypothesis": "And the <name type=\"ethnic\">Chian</name> <name type=\"person\">Ion</name>, having won with a tragedy at <name type=\"place\">Athens</name>, gave every <name type=\"ethnic\">Athenian</name> a jar of <name type=\"ethnic\">Chian</name> wine.",
+    "note": "DECISION: elements with the same tag and attributes are paired best match first. Paired in order, Chian and Athenian would be compared with the wrong names and score close to 0.",
+    "expected": {
+      "pairs": [
+        [
+          "Ion",
+          "Ion"
+        ],
+        [
+          "Chios",
+          "Chian"
+        ],
+        [
+          "Chian",
+          "Chian"
+        ],
+        [
+          "Athenian",
+          "Athenian"
+        ],
+        [
+          "Athens",
+          "Athens"
+        ],
+        [
+          "And of , having gained the tragic crown at , gave a pot of wine to every citizen.",
+          "And the , having won with a tragedy at , gave every a jar of wine."
+        ]
+      ],
+      "unpaired": 0
+    }
+  },
+  {
+    "id": "08_tag_missing",
+    "group": "unpaired",
+    "description": "placeName lost (tag-placement case 17): it is unpaired and scores 0.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "We bring also this man with us; he is a stranger from , one of the followers of Parmenides and Zeno.",
+          "We bring also this man with us; he is a stranger from Elea, one of the followers of Parmenides and Zeno."
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 1
+    }
+  },
+  {
+    "id": "09_extra_tag",
+    "group": "unpaired",
+    "description": "An extra persName around 'Parmenides': unpaired, scores 0. The rest still pairs correctly.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of <persName>Parmenides</persName> and Zeno.</said>",
+    "note": "Pairing by position (as in Song et al.) would shift every element after the extra one.",
+    "expected": {
+      "pairs": [
+        [
+          "We bring also this man with us; he is a stranger from , one of the followers of Parmenides and Zeno.",
+          "We bring also this man with us; he is a stranger from , one of the followers of and Zeno."
+        ],
+        [
+          "Elea",
+          "Elea"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 1
+    }
+  },
+  {
+    "id": "10_extra_same_tag_before",
+    "group": "unpaired",
+    "description": "An extra placeName (same attributes) before the right one. Best match pairs Elea with Elea; the extra 'stranger' is unpaired.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a stranger from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> We bring also this man with us; he is a <placeName key=\"perseus,Elea\">stranger</placeName> from <placeName key=\"perseus,Elea\">Elea</placeName>, one of the followers of Parmenides and Zeno.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "We bring also this man with us; he is a stranger from , one of the followers of Parmenides and Zeno.",
+          "We bring also this man with us; he is a from , one of the followers of Parmenides and Zeno."
+        ],
+        [
+          "Elea",
+          "Elea"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 1
+    }
+  },
+  {
+    "id": "11_milestone_lost",
+    "group": "unpaired",
+    "description": "Milestone lost (tag-placement case 18). It has no text, but as an unpaired element it still scores 0.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+          "And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers."
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 1,
+      "node_chrf": 66.6667
+    }
+  },
+  {
+    "id": "12_all_tags_removed",
+    "group": "unpaired",
+    "description": "Plain-text output: said and label are unpaired, and all the text belongs to the wrapper, whose reference text is empty.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "Theo. What matters do you mean?",
+    "expected": {
+      "pairs": [
+        [
+          "",
+          "Theo. What matters do you mean?"
+        ]
+      ],
+      "unpaired": 2,
+      "node_chrf": 0.0
+    }
+  },
+  {
+    "id": "13_milestone_kept",
+    "group": "not_seen",
+    "description": "Identical, with a milestone: the two empty milestones are left out (nothing to compare).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "expected": {
+      "pairs": [
+        [
+          "And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+          "And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers."
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0,
+      "node_chrf": 100.0
+    }
+  },
+  {
+    "id": "14_milestone_moved",
+    "group": "not_seen",
+    "description": "Milestone moved to the end (tag-placement case 12). Node-chrF does not see this: the milestone has no text, and the said text is unchanged.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, <milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>I certainly do think he is divine, for I give that epithet to all philosophers.</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo.</label> And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/></said>",
+    "note": "Where an empty element sits is measured by tag accuracy and average distance.",
+    "expected": {
+      "pairs": [
+        [
+          "And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers.",
+          "And though I do not think he is a god at all, I certainly do think he is divine, for I give that epithet to all philosophers."
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0,
+      "node_chrf": 100.0
+    }
+  },
+  {
+    "id": "15_nesting_changed",
+    "group": "not_seen",
+    "description": "label moved outside said (tag-placement case 14). Elements are paired by tag and attributes, not by where they are nested, so Node-chrF does not see this.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<label>Theo.</label><said who=\"#Theodorus\"> What matters do you mean?</said>",
+    "note": "A change of nesting is caught by XML matching.",
+    "expected": {
+      "pairs": [
+        [
+          "What matters do you mean?",
+          "What matters do you mean?"
+        ],
+        [
+          "Theo.",
+          "Theo."
+        ]
+      ],
+      "unpaired": 0,
+      "node_chrf": 100.0
+    }
+  },
+  {
+    "id": "16_not_valid_xml",
+    "group": "special",
+    "description": "Crossing tags: not valid XML, so no elements can be paired. Node-chrF is 0.",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<said who=\"#Theodorus\"><label>Theo.</label> What matters do you mean?</said>",
+    "hypothesis": "<said who=\"#Theodorus\"><label>Theo. What matters do you mean?</said></label>",
+    "expected": {
+      "node_chrf": 0.0
+    }
+  },
+  {
+    "id": "17_nothing_to_compare",
+    "group": "special",
+    "description": "Only an empty milestone in both: nothing to compare, so the score is None (left out of the corpus average).",
+    "source": "Plato, Sophist 216a-216d (tlg0059.tlg007.perseus-eng2), tags as in cases.json",
+    "reference": "<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>",
+    "hypothesis": "<milestone unit=\"section\" resp=\"Stephanus\" n=\"216c\"/>",
+    "expected": {
+      "node_chrf": null
+    }
+  }
+]

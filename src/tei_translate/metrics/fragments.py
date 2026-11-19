@@ -232,3 +232,30 @@ def tag_signature(elem):
     """
     attributes = " ".join(f'{name}="{value}"' for name, value in sorted(elem.attrib.items()))
     return f"{elem.tag} {attributes}" if attributes else elem.tag
+
+
+# ---------------------------------------------------------------------------
+# Elements and their own text (for Node-chrF)
+# ---------------------------------------------------------------------------
+
+def own_text(elem):
+    """The text that belongs to an element itself, not to its child elements.
+
+    That is the text before its first child plus the text after each child
+    (the child's "tail"), joined and with whitespace normalised. Text inside
+    a child belongs to the child.
+
+    Example: in <said><label>Theo.</label> What matters?</said>
+        own_text(said) is 'What matters?' and own_text(label) is 'Theo.'
+    """
+    pieces = [elem.text or ""] + [child.tail or "" for child in elem]
+    return " ".join("".join(pieces).split())
+
+
+def all_elements(root):
+    """Every element of a parsed fragment in document order, including the <root> wrapper.
+
+    The wrapper is included because text outside any tag (e.g. 'Then ' in
+    'Then <name>Socrates</name> said.') is its own text.
+    """
+    return list(root.iter())
