@@ -8,6 +8,7 @@ The script scores every case in tests/fixtures/metrics/ and prints PASS or FAIL
 for each one:
 - cases.json: tag placement (tag accuracy, average distance)
 - structure_cases.json: structure (XML accuracy, XML matching)
+- translation_cases.json: removing tags, chrF and BLEU
 
 For a failed case it explains, in words, how the result differs from the
 expected one. The cases are described in tests/fixtures/metrics/README.md.
@@ -18,12 +19,16 @@ from pathlib import Path
 import json
 import xml.etree.ElementTree as ET
 
-from tei_translate.metrics.fragments import read_fragment, parse_fragment, tag_signature
+from sacrebleu.metrics import BLEU, CHRF
+
+from tei_translate.metrics.fragments import read_fragment, parse_fragment, tag_signature, strip_tags
 from tei_translate.metrics.scores import score, is_valid_xml, xml_accuracy, same_structure, xml_matching
+from tei_translate.metrics.translation_scores import chrf, bleu, reference_streams
 
 FIXTURES = Path(__file__).resolve().parent.parent / "tests" / "fixtures" / "metrics"
 cases_file = FIXTURES / "cases.json"
 structure_cases_file = FIXTURES / "structure_cases.json"
+translation_cases_file = FIXTURES / "translation_cases.json"
 
 
 def as_sort_key(item):
@@ -281,6 +286,118 @@ def check_structure_cases():
     return total - failed, total
 
 
+# ---------------------------------------------------------------------------
+# Translation cases (strip_tags, chrF, BLEU)
+# ---------------------------------------------------------------------------
+
+def report(passed, name, details=""):
+    """Print PASS or FAIL for a named check (with details on failure). Returns 1 if it failed."""
+    if passed:
+        print(f"PASS  {name}")
+        return 0
+    print(f"\nFAIL  {name}\n      {details}\n")
+    return 1
+
+
+def raises_value_error(function, *arguments):
+    """True if calling function(*arguments) raises a ValueError."""
+    try:
+        function(*arguments)
+    except ValueError:
+        return True
+    return False
+
+
+def padded_reference_texts(cases):
+    """The cases' plain reference texts in sacrebleu's layout, padded with None.
+
+    Written separately from translation_scores.reference_streams, so the
+    check does not just repeat the code it is checking.
+    """
+    most = max(len(case["reference_texts"]) for case in cases)
+    streams = [[] for _ in range(most)]
+    for case in cases:
+        texts = case["reference_texts"] + [None] * (most - len(case["reference_texts"]))
+        for k in range(most):
+            streams[k].append(texts[k])
+    return streams
+
+
+def check_translation_cases():
+    """Check strip_tags, chrf and bleu on translation_cases.json. Returns (passed, total).
+
+    chrF and BLEU themselves come from sacrebleu and are not recomputed by
+    hand. What is checked is our part: that tags are removed correctly
+    (also from broken XML), that several references are passed correctly,
+    and that the result equals sacrebleu on the hand-written plain texts.
+    """
+    cases = json.loads(translation_cases_file.read_text(encoding="utf-8"))
+    failed = 0
+    total = 0
+
+    # 1. strip_tags gives the hand-written plain text, for every hypothesis and reference.
+    for case in cases:
+        total += 1
+        got = [strip_tags(ref) for ref in case["references"]] + [strip_tags(case["hypothesis"])]
+        want = case["reference_texts"] + [case["hypothesis_text"]]
+        wrong = [(w, g) for w, g in zip(want, got) if w != g]
+        details = "; ".join(f'expected "{w}", got "{g}"' for w, g in wrong)
+        failed += report(not wrong, f"strip_tags  {case['id']}", details)
+
+    # 2. The layout for sacrebleu, on a small hand-written example.
+    total += 1
+    got = reference_streams([["A1", "A2"], "B1"])
+    want = [["A1", "B1"], ["A2", None]]
+    failed += report(got == want, "reference_streams  [['A1', 'A2'], 'B1'] -> [['A1', 'B1'], ['A2', None]]",
+                     f"got {got}")
+
+    # 3. chrF and BLEU on the XML equal sacrebleu on the plain texts.
+    # A passage with one reference is passed as a string, with several as a list,
+    # so both forms are checked.
+    references = [case["references"][0] if len(case["references"]) == 1 else case["references"]
+                  for case in cases]
+    hypotheses = [case["hypothesis"] for case in cases]
+    hyp_texts = [case["hypothesis_text"] for case in cases]
+    ref_streams = padded_reference_texts(cases)
+    for name, function, metric in [("chrf", chrf, CHRF()), ("bleu", bleu, BLEU())]:
+        total += 1
+        got = function(references, hypotheses)
+        want = metric.corpus_score(hyp_texts, ref_streams).score
+        failed += report(same_value(got, want),
+                         f"{name} over all cases = {got:.2f} (same as sacrebleu on the plain texts)",
+                         f"expected {want:.4f}, got {got:.4f}")
+
+    # 4. Several references (case 07), compared with each reference on its own.
+    # chrF scores each passage against its best-matching reference, so it must
+    # equal the best single-reference score. BLEU lets n-grams match in any
+    # reference, so it must be at least as high as the best single one.
+    thuc = next(case for case in cases if len(case["references"]) > 1)
+    hyp = [thuc["hypothesis"]]
+    chrf_all = chrf([thuc["references"]], hyp)
+    chrf_best = max(chrf([ref], hyp) for ref in thuc["references"])
+    bleu_all = bleu([thuc["references"]], hyp)
+    bleu_best = max(bleu([ref], hyp) for ref in thuc["references"])
+    total += 2
+    failed += report(same_value(chrf_all, chrf_best),
+                     f"chrf with 3 references ({chrf_all:.2f}) = best single reference ({chrf_best:.2f})",
+                     "chrF should use the best-matching reference")
+    failed += report(bleu_all >= bleu_best,
+                     f"bleu with 3 references ({bleu_all:.2f}) >= best single reference ({bleu_best:.2f})",
+                     "more references should never lower BLEU")
+
+    # 5. Wrong input is refused, and an empty test set gives None.
+    checks = [
+        (raises_value_error(chrf, ["a reference"], []), "different list lengths raise an error"),
+        (raises_value_error(chrf, [[]], ["a hypothesis"]), "a passage without reference raises an error"),
+        (chrf([], []) is None and bleu([], []) is None, "an empty test set gives None"),
+    ]
+    for passed, name in checks:
+        total += 1
+        failed += report(passed, name)
+
+    return total - failed, total
+
+
 def main():
     print("Tag placement (cases.json)")
     placement_passed, placement_total = check_placement_cases()
@@ -290,8 +407,12 @@ def main():
     structure_passed, structure_total = check_structure_cases()
     print(f"\n{structure_passed} of {structure_total} checks passed.")
 
-    passed = placement_passed + structure_passed
-    total = placement_total + structure_total
+    print("\nTranslation (translation_cases.json)")
+    translation_passed, translation_total = check_translation_cases()
+    print(f"\n{translation_passed} of {translation_total} checks passed.")
+
+    passed = placement_passed + structure_passed + translation_passed
+    total = placement_total + structure_total + translation_total
     print(f"\nAll together: {passed} of {total} passed.")
 
 

@@ -10,6 +10,8 @@ A tag's position is the number of text characters before it. The rules
 tests/fixtures/metrics/README.md, section "The metrics".
 """
 
+import html
+import re
 import xml.etree.ElementTree as ET
 
 
@@ -102,6 +104,29 @@ def read_fragment(fragment):
     # A tag after a removed trailing space sits at the end of the text.
     tags = [(label, name, min(pos, len(text))) for label, name, pos in tags]
     return text, tags
+
+
+def strip_tags(fragment):
+    """The plain text of an XML fragment: all tags removed, whitespace normalised.
+
+    Used before computing chrF, BLEU and COMET, which score only the text.
+
+    - Valid XML: the text from read_fragment, so it is exactly the text the
+      tag-placement metrics use. Entities are decoded (&amp; becomes &).
+    - Not valid XML: best effort. Everything of the form <...> is removed
+      with a regular expression, entities are decoded, and whitespace is
+      normalised the same way. The translation can still be scored; that
+      the XML is broken is reported by xml_accuracy instead.
+
+    Example: '<label>Theo.</label>  We bring <placeName>Elea</placeName>' gives
+    'Theo. We bring Elea', and so does the broken '<label>Theo. We bring</placeName> Elea'.
+    """
+    result = read_fragment(fragment)
+    if result is not None:
+        text, tags = result
+        return text
+    without_tags = re.sub(r"<[^>]*>", "", fragment)
+    return " ".join(html.unescape(without_tags).split())
 
 
 # ---------------------------------------------------------------------------
