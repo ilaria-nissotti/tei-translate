@@ -1,0 +1,945 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title>Ichneutae</title>
+            <author>Sophocles</author>
+            <editor>Arthur S. Hunt</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:Tufts">Tufts University</funder>
+            <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+         </titleStmt>
+         <extent>About 35Kb</extent>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+             <availability>
+                 <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                 <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+             </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Sophocles</author>
+                  <title>Oxyrhynchus Papyri</title>
+                  <title type="sub">Part 9, Number 1174</title>
+                  <editor>Arthur S. Hunt</editor>
+                  <imprint>
+                     <pubPlace>London</pubPlace>
+                     <publisher>Egypt Exploration Fund</publisher>
+                     <date>1912</date>
+                  </imprint>
+                  <biblScope unit="volume">9</biblScope>
+               </monogr>
+               <ref target="https://archive.org/details/pt9oxyrhynchuspa00grenuoft/page/36/mode/2up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+               <p>This pointer pattern extracts line</p>
+            </cRefPattern>
+         </refsDecl>
+         <!--<refsDecl n="CTS">
+          <cRefPattern n="card" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+             <p>This pointer pattern extracts cards</p>
+            </cRefPattern>
+         </refsDecl>-->
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="scene" delim=":" match="div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+        </citeStructure>
+      </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']" use="@n" n="chunk"/>
+                </citeStructure>
+            </refsDecl>
+</encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
+         <change when="2017-02-16" who="Lisa Cerrato">review of EpiDoc and CTS compliance; removed English from notes; entities, etc.</change>
+         <change when="2016-01-15" who="TDBuck">p4 to p5</change>
+      
+<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+
+<change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+
+<change when="2010-12-24" who="gcrane">base files for SDL</change>
+
+<change when="2009-12-08" who="rsingh04">moved more xml files around based on copyright status</change>
+
+<change when="2005-07-25" who="packel">Converted to XML</change>
+
+<change when="2004-04-21" who="mimno">added card 1s</change>
+
+<change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+
+<change when="2001-03-19" who="amahoney">mark one supplement as "unclear" to demonstrate the new rule in the spec;
+I think this particular one is a true supplement rather than an unclear letter, but it really doesn't matter a whole lot for this purpose or in this text</change>
+
+<change when="2001-01-02" who="amahoney">move credits for editors to filedesc proper so they'll show in pulldown
+</change>
+<change when="2000-12-29" who="amahoney">the translation is ready to go</change>
+
+<change when="2000-12-04" who="amahoney">new text</change>
+<change when="2000-10-29" who="AEM">Initial text, based roughly on Oxyrhynchus Papyri IX</change>
+      </revisionDesc>
+   </teiHeader>
+   
+   <text xml:lang="en">
+      <body xml:base="urn:cts:greekLit:tlg0011.tlg008.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0011.tlg008.perseus-grc2" type="edition" xml:lang="en">
+         <milestone unit="card" n="1"/>
+         <milestone n="1" unit="column"/>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="1"> ]kio[</l>
+            <l n="2"> ]then[</l>
+            <l n="3"> ]I <unclear>rushed</unclear>[</l>
+            <l n="5"> ]g[<gap reason="lost"/>]l[</l>
+            <l n="6"> ]o[</l>
+            <l n="7">[To all gods and to all] mortals I proclaim[</l>
+            <l n="8">[and <gap reason="lost"/> I] promise to pay [gifts</l>
+            <l n="9">[   from] far away;</l>
+            <l n="10">
+               <gap reason="lost"/>on[ <gap reason="lost"/>gall]ing to the mind</l>
+            <l n="11">
+               <gap reason="lost"/>ta[ <gap reason="lost"/> c]ows for milking,</l>
+            <l n="12">[cal]ves [and the herd of young] heifers,</l>
+            <l n="13">[al]l g[one, and in vai]n I search for tracks</l>
+            <l n="14">[of them going secret]ly [far from the] manger of the cattle-stall</l>
+            <l n="15">[unsee]n by tricks[; as] I would not have thought</l>
+            <l n="16">[that either] any of the gods [or of short-li]ved mortals</l>
+            <l n="17">[would d]o this dee[d, and fall so] far into daring.</l>
+            <l n="18">[So] then, since [I lea]rned [this], struck with dismay</l>
+            <l n="19">[I g]o, I search, holding a full proclamation</l>
+            <l n="20">[to god]s and mortals, so that no one is ignorant of this.</l>
+            <l n="21">[For in the purs]uit I hunt like a madman;</l>
+            <l n="22">[and] I visited the tribes [of the Thrac]ians, [of the] whole host[,</l>
+            <l n="23">[but n]o one[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 21 letters</note>]</l>
+            <l n="24">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">four lines missing here</note>
+            </l>
+            <l n="25">
+               <gap reason="lost"/>s<gap reason="lost"/>
+            </l>
+            <l n="26">
+               <gap reason="lost"/>l<gap reason="lost"/>kio<gap reason="lost"/>
+            </l>
+            <l n="27">
+               <gap reason="lost"/>is<gap reason="lost"/>[and] then</l>
+            <l n="30">[and to t]he [fruitful plains] of the Thessalians I [r]ushed,</l>
+            <l n="31">and the [ci]ties of the Boeotian l[and, rich in possessions],</l>
+            <l n="32">[the]n[</l>
+            <l n="33">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">one line missing here</note>
+               <milestone n="2" unit="column"/>
+            </l>
+            <l n="34">
+               <gap reason="lost"/>s Dorian[</l>
+            <l n="35">[<gap reason="lost"/>neigh]bouring, from [there</l>
+            <l n="36">[<gap reason="lost"/> I c]ome togeth[]e[</l>
+            <l n="37">[<gap reason="lost"/> of Cyl]lene, hard [to climb,</l>
+            <l n="38">[<gap reason="lost"/> ]and the land, and into the wo[ods:</l>
+            <l n="39">[so that, whether a shep]herd or [one] of the countryfo[lk or</l>
+            <l n="40">[of the charcoal-burn]ers is pre[sent] within call,</l>
+            <l n="41">[or one of the nymph-bo]rn [race] of mountai[n</l>
+            <l n="42">[beast]s, I proclaim [this] to all:</l>
+            <l n="43">[whoever catches the th]ief of Paean's [cattle],</l>
+            <l n="44">[for him] the reward [laid down] is ready at once.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="45">[O Phoebus,] when I heard your voice</l>
+            <l n="46">[as you sho]uted with loud proclamation[s],</l>
+            <l n="47">[with] the haste that an old man has, [learning] this,</l>
+            <l n="48">[to y]ou, Phoebus Apollo, a dear bene[factor</l>
+            <l n="49">wishing to become, I rushed on this c[o]u[rse,</l>
+            <l n="50">if somehow I might hunt down this thing for you.</l>
+            <l n="51">Th[e]n the messen[ge]r [will c]rown me with the g[o]ld that is laid down,</l>
+            <l n="52">most [of all] on<gap reason="lost"/> ais[i b]efore s<gap reason="lost"/>n,</l>
+            <l n="53">and [m]y children with eyes <gap reason="lost"/>aue<gap reason="lost"/>ba<gap reason="lost"/>
+            </l>
+            <l n="54">[<gap reason="lost"/> im] [would], if indeed you fulfil what you say.</l>
+         </sp>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="55">[<gap reason="lost"/> I will]do so; only con[firm th]is.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="56">[I will bring back] the [cattle for y]ou; but you confirm [the gif]t.</l>
+         </sp>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="57">[He shall have it, whoever] finds [them], whoever he i[s]; and it is re[ad]y.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="58">[<gap reason="lost"/>]is <gap reason="lost"/> e<gap reason="lost"/>seek<gap reason="lost"/>[</l>
+         </sp>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="59">[<gap reason="lost"/>]eso[
+<milestone n="3" unit="column"/>
+            </l>
+            <l n="60">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">one line missing here</note>
+            </l>
+         </sp>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="61">
+               <gap reason="lost"/>a[ <gap reason="lost"/>]</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="62">What is this? Wh[ere<gap reason="lost"/> are you sa]ying?</l>
+         </sp>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="63">Free [will be] you [and all the race of your childr]en.
+
+            </l>
+         </sp><milestone unit="card" n="64"/>
+         <sp>
+            <speaker>Chorus of Satyrs</speaker>
+            <l n="64">Come, go on, d[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 16 ll.</note>]</l>
+            <l n="65">foot and st[ep<gap reason="lost"/>]n</l>
+            <l n="66">Apapap[ai!   <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 15 ll.</note>]</l>
+            <l n="67">Oh, oh, you, I tell you, [  <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 14 ll.</note>]</l>
+            <l n="68">go after the thie[f  <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 13 ll.</note>]</l>
+            <l n="69">underground passages k[   <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 15 ll.</note>]</l>
+            <l n="70">accomplishing o[  <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 14 ll.</note>]</l>
+            <l n="71">my father's voi[ce <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 12 ll.</note>]</l>
+            <l n="72">how, where, the secret [nightly <gap reason="lost"/>]</l>
+            <l n="73">thefts with feet[ <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 8 ll.</note> ]</l>
+            <l n="74">if somehow, if I succeed, po[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 8 ll.</note>]</l>
+            <l n="75">and for my father a free l[ife<gap reason="lost"/>]<gap reason="lost"/>met[<gap reason="lost"/>]</l>
+            <l n="76">May the dear god at the same time put an end to</l>
+            <l n="77">my toils, having shown conspicuous</l>
+            <l n="78">examples of gold.
+
+            </l>
+         </sp><milestone unit="card" n="79"/>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="79">God Fortune, and guiding deity,</l>
+            <l n="80">grant that I succeed in the business for which my running hurries,</l>
+            <l n="81">to hunt out the booty, the prey, the plunder</l>
+            <l n="82">of Ph[o]ebus, robbed of his stolen cattl[e.</l>
+            <l n="83">[I]f anyone is an eyewitness of them or has heard of them,</l>
+            <l n="84">he would be dea[r] to [m]e for telling this,</l>
+            <l n="85">[and to] lord [Phoebus] a helpful benef[a]ctor.</l>
+            <l n="86">[<gap reason="lost"/>]a[<gap reason="lost"/>]t[<gap reason="lost"/>]s of the st[ory<gap reason="lost"/>]th' at the same time[
+<milestone n="4" unit="column"/>
+            </l>
+            <l n="87">a re[ward for information</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="88">Oh, s[</l>
+            <l n="89">yeo[</l>
+            <l n="90">but not[</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="91">Does anyone speak? Or[</l>
+            <l n="92">It seems already k[</l>
+            <l n="93">Come on now, every one s[</l>
+            <l n="94">tracking with the nose by the sme[lls</l>
+            <l n="95">of the breeze, if anywhere pr[  <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 15 ll.</note>]</l>
+            <l n="96">bent double, crouch[ing <gap reason="lost"/>]n</l>
+            <l n="97">sniffing close to the ground [  <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 15 ll.</note>]</l>
+            <l n="98">in this way the search and p[<gap reason="lost"/>]</l>
+            <l n="99">all things well an[d <gap reason="lost"/>to accom]plish.
+
+            </l>
+         </sp><milestone unit="card" n="100"/>
+         <sp>
+            <speaker>Semichorus A</speaker>
+            <l n="100">A god, a god, a god, a god! Aha, [aha!</l>
+            <l n="101">We seem to have it. Hold, do not syr<gap reason="lost"/>tei.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus B</speaker>
+            <l n="102">These are they: the tracks of th[e] cattle.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus A</speaker>
+            <l n="103">Qui[et]! Some god is leading the mi[gratio]n.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus B</speaker>
+            <l n="104">What are we to do, my friend? Have we [ac]complished what is needed?</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus A</speaker>
+            <l n="105" part="I">What? How does it seem to tho[se] on this side?</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus B</speaker>
+            <l n="105b" part="F">It certainly seems so.</l>
+            <l n="106">[F]or these signs here show each thing clearly.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus A</speaker>
+            <l n="107">Look, look!</l>
+            <l n="108">And here again is the very print of the hooves[.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus B</speaker>
+            <l n="109">Look closely.</l>
+            <l n="110">This is the very same measure, [m]eas<gap reason="lost"/>[ured o]ut.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus A</speaker>
+            <l n="111">G[o] at a run and keep to the ta[<gap reason="lost"/>]n</l>
+            <l n="112">
+               <gap reason="lost"/>op[<gap reason="lost"/>][<gap reason="lost"/>]menos
+<milestone n="5" unit="column"/>
+            </l>
+            <l n="113">if [it catches] through [its] ear any lowing of the [cattle.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus B</speaker>
+            <l n="114">I do not yet hear the sound [clear]ly.</l>
+            <l n="115">But indeed these very tra[cks and] the trail here</l>
+            <l n="116">of those cattle are clear to learn from.</l>
+         </sp>
+         <sp>
+            <speaker>Semichorus A</speaker>
+            <l n="117">Aha, indeed!</l>
+            <l n="118">The steps are turned backwards, yes, by Zeus;</l>
+            <l n="119">they look in the opposite direction again: look at this.</l>
+            <l n="120">What is this here? What is this wheeling of the lin[e?</l>
+            <l n="121">The front parts are changed to the back, and others again</l>
+            <l n="122">are t[wist]ed together facing one another;</l>
+            <l n="123">a terrible confusion possess[ed the cow-dr]iver.
+
+            </l>
+         </sp><milestone unit="card" n="124"/>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="124">What new art is this that you [have fou]nd, what again,</l>
+            <l n="125">to hunt like this, bent forward, lea[ning]</l>
+            <l n="126">to the ground? What is your way? I don't understand;</l>
+            <l n="127">like some [h]edgehog in a thicket you lie fallen,</l>
+            <l n="128">[or] like some ape bent over you rage at someone.</l>
+            <l n="129">[W]hat is this? Where on earth did you learn it, in wh[a]t place?</l>
+            <l n="130">T[e]ll me, for I am not acquainted with this way.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="131">Hoo [hoo] hoo hoo.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="132">W[hy do you shriek like this?] Whom do you fear? Whom do you see?</l>
+            <l n="133">W[hat terror have you se]en? Why on earth do you keep raving like bacchants?</l>
+            <l n="134">[Some] rasping noise [rings ne]ar; do you long to learn</l>
+            <l n="135">w[hat it was? Why are you sil]ent, you who [before were most talkat]ive?</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="136">[No, be quiet.]</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="137">[What is it there] that you keep [shr]inking from?</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="138">L[isten, then.
+<milestone n="6" unit="column"/>
+            </l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="139">How shall I listen well, when I hear [no one]'s voice?</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="140">Trust me.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="141">[My] cha[se, at least,] you will [in no w]ay help.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="142">Listen in turn to the th[i]n[g] for a while,</l>
+            <l n="143">[w]ith what, terr[i]fied h[ere], we have been made strangers to ourselves,</l>
+            <l n="144">a noise which no mortal has [e]ver heard.
+
+            </l>
+         </sp><milestone unit="card" n="145"/>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="145">Why tell me of a n[o]ise? You are a[fraid] an[d] terrified,</l>
+            <l n="146">you unclean bo[di]es moulded out of wax,</l>
+            <l n="147">being the worst of beasts, i[n] [e]very shadow</l>
+            <l n="148">seeing fear, frightened of every[thing],</l>
+            <l n="149">slack and slovenly and ser[vi]le</l>
+            <l n="150">in your service, mere bodies to l[o]ok at</l>
+            <l n="151">an[d t]ongue an[d] phalluses. But if ever there is need,</l>
+            <l n="152">you, trusty in words, flee from deeds.</l>
+            <l n="153">With such a father, O worst of beasts,</l>
+            <l n="154">whose many memorials from his youth, won by manliness,</l>
+            <l n="155">l[i]e adorned in the dwellings of the nymphs,</l>
+            <l n="156">who never turned to flight, was never enslaved,</l>
+            <l n="157">nor at the noises of the mountain-bred cattle</l>
+            <l n="158">[c]owered, but achieved with spear-points</l>
+            <l n="159">[deeds] which, bril[liant as they are, are] now befouled by you</l>
+            <l n="160">[by] a newfangled [n]oise, a flatter[er] of shepherds from somewh[e]re,</l>
+            <l n="161">[which] you fear like children before you even see it,</l>
+            <l n="162">and you throw away the g[o]ld-gleaming wealth</l>
+            <l n="163">which Phoebus told you of a[n]d promised,</l>
+            <l n="164">and the freedom which he granted
+<milestone n="7" unit="column"/>
+            </l>
+            <l n="165">to you and to me; letting these things go, you sleep.</l>
+            <l n="166">Unless you go back and track ou[t</l>
+            <l n="167">the cattle, where they have gone, and the cowher[d,</l>
+            <l n="168">you will make your noise, cowardice and all, to your sorrow.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="169">Father, be here yourself and guide my steps with m[e,</l>
+            <l n="170">so that you may see clearly whether there is any cowardice;</l>
+            <l n="171">for you will know yourself, if you are here, that you are talking nonsens[e.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="172">I myself, being b[y], will urge you on with my word,</l>
+            <l n="173">calling out the whistle that sets on the dog[s.</l>
+            <l n="174">But come, set your step on the triple-yoked path;</l>
+            <l n="175">and I, staying beside you in the [w]ork, will guide you straight.
+
+            </l>
+         </sp><milestone unit="card" n="176"/>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="176">Hoo hoo hoo, ps ps, ah ah. Say what troubles you.</l>
+            <l n="177">Why did you whimper in vain, why did you cry out softly,</l>
+            <l n="178">why look at me askance? He is caught</l>
+            <l n="179">at the first tur[n: who is this one?</l>
+            <l n="180">He has it. He has come, he has c[ome.</l>
+            <l n="181">You are mine, be led away.</l>
+            <l n="182">Here, ho! Who is this [ <gap reason="lost"/> ]tes</l>
+            <l n="183">the Drakis, the Grapis, [<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed.">at most 6 ll.</note>]</l>
+            <l n="184">[O]urias, Ourias, ad[<gap reason="lost"/>]keis</l>
+            <l n="185">you went astray; drun[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 11 ll.</note>]</l>
+            <l n="186">whatever ever bear[<gap reason="lost"/>]i[<gap reason="lost"/>]n</l>
+            <l n="187">has something mounted on it[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 13 ll.</note>]</l>
+            <l n="188">the trail odenes[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">at most 12 ll.</note> ]</l>
+            <l n="189">warlike, warl[ike <gap reason="lost"/>]u[<gap reason="lost"/>]</l>
+            <l n="190">Follow this way! t[<gap reason="lost"/>]dr[<gap reason="lost"/>]
+<milestone n="8" unit="column"/>
+            </l>
+            <l n="191">Here are the c[o]ws, here is the toi[l</l>
+            <l n="192">let him not drop the sa[f]fron [</l>
+            <l n="193">You, what fi[n]e thing epid[</l>
+            <l n="194">this one indeed, the good tre[</l>
+            <l n="195">according to custom he follow[s</l>
+            <l n="196">Follow on, follow on, m[</l>
+            <l n="197">Oppopoi! Ah, you wretch, ge[</l>
+            <l n="198">Surely soon, when you go awa[y</l>
+            <l n="199">being set free, ol [</l>
+            <l n="200">but do not stray asid[e</l>
+            <l n="201">Go o[n], [h]old on, go in, go[</l>
+            <l n="202">and we hold th[e] flank[</l>
+         <milestone unit="card" n="203"/>
+            <l n="203">Father, why are you silent? Was it not tru[e, what we said?</l>
+            <l n="204">Do you no[t h]ea[r]? Or have you been deafene[d by the noise?</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="205" part="I">Qui[et!] What is it?</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="205b" part="M">I will not stay.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="205c" part="F">Stay, i[f] <add>you can.</add></l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="206">It is not possible. But you yourself, [however you like,] these things</l>
+            <l n="207">seek out and track down, and be ric[h, taking</l>
+            <l n="208">the cattle an[d] the gold [<gap reason="lost"/>   ]e[</l>
+            <l n="209">not for the longe[st] still s[<gap reason="lost"/>]n [<gap reason="lost"/>] time.</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="210">No, [I will] not [allow you to abandon] m[e]</l>
+            <l n="211">nor to slip awa[y] fr[om the toil before we cl]early</l>
+            <l n="212">know wh[om this house holds in]side.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="213">Hey, g[</l>
+            <l n="214">voi[ce <gap reason="lost"/>]ou</l>
+            <l n="215">[<gap reason="lost"/>]ed[<gap reason="lost"/> re-]
+<milestone n="9" unit="column"/>
+            </l>
+            <l n="216">wa[rd in the h]ouse you may make us blessed.</l>
+            <l n="217">But [he does n]ot app[ea]r to them. But I soon,</l>
+            <l n="218">ma[k]ing a thu[d] that makes the ground leap up, will force him out</l>
+            <l n="219">with swift [l]eaps and kicks,</l>
+            <l n="220">s[o] that he hears, even if he is quite deaf.
+            </l>
+         </sp><milestone unit="card" n="221"/>
+
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="221">Beasts, why to [th]is green wooded hill</l>
+            <l n="222">full of [w]ild things have you rushed with so much shouting?</l>
+            <l n="223">What is this art? What change of the labours</l>
+            <l n="224">which before you used to perform, bringing pleasure to your master,</l>
+            <l n="225">who, always clad in a fawn's</l>
+            <l n="226">skin and carrying in his h[a]nds the light thyrs[u]s,</l>
+            <l n="227">behind him you raised the cry of euoi around the god</l>
+            <l n="228">with the nymphs his kin and a crowd of <add>children</add>?</l>
+            <l n="229">But now I do not understand the matter: where do the twistings of new</l>
+            <l n="230">madnesses turn you? For I heard a marvel,</l>
+            <l n="231">at once a cry somehow resembling that of hun[te]rs</l>
+            <l n="232">who have come near the lair-[dw]elling bro[o]d of a beast,</l>
+            <l n="233">and at the same time agai[n <gap reason="lost"/>] <gap reason="lost"/>ai thie[f<gap reason="lost"/>
+            </l>
+            <l n="234">of the tongue was stretch[ed t]o the theft [<gap reason="lost"/>]enai;</l>
+            <l n="235">and again a[<gap reason="lost"/>]t[ <gap reason="lost"/>]<gap reason="lost"/> menon [<gap reason="lost"/>]a</l>
+            <l n="236">herald[<gap reason="lost"/>]<gap reason="lost"/>i[<gap reason="lost"/>] proclamation [</l>
+            <l n="237">and, having let th[e]se things go, with ki[cks] of the feet</l>
+            <l n="238">a [c]ry, all jum[bl]ed together, was neig[hbour to the house];</l>
+            <l n="239">[and] this otherwise than kl[<gap reason="lost"/>]m[</l>
+            <l n="240">having h[e]ard [sound]s so out of tun[e</l>
+            <l n="241">
+               <gap reason="lost"/>ph[<gap reason="lost"/>]e[<gap reason="lost"/>] non that you are sick</l>
+            <l n="242">no[s <gap reason="lost"/>why to a nymph] who is blameless do you still do this?
+<milestone n="10" unit="column"/>
+
+            </l>
+         </sp>
+         <milestone unit="card" n="243"/>
+         <sp>
+            <speaker>Chorus</speaker>
+            <note anchored="true" type="meter" place="inline">στρ.</note>
+            <l n="243">Deep-girdled nymph, c[ease from anger ]</l>
+            <l n="244">at this, for neither has a quarrel c[ome to you</l>
+            <l n="245">of h[o]stile battle, nor [would] any unfri[endly or</l>
+            <l n="246">idle t[o]ngue [touch you from us].</l>
+            <l n="247">Do not, do not as[sail me with abuse,</l>
+            <l n="248">but [fr]eely re[veal to me the mat-</l>
+            <l n="249">ter], in [th]es[e] places, [who below the earth so wonder-</l>
+            <l n="250">fully sounded forth an inspired voi[ce.
+
+            </l>
+         </sp>
+         <milestone unit="card" n="251"/>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="251">This is now [gentler] than those [ways],</l>
+            <l n="252">and by these ways you [would] le[arn more] about the beasts</l>
+            <l n="253">than from the feats of strength [and trials] of a [cowa]r[dly]</l>
+            <l n="254">nymph; fo[r it is n]ot [pleasing] to me [to start a quarrel]</l>
+            <l n="255">of loud twanging i[n] [w]ord[s].</l>
+            <l n="256">But calmly reveal and [d]ec[lare to me</l>
+            <l n="257">of what thing you most have need.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="258">Queen of the[s]e places, mighty Cyllene,</l>
+            <l n="259">why I ca[m]e, I will tell you later;</l>
+            <l n="260">but tell us of thi[s] sound, what it is that speaks,</l>
+            <l n="261">and which of mortals it is that ever s[c]rapes it out.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="262"> You yourselves must know this clearly:</l>
+            <l n="263">that if you reveal the s[t]ory that comes from me,</l>
+            <l n="264">for your[selves p]unishment is in store;</l>
+            <l n="265">for the deed is hidd[en] in the seats of the [g]o[d]s,</l>
+            <l n="266">so that n[o ne]w[s] of the story will reac[h] Hera.</l>
+            <l n="267">For Z[eu]s, [to the] secr[et hous]e of Atlas's daughter</l>
+            <l n="268">[<gap reason="lost"/>]eusato;</l>
+            <l n="269">[<gap reason="lost"/>]u [<gap reason="lost"/>]philas
+<milestone n="11" unit="column"/>
+            </l>
+            <l n="270">[<gap reason="lost"/>] unknown to the deep-girdled goddess,</l>
+            <l n="271">[and in the ca]ve he begot a single son;</l>
+            <l n="272">[and him] I am rearing with my own hands;</l>
+            <l n="273">[f]or [his mother's] strength is storm-tossed in sickness;</l>
+            <l n="274">[and foo]d and drink and sleep,</l>
+            <l n="275">staying [by the sw]addling clothes, the nurture of the cradle</l>
+            <l n="276">[I mana]ge, by night and by day.</l>
+            <l n="277">[And he g]rows each day, not in a likely way,</l>
+            <l n="278">[very gr]eat, so that wonder and fear hold me.</l>
+            <l n="279">[F]or [not yet] the sixth day since he was brought to [l]ight,</l>
+            <l n="280">[with his limb]s he presses on to the prime of a boy's youth,</l>
+            <l n="281">[and he shoots u]p, and no longer idles</l>
+            <l n="282">[his growth]; such a child the treasure-chamber shelters.</l>
+            <l n="283">[And] he is [still hard to fi]nd, by his father's ordinance.</l>
+            <l n="284">[And the] sound [you ask about, roar]ing [from a hidden] device,</l>
+            <l n="285">and [at which] you [yourself were mu]ch [ama]zed, in a single day</l>
+            <l n="286">he [contr]ived [it] out of an upturned b[ox];</l>
+            <l n="287">such a thing, full of the delight [from a dead] be[ast],</l>
+            <l n="288">[he found, a] ve[ssel], a[nd he shakes it] down there.
+
+            </l>
+         </sp>
+         <milestone unit="card" n="290"/>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="290">Unspeak[able <gap reason="lost"/>] child of a cry</l>
+            <l n="291">child[<gap reason="lost"/>]mazeis[</l>
+            <l n="292">pre[y <gap reason="lost"/> ]you say</l>
+            <l n="293">voi[ce <gap reason="lost"/> ]sethou[</l>
+            <l n="294">this one aph[<gap reason="lost"/> ]on[</l>
+            <l n="295">tos exeph[<gap reason="lost"/>      ]</l>
+            <l n="296">ront' apa[ <gap reason="lost"/> ] fr[om a dea-
+<milestone n="12" unit="column"/>
+            </l>
+            <l n="297">d creature to produce such a voice.
+
+            </l>
+         </sp> 
+            <milestone unit="card" n="298"/>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="298">Do not now be unbelieving: for trustworthy are the words of a goddess that smile upon you.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="300">And how am I to believe that the voice of a dead thing roars like that?</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="301">Believe it: for in death the beast got a voice, but living it was voiceless.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="302">What was it like in form? Lo[n]g, or humped, or short?</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="303">Short, pot-shaped, shrivelled up in a da[p]pled hide.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="304">Is it by nature to be likened to a cat, or likewise to a leopard?</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="305">There is a very great differen[c]e; for it is round and short-legged.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="306">Is it not by nature like an ichneum<add>on</add>, nor like a <add>crab</add>?</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="307">No, it is not like th[a]t either; but find out some other kind.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="308">Then is it in growth like a ho[r]ned beetle of Aetna?</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="309">Now you have gu[essed] close to what the creature most resembles.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="310">[And] wh[at again] of it is it that makes the s[ou]nd, the inside or the outside? Tell me.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="311"> [<gap reason="lost"/>]lo[<gap reason="lost"/>sh]ell-bearing, akin to the potsherds.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="312">[And what name do you] te[ll]? Supply it, if you have anything more.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="313">[The beast the boy calls tortoise, and the thing that sou]nds, in turn, lyre.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="314">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 22 ll.</note>] a possession esy[<gap reason="lost"/>] to someone?</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="314b">[ <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 23 ll.</note>] hide k[<gap reason="lost"/>]st [</l>
+            <l n="315">[ <gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 23 ll.</note> ]on thu[s] it clangs [</l>
+            <l n="316">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 23 ll.</note>]oros is fixed</l>
+            <l n="317">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 24 ll.</note>]plekta [</l>
+            <l n="318">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 24 ll.</note>]lados k[</l>
+            <l n="319">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 21 ll.</note> pe]gs and[</l>
+            <l n="320">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 24 ll.</note> ]ammato [</l>
+            <l n="321">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 25 ll.</note>]on[</l>
+            <l n="322">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">1 or 2 lines lost</note>
+               <milestone n="13" unit="column"/>
+            </l>
+            <l n="325">And this is a remedy for sorro[w] and a co[m]f[o]rt</l>
+            <l n="326">to him alone, and he re[j]oices, wandering in mind and singing along [some tune]</l>
+            <l n="327">in harmony; for the trill of the l[y]re lifts him up.</l>
+            <l n="328">Thus the boy has contrived a voice for the dead beas[t.
+
+            </l>
+         </sp>
+         <milestone unit="card" n="329"/>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="329">A <add>loud</add>-twanging voice haunts the place, <note anchored="true" type="meter" place="inline">στρ.</note>
+            </l>
+            <l n="330"><add>and again</add>, through its strain, conspicuous visions of the</l>
+            <l n="331">land it makes to blossom.</l>
+            <l n="332">But the matter for which I go step by step,</l>
+            <l n="333">know that the g[o]d, whoever he is who</l>
+            <l n="334">contrived these things, there is no other th[ief</l>
+            <l n="335">than he, woman, know it well.</l>
+            <l n="336">But do not be an-</l>
+            <l n="337">gry at this, <add>nor</add> be upset.
+
+            </l>
+         </sp>
+         <milestone unit="card" n="338"/>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="338">[What delu]sion [holds] you? What theft have you reproache[d me with?</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="339">[No, by Zeus, my l]ady, [I do not wish] to distress [you].</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="340">[Surely you do not ca]ll [the son of Zeus] a <add>thief</add>?</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="341">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 17 ll.</note> ]an in the very th[eft.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="342">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 18 ll.</note> i]f indeed you sp[eak] the truth.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="343">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 18 ll.</note> I sp]eak [t]he truth.</l>
+            <l n="344">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 14 ll.</note>  has sto]len, clea[</l>
+            <l n="345">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 19 ll.</note>]de, the cattle entirely</l>
+            <l n="346">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 19 ll.</note>]ai fit[t]e[d</l>
+            <l n="347">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 19 ll.</note>]lou, having cut</l>
+            <l n="348">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 20 ll.</note>]pho <gap reason="lost"/> h[i]de[</l>
+            <l n="349">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">2 or 3 lines lost</note>
+               <milestone n="14" unit="column"/>
+
+            </l>
+         </sp>
+            <milestone unit="card" n="352"/>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="352">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 11 ll.</note>   ] I learn at last, with time,</l>
+            <l n="353">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 8 ll.</note>   mo]cking my foolishness</l>
+            <l n="354">[<gap reason="lost"/>
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed">about 11 ll.</note>   n]othing, but for the sake of play.</l>
+            <l n="355">[But you, then, from now o]n keeping fair weather toward me,</l>
+            <l n="356">[if it brings you jo]y or you think you gain something,</l>
+            <l n="357">[la]ugh [as you wish] and delight your heart;</l>
+            <l n="358">[but the child who i]s Zeus's, as is plainly told,</l>
+            <l n="359">[do not mock, mak]ing a new story about a new one;</l>
+            <l n="360">[for neither] on his father's side was he born a thief,</l>
+            <l n="361">[nor again on his m]other's side does theft prevail.</l>
+            <l n="362">[If then there is any th]eft, look for the thief</l>
+            <l n="363">[among the poor and with]out harvest; but his house is not <add>hun</add>g<add>ry</add>.</l>
+            <l n="364">[Consi]der the family; fasten the wickedness</l>
+            <l n="365">[o]n whom it belongs; to him it is not so fitting.</l>
+            <l n="366">B[ut] you are always a child; for though you are a young man,</l>
+            <l n="367">flourishing with a b[ear]d, you luxuriate like a goat in the thistle.</l>
+            <l n="368">Stop spreading out your smooth bald head in pleasure.</l>
+            <l n="369">[Is it n]ot right that one who, about the gods, foolish and laughable things</l>
+            <l n="370">[has b]lurted out should weep afterwards? So I <add>s</add>a<add>y</add>.
+
+            </l>
+         </sp><milestone unit="card" n="371"/>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="371">Turn and twist about with words; whatev-  <note anchored="true" type="meter" place="inline">ἀντ.</note>
+            </l>
+            <l n="372">er tale you wish, find a pol-</l>
+            <l n="373">ished one; for you will not persuade me of this,</l>
+            <l n="374"><add>that</add> this one, having made the thing</l>
+            <l n="375">with glued-on hide, stole the hides of other cattle </l>
+            <l n="376">somewhere [rather] than from those of Loxias.</l>
+            <l n="377">Do [n]ot lead me o[u]t of th[is] road.
+<milestone n="15" unit="column"/>
+
+            </l>
+            <l n="378">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed.">one or more lines missing</note>
+            </l>
+         </sp><milestone unit="card" n="379"/>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="379">[For Z]eus ]</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="380">[The] child, a thi[ef</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="381">[If] indeed he [does] wick[ed things, he is wicked.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="382">[To be b]adly spo[ken of does not befit the son of Zeus.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="383">[B]ut if it is tru[e, I must also say it.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="384">[D]o not [say] this[</l>
+            <l n="385">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed.">about 8 lines of which we have only the initial letters</note>
+            </l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="395">Where are the cattle pasturing, t[</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="396">Yes, and m[o]re of them already now [</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="397">W[h]o, wretch, has them? What more[</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="398">The boy who is inside, shu[t in.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="399">Stop [speaking ill of th]e son of Zeus.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="400">I [w]ould st[op, if] someone [would] d[rive out] the cattle.</l>
+         </sp>
+         <sp>
+            <speaker>Cyllene</speaker>
+            <l n="401">You are choking me already, you an[d your cattle.</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="402">[<gap reason="lost"/>]leisep[<gap reason="lost"/>]u[<gap reason="lost"/> d]rive ou[t
+<milestone n="16" unit="column"/>
+            </l>
+            <l n="403">
+               <note anchored="true" place="inline" xml:lang="eng" resp="ed.">one whole column is missing, perhaps more</note>
+               <milestone n="17" unit="column"/>
+            </l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="404">Ho, ho [</l>
+            <l n="405">and which he said p[</l>
+            <l n="406">this one not ph[</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="407">O L[oxias</l>
+            <l n="408">Oh, d[</l>
+         </sp>
+         <sp>
+            <speaker>Chorus</speaker>
+            <l n="409">O Loxias, de[</l>
+            <l n="410">and pare[</l>
+            <l n="411">of the [c]att[le</l>
+         </sp>
+         <sp>
+            <speaker>Apollo</speaker>
+            <l n="412">[<gap reason="lost"/>]ny[</l>
+            <l n="413">e[<gap reason="lost"/>]ei[</l>
+            <l n="414">bo[</l>
+            <l n="415">opo[</l>
+            <l n="416">pr[</l>
+            <l n="417">reward [</l>
+            <l n="418">free[</l>
+         </sp>
+         <sp>
+            <speaker>Silenus</speaker>
+            <l n="419">the eg[</l>
+         </sp>
+         </div>
+         
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0"> 
+  <teiHeader xml:lang="eng">
+    <fileDesc>
+      <titleStmt>
+        <title>Hymn 5 To Aphrodite</title>
+        <author>Anonymous</author>
+        <editor>Hugh G. Evelyn-White</editor>
+        <sponsor>Perseus Project, Tufts University</sponsor>
+        <principal>Gregory Crane</principal>
+        <respStmt>
+          <resp>Prepared under the supervision of</resp>
+          <name>Lisa Cerrato</name>
+          <name>William Merrill</name>
+          <name>Elli Mylonas</name>
+          <name>David Smith</name>
+        </respStmt>
+        <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+        <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Trustees of Tufts University</publisher>
+        <pubPlace>Medford, MA</pubPlace>
+        <authority>Perseus Project</authority>
+          <availability>
+              <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+              <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+          </availability>
+      </publicationStmt>
+
+
+
+
+
+      <sourceDesc>
+        <biblStruct>
+          <monogr>
+            <author>Anonymous</author>
+            <title>Hesiod, the Homeric Hymns and Homerica</title>
+            <editor>Hugh G. Evelyn-White</editor>
+            <imprint>
+              <pubPlace>London</pubPlace>
+              <publisher>William Heinemann Ltd.</publisher>
+              <pubPlace>New York</pubPlace>
+              <publisher>The Macmillan Co.</publisher>
+              <date>1914</date>
+            </imprint>
+          </monogr>
+          <series>
+            <title>Loeb Classical Library</title>
+          </series>
+          <ref target="https://archive.org/details/hesiodhomerichym00hesiuoft/hesiodhomerichym00hesiuoft/page/406/mode/2up">Internet Archive</ref>
+        </biblStruct>
+      </sourceDesc>
+
+    </fileDesc>
+
+    <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="line" matchPattern="(\\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:l[@n=\'$1\'])">
+          <p>This pointer pattern extracts line</p>
+        </cRefPattern>
+      </refsDecl>
+      <refsDecl>
+        <refState unit="line"/>
+      </refsDecl>
+      <!--<refsDecl>
+	<refState n="chunk" unit="card"/>
+      </refsDecl>-->    <refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure use="@n" match=".//milestone[@unit='card']" delim=":" unit="card" n="chunk"/>
+    <citeStructure unit="line" delim=":" match=".//l" use="@n"/>
+  </citeStructure>
+</refsDecl>
+
+<refsDecl xml:id="CTS-card">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+        <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']" use="@n" n="chunk"/>
+    </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="grc">Greek</language>
+      </langUsage>
+    </profileDesc>
+
+    <revisionDesc>
+      <change who="Charles Pletcher" when="2026-11-10">Fix CTS citeStructure match paths so they select the text's elements</change>
+      <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+      <change when="1988-01-01" who="Bill Merrill">Text keyboarded in the Philippines.  Basic SGML tagging by Bill Merrill</change>
+      <change when="1993-08-01" who="EM">Go over text, check cardbreaks, and change tags to be more TEI conformant.</change>
+      <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+      <change when="2014-08-01" who="Stella Dee">edited markup</change>
+      <change when="2015-12-11" who="Lisa Cerrato">fixing titles and headers</change>
+      <change when="2016-01-11" who="Lisa Cerrato">EpiDoc conversion and CTS related changes</change>
+    </revisionDesc>
+
+  </teiHeader>
+  <text xml:lang="en">
+    <body xml:base="urn:cts:greekLit:tlg0013.tlg005.perseus-grc2">
+      <div n="urn:cts:greekLit:tlg0013.tlg005.perseus-grc2" type="edition" xml:lang="en">
+      <head>To Aphrodite</head>
+      <milestone unit="card" n="1" ed="P"/>
+        <l n="1"><milestone unit="Para" ed="P"/>Muse, tell me the works of golden Aphrodite, </l>
+        <l n="2">the Cyprian, who stirs sweet desire in the gods </l>
+        <l n="3">and subdues the tribes of mortal men </l>
+        <l n="4">and the birds that fly through the air and all the beasts, </l>
+        <l n="5"> all the many that the land nourishes and all that the sea nourishes; </l>
+        <l n="6">all of them care for the works of fair-crowned Cytherea. </l>
+      
+
+      <l n="7"><milestone unit="Para" ed="P"/>Yet there are three hearts she cannot persuade or deceive: </l>
+      <l n="8">the daughter of aegis-bearing Zeus, grey-eyed Athena; </l>
+      <l n="9">for the works of golden Aphrodite do not please her, </l>
+      <l n="10">but wars please her and the work of Ares, </l>
+      <l n="11">battles and fights, and attending to splendid works. </l>
+      <l n="12">She first taught earthly craftsmen </l>
+      <l n="13">to make carriages and chariots inlaid with bronze. </l>
+      <l n="14">And she taught tender-skinned maidens in the halls </l>
+      <l n="15">splendid works, putting them in the mind of each. </l>
+      <l n="16">Nor does she ever subdue Artemis of the golden distaff, the clamorous one, </l>
+      <l n="17">in love, laughter-loving Aphrodite. </l>
+      <l n="18">For she too delights in bows and in slaying wild beasts in the mountains, </l>
+      <l n="19">in lyres and dances and piercing cries </l>
+      <l n="20">and shady groves and the city of just men. </l>
+      <l n="21">Nor do the works of Aphrodite please the revered maiden </l>
+      <l n="22">Hestia, whom crooked-counselling Cronus begot first </l>
+      <l n="23">and youngest again, by the will of aegis-bearing Zeus, </l>
+      <l n="24">a queenly maiden, whom Poseidon and Apollo wooed; </l>
+      <l n="25">but she was quite unwilling and firmly refused; </l>
+      <l n="26">and she swore a great oath, which has indeed been fulfilled, </l>
+      <l n="27">touching the head of father Zeus who bears the aegis, </l>
+      <l n="28">that she would be a maiden all her days, bright among goddesses. </l>
+      <l n="29">And to her father Zeus gave a fine honour instead of marriage, </l>
+      <l n="30">and she sat down in the middle of the house, taking the richest portion. </l>
+      <l n="31">In all the temples of the gods she has a share of honour </l>
+      <l n="32">and among all mortals she is made the most revered of the gods. <milestone unit="card" n="33" ed="P"/>
+      </l>
+      <l n="33"><milestone unit="Para" ed="P"/>Of these she cannot persuade the hearts or deceive them; </l>
+      <l n="34">but of all the others there is nothing that has escaped Aphrodite, </l>
+      <l n="35">neither of the blessed gods nor of mortal men. </l>
+      <l n="36">She even leads astray the mind of Zeus who delights in thunder, </l>
+      <l n="37">who is greatest and has received the greatest share of honour; </l>
+      <l n="38">even his wise mind, whenever she wishes, she deceives </l>
+      <l n="39">and easily mates him with mortal women, </l>
+      <l n="40">making him forget Hera, his sister and wife, </l>
+      <l n="41">who is by far the best in beauty among the deathless goddesses. </l>
+      <l n="42">Most glorious was she whom crooked-counselling Cronus begot </l>
+      <l n="43">and mother Rhea; and Zeus, who knows imperishable counsels, </l>
+      <l n="44">made her his revered wife, wise in heart. </l>
+      <l n="45"><milestone unit="Para" ed="P"/>But into the heart of Aphrodite herself Zeus cast sweet desire </l>
+      <l n="46">to mate with a mortal man, so that very soon </l>
+      <l n="47">not even she would be kept away from a mortal bed, </l>
+      <l n="48">and might not one day say boastfully among all the gods, </l>
+      <l n="49">laughing sweetly, laughter-loving Aphrodite, </l>
+      <l n="50">how she had joined gods with mortal women, </l>
+      <l n="51">and they bore mortal sons to the deathless ones, </l>
+      <l n="52">and how she had joined goddesses with mortal men. </l>
+      <l n="53"><milestone unit="Para" ed="P"/>So he cast into her heart sweet desire for Anchises, </l>
+      <l n="54">who at that time on the lofty mountains of many-fountained Ida </l>
+      <l n="55">was herding cattle, in build like the deathless ones. </l>
+      <l n="56">Then, when laughter-loving Aphrodite saw him, </l>
+      <l n="57">she fell in love, and a terrible desire seized her heart. </l>
+      <l n="58">She went to Cyprus and entered her fragrant temple </l>
+      <l n="59">at Paphos; there she has a precinct and a fragrant altar. </l>
+      <l n="60">There she went in and closed the shining doors; </l>
+      <l n="61">and there the Graces bathed her and anointed her with oil, </l>
+      <l n="62">immortal oil, such as is upon the gods who are forever, </l>
+      <l n="63">sweet ambrosial oil, which had been perfumed for her. </l>
+      <l n="64">And having clothed her body well in all her fine garments </l>
+      <l n="65">and adorned herself with gold, laughter-loving Aphrodite </l>
+      <l n="66">sped toward Troy, leaving fragrant Cyprus, </l>
+      <l n="67">swiftly making her way high among the clouds. </l>
+      <l n="68">She came to many-fountained Ida, mother of wild beasts, </l>
+      <l n="69">and went straight to the homestead across the mountain; and after her, </l>
+      <l n="70">fawning, grey wolves and fierce-eyed lions, </l>
+      <l n="71">bears and swift leopards, insatiable for deer, </l>
+      <l n="72">went along; and she, seeing them, was glad in her heart </l>
+      <l n="73">and put desire in their breasts, and they all together </l>
+      <l n="74">lay down two by two in the shady lairs. <milestone unit="card" n="75" ed="P"/>
+      </l>
+      <l n="75">But she herself came to the well-built huts; </l>
+      <l n="76">and she found him left alone at the homestead, apart from the others, </l>
+      <l n="77">the hero Anchises, who had beauty from the gods. </l>
+      <l n="78">The others were following the cattle over the grassy pastures, </l>
+      <l n="79">all of them; but he, left alone at the homestead apart from the others, </l>
+      <l n="80">was roaming here and there, playing the lyre loudly. </l>
+      <l n="81">And Aphrodite, daughter of Zeus, stood before him, </l>
+      <l n="82">like an unwed maiden in stature and form, </l>
+      <l n="83">so that he would not be afraid when he saw her with his eyes. </l>
+      <l n="84">And Anchises, seeing her, observed and marvelled at </l>
+      <l n="85">her form and stature and shining garments. </l>
+      <l n="86">For she was clothed in a robe brighter than the gleam of fire, </l>
+      <l n="89">beautiful, golden, richly embroidered; and like the moon </l>
+      <l n="90">it shone over her tender breasts, a wonder to see. </l>
+      <l n="87">And she wore twisted brooches and shining earrings; </l>
+      <l n="88">and round her tender neck were lovely necklaces. </l>
+      <l n="91"><milestone unit="Para" ed="P"/>Love seized Anchises, and he spoke a word to her face: </l>
+     
+
+        <l n="92"><!-- <milestone type="startquote"/> -->Hail, lady, whoever of the blessed ones you are who come to this house, </l>
+        <l n="93">Artemis or Leto or golden Aphrodite </l>
+        <l n="94">or well-born Themis or grey-eyed Athena, </l>
+        <l n="95">or perhaps you have come here as one of the Graces, who keep company </l>
+        <l n="96">with all the gods and are called immortal, </l>
+        <l n="97">or one of the Nymphs who haunt the lovely groves </l>
+        <l n="98">or of the Nymphs who dwell on this lovely mountain </l>
+        <l n="99">and the springs of rivers and the grassy meadows. </l>
+        <l n="100">For you, on a lookout, in a place seen from all around, </l>
+        <l n="101">I will make an altar, and I will offer you fine sacrifices </l>
+        <l n="102">in all seasons. And you, with a kindly heart, </l>
+        <l n="103">grant that I be a man pre-eminent among the Trojans, </l>
+        <l n="104">and make my offspring flourishing hereafter, and myself </l>
+        <l n="105">let me live long and well and see the light of the sun, </l>
+        <l n="106">prosperous among the people, and reach the threshold of old age.<!-- <milestone type="endquote"/> --></l>
+ 
+      <milestone unit="card" n="107" ed="P"/>
+      <l n="107"><milestone unit="Para" ed="P"/>Then Aphrodite, daughter of Zeus, answered him: </l>
+        <l n="108"><!-- <milestone type="startquote"/> -->Anchises, most glorious of earth-born men, </l>
+      <l n="109">I am no goddess, I tell you; why do you liken me to the immortals? </l>
+      <l n="110">No, I am mortal, and a woman was the mother who bore me. </l>
+      <l n="111">My father is Otreus of famous name, if perhaps you have heard of him, </l>
+      <l n="112">who rules over all of well-walled Phrygia. </l>
+      <l n="113">But I know both your language and ours well. </l>
+      <l n="114">For a Trojan nurse reared me in the hall; she nursed me </l>
+      <l n="115">continually as a little child, having taken me from my dear mother. </l>
+      <l n="116">That is how I know your language well too. </l>
+      <l n="117">But now the Slayer of Argus with the golden wand snatched me up </l>
+      <l n="118">from the dance of Artemis of the golden distaff, the clamorous one. </l>
+      <l n="119">Many nymphs and maidens who bring in cattle </l>
+      <l n="120">were playing, and a boundless throng encircled us. </l>
+      <l n="121">From there the Slayer of Argus with the golden wand snatched me away; </l>
+      <l n="122">and he led me over many fields of mortal men, </l>
+      <l n="123">and over much land unallotted and unsettled, through which wild beasts </l>
+      <l n="124">that eat raw flesh roam in the shady lairs; </l>
+      <l n="125">and I thought my feet would not touch the life-giving earth; </l>
+      <l n="126">and he said that at the side of Anchises in his bed I would be called </l>
+      <l n="127">his wedded wife, and would bear you splendid children. </l>
+      <l n="128">But when he had shown me and told me, he indeed went back again </l>
+      <l n="129">among the tribes of the immortals, the strong Slayer of Argus; </l>
+      <l n="130">but I have come to you, and strong necessity is upon me. </l>
+      <l n="131">But I beseech you by Zeus and by your parents, </l>
+      <l n="132">noble ones; for base people could not beget such a one as you: </l>
+      <l n="133">take me, unwed and untried in love, </l>
+      <l n="134">and show me to your father and your wise mother </l>
+      <l n="135">and to your brothers, who are born of the same stock as you. </l>
+      <l n="136">I shall not be an unseemly daughter-in-law to them, but a fitting one. </l>
+      <l n="137">And send a messenger quickly to the Phrygians with swift horses </l>
+      <l n="138">to tell my father and my mother, grieving as she is; </l>
+      <l n="139">and they will send you gold in plenty and woven clothing; </l>
+      <l n="140">and you, accept these many splendid gifts as a bride-price. </l>
+      <l n="141">And when you have done this, prepare the lovely wedding feast, </l>
+        <l n="142">honoured among men and immortal gods.<!-- <milestone type="endquote"/> --></l>
+      <l n="143"><milestone unit="Para" ed="P"/>So speaking, the goddess cast sweet desire into his heart. </l>
+      <l n="144">Love seized Anchises, and he spoke and addressed her: <milestone unit="card" n="145" ed="P"/> </l>
+      
+        <l n="145"><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"/> -->If you are mortal, and a woman was the mother who bore you, </l>
+        <l n="146">and Otreus of famous name is your father, as you say, </l>
+        <l n="147">and you have come here by the will of the immortal guide, </l>
+        <l n="148">Hermes, and you shall be called my wife for all days, </l>
+        <l n="149">then no one of the gods or of mortal men </l>
+        <l n="150">shall hold me back here until I have mingled with you in love </l>
+        <l n="151">right now; not even if far-shooting Apollo himself </l>
+        <l n="152">should send grievous arrows from his silver bow. </l>
+        <l n="153">I would be willing then, woman like the goddesses, </l>
+        <l n="154">once I had gone up into your bed, to go down into the house of Hades.<!-- <milestone type="endquote"/> --></l>
+
+      <l n="155"><milestone unit="Para" ed="P"/>So speaking, he took her hand; and laughter-loving Aphrodite </l>
+      <l n="156">crept, with her face turned away and her lovely eyes cast down, </l>
+      <l n="157">to the well-spread bed, which was already spread for its lord </l>
+      <l n="158">with soft blankets; and on top of it </l>
+      <l n="159">lay skins of bears and of deep-roaring lions, </l>
+      <l n="160">which he himself had slain in the high mountains. </l>
+      <l n="161">And when they had gone up onto the well-made bed, </l>
+      <l n="162">first he took from her body the shining adornment, </l>
+      <l n="163">the brooches and twisted spirals and earrings and necklaces. </l>
+      <l n="164">And he loosed her girdle, and her shining garments </l>
+      <l n="165">he stripped off and laid upon a silver-studded seat, </l>
+      <l n="166">Anchises; and then he, by the will of the gods and by destiny, </l>
+      <l n="167">lay with an immortal goddess, a mortal, not knowing clearly. </l>
+      <l n="168"><milestone unit="Para" ed="P"/>At the time when herdsmen drive back to the fold </l>
+      <l n="169">the oxen and fat sheep from the flowery pastures, </l>
+      <l n="170">at that time she poured sweet sleep upon Anchises, </l>
+      <l n="171">a sound sleep, and herself put on her fine garments. </l>
+      <l n="172">And having clothed her body well in all of them, the bright goddess </l>
+      <l n="173">stood by the hut, and her head reached the well-made roof-beam; </l>
+      <l n="174">and from her cheeks shone an immortal </l>
+      <l n="175">beauty, such as belongs to fair-crowned Cytherea, </l>
+      <l n="176">and she woke him from sleep and spoke and addressed him: </l>
+      
+        <milestone unit="card" n="177" ed="P"/>
+        <l n="177"><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"/> -->Rise, son of Dardanus; why do you sleep so unwakeful a sleep? </l>
+        <l n="178">And consider whether I appear to you to be like </l>
+        <l n="179">the woman you first saw with your eyes. <!-- <milestone type="endquote"/> --></l>
+      
+
+      <l n="180"><milestone unit="Para" ed="P"/>So she spoke; and he heard her at once out of his sleep. </l>
+      <l n="181">But when he saw the neck and lovely eyes of Aphrodite, </l>
+      <l n="182">he was afraid and turned his eyes aside in another direction; </l>
+      <l n="183">and he covered his handsome face again with his cloak </l>
+      <l n="184">and, entreating her, addressed her with winged words: </l>
+      
+
+        <l n="185"><milestone unit="Para" ed="P"/><!-- <milestone type="startquote"/> -->As soon as I first saw you with my eyes, goddess, </l>
+        <l n="186">I knew that you were divine; but you did not speak truly. </l>
+        <l n="187">But I beseech you by aegis-bearing Zeus, </l>
+        <l n="188">do not let me live on strengthless among men, </l>
+        <l n="189">but have pity; for a man does not keep his vigour </l>
+        <l n="190">who sleeps with immortal goddesses.<!-- <milestone type="endquote"/> --></l>
+      
+
+      <l n="191"><milestone unit="Para" ed="P"/>Then Aphrodite, daughter of Zeus, answered him: </l>
+      
+
+        <l n="192"><!-- <milestone type="startquote"/> -->Anchises, most glorious of mortal men, </l>
+        <l n="193">take courage, and do not be too afraid in your heart; </l>
+        <l n="194">for you need not fear to suffer any harm from me, </l>
+        <l n="195">nor from the other blessed ones; for truly you are dear to the gods. </l>
+        <l n="196">And you shall have a dear son, who shall rule among the Trojans, </l>
+        <l n="197">and children shall be born to his children continually; </l>
+        <l n="198">and his name shall be Aeneas, because a terrible </l>
+        <l n="199">grief seized me, since I fell into the bed of a mortal man; </l>
+        <l n="200">but of all mortal men those most like the gods </l>
+        <l n="201">in form and stature are always from your race. </l>
+        <l n="202"><milestone unit="Para" ed="P"/>Indeed, Zeus the counsellor carried off fair-haired Ganymede </l>
+        <l n="203">because of his beauty, so that he might be among the immortals </l>
+        <l n="204">and pour wine for the gods in the house of Zeus, </l>
+        <l n="205">a wonder to see, honoured by all the immortals, </l>
+        <l n="206">drawing the red nectar from a golden bowl. </l>
+        <l n="207">But unceasing grief held the heart of Tros, and he did not know at all </l>
+        <l n="208">where the wondrous whirlwind had carried off his dear son; </l>
+        <l n="209">so he mourned him continually, all his days, </l>
+        <l n="210">and Zeus pitied him and gave him as recompense for his son </l>
+        <l n="211">high-stepping horses, such as carry the immortals. </l>
+        <l n="212">These he gave him as a gift to keep; and at the command of Zeus </l>
+        <l n="213">the guide, the Slayer of Argus, told him everything, </l>
+        <l n="214">how his son would be immortal and ageless like the gods. </l>
+        <l n="215">But when he heard the message of Zeus, </l>
+        <l n="216">he no longer mourned, but rejoiced in his heart within, </l>
+        <l n="217">and joyfully he drove the storm-footed horses. <milestone unit="card" n="218" ed="P"/>
+        </l>
+        <l n="218"><milestone unit="Para" ed="P"/>So too golden-throned Eos carried off Tithonus, </l>
+        <l n="219">one of your race, like the immortals. </l>
+        <l n="220">And she went to ask the dark-clouded son of Cronus </l>
+        <l n="221">that he be immortal and live all his days; </l>
+        <l n="222">and Zeus nodded to her and fulfilled her wish. </l>
+        <l n="223">Foolish one! Queenly Eos did not think in her heart </l>
+        <l n="224">to ask for youth for him and to strip from him destructive old age. </l>
+        <l n="225">So as long as lovely youth held him, </l>
+        <l n="226">delighting in early-born Eos of the golden throne, </l>
+        <l n="227">he lived by the streams of Ocean at the ends of the earth; </l>
+        <l n="228">but when the first grey hairs ran down </l>
+        <l n="229">from his handsome head and his noble chin, </l>
+        <l n="230">queenly Eos kept away from his bed, </l>
+        <l n="231">but still cherished him, keeping him in her halls, </l>
+        <l n="232">and giving him food and ambrosia and fine garments. </l>
+        <l n="233">But when hateful old age pressed fully upon him, </l>
+        <l n="234">and he could not move or lift any of his limbs, </l>
+        <l n="235">this seemed to her in her heart the best counsel: </l>
+        <l n="236">she laid him in a chamber and shut the shining doors. </l>
+        <l n="237">And there his voice flows on unceasingly, and there is no strength </l>
+        <l n="238">at all, such as there was before in his supple limbs. </l>
+        <l n="239"><milestone unit="Para" ed="P"/>I would not choose for you to be like this among the immortals, </l>
+        <l n="240">to be immortal and to live all your days. </l>
+        <l n="241">But if, being such as you are now in form and in body, </l>
+        <l n="242">you could live on and be called my husband, </l>
+        <l n="243">then grief would not enfold my wise heart. </l>
+        <l n="244">But now old age, common to all, will soon enfold you, </l>
+        <l n="245">pitiless old age, which stands at the side of men hereafter, </l>
+        <l n="246">deadly, wearying, which even the gods hate. <milestone unit="card" n="247" ed="P"/>
+        </l>
+        <l n="247"><milestone unit="Para" ed="P"/>But for me there will be great reproach among the immortal gods </l>
+        <l n="248">all my days continually because of you, </l>
+        <l n="249">who before used to fear my whisperings and my schemes, by which I once </l>
+        <l n="250">joined all the immortals with mortal women; </l>
+        <l n="251">for my purpose used to subdue them all. </l>
+        <l n="252">But now my mouth will no longer open to speak </l>
+        <l n="253">of this among the immortals, since I have been greatly blinded, </l>
+        <l n="254">wretchedly, past naming, and have strayed from my mind, </l>
+        <l n="255">and have conceived a child beneath my girdle, having slept with a mortal. </l>
+        <l n="256">As for him, as soon as he first sees the light of the sun, </l>
+        <l n="257">the deep-bosomed Nymphs who haunt the mountains will rear him, </l>
+        <l n="258">who dwell on this great and holy mountain; </l>
+        <l n="259">they follow neither mortals nor immortals. </l>
+        <l n="260">They live long and eat immortal food </l>
+        <l n="261">and tread the lovely dance among the immortals. </l>
+        <l n="262">With them the Sileni and the keen-sighted Slayer of Argus </l>
+        <l n="263">mingle in love in the depths of lovely caves. </l>
+        <l n="264">And at their birth either firs or high-topped oaks </l>
+        <l n="265">spring up together with them on the man-nourishing earth, </l>
+        <l n="266">beautiful, flourishing, on the high mountains. </l>
+        <l n="267">They stand towering, and men call them precincts </l>
+        <l n="268">of the immortals; and mortals do not cut them with iron at all; </l>
+        <l n="269">but when the fate of death stands near, </l>
+        <l n="270">first the lovely trees wither where they stand on the ground, </l>
+        <l n="271">and the bark shrivels all around them, and the branches fall off, </l>
+        <l n="272">and at the same time their soul leaves the light of the sun. </l>
+        <l n="273">These will rear my son, keeping him with them. </l>
+        <l n="274">And as soon as lovely youth first takes hold of him, </l>
+        <l n="275">the goddesses will bring him here to you and show you the child. </l>
+        <l n="276">And I, so that I may go through all these things with you in my mind, </l>
+        <l n="277">will come again in the fifth year, bringing your son. </l>
+        <l n="278">As soon as you first see the young shoot with your eyes, </l>
+        <l n="279">you will rejoice at the sight; for he will be very godlike; </l>
+        <l n="280">and you will bring him at once to windy Ilion. </l>
+        <l n="281">And if any mortal man asks you </l>
+        <l n="282">what mother conceived your dear son beneath her girdle, </l>
+        <l n="283">remember to tell him as I bid you: </l>
+        <l n="284">say that he is the offspring of a flower-faced Nymph, </l>
+        <l n="285">one of those who dwell on this mountain clothed in forest. </l>
+        <l n="286">But if you tell it out and boast with foolish heart </l>
+        <l n="287">that you mingled in love with fair-crowned Cytherea, </l>
+        <l n="288">Zeus in his anger will strike you with a smoking thunderbolt. </l>
+        <l n="289">Everything has been told to you; take heed in your heart, </l>
+        <l n="290">hold back and do not name me, and have regard for the wrath of the gods.<!-- <milestone type="endquote"/> --></l>
+      
+
+      <l n="291"><milestone unit="Para" ed="P"/>So speaking, she darted up to the windy heaven. </l>
+      <l n="292"><milestone unit="Para" ed="P"/>Hail, goddess, queen of well-built Cyprus; </l>
+      <l n="293">having begun with you, I will pass on to another hymn. </l>
+      </div>
+    </body>
+  </text>
+</TEI>

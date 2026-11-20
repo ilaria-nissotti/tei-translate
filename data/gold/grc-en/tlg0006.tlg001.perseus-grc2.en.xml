@@ -1,0 +1,1788 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="grc">Κύκλωψ</title>
+                <author>Euripides</author>
+                <editor>Gilbert Murray</editor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Gregory Crane</name>
+                    <name>Alison Babeu</name>
+                    <name>Lisa Cerrato</name>
+                    <name>Bruce Robertson</name>
+                </respStmt>
+                <funder n="org:Tufts">Tufts University</funder>
+                <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+                <date type="release">2020</date>
+                <idno type="filename">tlg0006.tlg001.perseus-grc2.xml</idno>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                    <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+                </availability>
+            </publicationStmt>
+
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Euripides</author>
+                        <title xml:lang="lat">Euripidis Fabulae</title>
+                        <editor>Gilbert Murray</editor>
+                        <imprint>
+                            <pubPlace>Oxford</pubPlace>
+                            <publisher>Clarendon Press</publisher>
+                            <date>1902</date>
+                        </imprint>
+                        <biblScope unit="volume">1</biblScope>
+                    </monogr>
+                    <ref target="https://archive.org/details/euripidisfabulae01euriuoft/page/n25/mode/2up">The
+                        Internet Archive</ref>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+
+        <encodingDesc>
+            <editorialDecl>
+                <p>Greek produced via Lace 0.6.13. Lace copyright 2013-2020, Bruce Robertson, Dept.
+                    of Classics, Mount Allison University. Developed through the support of the <ref target="https://nbif.ca/en">NBIF</ref>.</p>
+            </editorialDecl>
+            <refsDecl n="CTS">
+                <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+                    <p>This pointer pattern extracts lines</p>
+                </cRefPattern>
+            </refsDecl>
+            <refsDecl xml:id="CTS">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+                </citeStructure>
+            </refsDecl>
+
+            <refsDecl xml:id="CTS-card">
+                <citeStructure match="/TEI/text/body" use="@xml:base">
+                    <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']" use="@n" n="chunk"/>
+                </citeStructure>
+            </refsDecl>
+        </encodingDesc>
+
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+            <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
+            <change when="2020-09-20" who="Lisa Cerrato">Created file from OCR and added markup.</change>
+        </revisionDesc>
+    </teiHeader>
+
+    <text xml:lang="en">
+        <body xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" type="edition" xml:lang="en">
+
+                <milestone unit="card" n="1" resp="perseus"/>
+                <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" resp="perseus" style="hidden" n="0"/>
+                <note resp="editor" place="inline">
+                    <p>τὰ τοῦ δράματος πρόσωπα</p>
+                    <p>Σιληνός</p>
+                    <p>Χορός Σατύρων</p>
+                    <p>Ὀδυσσεύς</p>
+                    <p>Κύκλωψ</p>
+                </note>
+
+                <div type="textpart" subtype="episode">
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="1">O Bromius, because of you I have countless toils </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="2">now, and when in youth my body was strong: </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="3">first, when, driven mad by Hera, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="4">you left the mountain Nymphs, your nurses, and went away; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="5">then, in the battle of the spear against the Earthborn, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="6">standing at your right foot as your shield-bearer, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="7">I struck Enceladus in the middle of his shield with my spear </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="8">and killed him—come, let me see, am I telling of something I saw in a dream? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="9">No, by Zeus, since I even showed the spoils to Bacchus.</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="10" rend="indent">And now I am draining to the end a toil greater than those.</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="11">For when Hera stirred up against you a Tyrrhenian race </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="12">of pirates, so that you might be sold off far away, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="13"><add>I</add>, having learned of it, set sail with my children </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="14">in search of you. And on the top of the stern </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="15">I myself took hold of the double-oared ship and steered it, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="16">while my sons, sitting at the oars, whitening the grey sea </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="17">with their foaming strokes, searched for you, lord. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="18">But when we had already sailed near Malea, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="19">an east wind, blowing upon the ship, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="20">cast us out onto this rock of Aetna, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="21">where the one-eyed sons of the sea god, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0028"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="22">the man-slaying Cyclopes, dwell in lonely caves. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="23">Caught by one of these, we are in his house </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="24">as slaves; and they call him whom we serve </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="25">Polyphemus; and instead of Bacchic revels with their cries of euhoi </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="26">we shepherd the flocks of an unholy Cyclops. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="27">My sons, then, on the farthest slopes </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="28">pasture the young sheep, being young themselves, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="29">while I, to fill the troughs and sweep the dwelling, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="30">have been posted to remain here, for this impious </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="31">Cyclops the servant of his unholy meals. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="32">And now, as I was ordered, I am compelled </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="33">to sweep the house with this iron rake, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="34">so that we may receive both my absent master, the Cyclops, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="35">and his sheep in clean caves. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="36">But already I see my sons driving forward </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="37">the flocks. What is this? Surely the beat of the sikinnis dance </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="38">is not the same for you now as when, with Bacchus, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="39">as revel bands fighting at his side, to the house of Althaea </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="40">you went, swaggering to the songs of lyres?</l>
+                    </sp>
+                </div>
+                <milestone unit="card" n="41" resp="perseus"/>
+
+                <div type="textpart" subtype="choral">
+                    <div type="textpart" subtype="strophe">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="41">Child of noble fathers </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="42">and of noble mothers, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="43">where, pray, are you going off to the crags? </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="44">Is there not here a sheltered breeze </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="45">and grassy pasture? </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="46">And does not the eddying water of the rivers </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="47">lie in the troughs near the ca-</l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="48">ves? Do you not hear the bleating of your young? </l>
+                        </sp>
+                    </div>
+
+                    <milestone unit="card" n="49" resp="perseus"/>
+                    <div type="textpart" subtype="mesode">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="49">—Shoo! Not this way? Will you not graze here, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="50">on the dewy slope? </l>
+                            <pb facs="euripidisfabulae01euriuoft_0029"/>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="51">Hey, I'll throw a stone at you soon </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="52">—get along, get along, you horned one— </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="53">to the stall-keeper who tends the sheep, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="54">the country-roaming Cyclops.</l>
+                        </sp>
+                    </div>
+                    <milestone unit="card" n="55" resp="perseus"/>
+
+                    <div type="textpart" subtype="antistrophe">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="55">Loosen your swelling udders; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="56">receive at your teats <sic>the offspring</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="57">that you leave in the lambs' chambers. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="58">They miss you, they who sleep all day, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="59">the bleating little young ones. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="60">When will you come into the fold, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="61">leaving the grassy pastures, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="62">inside the crags of Aetna?</l>
+                        </sp>
+                    </div>
+
+                    <div type="textpart" subtype="mesode">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="62a">
+                                <sic>—Shoo! Not this way? Will you not graze here</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="62b">
+                                <sic>on the dewy slope?</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="62c">
+                                <sic>Hey, I'll throw a stone at you soon</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="62d">
+                                <sic>—get along, get along, you horned one—</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="62e">
+                                <sic>to the stall-keeper who tends the sheep, </sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="62f">
+                                <sic>the country-roaming Cyclops.</sic>
+                            </l>
+                        </sp>
+                    </div>
+
+                    <milestone unit="card" n="63" resp="perseus"/>
+
+                    <div type="textpart" subtype="epode">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="63">Here is no Bromius, here are no dances </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="64">and thyrsus-bearing Bacchants, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="65" rend="indent">no loud cries of drums </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="66" rend="indent">beside gushing springs, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="67">no fresh drops of wine; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="68">nor in Nysa with the Nymphs </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="69">do I sing the song "Iacchus, Iacchus" </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="70">to Aphrodite, </l>
+                            <pb facs="euripidisfabulae01euriuoft_0030"/>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="71">whom I flew in pursuit of </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="72">together with white-footed Bacchants. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="73">O friend! </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="74">O dear Bacchus, where do you roam alone? </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="75"><add>
+                                Where</add> are you tossing your golden hair? </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="76">While I, your attendant, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="77">serve as a hired man to the Cyclops, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="78">the one-eyed one, a wandering slave, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="80">in this wretched goatskin cloak, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="81">parted from your friendship.</l>
+                        </sp>
+                    </div>
+                </div>
+                <milestone unit="card" n="82" resp="perseus"/>
+
+                <div type="textpart" subtype="episode">
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="82">Be silent, children, and into the rock-roofed caves </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="83">order the servants to gather the flocks.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="84">Go! But what is your hurry, father? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="85">I see by the shore the hull of a Greek ship, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="86">and masters of the oar with some commander </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="87">coming to this cave; around their necks </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="88">they carry empty vessels, in need of food, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="89">and water pitchers. O wretched strangers, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="90">who can they be? They do not know what our master, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="91">Polyphemus, is like, having set foot in this inhospitable </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="92">dwelling and having come to the Cyclopean jaw, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="93">the man-eating one, to their misfortune. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="94">But keep quiet, so that we may find out </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="95">from where they have come to the Sicilian crag of Aetna.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="96">Strangers, could you tell us of a river stream from which </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="97">we might get a cure for thirst, and whether anyone is willing </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="98">to sell food to sailors in need? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="99">--What is this? We seem to have come upon a city of Bromius: </l>
+                        <pb facs="euripidisfabulae01euriuoft_0031"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="100">I see this throng of Satyrs by the caves. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="101">First I bid the eldest greetings. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="102">Greetings, stranger; tell me who you are and what your fatherland is. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="103">Odysseus of Ithaca, lord of the land of the Cephallenians. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="104">I know the man, a shrill rattle, offspring of Sisyphus. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="105">I am that very man; but do not abuse me. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="106">From where have you come, sailing to this Sicily?</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="107">From Ilium, and from the toils of Troy. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="108">How? Did you not know the passage to your fatherland? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="109">Storms of wind snatched me here by force. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="110">Alas! You are enduring the same fortune as I. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="111">Were you too driven here by force?</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="112">Yes, pursuing the pirates who carried off Bromius. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="113">What land is this, and who dwell in it? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="114">The hill of Aetna, the highest in Sicily. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="115">And where are the walls and the towers of a city? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="116">There are none; the headlands are empty of men, stranger. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="117">And who hold the land? A race of wild beasts?</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="118">Cyclopes, who have caves, not roofed houses. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="119">Obeying whom? Or is power in the hands of the people? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="120">They are nomads; no one obeys anyone in anything. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="121">Do they sow—or on what do they live?—the grain of Demeter? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="122">On milk and cheeses and the flesh of sheep. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="123">And do they have the drink of Bromius, the streams of the vine?</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="124">Not at all; and so the land they dwell in is without dancing. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="125">And are they hospitable and god-fearing toward strangers? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="126">Strangers, they say, carry the sweetest meat. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="127">What do you say? They delight in man-slaying food? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="128">No one has come here who was not slaughtered. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="129">And the Cyclops himself, where is he? Inside his house?</l>
+                    </sp>
+                    <pb facs="euripidisfabulae01euriuoft_0032"/>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="130">Gone off to Aetna, tracking wild beasts with his dogs. </l>
+                    </sp>
+                    <milestone unit="card" n="131" resp="perseus"/>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="131">Do you know, then, what to do, so that we may get away from the land?
+                        </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="132">I do not know, Odysseus; but we would do anything for you. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="133">Sell us grain, which we are short of. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="134">There is nothing, as I said, except meat. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="135">Well, even this is a pleasant check on hunger. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="136">There is also cheese curdled with fig juice, and cow's milk. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="137">Bring them out; daylight is fitting for goods for sale. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="138">And you, tell me, how much gold will you give in return? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="139">Not gold, but I bring the drink of Dionysus. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="140">O dearest of words! We have long been short of that. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="141">Indeed, Maron gave me the drink, the son of the god. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="142">He whom I once reared in these arms of mine? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="143">The son of Bacchus, so that you may know more clearly. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="144">Is it in the ship's hold, or do you carry it with you?
+                        </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="145">Here is the skin that holds it, as you see, old man. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="146">That would not even fill my jaw.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="147">Yes; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="147a"><add>
+                            for</add> there is twice as much drink as can flow out of the skin. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="148">A fine spring you speak of, and a sweet one for me. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="149">Do you want me to give you a taste of the unmixed wine first?
+                        </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="150">That's fair; for a taste indeed invites the purchase. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="151">Indeed, I also bring along a cup with the skin. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="152">Come, splash it out, so that I may remember by drinking. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="153" part="I">There. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="153b" part="F">Oh my, what a fine smell it has! </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="154" part="I">What, did you see it? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="154b" part="F">No, by Zeus, but I smell it. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="155">Taste it now, so that you do not praise it in word only. </l>
+                    </sp>
+                    <pb facs="euripidisfabulae01euriuoft_0033"/>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="156">Wow! Bacchus is calling me to dance. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="157">Ah, ah, ah! </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="158">Did it not gurgle nicely down your throat? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="159">So that it reached right to the tips of my nails. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="160">Besides this, however, we will also give you money. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="161">Just loosen the skin; let the gold be. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="162">Bring out the cheeses now, or the young of the sheep. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="163">I will do it, caring little for my masters. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="164">For I would be mad enough, to drink a single cup, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="165">to give in exchange the flocks of all the Cyclopes, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="166">and to throw myself into the brine from the Leucadian rock, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="167">once I was drunk and had let my brows relax.</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="168">For whoever does not rejoice when he drinks is mad; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="169">in drinking one can make this thing here stand up straight, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="170">and grab a breast, and touch with both hands </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="171">a meadow made ready, and there is dancing as well </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="172">and forgetfulness of troubles. Shall I then <add>not</add> kiss </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="173">such a drink, and tell the stupidity of the Cyclops </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="174">to go hang, and the eye in the middle of his head as well? </l>
+                    </sp>
+                    <milestone unit="card" n="175" resp="perseus"/>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="175">Listen, Odysseus; let us have a little chat with you. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="176">Indeed, you approach as friends to a friend. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="177">Did you take Troy, and Helen into your hands? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="178">Yes, and we sacked the whole house of the sons of Priam. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="179">Well then, when you had taken the young woman, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="180">did you not all bang her in turn, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="181">since she does like to be married to many? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="182">The traitress! Seeing the embroidered breeches</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="183">around his two legs, and the golden </l>
+                        <pb facs="euripidisfabulae01euriuoft_0034"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="184">collar he wore around the middle of his neck, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="185">she was all aflutter, and left Menelaus, a most excellent </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="186">little fellow, behind. Would that the race of women </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="187">had never been born anywhere — except for me alone. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="188">Look, here for you are the herdsmen's beasts, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="189">lord Odysseus, nurslings of bleating lambs, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="190">and no scanty cheeses of curdled milk. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="191">Carry them off; go away from the caves as fast as you can, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="192">giving me in exchange the drink of the Bacchic grape. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="193">—Alas! Here comes the Cyclops; what shall we do? </l>
+                    </sp>
+                    <milestone unit="para" resp="perseus"/>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="194">Then we are done for, old man; where should we flee? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="195">Inside this rock, where you may escape notice. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="196">A terrible thing you have said, to go into the nets. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="197">Not terrible; there are many refuges in the rock.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="198">No indeed; for Troy would groan greatly </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="199">if we flee from one man, when a countless throng </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="200">of Phrygians I often withstood with my shield. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="201">No, if we must die, we will die nobly, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="202">or, if we live, we will keep our former fame safe as well. </l>
+                    </sp>
+                    <milestone unit="card" n="203" resp="perseus"/>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="203">Up! Make way! What is this? What is this idleness? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="204">Why are you playing the Bacchant? This is no Dionysus here, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="205">no rattles of bronze or clashing of drums. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="206">How are my newborn young in the caves? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="207">Are they at the teats, and do they run beneath their mothers' </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="208">sides? And in the rush baskets </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="209">is there a full supply of cheeses milked out? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="210">What do you say? What are you telling me? Soon one of you, thanks to my club, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0035"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="211">will shed tears; look up and not down. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="212">There, we have tilted our heads back toward Zeus himself, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="213">and I see the stars and Orion.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="214">Is my breakfast well prepared? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="215">It is here. Only let your gullet be ready. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="216">And are the mixing bowls full of milk too? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="217">So full that you can drink off a whole jar, if you like. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="218">Sheep's milk or cow's or mixed? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="219">Whichever you want; only don't swallow me down.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="220">Not at all; for in the middle of my belly </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="221">you would kill me with your leaping, with your dance figures. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="222" rend="indent">Ha! What is this throng I see by the folds? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="223">Have some pirates or thieves put in to the land? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="224">I do see these lambs from my caves </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="225">with their bodies bound together with twisted withies, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="226">and the cheese baskets in disorder, and the old man </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="227">with his bald face swollen from blows.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="228">Ah me, I am in a fever, wretch that I am, beaten all over.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="229">By whom? Who has been boxing your head, old man? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="230">By these men, Cyclops, because I would not let them carry off your things. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="231">Did they not know that I am a god and born of gods? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="232">I told them so; but they kept carrying off the goods; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="233">and the cheese, though I tried to stop them, they ate, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="234">and they carried the lambs out; and after binding you </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="235">in a three-cubit collar, and then your eye in the middle </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="235a">
+                            <gap reason="lost" rend=" . . . . . . . "/>
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="236">they said they would tear out your guts by force, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="237">and flay your back well with a whip,</l>
+                        <pb facs="euripidisfabulae01euriuoft_0036"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="238">and then, after tying you up and throwing you onto the rowing benches </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="239">of the ship, they would sell you to someone </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="240">to heave stones, or throw you into a mill.</l>
+                    </sp>
+                    <milestone unit="card" n="241" resp="perseus"/>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="241">Really? Then won't you go as fast as you can </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="242">and sharpen the cleavers and knives, and put a great bundle of wood
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="243">on the fire and light it? For they will be slaughtered at once </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="244">and fill my belly, as I eat straight from the coals </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="245">a hot meal, I who carve the meat, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="246">and the rest boiled and stewed from the cauldron. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="247">For I am glutted with mountain food; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="248">I have had enough of feasting on lions </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="249">and deer, and it is long since I have had a meal of men. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="250">New things, after the usual ones, master,
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="251">are sweeter. For indeed not recently </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="252">have other strangers come to your caves. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="253">Cyclops, hear the strangers too in turn. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="254">We, in need of food, to make a purchase </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="255">came near your caves from our ship. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="256">And the lambs, for a cup of wine, this man </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="257">sold us and handed them over, after he had taken a drink, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="258">willing to willing buyers, and none of it was done by force. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="259">But there is nothing sound in what this man says, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="260">since he was caught selling your goods behind your back.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="261" part="I">I? Yes, may you perish miserably—</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="261b" part="F">if I am lying. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="262">By Poseidon who begot you, O Cyclops, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="263">by great Triton and by Nereus, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="264">by Calypso and the daughters of Nereus, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="265">and the holy waves and the whole race of fish, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0037"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="266">I swear, O most handsome, O dear little Cyclops, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="267">O little master, that I was not selling your </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="268">goods to the strangers. Or else may these wicked </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="269">children perish wickedly, whom I love most of all. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="270">Keep that for yourself. I myself saw you selling the goods </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="271">to the strangers; and if I speak falsely, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="272">may my father perish; but do not wrong the strangers. </l>
+                    </sp>
+                    <milestone unit="card" n="273" resp="perseus"/>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="273">You lie; I for my part trust this man more </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="274">than Rhadamanthys, and I say he is more just. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="275">But I want to ask: from where did you sail, strangers? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="276">From what country? What city brought you up? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="277">We are Ithacans by birth, and from Ilium, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="278">after sacking the city, driven by sea winds </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="279">to your land we have come, Cyclops. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="280">Are you the ones who went after the rape of the most wicked </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="281">Helen, to the city of Ilium, neighbour of the Scamander? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="282">We are, having endured that terrible toil to the end.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="283">A shameful expedition, you who for the sake of one </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="284">woman sailed out to the land of the Phrygians. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="285">The matter was a god's doing; blame none of the mortals. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="286">But we, O noble son of the sea god, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="287">both supplicate you and speak frankly: </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="288">do not bring yourself to kill friends who have come to your caves </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="289">and to make them impious food for your jaws; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="290">for it was we who, lord, saved for your father his temple seats, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="291">to keep them, in the recesses of the land of Hellas. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="292">The holy harbour of Taenarus remains unbroken, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="293">and the farthest hiding places of Malea, and the rock of Sunium, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="294">sacred to divine Athena, safe, with its silver beneath,</l>
+                        <pb facs="euripidisfabulae01euriuoft_0038"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="295">and the refuges of Geraestus; and of Hellas </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="296">
+                            <sic>the grievous disgraces we did not give to the Phrygians;</sic>
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="297">and in this you too have a share; for in the recesses of the land of Hellas </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="298">you dwell, under Aetna, the fire-dripping rock. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="299">And there is a law for mortals, if you turn away from my arguments: </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="300">to receive suppliants ruined at sea,</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="301">and to give them gifts of hospitality and help them with clothes, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="302">not to fix their limbs on ox-piercing </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="303">spits and fill your belly and jaw with them. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="304">The land of Priam has bereaved Hellas enough, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="305">drinking the spear-shed blood of many dead, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="306">and it has destroyed wives without husbands, old women without children </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="307">and grey-haired fathers. But if those who are left </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="308">you roast and consume in a bitter feast, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="309">where will one turn? But be persuaded by me, Cyclops: </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="310">let go the greed of your jaw, and piety </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="311">choose instead of impiety; for to many</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="312">wicked gains have brought punishment in return.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="313">I want to give you some advice: of the meat </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="314">of this man leave nothing, and if you bite his tongue, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="315">you will become clever and most talkative, Cyclops. </l>
+                    </sp>
+                    <milestone unit="card" n="316" resp="perseus"/>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="316">Wealth, little man, is the god for the wise; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="317">the rest is boasting and fine-sounding words. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="318">The sea headlands on which my father has his shrines </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="319">I bid farewell; why did you put these forward in your speech? </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="320">The thunderbolt of Zeus I do not shudder at, stranger, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="321">nor do I know in what way Zeus is a mightier god than I. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="322">I do not care about him for the future; and why I do not care, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0039"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="323">listen. When he pours rain down from above, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="324">in this rock, having a watertight shelter, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="325">on a roast calf or some wild beast </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="326">feasting, and drenching my upturned belly well, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="327">drinking a jar of milk on top of it, my robe </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="328">I beat, thundering in rivalry with the thunder of Zeus. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="329">And when the Thracian north wind pours down snow, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="330">wrapping my body in the skins of beasts</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="331">and kindling a fire—I care nothing for snow. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="332">And the earth, of necessity, whether it wants to or not, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="333">bearing grass, fattens my flocks. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="334">These I sacrifice to no one but myself, and not to the gods, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="335">and to the greatest of deities, this belly here. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="336">For to drink and to eat day by day, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="337">that is Zeus for sensible men, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="338">and to cause oneself no grief. As for those who laid down </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="339">the laws, complicating the life of men, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="340">I tell them to go weep; <add>and</add> my own soul I </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="341">shall not stop treating well—by eating you up. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="342">And you will get gifts of hospitality such as these, so that I may be blameless: </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="343">fire, and this ancestral cauldron here, which, boiling, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="344">will nicely wrap your flesh, torn to pieces. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="345">But creep inside, so that, to the god of the fold, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="346">standing around the altar, you may give me a good feast.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="347">Alas, I escaped the toils of Troy </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="348">and of the sea, but now on the mind of an unholy man </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="349">I have run aground, and on his harbourless heart. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="350" rend="indent">O Pallas, O mistress, Zeus-born goddess, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0040"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="351">now, now help! For toils greater than those of Ilium </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="352">I have come to, and to the very brink of danger. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="353">And you who dwell in the seats of the shining stars, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="354">Zeus, god of strangers, look on this; for if you do not see it, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="355">you are wrongly held to be Zeus, being a god of no account. </l>
+                        <milestone unit="card" n="356" resp="perseus"/>
+                    </sp>
+                </div>
+                <div type="textpart" subtype="choral">
+                    <div type="textpart" subtype="strophe">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="356">Of your wide gullet, O Cyclops, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="357">open wide the lip; for ready for you </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="358">are boiled things and roasted things and, from the coals, <gap reason="lost" rend=" . . . "/></l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="359">to gnaw, to chew, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="359a">to carve up the limbs of strangers, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="360">as you recline on a shaggy goatskin. </l>
+                        </sp>
+                    </div>
+                    <milestone unit="card" n="361" resp="perseus"/>
+
+                    <div type="textpart" subtype="mesode">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="361">Don't, don't give me any; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="362">alone, by yourself, load the hull of your boat. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="363">Farewell to this dwelling, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="364">and farewell to the victims, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="365">the altarless <sic>sacrifice that he holds,</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="366">the Cyclops of Aetna, who in foreign </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="367">flesh takes delight as his food.</l>
+                        </sp>
+                    </div>
+
+                    <milestone unit="card" n="369" resp="perseus"/>
+                    <div type="textpart" subtype="antistrophe">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="369">Pitiless, O wretch, is he who <del>from his home</del>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="370">
+                                sacrifices the <del>foreign</del> suppliants at his hearth, from his house, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="373">feasting on them boiled, and with abominable teeth </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="372">cutting, chewing </l>
+                            <pb facs="euripidisfabulae01euriuoft_0041"/>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374">the hot flesh <del>of men</del> from the coals, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374a">
+                                <gap reason="lost" rend=" . . . . . . . "/>
+                            </l>
+                        </sp>
+                    </div>
+
+                    <addSpan spanTo="#a001"/>
+                    <div type="textpart" subtype="mesode">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="374b">Don't, don't give me any;</l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374c">alone, by yourself, load the hull of your boat. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374d">Farewell to this dwelling,</l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374e">and farewell to the victims, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374f">the altarless <sic>sacrifice that he holds,</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374g">the Cyclops of Aetna, who in foreign</l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="374h">flesh takes delight as his food.</l>
+                        </sp>
+                    </div>
+                    <anchor xml:id="a001"/>
+                </div>
+                <milestone unit="card" n="375" resp="perseus"/>
+
+                <div type="textpart" subtype="episode">
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="375">O Zeus, what am I to say, having seen terrible things inside the cave, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="376">things not to be believed, like tales, and not like the deeds of mortals? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="377">What is it, Odysseus? Surely the most unholy Cyclops </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="378">has not feasted on your dear comrades? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="379">Yes, on two, after looking them over and weighing them in his hands, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="380">men who had the best-fed thickness of flesh. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="381">How, poor man, did you fare while suffering this? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="382">When to this rocky <sic>land we came,</sic>
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="383">he first kindled a fire, throwing trunks </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="384">of a lofty oak onto his broad hearth, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="385">a load fit for three wagons to carry. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="386">Then, of fir branches, on the ground </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="387">he spread a bed near the flame of the fire. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="388">And he filled a mixing bowl holding about ten amphoras, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="389">having milked the cows, pouring in the white milk. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="390">And he set beside it a cup of ivy-wood, three </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="391">cubits in breadth, and it looked four deep. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="392">And he set a bronze cauldron boiling on the fire,</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="393">and spits, their tips hardened in the fire, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0042"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="394">and the rest smoothed with a sickle, made of branches of thorn, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="395">
+                            <sic>and Aetnaean basins for the slaughter by the jaws of axes.</sic>
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="396">And when everything was ready for the god-hated </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="397">cook of Hades, he seized two men </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="398">of my comrades and slaughtered them, and with one rhythm </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="399">he threw the one into the bronze-beaten hollow of the cauldron, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="400">and the other, seizing him by the tendon at the end of his foot, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="401">and striking him against a sharp point of rocky stone, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="402">he dashed out his brains; and <sic>cutting away</sic>
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="403">the flesh with a fierce knife, he roasted it in the fire, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="404">and the limbs he put into the cauldron to boil. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="405">And I, wretched man, shedding tears from my eyes, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="406">came close to the Cyclops and waited on him; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="407">the others, like birds in the recesses of the rock, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="408">cowered, and there was no blood in their skin. </l>
+                        <milestone unit="card" n="409" resp="perseus"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="409">But when, sated with the flesh of my comrades, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="410">he fell back, sending out a heavy breath from his gullet, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="411">something divine came into my mind: filling a cup </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="412">with this wine of Maron, I offer it to him to drink, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="413">saying this: O Cyclops, son of the sea god, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="414">see what a divine drink Hellas brings </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="415">from her vines, this gladness of Dionysus. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="416">And he, being full of his shameless food, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="417">took it <add>and</add> drained it, gulping it down at one draught, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="418">and praised it, raising his hand: Dearest of strangers, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0043"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="419">it is a fine drink you give me on top of a fine feast. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="420">And when I perceived that he was pleased, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="421">I gave him another cup, knowing that </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="422">the wine would wound him and he would soon pay the penalty. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="423">And indeed he was moving on to songs. And I, pouring in </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="424">one cup after another, kept heating his guts with the drink. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="425">And he is singing, beside my weeping shipmates, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="426">unmusical songs, and the cave echoes. And I came out
+
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="427">in silence. You and myself I wish to save, if you are willing. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="428">But tell me whether you wish or do not wish </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="429">to flee a savage man, and in the halls of Bacchus </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="430">to dwell with the Danaid nymphs. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="431">For your father, inside, has agreed to this. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="432">But he is weak and is helping himself to the drink, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="433">and, as if caught by the cup as by birdlime, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="434">he is flapping his wings; but you—for you are young— </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="435">save yourself with me, and take back your old friend </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="436">Dionysus, who is not like the Cyclops. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="437">O dearest friend, if only we might see this day, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="438">escaping the unholy head of the Cyclops. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="439">For it is a long time indeed that <sic>our dear siphon</sic>
+                        </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="440">
+                            <sic rend="merge">we have been bereft of. —And we have none to gulp down.</sic>
+                        </l>
+                    </sp>
+                    <milestone unit="card" n="441" resp="perseus"/>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="441">Hear now what punishment I have </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="442">for the villainous beast, and what escape from your slavery. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="443">Speak, for we would not more gladly hear the sound of an Asian </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="444">lyre than news that the Cyclops has perished. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="445">He wants to go revelling to his brothers, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="446">the Cyclopes, delighted with this drink of Bacchus. </l>
+                    </sp>
+                    <pb facs="euripidisfabulae01euriuoft_0044"/>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="447">I understand: catching him alone in the thickets </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="448">you mean to slaughter him, or push him down from the rocks.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="449">Nothing of the sort; what I have in mind is a trick.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="450">How then? We have long heard that you are clever. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="451">To keep him away from this revel, telling him </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="452">that he must not give this drink to the Cyclopes, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="453">but keep it for himself alone and live his life pleasantly. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="454">And when he falls asleep, overcome by Bacchus, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="455">there is a branch of olive in the house, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="456">which <add>I</add>, sharpening its tip with this sword, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="457">will put into the fire; and then, when, burning, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="458">I see it, I will lift it and thrust it hot into the middle </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="459">of the Cyclops' face, and melt his eye out with fire. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="460">And as a man fitting together the timbers of a ship </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="461">works a drill with a double strap, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="462">so will I whirl the brand in the light-bearing </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="463">eye of the Cyclops and burn up his pupil.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="464">Hurrah, hurrah! </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="465">I rejoice, we are mad with joy at your inventions. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="466">And then you and your friends and the old man, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="467">putting you aboard the hollow hull of my black ship, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="468">I will send away from this land with double oars. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="469">Is there a way, then, as if at a libation to the god, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="470">that I too might take hold of the eye-blinding </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="471">brand? For I want to share in this killing. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="472">You must indeed; for the brand is big; you must all take hold of it. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="473">I would even lift the load of a hundred wagons, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="474">if of the Cyclops, who will die a miserable death, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0045"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="475">we shall smoke out the eye like a wasps' nest. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="476">Be silent now; for you know the trick well; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="477">and when I give the order, the master builders </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="478">obey. For I will not abandon my friends </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="479">who are inside and be saved alone. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="480">And yet I could flee, and I have got out of the recesses of the cave; </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="481">but it is not just to abandon my friends, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="482">with whom I came here, and be saved alone.</l>
+                    </sp>
+                </div>
+                <milestone unit="card" n="483" resp="perseus"/>
+
+                <div type="textpart" subtype="choral">
+                    <div type="textpart" subtype="anapests">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="483">Come, who will be first, and who, posted after the first, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="484">grasping the handle of the brand, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="485">and thrusting it inside the eyelids of the Cyclops, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="486">will grind out his bright eye? </l>
+                            <stage rend="italic">(song from within)</stage>
+                            <note resp="perseus">an original stage direction</note>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="487">Hush, hush. For look, drunk, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="488">making a graceless din of music, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="490">a clumsy singer and soon to weep, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="491">he comes out of his rocky halls. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="492">Come, let us teach him with our revel songs, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="493">this untaught one; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="494">in any case he is going to be blind.</l>
+                        </sp>
+                    </div>
+                    <milestone unit="card" n="495" resp="perseus"/>
+
+                    <div n="1" type="textpart" subtype="strophe">
+                        <sp>
+                            <speaker><add>Semichor.</add> Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="495">Blessed is he who cries euhoi </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="496">at the dear springs of the grape clusters, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="497">spreading his wings for the revel, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="498">embracing a dear friend, </l>
+                            <pb facs="euripidisfabulae01euriuoft_0046"/>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="499">and on a couch holding the golden </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="500">of a dainty mistress, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="501">anointed with myrrh, the glistening lo- </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="502">ck, and he says: Who will open the door for me? </l>
+                        </sp>
+                    </div>
+                    <milestone unit="card" n="503" resp="perseus"/>
+
+                    <div n="2" type="textpart" subtype="strophe">
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="503">Papapa! I am full of wine,  </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="504">
+                                <add>and</add> I rejoice in the bloom of the feast, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="505">loaded like a merchant ship's hull </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="506">up to the deck at the top of my belly. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="507">The cheerful fodder leads me on </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="508">to revel in the season of spring </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="509">with my brothers the Cyclopes. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="510">Come, stranger, come, hand me the skin.</l>
+                        </sp>
+                    </div>
+                    <milestone unit="card" n="511" resp="perseus"/>
+
+                    <div n="3" type="textpart" subtype="strophe">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="511">Gazing beautifully from his eyes, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="512">the beautiful one comes forth from his halls. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="513">—<add>
+                                Papapa!</add> Somebody loves us.–- </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="514">And blazing torches <sic>await your</sic>
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="515"><sic rend="merge">body, and like</sic> a tender bride </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="516">from within the dewy caves. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="517">And garlands of more than one colour </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="518">will soon keep company with your head.</l>
+                        </sp>
+                    </div>
+                </div>
+                <milestone unit="card" n="519" resp="perseus"/>
+                <div type="textpart" subtype="episode">
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="519">Cyclops, listen: for with this Bacchus </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="520">whom I gave you to drink I am well acquainted. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="521">And what sort of god is Bacchus held to be?
+                        </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="522">The greatest for men, for the enjoyment of life. </l>
+                    </sp>
+                    <pb facs="euripidisfabulae01euriuoft_0047"/>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="523">I certainly belch him up with pleasure. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="524">Such is the god: he harms no mortal. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="525">But how can a god be happy having his home in a wineskin? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="526">Wherever one puts him, there he is content. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="527">Gods ought not to keep their bodies in skins. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="528">What of it, if he delights you? Or is the skin bitter to you? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="529">I hate the skin; but this drink I love. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="530">Stay here, then, and drink and be merry, Cyclops. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="531">Should I not give my brothers a share of this drink? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="532">If you keep it yourself, you will appear more honoured.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="533">But if I give it to my friends, more useful. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="534">Revelling loves fistfights and abusive quarrels.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="535">I am drunk, but all the same no one would touch me.
+
+                        </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="536">My good man, one who has been drinking should stay at home. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="537">A fool is he who drinks and does not love revelling. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="538">But whoever stays at home when he is drunk is wise. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="539">What shall we do, Silenus? Do you think we should stay? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="540">I do. For what need is there of other drinking companions, Cyclops? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="541">And indeed the ground is soft with flowering grass . . . . </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="542">And besides, it is good to drink in the warmth of the sun. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="543">Lie down now for me, putting your side on the ground.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="544">There. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="545">Why, then, are you putting the mixing bowl behind me? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="546" part="I">So that no one passing by may knock it over.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops </speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="546b" part="F">No, it is to drink</l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="547">on the sly that you want; put it down in the middle. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="548">And you, stranger, tell me the name by which I should call you. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="549">Nobody; and what favour shall I receive, so that I may praise you? </l>
+                    </sp>
+                    <pb facs="euripidisfabulae01euriuoft_0048"/>
+
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="550">I shall feast on you last of all your comrades. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="551">A fine privilege you give your guest, Cyclops. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="552">You there, what are you doing? Are you drinking up the wine on the sly? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="553">No, but it kissed me, because I am good-looking. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="554">You will weep for loving the wine that does not love you. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="555">Yes it does, by Zeus, since it says it loves me because I am handsome. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="556">Pour, and make the cup full. Just give it to me. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="557">Well, how has it been mixed? Come, let us check. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="558" part="I">You will be the death of me; give it as it is. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="558b" part="F">No, by Zeus, not before I </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="559">see you take a garland and have another taste . . .</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="560" part="I">O unjust wine-pourer!</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="560b" part="F"><add>No</add>, by Zeus, but O sweet wine! </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="561">You must wipe your nose so as to get a drink. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="562">There, my lip is clean, and my beard. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="563">Now set your elbow gracefully, and then drink it off, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="564">just as you see me drinking—and as you do not see me. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="565" part="I">Ah, ah, what are you doing? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="565b" part="F">I took a pleasant swig. </l>
+                    </sp>
+                    <milestone unit="card" n="566" resp="perseus"/>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="566">Take it, stranger, and be my wine-pourer yourself.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="567">The vine is at any rate familiar to my hand. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="568" part="I">Come, pour now.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="568b" part="F">I am pouring; just be quiet. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="569">That is a hard thing you have said, to one who drinks a lot. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="570">There, take it and drink it off and leave nothing. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="571">One must drain it and die along with the drink.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="572">Wow, how clever is the wood of the vine! </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="573">And if you drain a lot of it after a big meal, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="574">soaking your belly till it is not thirsty, it will put you to sleep, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0049"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="575">but if you leave anything, Bacchus will dry you out. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="576">Hurrah, hurrah, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="577">how hard it was to swim out! Unmixed is the pleasure. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="578">The sky seems to me to be mixed together </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="579">with the earth and to be whirling round, and the throne of Zeus </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="580">I see, and the whole holy majesty of the gods. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="581">—I would not kiss you!—The Graces are tempting me.— </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="582">With this Ganymede here I shall take my rest well enough, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="583">most beautifully, by the Graces. —Somehow I take more pleasure </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="584">in boys than in females.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="585">What, am I Zeus's Ganymede, Cyclops? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="586">Yes, by Zeus, the one I am carrying off from Dardanus. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="587">I am done for, children; I shall suffer cruel evils. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Cyclops</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="588">Do you find fault with your lover and play coy with him because he is drunk? </l>
+                    </sp>
+                    <sp>
+                        <speaker>Silenus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="589">Ah me! I shall soon find the wine most bitter. </l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="590">Come now, sons of Dionysus, noble children, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="591">the man is inside; and, relaxed in sleep, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="592">he will soon spew meat out of his shameless gullet. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="593">And the brand inside the cave, <sic>pushing out</sic> smoke, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="594">is made ready; and nothing remains but to burn </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="595">the Cyclops' eye; but see that you are a man.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Chorus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="596">We will have a spirit of rock and adamant. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="597">But go into the house, before our father suffers something </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="598">desperate; for things here are ready for you.</l>
+                    </sp>
+                    <sp>
+                        <speaker>Odysseus</speaker>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="599">Hephaestus, lord of Aetna, burn out the bright eye </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="600">of your evil neighbour and be rid of him once and for all, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="601">and you, Sleep, nursling of black Night, </l>
+                        <pb facs="euripidisfabulae01euriuoft_0050"/>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="602">come in full force upon the god-hated beast, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="603">and do not, after the most glorious toils of Troy, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="604">destroy Odysseus himself and his sail<add>ors</add> </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="605">at the hands of a man who cares nothing for gods or mortals. </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="606">Or else we must believe that chance is a god, </l>
+                        <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="607">and that the power of the gods is less than chance. </l>
+                    </sp>
+                    <milestone unit="card" n="608" resp="perseus"/>
+
+                    <div type="textpart" subtype="lyric">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="608" rend="center">It will seize the throat </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="609" rend="center">tightly, the crab-claw tongs, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="610" rend="center">of the guest-devourer; for soon with fire </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="611" rend="center">it will destroy his light-bearing pupils. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="612" rend="center">Already </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="613" rend="center">the brand, turned to charcoal, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="615" rend="center">is hidden in the ashes, the huge </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="616" rend="center">sapling of oak; but let Maron come; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="616a" rend="center">let him do his work; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="617" rend="center">let him take out the eye of the raving Cy- </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="618" rend="center">clops, so that he may rue his drinking. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="619" rend="center">And I </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="620" rend="center">the ivy-loving Bromius, the de- </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="621" rend="center">sired one, wish to behold, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="622" rend="center">from the Cy- </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="622a" rend="center">clops' solitude departing; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="623" rend="center">will I ever come so far?</l>
+                        </sp>
+
+                        <milestone unit="card" n="624" resp="perseus"/>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="624">Be silent, by the gods, you beasts, keep quiet, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="625">closing the joints of your mouths; I allow no one even to breathe, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="626">or to blink, or to clear his throat, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="627">so that the evil thing is not woken, until the sight </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="628">of the Cyclops' eye has been forced out by fire.</l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="629">We are silent, gulping down the air in our jaws. </l>
+                        </sp>
+                        <pb facs="euripidisfabulae01euriuoft_0051"/>
+
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="630">Come now, see that you take hold of the brand with your hands </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="631">when you go inside; it is nicely red-hot. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="632">Then won't you assign who must be first </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="633">to take the burning bar and burn out the light </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="634">of the Cyclops, so that we may share in the fortune? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus A</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="635">We are standing too far away in front of the doors </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="636">to push the fire into his eye.  </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus B</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="637">And we have just now gone lame.  </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus C</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="638">Then you have suffered the same as I; for our feet  </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="639">got sprained while we were standing, I don't know how.</l>
+                        </sp>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="640" part="I">Sprained while standing? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus D</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="640b" part="F">And our eyes, too, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="641">are full of dust or ash from somewhere. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="642">Worthless men, and no allies at all, these. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="643">Because we pity our back and our spine, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="644">and I do not want to have my teeth knocked out </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="645">by being beaten, is that cowardice? </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="646">But I know a spell of Orpheus, a very good one, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="647">so that the brand, going of its own accord into the skull, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="648">sets fire to the one-eyed son of Earth. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="649">I knew long ago that you were like this by nature, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="650">and now I know it better. My own friends </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="651">I must use. But if you have no strength in your hands, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="652">then at least cheer us on, so that we may gain courage </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="653">from the urging of you, our friends. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="654">I will do it. We will run the risk with the Carian. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="655">And as far as our cheering goes, let the Cyclops be smoked. </l>
+                        </sp>
+                    </div>
+                    <pb facs="euripidisfabulae01euriuoft_0052"/>
+                    <milestone unit="card" n="656" resp="perseus"/>
+
+                    <div type="textpart" subtype="lyric">
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="656" rend="center">Io, io! Most nobly pu- </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="657" rend="center">sh, hurry. Burn out the brow </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="658" rend="center">of the guest-devouring beast. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="659" rend="center">Smoke him out, burn </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="660" rend="center">the shepherd of Aetna. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="661" rend="center">Twist it, drag it, lest, maddened with pain, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="662" rend="center">he does something rash to you.</l>
+                        </sp>
+
+                        <milestone unit="card" n="663" resp="perseus"/>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="663">Ah me, the light of my eye has been burnt to a cinder. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="664">A fine paean indeed; sing it for me, O Cyclops. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="665">Ah me, ah me, how I have been outraged, how I am undone! </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="666">But you shall certainly not escape out of this rock </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="667">to rejoice, you nobodies; for at the entrance </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="668">of the cleft I will stand and fit these hands of mine into it.</l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="669" part="I">Why are you shouting, Cyclops? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="669b" part="F">I am ruined. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="670" part="I">You do look ugly. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="670b" part="F">And wretched besides. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="671">Did you fall into the middle of the coals while drunk? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="672" part="I">Nobody has ruined me. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="672b" part="F">Then nobody was wronging you. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="673" part="I">Nobody is blinding my eye. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="673b" part="F">Then you are not blind.
+                            </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="674" part="I">As if you— </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="674b" part="F">And how could nobody make you blind? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="675" part="I">You mock me. But where is Nobody? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="675b" part="F">Nowhere, Cyclops. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="676">It was the stranger, so that you may understand correctly, who ruined me, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="677">the villain, who gave me the drink and swamped me. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="678">Yes, wine is terrible and hard to wrestle with. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="679">By the gods, have they fled, or are they staying inside the house? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="680">These men are standing in silence, having taken the overhanging rock
+                            </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="681" part="I">as their shelter. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="681b" part="F">On which hand? </l>
+                        </sp>
+                        <pb facs="euripidisfabulae01euriuoft_0053"/>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="682" part="I">On your right. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="682b" part="M">Where? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="682c" part="F">Right against the rock. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="683" part="I">Have you got them? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="683b" part="F">Evil upon evil; I struck my skull </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="684" part="I">and broke it. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="684b" part="F">And they are escaping you, too. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="685" part="I">Not this way? Didn't you say this way? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="685b" part="F">No; I mean that way. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="686" part="I">Which way, then?  </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="686b" part="F">Turn around, over there, to the left.</l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="687">Ah me, I am laughed at; you mock me in my misery. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="688">But not any more; he is right in front of you. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="689" part="I">O utter villain, where on earth are you? </l>
+                        </sp>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="689b" part="F">Far from you </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="690">I keep this body of Odysseus under guard. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="691">What did you say? You have changed your name and speak a new one. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="692">The very one my father gave me: Odysseus. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="693">You were bound to pay the penalty for your unholy feast; </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="694">for it would have been poor work to burn Troy to the ground </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="695">if I had not avenged on you the murder of my comrades. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="696">Alas! An old oracle is being fulfilled. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="697">For it said that I would have my sight blinded by you </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="698">when you set out from Troy. But it also foretold </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="699">that you would pay the penalty for this, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="700">tossed about on the sea for a long time. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Odysseus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="701">Go weep, I say; I have already done what you say. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="702">And I will go to the shore, and the hull of my ship </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="703">I will launch onto the Sicilian sea and toward my fatherland. </l>
+                        </sp>
+                        <sp>
+                            <speaker>Cyclops</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="704">No indeed, for I will break off a piece of this rock </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="705">and throw it and crush you, shipmates and all. </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="706">I will go up onto the hill, blind though I am, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="707">through this cave with its two openings, <sic>climbing on foot.</sic>
+                            </l>
+                        </sp>
+                        <sp>
+                            <speaker>Chorus</speaker>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" rend="indent" n="708">And we, being shipmates of this Odysseus, </l>
+                            <l xml:base="urn:cts:greekLit:tlg0006.tlg001.perseus-grc2" n="709">will serve Bacchus from now on. </l>
+                        </sp>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>
