@@ -38,6 +38,8 @@ Agreed with the user (plan: span-wise first, alignment later):
 - **`<note>` is `keep-subtree`**: copied unchanged and kept in place (tag_decisions wins over HANDOVER's language detection).
 - **Span-wise translation** (stage 5 / tag placement is deferred): every text piece is translated where it is, so no element moves. `elem.text` gets the element's treatment, `child.tail` the parent's. Text outside blocks is never touched. Nested inline elements: the more protective treatment wins (keep > transliterate > translate). Mixed nesting is decided per element and counted in the report (`inline-as-block`, `inline-with-blocks`, `block-in-block`, ...).
 - No placeholders/masking yet: keep spans are never sent to MT.
+- `document.apply_spans(spans, engine, src, tgt, report)` does the transliterate + one-batch translate + write-back step. Spans may come from several trees, which is how `scripts/compare_spanwise.py` batches many passages.
+- Cost of span-wise (`docs/spanwise_cost.md`, MADLAD): prose passages with a mid-sentence cut lose ~0.6 chrF vs translating the whole passage (control without cuts: +0.1), but get visibly broken sentences. Verse (`<l>` translated line by line) loses ~3 chrF. About a third of the prose cuts come from empty markers/notes (`milestone`, `pb`, `note`, `gap`). Over all Perseus Greek, 17% of blocks are cut, and their pieces are 57% of MT segments.
 
 Flow (`pipeline/document.py: translate_document(path, pair, engine=None, policy=None) -> Result(tree, report)`): parse → `spans.collect_spans` → transliterate (`transliterate.grc_simple`) + one batch to `MTEngine.translate(segments, src, tgt)` → write back keeping whitespace → `xml:lang` src→tgt (not inside kept elements) → add a `<respStmt>` in `titleStmt` → `validate.validate` (well-formed, same elements/attributes in the same order, `@n`/`@xml:id` preserved, kept elements byte-identical, header unchanged). Engines: `identity`, `tag` (wraps output as `[EN:...]`).
 
@@ -85,6 +87,7 @@ python scripts/data/count_perseus_tags.py  # tag counts over data/perseus/ (need
 python scripts/check_metric_cases.py     # runs the tag-placement, structure and translation metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
 python -m tei_translate translate IN.xml --engine tag   # writes outputs/<name>.en.xml, prints rules fired + validation; exit 1 if a check fails
 python scripts/compare_engines.py --engines opus-grk-en opus-bible-ine   # MT bake-off on Perseus passages -> outputs/compare/
+python scripts/compare_spanwise.py --engine madlad-3b [--reuse outputs/compare/<run>]   # whole vs span-wise translation of the same passages -> outputs/spanwise/
 ```
 
 `python -m pytest` runs the suite: `tests/test_metrics.py` (one test per hand-made metric case in `tests/fixtures/metrics/`), `tests/test_policy.py` and `tests/test_pipeline.py` (pipeline, on `tests/fixtures/tei/`), `tests/test_engines.py` (registry, splitting, prefixes; real-model tests only with `TEI_TRANSLATE_RUN_MODELS=1`). `python -m pytest tests/test_pipeline.py::test_names` runs one test. `scripts/check_metric_cases.py` runs the metric cases with longer failure explanations.

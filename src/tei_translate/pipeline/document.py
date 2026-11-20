@@ -147,6 +147,33 @@ def _add_resp_stmt(root, engine_name: str, src: str, tgt: str) -> bool:
     return True
 
 
+def apply_spans(spans, engine, src: str, tgt: str, report: Report) -> None:
+    """Transliterate and translate spans in place (one batch to the engine); counts go to `report`.
+
+    The spans may come from several trees, e.g. many passages translated in one batch.
+    """
+    to_translate = []
+    for span in spans:
+        core = split_ws(span.value)[1]
+        if not has_letters(core):
+            report.skipped_spans += 1
+        elif span.treatment == "translate":
+            to_translate.append((span, core))
+        else:
+            scheme = span.params.get("scheme", "simple")
+            if scheme not in SUPPORTED_PARAMS["scheme"]:
+                scheme = "simple"
+            write_back(span, get_transliterator(src, scheme)(core))
+            report.transliterated_spans += 1
+
+    outputs = engine.translate([core for _, core in to_translate], src, tgt) if to_translate else []
+    if len(outputs) != len(to_translate):
+        raise RuntimeError(f"engine {engine.name} returned {len(outputs)} segments for {len(to_translate)}")
+    for (span, _), out in zip(to_translate, outputs):
+        write_back(span, out)
+    report.translated_spans += len(to_translate)
+
+
 def translate_document(path, pair: str | Path | dict = DEFAULT_PAIR, engine=None, policy: Policy | None = None) -> Result:
     """Translate a TEI file. `engine` (name or object) overrides the pair config."""
     pair_cfg = pair if isinstance(pair, dict) else load_pair(pair)
@@ -178,27 +205,7 @@ def translate_document(path, pair: str | Path | dict = DEFAULT_PAIR, engine=None
         log.warning("unknown tag <%s> (%d times): default rule used", tag, n)
 
     report = Report(engine.name, src, tgt, walk, warnings=_check_params(policy))
-
-    to_translate = []
-    for span in spans:
-        core = split_ws(span.value)[1]
-        if not has_letters(core):
-            report.skipped_spans += 1
-        elif span.treatment == "translate":
-            to_translate.append((span, core))
-        else:
-            scheme = span.params.get("scheme", "simple")
-            if scheme not in SUPPORTED_PARAMS["scheme"]:
-                scheme = "simple"
-            write_back(span, get_transliterator(src, scheme)(core))
-            report.transliterated_spans += 1
-
-    outputs = engine.translate([core for _, core in to_translate], src, tgt)
-    if len(outputs) != len(to_translate):
-        raise RuntimeError(f"engine {engine.name} returned {len(outputs)} segments for {len(to_translate)}")
-    for (span, _), out in zip(to_translate, outputs):
-        write_back(span, out)
-    report.translated_spans = len(to_translate)
+    apply_spans(spans, engine, src, tgt, report)
 
     for text_elem in texts:
         report.lang_updated += _update_lang(text_elem, policy, src, tgt)
