@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Ζεὺς Τραγῳδός</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<respStmt>
+<resp>Translated to English by Gemini 4 Neon (2026-11-20)</resp>
+<name>tei-translate</name>
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg018.perseus-grc2.xml</idno>
+ <availability>
+  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+  <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+ </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date>1915</date>
+     </imprint>
+     <biblScope unit="volume">2</biblScope>
+    </monogr>
+    <series>
+     <title>Loeb Classical Library</title>
+    </series>
+    <ref target="https://archive.org/details/lucianhar02luciuoft/page/90/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)"
+   replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+<!--<refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-10">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" type="edition" xml:lang="en">
+ <pb n="v.2.p.90"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="1">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)">
+
+<l><corr>O</corr> Zeus, <corr>why</corr> do you talk to yourself alone, deep in thought, </l>
+
+
+<l>Pacing about pale, with the complexion of a philosopher? </l>
+
+
+<l>Confide in me, take me as counselor in your troubles, </l>
+
+
+<l>And do not despise a servant's chatter! </l>
+</p> </sp>
+<sp> <speaker>Athene</speaker>
+<p rend="align(indent)">
+
+<l>Yea, father of ours, son of Cronus, highest of rulers, </l>
+
+
+<l>I clasp your knees, gray-eyed goddess Tritogeneia! </l>
+
+
+<l>Speak out, hide it not in your mind, so we too may know </l>
+
+
+<l>What plan gnaws at you in heart and soul, </l>
+
+
+<l>Or why you groan deeply and pallor has seized your cheeks! </l>
+</p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">
+ There is no word so dreadful to utter,
+
+<l>No suffering, no tragic calamity, </l>
+
+
+<l>That I do not outdo in ten <note xml:lang="mul" type="footnote" n="v.2.p.90.n.1">ἰαμβείοις ὑπερπαίω Text P (Vat. 76) D (Bodl. B 56); ἰαμβιοισιν P, ἰαμβείοισι D; ὑπερπαίδεκα D. ἦς οὐκ ἂν ἄραιτʼ (ἄροιτʼ) ἄχθος ἡ θεῶν φύσιε γ, NHA, edd. D has this line also, after the other.</note>iambic lines! </l>
+</p> </sp>
+<sp> <speaker>Athene</speaker>
+<p rend="align(indent)">
+ Apollo! With what a prelude you begin your speech! </p> </sp><pb n="v.2.p.92"/>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">
+
+<l>O most accursed earthly nurslings of the soil, </l>
+
+
+<l>And <corr>you</corr>, Prometheus, <corr>what</corr> evils you have wrought <corr>me!</corr> </l>
+</p> </sp>
+<sp> <speaker>Athene</speaker>
+<p rend="align(indent)">
+ What is it? You will be speaking to a chorus of your own kin. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">
+ O whirring flash of loud-roaring lightning, what <note xml:lang="mul" type="footnote" n="v.2.p.92.n.1">τί Guyet: τί μοι MSS.</note>wilt thou do? </p> </sp>
+ <sp> <speaker>Hera</speaker>
+  <p rend="align(indent)"> Calm your wrath, Zeus, if I cannot act comedy or recite epic like these two, nor have swallowed all of Euripides whole so as to play tragedy opposite you! </p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="2">
+ <sp rend="merge"> <speaker>Hera</speaker>
+<p>Do you think I don't know the cause of your grief, whatever it is? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> You know not—else loudly would you wail! </p> </sp>
+<sp> <speaker>Hera</speaker>
+<p rend="align(indent)"> I know the main point of what ails you—that it <corr>is</corr> a love affair! Still, I don't wail, out of habit, having already been insulted by you in this way many times. Likely you've found some Danaë or Semele or Europa again and are tormented <corr>by</corr> love, and now you're plotting to turn into a bull or satyr or gold and pour <corr>through</corr> the roof into your beloved's lap! For these symptoms—sighs, tears, and pallor—belong to nothing else but <corr>love.</corr> </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Bless your soul, thinking our troubles have to do with love and such trifles! </p> </sp><pb n="v.2.p.94"/>
+<sp> <speaker>Hera</speaker>
+<p rend="align(indent)"> Well, what else but that could possibly grieve you, being Zeus? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="3">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> The affairs of the gods are in direst straits, Hera, and—as the saying goes—stand on a razor's edge, whether we are still to be honored and receive our dues on earth or be utterly neglected and counted as nothing! </p> </sp>
+<sp> <speaker>Hera</speaker>
+<p rend="align(indent)"> Has Earth bred some Giants again, or have the Titans broken their chains, overpowered their guards, and taken up arms against us once more? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Take heart—below, all is secure for the gods. </p> </sp>
+<sp> <speaker>Hera</speaker>
+<p rend="align(indent)"> What other terrible thing could there be, then? For if nothing like that is troubling you, I fail to see why you've turned into Polus or Aristodemus instead of Zeus! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="4">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Yesterday, Hera, Timocles the Stoic and Damis the Epicurean—I know not how the discussion started between them—debated about Providence in the presence of a large and distinguished audience, which is what upset me most. Damis claimed the gods don't even exist, let alone <note xml:lang="mul" type="footnote" n="v.2.p.94.n.1">οὐδʼ . . . οὐχ ὅπως Harmon: . . . οὔθ' δλως MSS.</note>oversee or govern human affairs, while good Timocles tried to fight on <corr>our</corr> side. <pb n="v.2.p.96"/>Then a huge crowd streamed in and the gathering reached no conclusion, so they broke up after agreeing to examine the rest another time; and now everyone is in suspense over which of the two will win and seem to speak more truly. Do you see the danger—how completely cornered our affairs are, staked on a single man? One of two things must happen: either we are cast aside, thought to be mere names, or we continue to be honored as before, if Timocles prevails in the debate. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="5">
+<sp> <speaker>Hera</speaker>
+<p rend="align(indent)"> This truly is serious, Zeus—it was not for nothing that you played tragedy over it! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> And you thought I was worrying about some Danaë or Antiope in the middle of such a crisis! Well then, Hermes, Hera, and Athena, what should we do? Pitch in your own ideas too. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> For my part, I say we should call an assembly and refer the matter to the whole community. </p> </sp>
+<sp> <speaker>Hera</speaker>
+<p rend="align(indent)"> I agree with him completely. <note xml:lang="mul" type="footnote" n="v.2.p.96.n.1">παὐτὰ Κ Schwartz: ταῦτα MSB.</note></p> </sp>
+<sp> <speaker>Athene</speaker>
+<p rend="align(indent)"> I think just the opposite, Father: don't throw heaven into uproar or make it obvious that you are rattled by the affair; instead, arrange privately for Timocles to win the argument and for Damis to leave the gathering laughed to scorn. </p> </sp><pb n="v.2.p.98"/>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> No, Zeus—this won't stay secret since the philosophers' dispute is going to be held in public, and you'll look like a tyrant if you don't consult everyone on matters so important and common to all. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="6">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Make the proclamation at once, then, and let everyone attend—you are right. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Hear ye! Come to assembly, you gods! <corr>Don't</corr> delay—come all of you, gather round; we are going to hold an assembly on important business! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Do you make your proclamation so bare, plain, and prosaic, Hermes, especially when summoning them on the gravest matters? </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> How do you want it done, then, Zeus? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> How do I want it? Give the proclamation dignity, I say, with verse and poetic grandeur, so they'll be more eager to come! </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Sure, but that's a job for epic poets and rhapsodes, Zeus, and I am not poetic in the least! I'll ruin the proclamation by stringing together lines too long or too short, and they'll laugh at the clumsiness of the verses—why, I see even Apollo getting laughed at for some of his oracles, even though their obscurity conceals <pb n="v.2.p.100"/>most of it so listeners don't have much leisure to scan the meter! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Then mix plenty of Homer's verses into your proclamation, Hermes—the ones <note xml:lang="mul" type="footnote" n="v.2.p.100.n.1">οἷς Harmon ὡς MSS.</note>he used to summon us; you're bound to remember them. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Not very clearly or readily, but I'll try anyway:
+ <quote rend="blockquote">
+<l>Let no female deity <note xml:lang="mul" type="footnote" n="v.2.p.100.n.2">θεὸς Word wanting in MSS. θεῶν ἔτι Hesdlam.</note>... nor any male, </l>
+
+
+<l>Nor any of the <note xml:lang="mul" type="footnote" n="v.2.p.100.n.3">αὖ τῶν Mehler: αὐτῶν MSS.</note>rivers remain away, save Oceanus, </l>
+
+
+<l>Nor any of the nymphs; rather come all to the house of Zeus, </l>
+
+
+<l>To assembly—all who feast on famous hecatombs, </l>
+
+
+<l>And all of middle or lowest rank, or wholly </l>
+
+
+<l>Nameless, who sit beside savorless altars!</l>
+</quote> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="7">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Bravo, Hermes! Splendidly proclaimed! They are already gathering, so receive them and seat each according to his worth, depending on material or artistry: in the front row the golden ones, next after them the silver, then all the ivory ones, then the bronze or stone—and among these last let works of Phidias, Alcamenes, Myron, Euphranor, or similar masters have <corr>precedence,</corr> while this riffraff of <pb n="v.2.p.102"/>crude workmanship can crowd together somewhere in the back and merely fill out the assembly in silence. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> So it shall be, and they shall sit as is fitting. Still, it wouldn't hurt to know one thing: if one of them is solid gold weighing many talents, yet not finely crafted—completely amateurish and out of proportion—shall he sit ahead of the bronzes of Myron and Polyclitus and the marbles <note xml:lang="mul" type="footnote" n="v.2.p.102.n.1">λιθίνων Bekker· τῶν λιθίνων MSS.</note>of Phidias and Alcamenes, or should we consider artistry more honorable? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Artistry ought to come first, yet gold must be preferred nonetheless. </p> </sp>
+ <sp> <speaker>Hermes</speaker>
+  <p rend="align(indent)"> I understand—you're ordering me to seat them by wealth rather than merit, by property <corr>assessment!</corr> Step up to the front row, then, you golden ones! </p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="8">
+ <sp rend="merge"> <speaker>Hermes</speaker>
+<p>It looks as though only the barbarian gods will get front seats, Zeus! You can see what the Greek ones are like—graceful, handsome, and artfully shaped, yet all of stone or bronze, or the most expensive of them ivory with just a thin gleam of gold on the surface to tint and gild them, while underneath even they are wooden, sheltering whole colonies of mice living inside! Whereas Bendis here, Anubis over there, Attis beside him, Mithras, and Men are solid gold, heavy, and genuinely pricey! </p> </sp>  </div> <pb n="v.2.p.104"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="9">
+<sp> <speaker>Poseidon</speaker>
+<p rend="align(indent)"> How on earth is this fair, Hermes—for this dog-faced Egyptian to sit ahead of me, Poseidon? </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Yes, Earth-shaker, but Lysippus made you out of bronze and poor, since the Corinthians had no gold back then; whereas this fellow is richer by whole mines! So you must put up with being pushed back and not get indignant if someone with a golden snout that size takes <corr>precedence</corr> over you. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="10">
+<sp> <speaker>Aphrodite</speaker>
+<p rend="align(indent)"> Then take me too, Hermes, and seat me somewhere in the front rows—for I am "golden"! </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Not so far as I can see, Aphrodite! Unless I'm completely blear-eyed, you were quarried from white marble—Pentelic, I think—and then, when Praxiteles saw fit to turn you into Aphrodite, handed over to the Cnidians. </p> </sp>
+<sp> <speaker>Aphrodite</speaker>
+<p rend="align(indent)"> Yet I can produce a trustworthy witness in Homer, who up and down his poems calls me "golden Aphrodite"! </p> </sp>
+<sp> <speaker>Hermes</speaker>
+ <p rend="align(indent)"> The same poet also called Apollo "rich in gold" and wealthy—yet right now you'll see him sitting somewhere among the middle class, stripped of his crown <note xml:lang="mul" type="footnote" n="v.2.p.104.n.1">τε Fritzsche: γε MSS.</note>by robbers and with the pegs of his lyre looted! So be glad you aren't sitting all the way back with the lowest class! </p> </sp></div> <pb n="v.2.p.106"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="11">
+ <sp> <speaker>Kolossos Rhodion</speaker>
+<p rend="align(indent)">Who would dare rival me, being <corr>Helios</corr> and of such immense size? Why, if the Rhodians hadn't seen fit to build me on so colossal and gigantic a scale, for the same outlay they could have made sixteen golden gods! So proportionally I ought to be considered more expensive—plus there is the artistry and precision of workmanship on such a scale. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> What should we do, Zeus? This one is hard for me to decide: if I look at his material, he's bronze, but if I calculate how many talents it cost to <corr>cast</corr> him, he'd rank above the top property class! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Why did he have to show up too, showing up everyone else's smallness and crowding the seating? Still, noble Rhodian, even if you are ever so much more worthy of honor than the golden ones, how could you sit in the front row unless everyone else stood up so you could sit alone, taking up the whole Pnyx with one buttock? So you'll do better attending the assembly standing up, leaning over the gathering. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="12">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Look, here's another tough problem! Both of these are bronze and of the same workmanship—each a work of Lysippus—and best of all, equal in birth as sons of Zeus: Dionysus here and Heracles. Which of them sits <corr>first?</corr> For they are quarreling, as you see. </p> </sp><pb n="v.2.p.108"/>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> We are wasting time, Hermes, when we should have started the <corr>assembly</corr> long ago! For now let them sit mixed together wherever each pleases; another time an assembly will be granted to settle this, and then I'll decide what order of seating to establish for them. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="13">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Heracles, what an uproar they're making, shouting those usual everyday slogans: <q>"Handouts! Where's the nectar? The ambrosia has <corr>run out!</corr> Where are the hecatombs? Share the sacrifices!<note xml:lang="mul" type="footnote" n="v.2.p.108.n.1">θυσίας Text ΓΩΝ: some MSS. Repeat one or more of these Phrases.</note>"</q>  </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Quiet them down, Hermes, so they drop this nonsense and learn why they were called together. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Not all of them <corr>understand</corr> Greek, Zeus, and I'm no polyglot to make announcements intelligible to Scythians, Persians, Thracians, and Celts! Better, I think, to gesture with my hand and <corr>signal</corr> for silence. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Do so. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="14">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Bravo—you have made them quieter than sophists! Now it's time to address the assembly. See? They've been looking at you for a while, waiting to hear what you have to say. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Hermes, I won't hesitate to tell you, my son, what has come over me. <pb n="v.2.p.110"/>You know how bold and loud-voiced I always used to be in assemblies. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> I know—in fact I used to be terrified listening to you speak, especially when you threatened <note xml:lang="mul" type="footnote" n="v.2.p.110.n.1">ἠπείλεις vulg.: ἂν ἠπείλεις γ; ἀπειλοίης β.</note>to let down that golden chain and haul up earth and sea from their foundations, gods and all! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Well now, my child—I don't know whether it's the magnitude of the impending crisis or the sheer crowd present (for as you see, the assembly is packed with gods)—my mind is in a whirl, I'm trembling, and my tongue feels tied! And worst of all, I've forgotten the opening of the whole speech, which I had prepared so as to make the most impressive start before them! </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> You've ruined everything, Zeus! They are suspicious of your silence and expect to hear some colossal disaster to explain why you're hesitating. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Would you like me to recite that Homeric opening to them, Hermes? </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Which one? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> "Hearken to me, all ye gods and all ye <corr>goddesses!</corr>" </p> </sp><pb n="v.2.p.112"/>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Get out—you've parodied <note xml:lang="mul" type="footnote" n="v.2.p.112.n.1">πεπαρώδηται du Soul: πεπαρῴνηται MSS.</note>enough for us already at the start! Rather, if you agree, drop the clumsy verse and string together whichever of Demosthenes's speeches against Philip you like, changing a few words; that's how most orators make speeches nowadays anyway. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Good idea—a neat shortcut to rhetoric and a <corr>handy</corr> trick for those at a loss! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="15">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Come on, start then! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> "I believe, fellow gods, that you would prefer it to great wealth if it were made clear to you what on earth this business is for which you have now been summoned. Since this is so, it is fitting that you listen eagerly to me as I speak. Now the present crisis, O gods, all but finds a voice and cries out that we must take firm hold of our affairs, whereas we seem to be thoroughly careless about them." And now—for Demosthenes is running out on me—I wish to explain to you clearly the exact events that alarmed me into calling this assembly.</p>
+<p rend="align(indent)"> Yesterday, as you know, when Mnesitheus the shipowner offered thank-offerings for his ship that nearly went down off Caphereus, we feasted at Piraeus—those of us whom Mnesitheus <corr>invited</corr> to the sacrifice. Afterward, following the libations, the rest of you went off in different directions as each pleased, while I—since it wasn't very late yet—went up to the <pb n="v.2.p.114"/>city to take an afternoon stroll in the Cerameicus, reflecting on Mnesitheus's stinginess: entertaining sixteen gods, he sacrificed only a single rooster, and an old, <corr>sniveling</corr> one at that, along with four lumps of frankincense so moldy they instantly went out on the coals without giving off even enough smoke for the tip of one's nose to smell—and this after promising whole hecatombs when his ship was already drifting toward the reef and inside the shoals!</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="16">
+ <sp rend="merge"> <speaker>Zeus</speaker>
+<p rend="align(indent)">As I arrived at the Painted Porch thinking about this, I saw a huge crowd of people gathered, some inside the colonnade itself and many out in the open, with a couple of men sitting on benches shouting and straining their lungs. Guessing what it was—philosophers of the argumentative sort—I wanted to stop and hear what they were saying; and since I happened to be wrapped in one of my thick clouds, I reshaped myself into their style, pulled down my beard, and looked very much like a philosopher! Elbowing my way through the crowd, I went in without anyone knowing who I was, and found that rascal Damis the Epicurean and Timocles the Stoic, best of men, disputing fiercely. Timocles was already sweating and hoarse from shouting, while Damis, grinning sarcastically, was provoking Timocles all the more.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="17">
+ <sp rend="merge"> <speaker>Zeus</speaker>
+<p rend="align(indent)">Their entire argument, it turned out, was about us! That accursed Damis was claiming that we neither exercise providence over mankind nor oversee what happens among them—which amounted to saying we do not exist at all, <pb n="v.2.p.116"/>for that was plainly the drift of his argument—and there were some who applauded him! The other one, Timocles, took our side, fought for us, grew indignant, and struggled in every way on our behalf, praising our care and explaining how we direct and arrange everything in proper order and harmony; and he too had some supporters. However, he was already exhausted and in bad voice, and the crowd was looking toward Damis; so, realizing the danger, I ordered night to pour down and break up the meeting. They dispersed after agreeing to return the next day and carry the inquiry to a finish; and as I walked along with the crowd on their way home, I overheard them praising Damis's points and already strongly favoring his side—though some refused to prejudge the opposite view and wanted to wait to see what Timocles would say tomorrow.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="18">
+ <sp rend="merge"> <speaker>Zeus</speaker>
+<p rend="align(indent)">That is why I have called you together—no trivial matter, gods, if you reflect that all our honor, glory, and revenue come from <corr>mankind</corr><corr>.</corr> If they become convinced either that gods do not exist at all, or that existing we take no thought for them, we shall receive no sacrifices, no offerings, and no honors from earth, and we shall sit idly in heaven starving, deprived of those festivals, gatherings, games, sacrifices, all-night vigils, and processions! Since so much is at stake, I say all of us must devise some way to save the situation—so that Timocles wins and appears to speak more truly, while Damis is laughed down by the <corr>audience</corr>; for I don't have much confidence that Timocles will win on his <pb n="v.2.p.118"/>own unless help from us is added to his side. So make the lawful proclamation, Hermes, so they may rise and offer advice. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="19">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Hear ye! Silence! Keep order! Which of the full-fledged gods who has the right wishes to speak? What's this? Nobody stands up—you just sit quietly, stunned by the gravity of the news?
+</p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)">
+ "May you all turn to water and earth!" As for me, <corr>if</corr> I were granted freedom of speech, I would have plenty to say, Zeus. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Speak up quite <corr>boldly</corr>, Momus—it is clear you will speak freely for our common good. </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Then listen, gods, to what comes straight from the heart, as they <corr>say</corr>! I fully expected our affairs to come to this impasse and for many such sophists to spring up against us, getting the pretext for their boldness from ourselves. By Themis, it isn't right to be angry with Epicurus or his followers and intellectual heirs for holding such views about us. What else could one expect them to think, when they see such disorder in life—the good among them neglected, perishing in poverty, disease, and slavery, <pb n="v.2.p.120"/>while utter scoundrels and villains are honored, roll in wealth, and boss their betters around; temple-robbers going unpunished and escaping notice, while completely innocent people are sometimes impaled and beaten to death? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" resp="gcrane" n="20">
+ <sp rend="merge"> <speaker>Momos</speaker>
+<p rend="align(indent)">Naturally, seeing this, they conclude that we don't exist at all—especially when they hear oracles declaring that by crossing the Halys someone will destroy a great empire, without clarifying whether his own or his <corr>enemies'</corr>; and again, <quote rend="blockquote">"O divine Salamis, thou shalt destroy the sons of women!"</quote>—since both Persians and Greeks, I think, were sons of women! And when they hear rhapsodes reciting that we fall in love, get wounded, get chained up, serve as slaves, quarrel, and have endless troubles—while still claiming to be blessed and immortal—what else can they do but rightly laugh at us and hold our affairs in contempt? Yet we get indignant if some mortals who aren't total fools expose all this and reject our providence, when we ought to be grateful if anyone still sacrifices to us despite our blunders!</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="21">
+ <sp rend="merge"> <speaker>Momos</speaker>
+<p rend="align(indent)">And answer me truthfully here, Zeus—for we are alone and no mortal is present in the gathering except Heracles, Dionysus, Ganymede, and Asclepius, these illegally enrolled aliens— <corr>did</corr> you ever care enough <pb n="v.2.p.122"/>about people on earth to investigate which of them are wicked and which <corr>are</corr> <corr>good?</corr> You couldn't say so! Why, if Theseus hadn't wiped out the brigands as a sideline on his way from Troezen to Athens, for all you and your providence cared, nothing would have stopped Sciron, Pityocamptes, Cercyon, and the rest from living in luxury off the slaughter of travelers! And if Eurystheus, a just and provident man, hadn't investigated local troubles out of philanthropy and sent out this servant of his here—a hard-working fellow eager for labors—you, Zeus, would have cared little about the Hydra, the Stymphalian birds, the Thracian horses, or the insolence and drunken violence of the Centaurs!</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="22">
+ <sp rend="merge"> <speaker>Momos</speaker>
+<p rend="align(indent)">To tell the truth, we sit here watching out for one thing only—whether anyone is sacrificing and sending up savory smoke from the altars—while everything else drifts downstream, swept along at random! So we are getting what we deserve now, and shall get worse as mankind gradually wakes up and discovers it does them no good to sacrifice to us and hold processions. Soon you'll see the Epicuruses, Metrodoruses, and Damises laughing at us while our advocates are defeated and silenced by them. Therefore it is up to you who brought things to this pass to stop and cure them. For Momus there is no great danger in going unhonored—I wasn't among the honored ones back when you were still flourishing and reaping the sacrifices anyway! </p> </sp>  </div> <pb n="v.2.p.124"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="23">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Let us leave this fellow to babble, gods—he is always harsh and <corr>fault-finding</corr>. As the admirable Demosthenes said, "To accuse, blame, and criticize is easy and within anyone's power; but to advise how the present situation may be improved—that is the mark of a truly sensible counselor," which I know well the rest of you will do even while he keeps quiet. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="24">
+<sp> <speaker>Poseidon</speaker>
+<p rend="align(indent)"> For the most part I live underwater, as you know, and govern my own realm in the deep, saving sailors, escorting ships, and <corr>calming</corr> the winds as far as I can. Still—since I care about affairs up here too—I say we should get this Damis out of the way before he comes to the debate, either with a thunderbolt or by some other means, lest he win the argument—for you say he is quite persuasive, <corr>Zeus</corr>. At the same time we'll show them how we deal with people who talk like that against us! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="25">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Are you joking, Poseidon, or have you completely forgotten that none of these things is in our power, and that the Fates spin out for each man whether he is to die by thunderbolt, sword, fever, or consumption? If the matter <corr>were</corr> in my power, do you think I would have let those temple-robbers walk out of Pisa unblasted the other day after shearing off two of my curls weighing six minas each? Or would you yourself have stood by at Geraestus while that fisherman from Oreus made off with your trident? Besides, <pb n="v.2.p.126"/>we'll look angry because we were stung by the affair, afraid of Damis's arguments, and therefore getting rid of the man without waiting for him to be tested against Timocles—so we'll simply look as if we won by default! </p> </sp>
+<sp> <speaker>Poseidon</speaker>
+<p rend="align(indent)"> Yet I thought I had hit on a neat shortcut to victory! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Get out—a tunny-brained idea, Poseidon, and thoroughly dense, to eliminate our opponent beforehand so he dies undefeated, leaving the argument still disputed and unsettled! </p> </sp>
+<sp> <speaker>Poseidon</speaker>
+<p rend="align(indent)"> Then you lot come up with something better, if my plan is so "tunny-brained" to you! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="26">
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> If we who are still young and beardless were permitted by law to address the assembly, perhaps I might say something useful for the deliberation. </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> The deliberation is on such grave matters, Apollo, that the floor is open to everyone regardless of <corr>age</corr>; it would be a fine joke if, facing supreme peril, we split hairs over legal eligibility! Besides, you are already a completely lawful speaker—long past youth, enrolled on the register of the Twelve, and practically of the council of Cronus's day! So don't <corr>act the boy</corr> with us; speak your mind boldly now without feeling <pb n="v.2.p.128"/>shy about addressing the assembly beardless, especially when you have such a heavily bearded, full-chinned son as Asclepius! Moreover, it would be especially fitting for you to display your wisdom now, unless you sit on Helicon philosophizing with the Muses for nothing. </p> </sp>
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> It isn't for you to grant permission, Momus, but for Zeus; if he bids me, perhaps I may say something not unmusical, worthy of my studies on Helicon. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Speak, my <corr>son</corr>—I grant you leave. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="27">
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> This Timocles is a worthy, god-fearing man who has thoroughly mastered Stoic doctrines; consequently he associates with many young men as a teacher of wisdom and collects no small fees for <corr>it</corr>, being very persuasive when conversing privately with his pupils. In front of a crowd, however, he is terribly timid, with an untrained, half-barbarous delivery, so that he makes himself a laughingstock in public debates—unable to speak fluently, stammering and getting flustered, especially when in that state he tries to show off fine rhetoric! In intellect he is extraordinarily sharp and subtle, according to those who know Stoic philosophy best, but in speaking and expounding he ruins and muddles his points through weakness, failing to make his meaning clear, posing things like riddles, and giving even more obscure answers to questions—and the audience, not understanding, <pb n="v.2.p.130"/>laughs at him! Now one ought to speak clearly, I think, and take special care above all that one's listeners understand. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="28">
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> That much you spoke rightly, Apollo, in praising clear speakers—even if you don't quite practice it yourself in your oracles, being crooked and riddling and safely tossing most of them into no-man's-land so that listeners need another Pythian Apollo to interpret them! Still, what do you advise next? What remedy should we apply to Timocles's inability in speaking? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="29">
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> To provide him, if we possibly can, Momus, with an advocate—one of those clever speakers—who will express properly whatever thoughts Timocles supplies him. </p> </sp>
+ <sp> <speaker>Momos</speaker>
+  <p rend="align(indent)"> That really is a beardless suggestion, still needing a tutor—to station an advocate at a philosophers' debate to interpret Timocles's thoughts to the audience, with Damis speaking in person on his own behalf while Timocles uses an actor, whispering his ideas privately into his ear, and the actor declaims without probably even understanding what he hears! Wouldn't that be a laughingstock to the crowd? No, let's think of some other way. </p></sp>
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="30">
+ <sp rend="merge"> <speaker>Momos</speaker>
+<p> And you, my brilliant friend—since you claim to be a prophet too and have collected no small fees for it, even receiving gold bricks once—why don't you give us a timely display of your art by predicting which <pb n="v.2.p.132"/>of the sophists will win the debate? Surely you know the outcome, being a prophet! </p> </sp>
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> How is it possible to do that, Momus, when we have neither tripod here, nor incense, nor a prophetic spring like Castalia? </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> See? You're dodging the test now that you're cornered! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Speak anyway, my son, and don't give this slanderer an excuse to malign and mock your art as resting on a tripod, water, and frankincense—as though without them you'd lose your skill. </p> </sp>
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> It would be better, Father, to do this at Delphi or Colophon, with all my usual apparatus at hand. Still, even stripped and unequipped like this, I'll try to foretell which of the two will win—only bear with me if my verses don't scan! </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Just speak—and clearly, Apollo, not needing an advocate or interpreter <corr>themselves!</corr> After all, it isn't lamb and tortoise boiling together in Lydia right now; you know what the question is about. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> <corr>What</corr> on earth are you going to say, my son? Already these preliminaries to the oracle are terrifying—your color changing, eyes rolling, hair tossing, <pb n="v.2.p.134"/>Corybantic convulsions, everything utterly possessed, spine-chilling, and mystical! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="31">
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)">
+<l>Hearken to this oracle of prophetic Apollo </l>
+<l>Concerning the chill strife which men have roused, </l>
+<l>Shrill-voiced, armed with thick-packed words! </l>
+<l>For back and forth in the battle's swaying cluck </l>
+<l>They smite the topmost sterns of the dense plow-tail; </l>
+<l>Yet when the crook-taloned vulture seizes the locust, </l>
+<l>Then at last shall the rain-bringing crows caw; </l>
+<l>Victory belongs to the mules, and the ass shall butt his swift offspring! </l>
+</p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Why did you burst out laughing like that, Momus? Surely our present crisis is no laughing matter! Stop, you wretch—you'll choke from laughing! </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> How can I help it, Zeus, at an oracle so crystal clear and obvious? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Then interpret it for us right now—what does it say? </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Completely obvious—we won't need a Themistocles! The oracle states right out in plain words <pb n="v.2.p.136"/>that this fellow is a charlatan, and you who believe him are pack-asses and mules, by Zeus, with no more brains than locusts! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="32">
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> Father, even though I am a resident alien here, I won't hesitate to say what I think: when they meet and start debating, if Timocles gets the upper hand, let's let the discussion go on in our favor; but if it turns out otherwise, then I myself, if you agree, will shake the Stoa itself and bring it crashing down on Damis, so the wretch stops insulting us! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Heracles, O Heracles, that is a boorish and dreadfully Boeotian idea—to destroy so many worthy men <note xml:lang="mul" type="footnote" n="v.2.p.136.n.1">χρηστούε, K. Schwartz: not in MSS.</note>along with one scoundrel, and the Painted Porch too, Marathon, Miltiades, Cynegirus, and all! If those collapsed too, how could the orators ever make speeches again, robbed of their grandest theme? Besides, while you were alive you might have been able to do something like that, but since becoming a god you've learned, I think, that the Fates alone have power over such things, while we have no share in them. </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> So even when I killed the lion or the Hydra, the Fates were doing it through me? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Certainly. </p> </sp><pb n="v.2.p.138"/>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> And now if someone insults me by robbing my temple or overturning my statue, unless the Fates decreed it long ago, I won't crush him? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Not at all. </p> </sp>
+<sp> <speaker>Herakles</speaker>
+ <p rend="align(indent)"> Then listen to me speaking plainly, Zeus—for as the comic poet said, <quote rend="blockquote">"I am a rustic who calls a spade a spade"</quote>: if that's how things work with you, I'll bid a long farewell to honors, savory smoke, and sacrificial blood up here and go back down to Hades, where with my bow drawn even the ghosts of the beasts I slew will be afraid of me! </p> </sp>
+ <sp> <speaker>Zeus</speaker>
+  <p rend="align(indent)"> Bravo—"a witness from our own household," as they <corr>say</corr>! You'd have <corr>saved</corr> Damis the trouble by feeding him those very lines! <note xml:lang="mul" type="footnote" n="v.2.p.138.n.1">ὑποβαλών Κ. Schwartz: ὑποβάλλων MSS.</note></p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="33">
+ <sp rend="merge"> <speaker>Zeus</speaker>
+<p>Wait—who is this coming up in a hurry, made of bronze, finely proportioned and sculpted, with his hair tied back in the antique style? Why, it's your brother, Hermes—Hermes of the Agora, the one beside the <corr>Painted Porch</corr>! Look, he's covered in pitch from having casts taken of him every day by sculptors. Why have you come running to us, my boy? <pb n="v.2.p.140"/>Do you bring some fresh news from earth? </p> </sp>
+<sp> <speaker>Hermagoras</speaker>
+<p rend="align(indent)"> Huge news, Zeus, requiring utmost haste! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Tell us at once if some other uprising against us has escaped our notice! </p> </sp>
+<sp> <speaker>Hermagoras</speaker>
+<p rend="align(indent)">
+
+<l>I chanced just now by bronze-workers </l>
+
+
+<l>To be coated with pitch across chest and <corr>back;</corr> </l>
+
+
+<l>A ridiculous breastplate around my body </l>
+
+
+<l>Was molded and hung by imitative art, </l>
+
+
+<l>Taking the whole impression of my bronze; </l>
+
+
+<l>When I saw a crowd marching up, and two </l>
+
+
+<l>Pale bawlers, prize-fighters of sophistry, </l>
+
+
+<l>Damis and— </l>
+</p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Stop <corr>playing tragedy</corr>, good Hermagoras—I know who you mean! Just tell me this: has their battle been going on long? </p> </sp>
+<sp> <speaker>Hermagoras</speaker>
+<p rend="align(indent)"> Not long; they were still in the skirmishing stage, slinging insults at each other from long range. </p> </sp>
+ <sp> <speaker>Zeus</speaker>
+  <p rend="align(indent)"> What else is left for us to do, <note xml:lang="mul" type="footnote" n="v.2.p.140.n.1">ἕτι ποιεῖν λοιπόν Dindorf: ἕτι χρὴ ποιεῖν λοιπόν γ; χρὴ ποιεῖν N.</note>gods, but lean over and listen to them? Let the Hours draw back the bolt at once, part the clouds, and throw wide the gates of heaven!</p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="34">
+ <sp rend="merge"> <speaker>Zeus</speaker>
+<p>Heracles, what a crowd has turned up to <pb n="v.2.p.142"/>listen! I don't much like the look of Timocles himself, trembling and flustered—he's going to ruin everything today! It's obvious he won't even be able to stand up to Damis. Well, let's do the one thing we can—pray for him <quote rend="blockquote">"silently to ourselves, lest Damis hear!"</quote> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="35">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> What are you saying, you sacrilegious Damis—that the gods do not exist and do not exercise providence over mankind? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> No; first you answer me by what reasoning you were convinced they do exist. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Not at all—you <corr>answer</corr>, you villain! </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Not at all—you! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> So far our champion is far better and louder at being rough! Bravo, Timocles, pour on the <corr>insults</corr>—that's where your strength lies, for in everything else he'll gag you and turn you as mute as a fish! </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> By Athena, I will not answer you first! </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Ask your questions then, Timocles—you've won <pb n="v.2.p.144"/>that much by swearing an oath! Only without the insults, if you please. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="36">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Fair enough. Tell me then, you accursed wretch: do you not think the gods exercise providence<corr>?</corr> </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Not at all. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> What do you say? All these things happen without providence? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Yes. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Nor is the care of the universe directed by any god? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> No. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Everything drifts along at random? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Yes. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> And you people listen to this and put up with it instead of stoning the sinner to death? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Why are you inciting the crowd against me, Timocles? <corr>Or</corr> who are you to get indignant on the gods' behalf, when they themselves aren't indignant? They've done nothing terrible to me despite listening all this while— <corr>if</corr> they are listening! </p> </sp>
+ <sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Oh, they are listening, Damis, they are listening—and in time they'll come after you! </p> </sp>  </div> <pb n="v.2.p.146"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="37">
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> And when would they ever have leisure for me, <corr>having</corr> so much business, as you say, managing the infinite number of things in the universe? Why, they haven't even punished you yet for all your constant perjuries and the rest—not to force myself to hurl insults too against our agreement! Yet I fail to see what greater demonstration of their <corr>providence</corr> they could put on than crushing a wretch like you miserably! No, it is <corr>obvious</corr> they are away on a trip—across Oceanus perhaps, "among the blameless Ethiopians," for it's their habit to go there constantly for a feast, sometimes even uninvited! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="38">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> What can I say to such shamelessness, Damis? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Say what I have long been eager to hear from you, Timocles: how you came to believe that the <corr>gods</corr> exercise providence. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> First, the order of events convinced me—the sun always traveling the same path, the moon likewise, the seasons turning, plants growing, animals being born, and these very creatures so ingeniously constructed to feed, move, think, walk, build, cobble shoes, and all the rest: these seem to me to be the works of providence. </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> You are begging the very question at issue, Timocles! It is not yet clear whether each of these things is brought about by providence. <pb n="v.2.p.148"/>That events happen this way I would agree myself; yet it does not immediately follow that they happen through some forethought, for it is possible that having begun otherwise they now continue uniformly in the same way. You call their necessity "order," and then naturally you'll get indignant <corr>if</corr> someone doesn't follow you when you merely list and praise how things happen and imagine this proves each of them is arranged by providence! So, in the words of the comic <corr>poet</corr>: <quote rend="blockquote">"That one is pretty shaky—give me another!"</quote> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="39">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> For my part I don't think any further proof is needed beyond this. Still, I'll give one: answer me—do you think Homer was an excellent poet? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Very much so. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Well, I was convinced by <corr>him</corr>, as he makes clear the providence of the gods. </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> My brilliant friend, everyone will agree with you that Homer was a great poet, but no one will accept him or any other poet as a truthful witness on such matters! They don't care about truth, I think, but about charming their listeners; that is why they enchant us with meter, din myths into our ears, <pb n="v.2.p.150"/>and in short contrive everything for the sake of pleasure.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="40">
+ <sp rend="merge"><speaker>Damis</speaker>
+<p>Still, I'd gladly hear which passages of Homer convinced you most! Was it what he says about Zeus—how his daughter, brother, and wife plotted to tie him up, and if Thetis hadn't summoned Briareus, our noble Zeus would have been seized and put in chains? And in return, remembering Thetis's favor, he deceives Agamemnon by sending him a lying dream so that many of the Achaeans will die—you see, it was impossible for him to throw a thunderbolt and incinerate Agamemnon directly without looking like a swindler! Or did <corr>those</corr> passages draw you most to faith, where you hear that Diomedes wounded Aphrodite and then Ares himself at Athena's urging, and shortly afterward the gods themselves clashed and fought duels all mixed together, males and females, with Athena defeating Ares (already weakened, I suppose, by the wound he had received from Diomedes), and <quote rend="blockquote">"Against Leto stood strong Hermes, bringer of luck"</quote>? Or did the story about Artemis strike you as convincing—how, being peevish, she got angry at not being invited to a feast by Oeneus, and so turned loose a monstrous boar of irresistible strength upon his country? Is it by telling tales like that that Homer convinced you? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="41">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Goodness, gods! What a roar the crowd let out, applauding <corr>Damis</corr>! Our man looks completely at a <pb n="v.2.p.152"/>loss—he's sweating <note xml:lang="mul" type="footnote" n="v.2.p.152.n.1">ἰδίει Κ. Schwartz: δέδιε MSS.</note>and trembling and clearly about to throw away his shield, already looking around for a gap to slip through and run off! </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> So you don't think Euripides says anything sound either, when he brings the gods themselves onto the stage and shows them saving the good heroes while crushing the wicked and the impious like you? </p> </sp>
+ <sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Most noble of philosophers, Timocles, if the tragedians have convinced you by doing that, then one of two things must follow: either you believe Polus, Aristodemus, and Satyrus are gods at that moment, or you believe the masks of the gods themselves, their buskins, ankle-length tunics, cloaks, sleeves, padded bellies, and all the other props they use to give tragedy grandeur are gods—which is utterly <corr>ridiculous!</corr> Because when Euripides speaks in his own person, unconstrained by the needs of his plays, and states his own <corr>views</corr>, you hear him speaking freely:
+<quote rend="blockquote">
+<l>Do you see this boundless ether up on high, </l>
+
+
+<l>Holding the earth round about in its moist embrace? </l>
+
+
+<l>Count this as Zeus, consider this to be god!</l>
+</quote>
+ And again: <quote rend="blockquote">"Zeus, whoever Zeus is—for I know not, save by report!"</quote>—and things like that. </p> </sp>  </div> <pb n="v.2.p.154"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="42">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> So all mankind and all nations have been deceived in believing in gods and holding festivals? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Bravo, Timocles, for <corr>reminding</corr> me of national customs—from <corr>which</corr> one can see best of all that <corr>the</corr> theory of gods has nothing firm about it! There is utter confusion, with different peoples <corr>worshiping</corr> different things: the Scythians sacrifice to a scimitar, the Thracians to Zamolxis (a runaway slave who came to them from Samos), the Phrygians to Mene, the Ethiopians to Day, the Cyllenians to Phales, the Assyrians to a dove, the Persians to fire, and the Egyptians to water. And while water is common to all Egyptians, locally the people of Memphis have <corr>the</corr> bull as a god, those of Pelusium an onion, others an ibis or a crocodile, others a baboon, a cat, or an ape; and even village by village, some have <corr>the</corr> right shoulder as a god, while those living across the way have the left; others half a head, others an earthenware cup or bowl! Isn't all this a laughingstock, good Timocles? </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Didn't I tell you, gods, that <corr>all</corr> this would come out into the open and be closely examined?  </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> You did, Momus, and your criticism was right; for my part I'll try to reform these things if we escape this present danger. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="43">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Wait, you enemy of the gods—oracles and <pb n="v.2.p.156"/>predictions of the future: whose work would you call those, if not the gods' and their providence? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Keep quiet about oracles, my good sir, or I'll ask you which one of them you most care to mention! That one the Pythian delivered to the Lydian king, which was precisely two-edged and two-faced, like some of those double-sided Herms that look the same whichever way you turn? <corr>For</corr> <corr>why</corr> would Croesus crossing the Halys destroy Cyrus's empire any more than his own? Yet that Sardian fool bought that ambidextrous verse for no few talents! </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> The man is going through the very things I feared most, gods! Where is our handsome lyre-player now? Go down and answer him on this! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> You are slitting our throats, Momus, criticizing us at the worst possible time! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="44">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Look what you are doing, you sinner Damis—you are practically overturning the very temples and altars of the gods with your talk! </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Not all altars, Timocles—what harm comes from them if they are full of incense and sweet fragrance? Those of Artemis in Tauris, however, I would gladly see overturned from their foundations, on which the maiden delighted to feast on such offerings! </p> </sp><pb n="v.2.p.158"/>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Where did this irresistible plague come from to pour over us? How <note xml:lang="mul" type="footnote" n="v.2.p.158.n.1">ὡς vulg.: ὃς MSS.</note>the man spares not a single deity, speaking freely like a festival reveller, and <quote rend="blockquote">"seizes one after another, <corr>both</corr> the guilty and the innocent!" </quote></p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Mind you, you'd find few innocent ones among us, Zeus—and pretty soon, as he goes on, the man will lay hands on one of the top brass too! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="45">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Then you don't even hear Zeus thundering, you god-fighter Damis? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Of course I hear thunder, Timocles! As for whether it is Zeus who thunders, you would know better, having come from up there among the gods; because people coming from Crete tell us a different story—that a tomb is shown there with a pillar standing over it declaring that Zeus can no longer thunder, having died long ago! </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> I knew a long time ago the man was going to say that! Wait—why have you turned pale on us, Zeus, with your teeth chattering from trembling? You ought to take heart and despise such little mortals! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> What are you saying, Momus—despise them? Don't you see how many are listening, how they are already won over <pb n="v.2.p.160"/>against us, and how Damis is leading them off tethered by the ears? </p> </sp>
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Well, Zeus, whenever you please, just let down your golden chain and haul them all up— <quote rend="blockquote">"earth itself and sea itself along with them!"</quote> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="46">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Tell me, you accursed wretch: have you ever sailed on a ship? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Many times, Timocles. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Then you were carried along either by the wind striking the sail and filling the canvas, or by the rowers, while one man stood at the helm steering and keeping the ship safe? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Certainly. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> So a ship could not sail without being steered, yet you think this entire universe drifts along without a helmsman or a commander? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Bravo! Cleverly argued by Timocles, and with a strong <note xml:lang="mul" type="footnote" n="v.2.p.160.n.1">ἰσχυρῷ Struve: ἰσχυρῶς MSS.</note>analogy! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="47">
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Ah, most god-beloved Timocles, you would see that helmsman always planning what was helpful, preparing ahead of time, and giving orders to the sailors, and the ship had nothing useless <pb n="v.2.p.162"/>or senseless that wasn't altogether serviceable and necessary for their voyage. <note xml:lang="mul" type="footnote" n="v.2.p.162.n.1">?? μὴ . . . αὐτοῖς: text β.?? μὴ χρειῶδες ἦν αὐτοῖς γ.</note>Whereas this helmsman of yours, whom you claim stands over this great ship, and his crew arrange nothing sensibly or according to merit: the forestay, as it happens, is stretched to the stern, and both sheets to the prow; the anchors are sometimes gold while the stern-ornament is lead; the underwater hull is painted in bright colors while the parts above water are ugly!</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="48">
+ <sp rend="merge"> <speaker>Damis</speaker>
+<p>And among the sailors themselves, you'll see the lazy, unskilled, cowardly fellow drawing double or triple pay, while the one ready to dive overboard, nimble at climbing the yardarm, and the only one who knows every useful task—him <note xml:lang="mul" type="footnote" n="v.2.p.162.n.2">ἕκαστα μόνον, τοῦτον Jacobs: ἕκαστα, μόνον τοῦτον vulg.</note>you'll see assigned to bail the bilge! It's the same among the passengers: some whipping-post sits in the front seat beside the helmsman being waited on, and another pervert, parricide, or temple-robber is showered with honors and occupies the best spots on the ship, while many decent people are crammed into the hold and trampled on by those who are genuinely their inferiors! Just think how Socrates, Aristides, and Phocion made the voyage—not even having enough barley-meal or room to stretch their legs on the bare planks beside the bilge—while Callias, Midias, and Sardanapallus enjoyed every luxury, living high and spitting down on those beneath them!</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="49">
+ <sp rend="merge"> <speaker>Damis</speaker>
+<p rend="align(indent)">That is what goes on aboard your ship, most wise <pb n="v.2.p.164"/>Timocles—which is why shipwrecks are countless! If any helmsman were really standing watch and ordering everything, first he wouldn't be ignorant of which passengers are good and which are bad; next he would assign each his proper due according to merit—the better quarters up beside himself to the better men, and the lower deck to the worse—making some his messmates and counselors; and among the crew, the eager sailor would be appointed lookout at the prow or officer of the side or certainly promoted ahead of the rest, while the lazy slacker would get whacked over the <corr>head</corr> with a rope's end five times a day! So, my brilliant friend, this ship analogy of yours is in danger of capsizing for having drawn a bad helmsman! <note xml:lang="mul" type="footnote" n="v.2.p.164.n.1">τετυχηκός vulg.: τετυχηκότος MSS.</note> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="50">
+<sp> <speaker>Momos</speaker>
+<p rend="align(indent)"> Things are going downstream for Damis now—he's sailing full-sail toward victory! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> You judge rightly, Momus. Timocles can't think of a single strong point, just pumping out these hackneyed everyday arguments one after another, all easily overturned. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="51">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Well then, since the ship <corr>analogy</corr> didn't seem very strong to you, listen now to my "sacred anchor," as they say—one you will never break by any device! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Whatever is he going to say? </p> </sp><pb n="v.2.p.166"/>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> See if this syllogism is sound, and if you can overturn it in any <corr>way</corr>: "If there are altars, then there are gods; now there are altars; therefore there are <corr>gods."</corr> What do you say to that? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> As soon as I've had my fill of laughing, I'll answer you! </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> You look as if you'll never stop <corr>laughing!</corr> Tell me anyway how what I said struck you as funny. </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Because you don't realize you've tied your anchor—sacred anchor though it is!—to a thin thread! By fastening the existence of gods to the existence of altars, you think you've secured a strong mooring from them! So, since you say you have nothing more sacred than this to offer, let's go home. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="52">
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> So you admit defeat by walking away first? </p> </sp>
+<sp> <speaker>Damis</speaker>
+<p rend="align(indent)"> Yes, Timocles—because just like people being assaulted, you have taken sanctuary at the altars! So, by your sacred anchor, I am ready to make a truce with you right here at the altars, so we don't argue about this anymore. </p> </sp>
+<sp> <speaker>Timokles</speaker>
+<p rend="align(indent)"> Are you mocking me, you grave-robber, villain, scum, whipping-post, and offscouring? Don't we know who your father is, how your mother <pb n="v.2.p.168"/>was a prostitute, how you strangled your brother, commit adultery, and corrupt young boys, you utter glutton and shameless wretch? Don't run away until you leave with a beating from me too—I'll slit your throat right now with this potsherd, you utter abomination! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg018.perseus-grc2" n="53">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Damis is walking off laughing, gods, while the other follows him hurling abuse, unable to bear Damis's mockery—and he looks ready to hit him on the head with a tile! What are we to do after this? </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> That comic poet seems to me to have put it well: <quote rend="blockquote">"You haven't suffered any harm if you don't pretend you have."</quote> What's the huge disaster if a few men walk away convinced of this? Far <note xml:lang="mul" type="footnote" n="v.2.p.168.n.1">πολλῳ Bekker: πολλοὶ MSS.</note>more people believe the opposite—the great mass of Greeks and all the barbarians! </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Still, Hermes, Darius's remark about Zopyrus is very much to the point: I too would rather have this one Damis as my ally than possess ten thousand Babylons!</p> </sp> </div></div> </body>
+</text>
+</TEI>

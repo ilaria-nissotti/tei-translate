@@ -53,10 +53,11 @@ You translate the text yourself, but **not from the Greek alone**. For every pas
 The Greek file decides the structure of the English file. Your English must have **the same set of tags** as the Greek: the same elements with the same attributes under the same parents. Inside a text block (`<p>`, `<l>`, `<head>`, ...) the order of inline tags may change, because English word order differs ("ὁ Χῖος Ἴων" → "Ion of Chios"). Everything outside the blocks (`div`s, milestones or page breaks between blocks) stays identical and in the same order.
 
 What to do with each element is decided in `config/policy.yaml` (the team's decisions, see `docs/tag_decisions.md`), the same rules our pipeline follows:
-- **translate** (`p`, `l`, `head`, `q`, `said`, `quote`, `add`, `del`, `hi`, `name[type=ethnic]`, ...): translate the text, keep the tag around the English words that translate its Greek content.
-- **keep** (`num`, `term`, `foreign`, `bibl`): copy the element unchanged, Greek included, and put it where its Greek words belong in the English sentence.
+- **translate** (`p`, `l`, `head`, `q`, `said`, `quote`, `add`, `del`, `hi`, ...): translate the text, keep the tag around the English words that translate its Greek content.
+- **names and numbers are translated too** (since 2026-11-20; `name` of every type, `persName`, `placeName`, `rs`, `num`): write them as a good English translation would and put the tag around them. Names in their usual English form (`<name>Περικλέους</name>` → `<name>Pericles</name>`, `Ἀθηναίοις` → `Athenians`), numbers in English (`<num>δʹ</num>` → `<num>four</num>`, or `<num>4</num>` where English would use digits, e.g. a book number in a reference).
+- **keep** (`term`, `foreign`, `bibl`): copy the element unchanged, Greek included, and put it where its Greek words belong in the English sentence.
 - **keep-subtree** (`note`): copy byte-for-byte, with everything inside it, after the English of the Greek word it comments on.
-- **transliterate** (`name`, `persName`, `placeName`, `rs`, `label`, `speaker`): put the element around the name in the English. Whether the name is written in its usual English form (Pericles) or in our transliteration (Perikles) is still open **(confirm)**; until decided, use the usual English form.
+- **transliterate** (speaker labels only: `speaker`, `label`): write the content letter by letter in Latin script as `grc_simple` does (`Δεσπότης` → `Despotes`, `ΣΩ.` → `SO.`). This includes elements inside them, even ones whose own rule is translate: `<speaker>Δεσπότης <num>α</num></speaker>` → `<speaker>Despotes <num>a</num></speaker>` (inside a transliterated element the more protective rule wins).
 - **empty markers** (`milestone`, `gap`, `pb`, `lb`): copied unchanged. A `milestone` goes before the English of the Greek word that follows it; a `gap` after the English of the Greek word before it; `pb`/`lb` (printed page/line of the Greek) at the nearest sentence boundary. A `milestone` with `unit="para"` goes at the sentence boundary.
 - Attributes are always copied unchanged (`n`, `unit`, `who`, `key`, `xml:id`, ...).
 - Nested tags stay nested: an inner tag stays inside its outer tag.
@@ -85,7 +86,7 @@ Before translating a passage, read the same passage in **all** English reference
     <name>tei-translate</name>
   </respStmt>
   ```
-- `xml:lang`: change `grc` to `en` on the elements whose text you translated, but not inside kept elements (`note`, `foreign`, `num`, ...): those stay as they are.
+- `xml:lang`: change `grc` to `en` on the elements whose text you translated, but not inside kept elements (`note`, `foreign`, `term`, `bibl`): those stay as they are.
 
 Tip: `python -m tei_translate translate GREEK.xml --engine identity --placement spanwise` writes a copy of the Greek file to `outputs/` with the `respStmt` and the `xml:lang` changes already done and all tags in place. You can start from that copy and replace the Greek text block by block (then edit the `resp` text).
 
@@ -104,5 +105,5 @@ For long texts: work section by section, save often, and set `status` to `partia
 
 ## 6. Open points for the team
 
-1. Names inside transliterated tags: usual English form (Pericles) or our transliteration (Perikles)?
+1. ~~Names inside transliterated tags: usual English form or our transliteration?~~ Settled for now (2026-11-20): names and numbers are translated (usual English form); only speaker labels are transliterated. If the policy changes again, existing gold files must be updated to match.
 2. Commit the gold files as they are produced, or only when a work is complete?

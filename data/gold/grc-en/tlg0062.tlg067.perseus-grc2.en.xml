@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">Ἐνάλιοι Διάλογοι</title>
+            <author>Lucian</author>
+            <editor>Karl Jacobitz</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Bridget Almas</name>
+               <name>Lisa Cerrato</name>
+               <name>Rashmi Singhal</name>
+            </respStmt>
+            <respStmt>
+               <resp>Translated to English by Gemini 4 Neon (2026-11-20)</resp>
+               <name>tei-translate</name>
+            </respStmt>
+            <funder n="org:Google">Google Digital Humanities Awards Program</funder>
+         </titleStmt>
+         
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="2011-03-14">Perseus 4.0</date>
+            <idno type="filename">tlg0062.tlg067.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+               <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> 
+            </availability>
+         </publicationStmt>
+            
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <title xml:lang="lat">Luciani Samosatensis Opera</title>
+                  <author>Lucian</author>
+                  <editor>Karl Jacobitz</editor>
+                  <imprint>
+                     <publisher>Teubner</publisher>
+                     <pubPlace>Leipzig</pubPlace>
+                     <date>1909</date>
+                  </imprint>
+                  <biblScope unit="volume">1</biblScope>
+               </monogr>
+               <ref target="https://archive.org/details/operaexrecogniti01luciuoft/page/116/mode/2up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      
+      <encodingDesc>
+         <editorialDecl>
+            <correction method="silent">
+               <p>keyboarding</p>
+            </correction>
+         </editorialDecl>
+         
+         <refsDecl n="CTS">
+            <cRefPattern n="section" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+               <p>This pointer pattern extracts book and section.</p>
+            </cRefPattern>
+            <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pointer pattern extracts book.</p>
+            </cRefPattern>
+         </refsDecl>
+         
+         <!--<refsDecl doctype="TEI.2">
+<state unit="chapter" n="chunk"/>
+<state unit="altsection"/>
+</refsDecl>-->
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+            <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
+      
+      <profileDesc>
+         <langUsage>
+            <language ident="grc">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+         <change who="Lisa Cerrato" when="2023-05-03">EpiDoc and CTS conversion and other cleanup</change>
+      </revisionDesc>
+   </teiHeader>
+   
+   
+   <text xml:lang="en">
+      <body xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2">
+         
+
+<div n="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" type="edition" xml:lang="en"> 
+         <pb n="p.116"/> 
+
+   <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="1"> 
+      <milestone unit="Reitz_page" n="288"/><head rend="align(center)">Doris and Galatea</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:1" n="1">  
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">What a handsome lover, Galatea, they say this Sicilian shepherd is who is madly in love with you! </p> </sp> 
+<sp><speaker>Galateia</speaker>
+<p rend="align(indent)">Don't mock, Doris; he is Poseidon's son, whatever he may be like. </p> </sp><pb n="p.117"/> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">So what? Even if he were Zeus's own son, looking so wild and shaggy and—ugliest of all—one-eyed, do you think his birth would help his looks at all? </p> </sp> 
+<sp><speaker>Galateia</speaker> 
+<p rend="align(indent)">Neither his shagginess nor his wildness, as you call it, is ugly—it is manly—and his eye sits handsomely on his forehead, seeing no worse than if there were two! </p> </sp> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">You sound, Galatea, as if Polyphemus were not your admirer, but your darling, the way you praise him! </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:1" n="2"> 
+<sp><speaker>Galateia</speaker> 
+<p rend="align(indent)">Not my darling—I just can't stand your constant taunting, <milestone unit="Reitz_page" n="289"/>and I think you do it out of jealousy! Because once, while herding his flock, he saw us playing from his lookout on the shore at the foot of Etna where a long beach stretches between the mountain and the sea, and he didn't even glance at you, whereas I seemed the loveliest of all and on me alone he kept his eye! That is what annoys you—it proves I am superior and lovable, while you were overlooked. </p> </sp> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">Because you seemed pretty to a shepherd with defective vision, you think you've become an object of envy? Besides, what else could he praise in you except your whiteness? And that, I suppose, only because he is used to cheese and milk—so he thinks anything resembling them is beautiful! </p></sp></div>
+ 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:1" n="3"> 
+   <sp rend="merge"> <speaker>Doris</speaker> 
+<p>For the rest, whenever you want to know what you really look like, lean over the water from some rock <milestone unit="Reitz_page" n="290"/>on a calm day and look at yourself—nothing but sheer white skin! And that isn't admired unless a rosy blush sets it off as well. </p> </sp> 
+<sp><speaker>Galateia</speaker>  
+<p rend="align(indent)">Still, sheer white as I am, at least I have a lover, even if it's only him—whereas not a single shepherd, sailor, or ferryman praises any of you! Besides, Polyphemus is musical too. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:1" n="4">
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">Hush, Galatea! We heard him <pb n="p.118"/>singing when he serenaded you the other day! Dear Aphrodite, one would have thought an ass was braying! And what a harp! A stag's skull stripped of flesh, the antlers serving as arms—he joined them with a crossbar and fastened sinews to them without even winding them around pegs, and played an unmusical, out-of-tune dirge, roaring one thing while the lyre twanged another, so that we couldn't even hold back our laughter at that love song! Why, even Echo, talkative as she is, wouldn't answer his bellowing—she was ashamed to be caught mimicking so harsh and ridiculous a song!<milestone unit="Reitz_page" n="291"/> </p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:1" n="5"> 
+   <sp rend="merge"> <speaker>Doris</speaker> 
+<p>And the charming fellow was carrying a bear cub in his arms as a pet, just as shaggy as himself! Who wouldn't envy you, Galatea, for such a lover? </p> </sp> 
+<sp><speaker>Galateia</speaker> 
+<p rend="align(indent)">Then show us yours, Doris—no doubt handsomer, more tuneful, and better at playing the lyre! </p> </sp> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">I have no lover and don't boast of being desirable; as for one like the Cyclops—reeking like a billy-goat, an eater of raw flesh, as they say, who feeds on passing strangers—may he be yours, and may you love him right back!</p> </sp> </div> </div> 
+
+   <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="2"> 
+<head rend="align(center)">Cyclops and Poseidon</head> 
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:2" n="1"> 
+ 
+<sp> <speaker>Kyklops</speaker> 
+<p rend="align(indent)"> Father, look what I have suffered from that accursed stranger, who got me drunk and blinded me by attacking me in my sleep! </p> </sp> 
+    <milestone unit="Reitz_page" n="292"/>
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Who was it that dared do this, Polyphemus? </p> </sp> 
+<sp> <speaker>Kyklops</speaker> 
+<p rend="align(indent)"> At first he called himself "Nobody," but once he escaped and was out of range, he said his name was Odysseus.</p> </sp><pb n="p.119"/> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> I know who you mean—the Ithacan; he was sailing home from Troy. But how did he manage this, not being very bold? </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:2" n="2">
+<sp> <speaker>Kyklops</speaker> 
+<p rend="align(indent)"> Returning from pasture, I caught a bunch of men in my cave, obviously plotting against my flocks. Once I put the lid on the doorway—an enormous boulder—and kindled the fire using a tree I had brought down from the mountain, they were seen trying to hide themselves; so I grabbed some of them and ate them, as was only right since they were robbers. Then that utmost rogue, whether Nobody or Odysseus, poured out and gave me some drug to drink—sweet and fragrant, yet most treacherous and dizzying! Immediately everything seemed to spin around me <del>as I drank</del>, the cave itself turned upside down, and I was no longer in my right <milestone unit="Reitz_page" n="293"/>mind at all; finally I was dragged down into sleep. He sharpened a stake, heated it in the fire as well, and blinded me while I slept—and ever since then I am blind, Poseidon! </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:2" n="3"> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> How deeply you slept, my son, not to leap up while being blinded! Anyway, how did Odysseus escape? I know very well he couldn't have moved the boulder from the doorway. </p> </sp> 
+<sp> <speaker>Kyklops</speaker> 
+<p rend="align(indent)"> No, I moved it myself, the better to catch him coming out, and sat by the entrance groping with outstretched hands, letting only the sheep out to pasture and instructing the ram what he should do for me. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:2" n="4">
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> I see—they slipped out unseen underneath them! You should have shouted for the other Cyclopes to help against him. </p> </sp> 
+<sp> <speaker>Kyklops</speaker> 
+<p rend="align(indent)"> I did call them, Father, and they came; <pb n="p.120"/>but when they asked the name of my attacker and I said it was <milestone unit="Reitz_page" n="294"/>"Nobody," they thought I had lost my wits and went off! That's how the wretch tricked me with his name. And what annoyed me most was that, mocking my misfortune, he shouted, "Not even your father Poseidon will heal you!" </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Take heart, my son; I will take vengeance on him, so he may learn that even if I cannot heal blindness of the eyes, at least the fate of sailors— <del>saving them and destroying them</del>—is in my power; and he is still at sea!</p> </sp> </div> </div> 
+
+   <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="3"> 
+      <milestone unit="Reitz_page" n="295"/><head rend="align(center)">Poseidon and Alpheus</head> 
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:3" n="1">  
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> What is this, Alpheus? Alone among rivers, when you flow into the sea you neither mingle with the brine, as all rivers do, nor rest yourself by spreading out; instead, holding together right through the sea and keeping your stream fresh, still unmixed and pure, you hurry off—I know not where—diving deep like gulls and herons! And you look ready to surface somewhere and reappear. </p> </sp> 
+<sp> <speaker>Alpheios</speaker> 
+<p rend="align(indent)"> It is a matter of love, Poseidon, so don't cross-examine me; you have been in love many times yourself! </p> </sp> 
+   <milestone unit="Reitz_page" n="296"/> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Are you in love with a mortal woman, Alpheus, or a nymph, or even one of the Nereids themselves? </p> </sp> 
+<sp> <speaker>Alpheios</speaker> 
+<p rend="align(indent)"> No—with a spring, Poseidon. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> And where on earth does this spring of yours flow? </p> </sp> 
+<sp> <speaker>Alpheios</speaker> 
+<p rend="align(indent)"> She is a Sicilian islander; they call her Arethusa. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:3" n="2">
+<sp> <speaker>Poseidon</speaker> 
+ <p rend="align(indent)"> I know Arethusa—she is not unlovely, Alpheus; she is crystal clear, bubbles up through clean ground, and her water gleams over the pebbles, looking all <milestone unit="Reitz_page" n="297"/>silvery above them. </p> </sp><pb n="p.121"/> 
+<sp> <speaker>Alpheios</speaker> 
+<p rend="align(indent)"> You truly know the spring, Poseidon! It is to her that I am going. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Go then, and good luck in your love! Just tell me one thing: where did you ever see Arethusa, when you are an Arcadian and she is in Syracuse? </p> </sp> 
+<sp> <speaker>Alpheios</speaker> 
+<p rend="align(indent)"> You are delaying me when I'm in a hurry, Poseidon, with your curious questions! </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Fair enough; be on your way to your beloved, rise up from the sea, mingle in union with the spring, and become one water!</p> </sp> </div> </div> 
+
+   <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="4"> 
+      <milestone unit="Reitz_page" n="298"/><head rend="align(center)">Menelaus and Proteus</head> 
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:4" n="1">
+  
+<sp> <speaker>Menelaos</speaker> 
+<p rend="align(indent)"> That you can turn into water, Proteus, is not unbelievable, since you are a sea-god; and into a tree—still bearable; and even when you change into a lion, that too is not beyond belief. But that someone living in the sea can turn into fire—at this I utterly marvel and disbelieve! </p> </sp> 
+<sp> <speaker>Proteus</speaker> 
+<p rend="align(indent)"> Don't marvel, Menelaus—I do turn into it. </p> </sp> 
+<sp> <speaker>Menelaos</speaker> 
+<p rend="align(indent)"> I saw it myself; yet you seem to me—for I'll speak plainly to you—to be using some sleight of hand and deceiving the eyes of onlookers without actually becoming any such thing yourself.</p></sp></div> 
+ 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:4" n="2">
+<sp> <speaker>Proteus</speaker> 
+   <p rend="align(indent)"> What deception could there be in things so obvious? <milestone unit="Reitz_page" n="299"/>Didn't you see with your eyes wide open all the shapes I changed myself into? If you disbelieve and think it is fake, a mere illusion floating before your eyes, then next time I turn into fire, good sir, put your hand into me—you'll find out whether I only look like fire or can burn as well! </p> </sp> 
+<sp> <speaker>Menelaos</speaker> 
+<p rend="align(indent)"> That experiment isn't safe, Proteus! </p> </sp><pb n="p.122"/> 
+<sp> <speaker>Proteus</speaker> 
+<p rend="align(indent)"> You seem never to have seen an octopus either, Menelaus, or to know what happens with that sea creature. </p> </sp> 
+<sp> <speaker>Menelaos</speaker> 
+<p rend="align(indent)"> Oh, I've seen an octopus, but I'd gladly learn from you what happens with it.</p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:4" n="3"> 
+<sp> <speaker>Proteus</speaker> 
+<p rend="align(indent)"> Whatever rock it approaches, fits its suckers onto, and clings fast to <del>with its tentacles</del>, it makes itself <milestone unit="Reitz_page" n="300"/>look like that rock and changes its color to imitate it, so as to escape the fishermen's notice by not standing out or being visible, looking just like the stone. </p> </sp> 
+<sp> <speaker>Menelaos</speaker> 
+<p rend="align(indent)"> So they say; yet your feat is far more paradoxical, Proteus. </p> </sp> 
+<sp> <speaker>Proteus</speaker> 
+<p rend="align(indent)"> I don't know what else you could trust, Menelaus, if you distrust your own eyes. </p> </sp> 
+<sp> <speaker>Menelaos</speaker> 
+<p rend="align(indent)"> I saw it; still, the thing is uncanny—the same being both fire and water!</p> </sp> </div> </div> 
+   
+   <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="5"> 
+<head rend="align(center)">Panope and Galene</head> 
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:5" n="1"> 
+<sp> <speaker>Panope</speaker> 
+<p rend="align(indent)"> Did you see what Strife did yesterday at the wedding dinner in Thessaly, Galene, because she hadn't been invited to the banquet too? </p> </sp> 
+ <sp> <speaker>Galene</speaker>
+<p rend="align(indent)">I wasn't feasting with you—Poseidon ordered me, Panope, to keep the sea calm in the meantime. What did Strife do, then, since she wasn't there? </p> </sp> 
+<sp> <speaker>Panope</speaker> 
+  <p rend="align(indent)"> Thetis and Peleus had already gone off to the bridal chamber, escorted by Amphitrite and Poseidon, when Strife slipped in unseen by <milestone unit="Reitz_page" n="301"/>everyone—which was easy enough, since some were drinking and others applauding or paying attention to Apollo playing the lyre and the Muses singing—and tossed into the <pb n="p.123"/>banquet an utterly gorgeous apple, all of gold, Galene! On it was inscribed: <q>"Let the fairest take it."</q> Rolling along as if on purpose, it came to rest right where Hera, Aphrodite, and Athena were reclining. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:5" n="2"> 
+   <sp rend="merge"> <speaker>Panope</speaker> 
+<p>When Hermes picked it up and read the inscription, we Nereids kept quiet—what else could we do with them present?—while each of those three laid claim to it and insisted the apple was hers; and if Zeus hadn't separated them, it would even have come to blows! Instead he said, "I won't judge this myself"—though they wanted him to decide—"go to Ida to the son of Priam, who knows how to discern what is fairer, being a connoisseur of beauty, and he won't judge badly." </p> </sp> 
+<sp><speaker>Galene</speaker> 
+<p rend="align(indent)">What about the goddesses then, Panope? </p> </sp> 
+<sp> <speaker>Panope</speaker> 
+<p rend="align(indent)"> Today, I think, they are going off to Ida, and someone will come shortly to tell us who wins. </p> </sp> 
+ <sp> <speaker>Galene</speaker>
+<p rend="align(indent)">I can tell you right now: no one else will win with Aphrodite competing, unless the judge is completely dim-sighted!</p> </sp> </div> </div> 
+
+      <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="6"> 
+         <milestone unit="Reitz_page" n="302"/><head rend="align(center)">Triton, Amymone, and Poseidon</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:6" n="1">  
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Every day, Poseidon, a maiden comes down to Lerna to fetch water—an utterly lovely creature! I don't think I have ever seen a prettier girl. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Do you mean a freeborn girl, Triton, or some water-carrying servant? </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+   <p rend="align(indent)"> Not a servant—the daughter of that Egyptian, one of his fifty, named Amymone; for I inquired what her name and family were. Danaus raises his daughters strictly, teaches them to do their own work, <pb n="p.124"/><milestone unit="Reitz_page" n="303"/>sends them out to draw water, and trains them to be industrious in all else.</p></sp></div>
+ 
+  <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:6" n="2"> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Does she come alone on so long a journey from Argos to Lerna? </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Alone; and Argos is very thirsty, as you know, so they constantly have to fetch water. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Triton, you have stirred me up not a little by telling me about this girl—let's go after her! </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Let's go! It's just about water-fetching time now, and she is probably halfway along the road to Lerna. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+   <p rend="align(indent)"> Hitch up the chariot then—no, it takes too long to put the horses under the yoke and get the chariot ready; instead, bring me one of the swift dolphins, for I'll ride on it in no time. </p> </sp> <milestone unit="Reitz_page" n="304"/> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Here you are—the swiftest of dolphins. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Good! Off we go, and you swim alongside, Triton. Now that we're at Lerna, I'll lie in wait right here, and you keep watch; the moment you spot her approaching— </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Here she is, close by! </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:6" n="3">
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> A lovely maiden in her prime, Triton! We must seize her. </p> </sp> 
+<sp> <speaker>Amymone</speaker> 
+<p rend="align(indent)"> Sir, where are you dragging me off to? You are a kidnapper, and you look like you were sent after us by our uncle Aegyptus! I'll scream for my father! </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Hush, Amymone—it is Poseidon! </p> </sp> 
+<sp> <speaker>Amymone</speaker> 
+<p rend="align(indent)"> What do you mean, "Poseidon"? Why are you forcing me, sir, and dragging me down into the sea? I'll drown, poor wretch, if I go under! </p> </sp>  
+<sp> <speaker>Poseidon</speaker> 
+ <p rend="align(indent)"> Take heart, you won't suffer any harm! In fact, I'll make a <milestone unit="Reitz_page" n="305"/>spring named after you gush up right here by striking the rock near the surf with my trident; <pb n="p.125"/>you shall be blessed, and alone among your sisters you won't have to carry water after you die!</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="7"> 
+   <head rend="align(center)">Notus and Zephyrus</head> 
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:7" n="1"> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> Is that heifer Hermes is leading across the sea to Egypt the one Zeus fell in love with and seduced, Zephyrus? </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> Yes, Notus; she wasn't a heifer then, though, but the daughter of the river Inachus. Hera turned her into this out of jealousy, because she saw Zeus was madly in love with her. </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> So he is still in love with the cow? </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+ <p rend="align(indent)"> Very much so! That's why he sent her to Egypt <milestone unit="Reitz_page" n="306"/>and ordered us not to stir up waves on the sea until she swims across, so that once she gives birth there—for she is already pregnant—both she and her child may become gods. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:7" n="2"> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> The heifer a goddess? </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> Yes indeed, Notus! As Hermes said, she will rule over sailors and be mistress over us too, sending out whichever of us she pleases or forbidding us to blow. </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> Then we'd better pay court to her, Zephyrus, since she's already our mistress! </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> By Zeus, yes—that way she'll be kinder to us! Look, she has already crossed over and swum ashore. Do you see how she is no longer walking on all fours, and Hermes has raised her upright and turned her back into a gorgeous woman? </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> That really is extraordinary, Zephyrus! No more horns, tail, or cloven hooves—she's a lovely <milestone unit="Reitz_page" n="307"/>girl! Wait—what came over Hermes to transform himself and turn from a young man into a dog-faced creature? </p> </sp><pb n="p.126"/> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> Let's not pry—he knows better what needs to be done!</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="8"> 
+<head rend="align(center)">Poseidon and the Dolphins</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:8" n="1">  
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Well done, Dolphins, for always being friends of mankind! Long ago you caught Ino's little boy when he fell with his mother from the Scironian cliffs <milestone unit="Reitz_page" n="308"/>and carried him to the Isthmus, and now you have picked up this lyre-singer from Methymna and swum ashore with him to Taenarum, costume, lyre, and all, not letting him perish miserably at the hands of the sailors! </p> </sp> 
+<sp> <speaker>delphines</speaker> 
+<p rend="align(indent)"> Do not be surprised, Poseidon, that we help human beings, since we ourselves were once human before becoming fish. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> And I blame Dionysus for transforming you after defeating you at sea, when he should merely have subdued you as he did the others. Anyway, how did this affair with Arion happen, Dolphin? </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:8" n="2"> 
+<sp> <speaker>delphines</speaker> 
+   <p rend="align(indent)"> Periander, I suppose, was fond of him and often sent for him because of his artistry; having grown rich from the tyrant, he wanted to sail home to <milestone unit="Reitz_page" n="309"/>Methymna to show off his wealth, and boarded a ferry manned by scoundrels. When he let on that he was carrying a lot of gold and silver, once they reached the middle of the Aegean the sailors plotted against him. He—for I was swimming alongside the boat and heard everything—said, "Since you have decided on this, at least let me put on my costume, sing a lament for myself, and throw myself in willingly." The sailors agreed; he put on his costume, sang most clearly, and leaped into the sea as if <pb n="p.127"/>bound to die on the spot. I caught him, took him on my back, and swam ashore with him to Taenarum. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> I praise you for your love of music—you paid him a worthy fee for the concert!</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="9"> 
+   <head rend="align(center)">Poseidon and the Nereids</head> <milestone unit="Reitz_page" n="310"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:9" n="1"> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Let this strait where the girl fell be called the Hellespont after her; as for her body, <milestone unit="Reitz_page" n="311"/>Nereids, take it up and carry it to the Troad so she may be buried by the locals. </p> </sp> 
+<sp> <speaker>Amphitrite</speaker> 
+<p rend="align(indent)"> Not at all, Poseidon—let her be buried right here in the sea named after her! We pity her for having suffered so pitiably from her stepmother. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> That is not lawful, Amphitrite; nor is it seemly for her to lie somewhere here beneath the sand—as I said, she shall be buried in the Troad or the Chersonese. <milestone unit="Reitz_page" n="312"/>It will be no small consolation to her that shortly Ino too will suffer the same fate, pursued by Athamas and leaping into the sea from the crest of Cithaeron where it drops into the water, holding her son in her arms as well. Her, however, we shall have to save as a favor to Dionysus, for Ino was his nurse and foster-mother.</p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:9" n="2">
+<sp> <speaker>Amphitrite</speaker> 
+<p rend="align(indent)"> We shouldn't, wicked as she is! </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+   <p rend="align(indent)"> Still, it would not do to be ungracious to Dionysus, Amphitrite. </p> </sp> <milestone unit="Reitz_page" n="313"/>
+<sp> <speaker>Nereides</speaker> 
+<p rend="align(indent)"> Wait—how did Helle come to fall off the ram? And is her brother Phrixus riding safely? </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Naturally—he is a young man and strong enough to hold on against the speed; whereas she, unused to riding so strange a mount, <pb n="p.128"/>looked down into the yawning depth, panicked, was overcome by the heat at the same time, grew dizzy from the rushing flight, lost her grip on the ram's <milestone unit="Reitz_page" n="314"/>horns that she had been clinging to, and fell into the sea. </p> </sp> 
+<sp> <speaker>Nereides</speaker> 
+<p rend="align(indent)"> Shouldn't her mother Nephele have helped her as she fell? </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> She should have, but Fate is far stronger than Nephele.</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="10"> 
+<head rend="align(center)">Iris and Poseidon</head> 
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:10" n="1"> 
+<sp> <speaker>Iris</speaker> 
+<p rend="align(indent)"> That wandering island, Poseidon, which broke off from Sicily and still happens to float underwater—Zeus says to halt it now, bring it to light, and make it clearly visible in the middle of the Aegean, anchoring it firmly and securely; he has some need of it. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+ <p rend="align(indent)"> It shall be done, Iris. Still, what <milestone unit="Reitz_page" n="315"/>use will it be to him once it surfaces and stops floating? </p> </sp> 
+<sp> <speaker>Iris</speaker> 
+<p rend="align(indent)"> Leto must give birth on it; she is already in severe labor pains. </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> What? Isn't heaven big enough to give birth in? Or if not heaven, couldn't the whole earth receive her delivery? </p> </sp> 
+<sp> <speaker>Iris</speaker> 
+<p rend="align(indent)"> No, Poseidon—Hera bound the earth with a mighty oath not to give Leto a refuge for her labor. This island, however, is not under oath, because it was invisible. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:10" n="2">
+<sp> <speaker>Poseidon</speaker> 
+ <p rend="align(indent)"> I understand. Halt, island, rise again from the deep, drift no more, stand firm, and receive—most blessed of islands!—my brother's two children, the loveliest of the gods! And you, <pb n="p.129"/>Tritons, ferry Leto across to it, and let all be calm! As for the dragon that is now terrorizing her and driving her mad, the newborns will go after it the moment they are born and avenge their mother. You, report to Zeus that everything <milestone unit="Reitz_page" n="316"/>is ready: Delos stands fast; let Leto come now and give birth!</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="11"> 
+<head rend="align(center)">Xanthus and the Sea</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:11" n="1"> 
+<sp> <speaker>Xanthos</speaker> 
+<p rend="align(indent)"> Receive me, Sea—I have suffered dreadfully—and quench my burns! </p> </sp> 
+<sp> <speaker>Thalassa</speaker> 
+<p rend="align(indent)"> What is this, Xanthus? Who burned you? </p> </sp> 
+<sp> <speaker>Xanthos</speaker> 
+<p rend="align(indent)"> Hephaestus! I am charred to cinders, poor wretch, and boiling! </p> </sp> 
+<sp> <speaker>Thalassa</speaker> 
+   <p rend="align(indent)"> Why on earth did he hurl fire at you? </p> </sp> <milestone unit="Reitz_page" n="317"/> 
+<sp> <speaker>Xanthos</speaker> 
+<p rend="align(indent)"> Because of that son of Thetis! When he was slaughtering the Phrygians and my entreaties couldn't stop his rage, and he was choking my stream with corpses, I pitied the wretches and surged up to flood him, hoping to frighten him into sparing the men. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:11" n="2"> 
+   <sp rend="merge"> <speaker>Xanthos</speaker> 
+ <p>At that point Hephaestus—who happened to be nearby—brought all the fire he had, I think, including all that is in Etna and anywhere else, and attacked me: he burned up my elms and tamarisks, roasted my poor fish and eels, and made me myself boil over until he nearly dried me up completely! Just look at the state I'm in from these burns!</p> </sp> 
+<milestone unit="Reitz_page" n="318"/> 
+<sp> <speaker>Thalassa</speaker> 
+<p rend="align(indent)"> You are muddy, Xanthus, and hot, as is natural—the blood from the corpses, and the heat, as you say, from the fire. And it serves you right, Xanthus, for attacking my grandson without respecting that he was a Nereid's son! </p> </sp><pb n="p.130"/> 
+<sp> <speaker>Xanthos</speaker> 
+<p rend="align(indent)"> Shouldn't I have pitied the Phrygians, my neighbors? </p> </sp> 
+<sp> <speaker>Thalassa</speaker> 
+<p rend="align(indent)"> And shouldn't Hephaestus have pitied Achilles, the son of Thetis?</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="12"> 
+ <head rend="align(center)">Doris and Thetis</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:12" n="1"> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">Why are you crying, Thetis? </p> </sp> 
+<sp> <speaker>Thetis</speaker> 
+   <p rend="align(indent)"> I saw a most beautiful maiden, Doris, put into a chest by her father along with her newborn baby; her father ordered the sailors to take the chest aboard <milestone unit="Reitz_page" n="319"/>and, once they had pulled far out from land, to drop it into the sea so the poor girl would perish, both she and the baby! </p> </sp> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">Why, sister? Tell me everything if you learned the full story. </p> </sp> 
+<sp> <speaker>Thetis</speaker> 
+<p rend="align(indent)"> Her father Acrisius kept her as a virgin because she was so beautiful, locking her inside a bronze chamber; then—whether it is true I cannot say, but they claim Zeus turned into gold, flowed through the roof onto her, and she received the streaming god into her lap and became pregnant. When her father found out—a fierce, jealous old man—he flew into a rage, thinking she had been seduced by someone, and put her into the chest right after she gave birth. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:12" n="2"> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">And what did she do, Thetis, when she was lowered into the sea? </p> </sp> 
+<sp> <speaker>Thetis</speaker> 
+<p rend="align(indent)"> For herself she kept silent, Doris, and bore her sentence, but she wept and begged for the baby not to die, holding it out to its grandfather—it was so lovely—while the infant, knowing nothing of its plight, smiled gently at the <pb n="p.131"/>sea! My eyes fill with tears again <milestone unit="Reitz_page" n="320"/>just remembering them! </p> </sp> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">You've made me cry too! Are they dead already? </p> </sp> 
+<sp> <speaker>Thetis</speaker> 
+<p rend="align(indent)"> Not at all—the chest is still floating near Seriphos, keeping them alive. </p> </sp> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)"> Why don't we save her then, by pushing it into the nets of these Seriphian fishermen? They'll haul it up and rescue them, of course! </p> </sp> 
+<sp> <speaker>Thetis</speaker> 
+<p rend="align(indent)"> Well said, let's do that! Neither she nor so beautiful a child must perish.</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="13"> 
+<head rend="align(center)">Enipeus and Poseidon</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:13" n="1"> 
+<sp> <speaker>Enipeus</speaker> 
+<p rend="align(indent)"> This was not right, Poseidon—for I'll speak the truth: you crept up to my beloved disguised as me and seduced the girl, while she thought it was I doing this and yielded herself for that reason! </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+   <p rend="align(indent)"> That's because you were haughty and slow, Enipeus! When so lovely a maiden came to you every day, dying of love, you looked down on her and enjoyed hurting her; she wandered along your banks, wading in and bathing sometimes, praying to meet you, while you <milestone unit="Reitz_page" n="321"/>played hard to get with her!</p></sp></div>
+   
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:13" n="2"> 
+<sp> <speaker>Enipeus</speaker> 
+<p rend="align(indent)"> So what? Did that give you the right to snatch my love first, impersonate Enipeus instead of Poseidon, and trick Tyro, an innocent girl? </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> You're jealous too late, Enipeus, after being so scornful before! And Tyro suffered no harm, thinking she was being seduced by you. </p> </sp> 
+<sp> <speaker>Enipeus</speaker> 
+<p rend="align(indent)"> Not so—as you left, you told her you were Poseidon, <pb n="p.132"/>which hurt her most of all! And that's the wrong done to me: you enjoyed what was mine, arching a dark wave around you to hide you both while you lay with the girl in my place! </p> </sp> 
+<sp> <speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Yes—because you didn't want to, Enipeus!</p> </sp> </div> </div> 
+
+         <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="14"> 
+ <head rend="align(center)">Triton and the Nereids</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:14" n="1"> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Your sea-monster, Nereids, which you sent against <milestone unit="Reitz_page" n="322"/>Cepheus's daughter Andromeda, neither harmed the girl as you suppose, and is itself dead already! </p> </sp> 
+<sp> <speaker>Nereides</speaker> 
+<p rend="align(indent)"> By whose hand, Triton? Did Cepheus set out his daughter like bait and then ambush and kill it with a large force? </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> No; you know Perseus, I think, Iphianassa—Danaë's little boy, whom you pitied and saved when he was cast into the sea in a chest with his mother by his maternal grandfather. </p> </sp> 
+<sp> <speaker>Iphianassa</speaker> 
+<p rend="align(indent)"> I know who you mean; he must be a young man by now, and very noble and handsome to see. </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> He is the one who killed the sea-monster. </p> </sp> 
+<sp> <speaker>Iphianassa</speaker> 
+<p rend="align(indent)"> Why, Triton? He certainly shouldn't have paid us back such a reward for saving his life! </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:14" n="2"> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> I'll tell you the whole story of how it happened. He was sent against the Gorgons to perform this labor for the king, and when he reached Libya— </p> </sp> 
+<sp> <speaker>Iphianassa</speaker> 
+<p rend="align(indent)"> How, Triton? Alone, or did he bring allies too? Otherwise the road is hard to travel. </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Through the air—Athena gave him wings! When he arrived where they lived, they were <pb n="p.133"/>asleep, I think, and he cut off Medusa's head and flew away. </p> </sp> 
+<sp> <speaker>Iphianassa</speaker> 
+ <p rend="align(indent)"> How could he look at them? They cannot be looked upon—whoever sees them will never <milestone unit="Reitz_page" n="323"/>see anything else after them! </p> </sp> 
+<sp> <speaker>Triton</speaker> 
+<p rend="align(indent)"> Athena held out her shield—for this is what I heard him telling Andromeda and Cepheus afterward—on the gleaming shield, as in a mirror, Athena let him see Medusa's reflection; then, seizing her hair with his left hand while gazing at the reflection, with his sickle in his right hand he severed her head and flew up before her sisters woke!</p></sp></div>
+         
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:14" n="3"> 
+   <sp rend="merge"> <speaker>Triton</speaker> 
+<p>When he came over this coastal Ethiopia, flying close to the ground now, he saw Andromeda exposed and chained to a jutting crag—most beautiful, O gods, her hair streaming down, half-naked far below her breasts! At first, pitying her fate, he asked the reason for her sentence, and little by little falling in love—for the girl was fated to be saved—he resolved to rescue her. When the monster came rushing up, utterly terrifying, ready to swallow Andromeda whole, the youth hovered above it with his sickle drawn: with one hand he struck at it, while with the other he held out the Gorgon and turned it to stone, so that it died on the spot and most of it froze solid, <milestone unit="Reitz_page" n="324"/>every part that looked at Medusa! Then he unfastened the maiden's chains, held out his hand to catch her as she stepped down on tiptoe from the slippery rock, and right now he is marrying her at Cepheus's house and will take her home to Argos—so instead of death she found no ordinary marriage!</p></sp></div>
+         
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:14" n="4">
+<sp> <speaker>Iphianassa</speaker> 
+<p rend="align(indent)"> For my part I'm not at all upset by what happened; what wrong did the girl do us if her mother boasted and claimed to be fairer than we? </p> </sp><pb n="p.134"/> 
+<sp> <speaker>Doris</speaker> 
+<p rend="align(indent)">Only that this way she would have suffered through her daughter, being a mother. </p> </sp> 
+<sp> <speaker>Iphianassa</speaker> 
+<p rend="align(indent)"> Let's not remember that anymore, Doris—whatever a barbarian woman blabbed beyond her station; she paid us penalty enough in her terror for her child. Let's rejoice at the wedding!</p> </sp> </div> </div> 
+
+ <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2" n="15"> 
+  <milestone unit="Reitz_page" n="325"/>
+ <head rend="align(center)">Zephyrus and Notus</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:15" n="1"> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> Never have I seen a more magnificent procession at sea since I have existed and blown! Didn't you see it, Notus? </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> What procession do you mean, Zephyrus? Who was in it? </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> You missed the most delightful spectacle—such as you will never see again! </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> I was working around the Red Sea, and I also blew over part of India, along the coast of the country; so I know nothing of what you mean. </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> Well, do you know Agenor of Sidon? </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> Yes—Europa's father. What of him? </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> It is about her that I am going to tell you. </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> That Zeus has long been in love with the girl? I knew that long ago. </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+<p rend="align(indent)"> Then you know about his love; now hear what happened next. </p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:15" n="2"> 
+   <sp rend="merge"> <speaker>Zephyros</speaker> 
+ <p>Europa had come down to the beach to play, bringing her girlfriends along, when Zeus, <milestone unit="Reitz_page" n="326"/>disguised as a bull, joined in their play, looking utterly handsome: he was pure white, with gracefully curved horns and a gentle gaze. So he frolicked on the beach too and mooed so sweetly that Europa dared <pb n="p.135"/>even to climb onto his back! The moment she did, Zeus dashed off at a run toward the sea carrying her, plunged in, and began swimming; completely startled by what was happening, she clung to his horn with her left hand so as not to slip off, while with the other she held down her billowing robe.</p></sp></div>
+   
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:15" n="3"> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> That was a sweet and romantic sight you saw, Zephyrus—Zeus swimming with his beloved on his back! </p> </sp> 
+<sp> <speaker>Zephyros</speaker> 
+   <p rend="align(indent)"> Yet what followed was far sweeter, Notus! The sea instantly grew waveless, spreading out smooth and calm; all of us winds kept still and followed along as mere spectators of what was happening; Erotes flew alongside just above the sea, sometimes skimming the water with the tips of their toes, carrying lighted torches and singing the wedding song; the Nereids rose up and rode beside them <milestone unit="Reitz_page" n="327"/>on dolphins, clapping their hands, most of them half-naked; the race of Tritons and every other sea creature not frightening to behold danced around the girl; Poseidon himself mounted his chariot with Amphitrite riding beside him and led the way rejoicing, clearing a path for his swimming brother; and crowning it all, two Tritons carried Aphrodite reclining on a shell, scattering flowers of every kind over the bride! </p></sp></div>
+         
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg067.perseus-grc2:15" n="4"> 
+    <sp rend="merge"> <speaker>Zephyros</speaker> 
+<p>This continued all the way from Phoenicia to Crete; once he stepped onto the island, the bull was no longer to be seen, and taking Europa by the hand Zeus led her off to the Dictaean cave, blushing and looking down—for by now she knew why she was being led there. And we winds fell upon the sea, each churning up a different part of the waves. </p> </sp> 
+<sp> <speaker>Notos</speaker> 
+<p rend="align(indent)"> Lucky Zephyrus, for such a sight! While I was watching griffins, elephants, and dark-skinned men!</p> </sp> </div>
+         </div></div>
+      </body>
+   </text>
+</TEI>
