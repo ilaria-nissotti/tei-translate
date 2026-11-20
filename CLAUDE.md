@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A university group project (Essentials of Text and Speech Processing): translate TEI XML documents from Ancient Greek to English while keeping the XML valid and respecting what each tag means. Corpus: Perseus `canonical-greekLit`. The design must stay language-pair agnostic.
 
-**State of the repo:** a first end-to-end pipeline exists (span-wise translation), with test engines and Hugging Face MT engines (Opus-MT/Marian, MADLAD-400), plus the Perseus data scripts, corpus/tag statistics, the evaluation metrics and an engine comparison script.
+**State of the repo:** an end-to-end pipeline exists (hybrid tag placement by default, span-wise as an option), with test engines and Hugging Face MT engines (Opus-MT/Marian, MADLAD-400), plus the Perseus data scripts, corpus/tag statistics, the evaluation metrics and an engine comparison script.
 
 ## Key documents (read before planning or coding)
 
@@ -17,7 +17,7 @@ A university group project (Essentials of Text and Speech Processing): translate
 
 ## Repo layout (set up)
 
-Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/` (policy, spans, transliterate, document, validate), `engines/` (`MTEngine` protocol, test engines, `hf.py` = Hugging Face engines), `metrics/` (`fragments.py`, `scores.py`, `translation_scores.py`), `cli.py`, `ui/` (empty placeholder). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (`policy.yaml`, `pairs/grc-en.yaml`), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases, `tests/fixtures/tei/` = pipeline fixtures). Runtime dependencies: `lxml`, `pyyaml`, `sacrebleu` (chrF/BLEU in `metrics/translation_scores.py`); optional extra `mt` = `torch`, `transformers`, `sentencepiece`, `peft` for the model engines. Add each new one when code that needs it lands.
+Installable package in `src/tei_translate/` (src layout, `pip install -e .[dev]`): `pipeline/` (policy, spans, transliterate, document, validate; hybrid mode: sentences, detag, placement, hybrid), `align/` (`Aligner` protocol, test aligners, `embed.py` = SimAlign-style aligner), `engines/` (`MTEngine` protocol, test engines, `hf.py` = Hugging Face engines), `metrics/` (`fragments.py`, `scores.py`, `translation_scores.py`), `cli.py`, `ui/` (empty placeholder). Entry points live outside the package: `scripts/` (one-off utilities; `scripts/data/` for Perseus data), and later a root `app.py` for Gradio / HF Spaces. Other folders: `config/` (`policy.yaml`, `pairs/grc-en.yaml`), `data/catalog/` + `data/stats/` (tracked CSVs), `data/raw/` + `data/perseus/` (git-ignored downloads), `models/`, `outputs/`, `logs/` (contents git-ignored, `.gitkeep` only), `docs/`, `tests/` (`tests/fixtures/metrics/` = metric test cases, `tests/fixtures/tei/` = pipeline fixtures). Runtime dependencies: `lxml`, `pyyaml`, `sacrebleu` (chrF/BLEU in `metrics/translation_scores.py`); optional extra `mt` = `torch`, `transformers`, `sentencepiece`, `peft` for the model engines. Add each new one when code that needs it lands.
 
 Layout decisions agreed with the user (don't relitigate):
 - **src layout, package `tei_translate`**, chosen over a flat package. Everyone runs `pip install -e .[dev]` first; anything that imports `tei_translate` fails with `ModuleNotFoundError` otherwise.
@@ -30,18 +30,29 @@ Notes on the scripts:
 - Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` and `check_metric_cases.py` were run and give the same results as before (44/44 metric checks passed then, CSVs unchanged; with the translation metrics added it is now 59/59).
 - On Windows, printing Greek can raise `UnicodeEncodeError: 'charmap'`: set `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8 = "1"`).
 
-## Pipeline (built, first version)
+## Pipeline (built)
 
-Agreed with the user (plan: span-wise first, alignment later):
+Agreed with the user:
 - **All tag decisions live in `config/policy.yaml`**, mirroring `docs/tag_decisions.md`. Code knows only *roles* (block / container / inline / empty) and *treatments* (translate / keep / transliterate / keep-subtree), never tag names. Each rule may carry `params` (e.g. `num: {treatment: keep, params: {convert: none}}`); unsupported values give a warning. Lookup order: `overrides` (attribute rules, first match) → `tags` → `empty` → `default`.
-- **Empty elements are detected per element** (no text, no children) and get the `empty` rule, so `pb`/`milestone`/`gap` aren't listed. A `tags` entry wins over detection.
+- **Empty elements are detected per element** (no text, no children) and get the `empty` rule, so `pb`/`lb` aren't listed. A `tags` entry wins over detection: `milestone` and `gap` are listed (`role: empty`) because their placement differs.
 - **`<note>` is `keep-subtree`**: copied unchanged and kept in place (tag_decisions wins over HANDOVER's language detection).
-- **Span-wise translation** (stage 5 / tag placement is deferred): every text piece is translated where it is, so no element moves. `elem.text` gets the element's treatment, `child.tail` the parent's. Text outside blocks is never touched. Nested inline elements: the more protective treatment wins (keep > transliterate > translate). Mixed nesting is decided per element and counted in the report (`inline-as-block`, `inline-with-blocks`, `block-in-block`, ...).
-- No placeholders/masking yet: keep spans are never sent to MT.
+- **Span-wise mode** (`placement: spanwise`; also the per-block fallback of hybrid mode): every text piece is translated where it is, so no element moves. `elem.text` gets the element's treatment, `child.tail` the parent's. Text outside blocks is never touched. Nested inline elements: the more protective treatment wins (keep > transliterate > translate). Mixed nesting is decided per element and counted in the report (`inline-as-block`, `inline-with-blocks`, `block-in-block`, ...).
+- No placeholders/masking: the model sees only plain text.
 - `document.apply_spans(spans, engine, src, tgt, report)` does the transliterate + one-batch translate + write-back step. Spans may come from several trees, which is how `scripts/compare_spanwise.py` batches many passages.
 - Cost of span-wise (`docs/spanwise_cost.md`, MADLAD): prose passages with a mid-sentence cut lose ~0.6 chrF vs translating the whole passage (control without cuts: +0.1), but get visibly broken sentences. Verse (`<l>` translated line by line) loses ~3 chrF. About a third of the prose cuts come from empty markers/notes (`milestone`, `pb`, `note`, `gap`). Over all Perseus Greek, 17% of blocks are cut, and their pieces are 57% of MT segments.
 
-Flow (`pipeline/document.py: translate_document(path, pair, engine=None, policy=None) -> Result(tree, report)`): parse → `spans.collect_spans` → transliterate (`transliterate.grc_simple`) + one batch to `MTEngine.translate(segments, src, tgt)` → write back keeping whitespace → `xml:lang` src→tgt (not inside kept elements) → add a `<respStmt>` in `titleStmt` → `validate.validate` (well-formed, same elements/attributes in the same order, `@n`/`@xml:id` preserved, kept elements byte-identical, header unchanged). Engines: `identity`, `tag` (wraps output as `[EN:...]`).
+Flow (`pipeline/document.py: translate_document(path, pair, engine=None, policy=None, placement=None, aligner=None) -> Result(tree, report)`): parse → `spans.collect_spans` → [hybrid: `hybrid.run_hybrid` handles its blocks and hands back the remaining spans] → transliterate (`transliterate.grc_simple`) + one batch to `MTEngine.translate(segments, src, tgt)` (`apply_spans`) → write back keeping whitespace → `xml:lang` src→tgt (not inside kept elements) → add a `<respStmt>` in `titleStmt` → `validate.validate` (well-formed; elements outside blocks identical and in order, inside a block the same elements under the same parents (order may change); `@n`/`@xml:id` per (tag, `@unit`) in order for markers and elements outside blocks; kept elements byte-identical; header unchanged). Engines: `identity`, `tag` (wraps output as `[EN:...]`).
+
+### Hybrid placement (default, `placement: hybrid` in `config/pairs/grc-en.yaml`)
+
+Agreed with the user (approach E): tags are removed, whole sentences are translated, every tag is put back by a per-rule strategy in `policy.yaml` params. Only blocks with treatment `translate` and no blocks inside them (`contains-blocks`, e.g. `<l>` in `<p>`) are hybrid; the `<l>` itself is. The rest stays span-wise.
+- `detag.py`: block → plain text + anchors. *wrap* = translated element (its text stays, children are anchors); *fixed* = keep/transliterate element whose Greek the model still sees (`mt_input: source`, the user's choice), its aligned English is **replaced** by the element with its own content (transliterated by its usual span); *point* = empty marker, kept subtree (`note`), comment, `mt_input: remove` (`bibl`), element without letters (moved unchanged).
+- `sentences.py`: `split_sentences` (same `SENTENCE_END` as `split_for_mt`, which imports it). Each sentence is one engine segment (one batch per document), so sentence boundaries map exactly; English sentences are joined with single spaces (internal whitespace normalised; block lead/trail whitespace kept).
+- `placement.py`: tag covering whole sentences → same English sentences (no aligner); wrap/fixed → smallest English span covering all aligned words (fallback if nothing aligns or span > 2×source words + 3); point between sentences stays there (glued side kept); point inside a sentence: `placement: boundary` (nearer sentence edge) or `align` with `anchor: left` (after the English of the previous Greek word: `note`, `bibl`, `gap`) / `right` (before the next: `milestone`). Outer before inner; crossing siblings → fallback; points inside a sibling are moved out; same (tag, unit) markers kept in order; a point with spaces on both sides keeps them.
+- Fallback (`fallback` param): `spanwise` (default: the whole block goes span-wise, counted in the report), `boundary` (points), `sentence` (wraps). Current policy: `empty` → boundary (pb, lb); `milestone` → align/right/fallback boundary, but `milestone[unit=para]` → boundary (97% already at sentence ends); `gap`, `note`, `bibl` → align/left/fallback boundary; other inline tags → align/spanwise. Corpus check (all 626 Greek files, identity engine + `monotone` aligner = exact links): no errors, all checks pass, 217,573 blocks hybrid, 2,928 span-wise (2,862 contains-blocks, ~64 overlaps from tags inside words).
+- Aligners (`align/`, registry `get_aligner`): `none`, `monotone` (tests), `ugarit` (`UGARIT/grc-alignment`, XLM-R base 1.1 GB, CC BY 4.0, IterMax), `dragoman` (`open-greek/dragoman`, CC BY 4.0, ArgMax), `xlmr`, `embed:<HF id>`. `EmbeddingAligner`: layer 8 subword vectors, cosine similarity, SimAlign ArgMax/IterMax, word link if any subword pair links; >510 subwords → no links. UGARIT ships only the old sentencepiece file, which Transformers 5 converts only with protobuf, so its tokenizer is loaded from `FacebookAI/xlm-roberta-base` (identical file, checked by sha256). Loads in a few seconds on CPU, ~0.2 s per sentence pair.
+- Report: `placement: hybrid, aligner: ...; N blocks placed (sentences translated / aligned), M blocks span-wise`, `tags placed:` counts (aligned, whole-sentence, between-sentences, boundary, fallback-*, clamped, moved-out, kept-in-order), `span-wise because:` reasons (`<tag>:unaligned|too-wide|overlap|outside-parent`, `contains-blocks`).
+- Not done: a hand-tagged gold set for `metrics.scores.tag_accuracy` on hybrid output, chrF hybrid vs span-wise on Perseus passages, name lists (fixed names show our transliteration, e.g. Perikles, not the model's Pericles).
 
 ## MT engines (`engines/hf.py`, registry in `engines/__init__.py`)
 
@@ -54,7 +65,7 @@ Flow (`pipeline/document.py: translate_document(path, pair, engine=None, policy=
 - Current ranking (54 passages, `docs/engine_comparison.md`): `madlad-3b` chrF 31.5 ≥ `pivot-grc-el-en` 30.4 >> `opus-bible-ine` 23.7 ≈ `opus-grk-en` 22.6. The top two are close; most chain errors come from step 1 (NLLB).
 - `scripts/compare_engines.py` (`--reuse RUN_DIR` reuses an earlier run's passages/translations and only runs new engines; writes `run.json` with models/timings): plain-text bake-off on Perseus prose sections + Pindar odes aligned by citation ref (leaf textpart divs; notes/bibl/head/reg removed — `<reg>` holds gazetteer text in some English files), corpus chrF/BLEU overall and per work → `outputs/compare/<timestamp>/`. Results (Opus models, pivot chain, MADLAD): `docs/engine_comparison.md`. `--subset N` / `--max-words W` (with `--reuse`) score all engines on a smaller subset, for slow engines.
 
-Later (HANDOVER ideas, not agreed): alignment-based tag placement, placeholders, real engines after the bake-off, tei_all validation, name lists for standard English forms.
+Later (HANDOVER ideas, not agreed): placeholders, real engines after the bake-off, tei_all validation, name lists for standard English forms.
 
 Core invariant: **the MT model never sees XML structure**; structure is never generated by a model.
 
@@ -71,7 +82,7 @@ Why and what follows from it:
 
 ## Planning status
 
-Done: project skeleton, first span-wise pipeline with test engines and validation, Opus-MT/MADLAD/NLLB-LoRA engine wrappers, the `pivot-grc-el-en` chain, and a comparison of the Opus models and the chain. Still open:
+Done: project skeleton, span-wise pipeline with test engines and validation, hybrid tag placement with word aligners (UGARIT), Opus-MT/MADLAD/NLLB-LoRA engine wrappers, the `pivot-grc-el-en` chain, and a comparison of the Opus models and the chain. Still open:
 - The user raised "which languages to use and how to present them" in the UI. Settle this: which source/target language pairs to offer, and how language and option choices appear in the UI.
 - The engine choice (local and hosted), and the open questions at the end of `HANDOVER.md`.
 
@@ -86,11 +97,12 @@ python scripts/data/build_dataset.py     # downloads Greek/English pairs into da
 python scripts/data/count_perseus_tags.py  # tag counts over data/perseus/ (needs build_dataset.py first): data/stats/perseus_tag_frequencies_{greek,all}.csv
 python scripts/check_metric_cases.py     # runs the tag-placement, structure and translation metrics on tests/fixtures/metrics/*.json, prints PASS/FAIL per case
 python -m tei_translate translate IN.xml --engine tag   # writes outputs/<name>.en.xml, prints rules fired + validation; exit 1 if a check fails
+python -m tei_translate translate IN.xml --engine opus-grk-en --aligner ugarit   # hybrid (default); --placement spanwise for the old mode, --aligner none|monotone without a model
 python scripts/compare_engines.py --engines opus-grk-en opus-bible-ine   # MT bake-off on Perseus passages -> outputs/compare/
 python scripts/compare_spanwise.py --engine madlad-3b [--reuse outputs/compare/<run>]   # whole vs span-wise translation of the same passages -> outputs/spanwise/
 ```
 
-`python -m pytest` runs the suite: `tests/test_metrics.py` (one test per hand-made metric case in `tests/fixtures/metrics/`), `tests/test_policy.py` and `tests/test_pipeline.py` (pipeline, on `tests/fixtures/tei/`), `tests/test_engines.py` (registry, splitting, prefixes; real-model tests only with `TEI_TRANSLATE_RUN_MODELS=1`). `python -m pytest tests/test_pipeline.py::test_names` runs one test. `scripts/check_metric_cases.py` runs the metric cases with longer failure explanations.
+`python -m pytest` runs the suite: `tests/test_metrics.py` (one test per hand-made metric case in `tests/fixtures/metrics/`), `tests/test_policy.py` and `tests/test_pipeline.py` (span-wise pipeline, on `tests/fixtures/tei/`), `tests/test_placement.py` (hybrid: identity+monotone, a word-reversing engine + exact-match aligner, single blocks with hand-made links), `tests/test_align.py` (tokenizer, sentences, ArgMax/IterMax), `tests/test_engines.py` (registry, splitting, prefixes); real-model tests only with `TEI_TRANSLATE_RUN_MODELS=1`. `python -m pytest tests/test_pipeline.py::test_names` runs one test. `scripts/check_metric_cases.py` runs the metric cases with longer failure explanations.
 
 ## Existing assets worth reusing
 
