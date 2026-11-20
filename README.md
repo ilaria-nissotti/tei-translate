@@ -167,7 +167,7 @@ python scripts/eval_translation.py --run outputs/compare/<run>             # chr
 python scripts/eval_translation.py --run outputs/compare/<run> --no-comet  # only chrF and BLEU
 ```
 
-References are the Perseus English translations. Text only: tags play no part. COMET (`Unbabel/wmt22-comet-da`) compares each translation with its best reference and also reads the Greek; it was not trained on Ancient Greek, so treat it as a second opinion next to chrF. It needs `pip install -e .[comet]` and downloads the model (about 2.3 GB) the first time. A quick version: `compare_engines.py --engines madlad-3b opus-bible-ine --per-work 3` (21 passages) and then this script.
+References are the Perseus English translations. Text only: tags play no part. COMET (`Unbabel/wmt22-comet-da`) compares each translation with its best reference and also reads the Greek; it was not trained on Ancient Greek, so treat it as a second opinion next to chrF. It needs `pip install -e .[comet]` and downloads the model (about 2.3 GB) the first time.
 
 It writes `outputs/eval_translation/<timestamp>/report.md` (scores per engine, overall and per work), `scores.jsonl` (COMET per passage), `summary.json` and `run.json`.
 
