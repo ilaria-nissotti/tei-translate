@@ -13,7 +13,9 @@ python -m venv .venv
 pip install -e .[dev]
 ```
 
-That's enough for the pipeline with the test engines, the metrics (except COMET) and the tests.
+That's enough for the tests, the metrics (except COMET) and the pipeline with the test engines,
+as long as you turn off the default aligner (`--aligner none`, see below). The default aligner
+(`ugarit`) and the real translation models need the `mt` extra.
 Extras:
 
 - `pip install -e .[dev,mt]` for real translation models (PyTorch, Transformers; ~1 GB).
@@ -31,8 +33,11 @@ Python. Make it from the python.org Python instead.
 
 ```
 python -m tei_translate translate IN.xml                    # default engine: madlad-3b
-python -m tei_translate translate IN.xml --engine tag       # no model, for testing
+python -m tei_translate translate IN.xml --engine tag --aligner none   # no model at all, for testing
 ```
+
+To try it, use `tests/fixtures/tei/handmade.xml` as `IN.xml`. `--engine tag` alone fails without the
+`mt` extra, because the default aligner needs PyTorch.
 
 The result goes to `outputs/<name>.en.xml` and a report is printed. Models download into
 `models/hf/` the first time.
@@ -68,6 +73,21 @@ To read the output comfortably, open it in the [Mano Project viewer](https://man
   engine, aligner, placement, policy, schema). For another pair, copy it, change the values and
   pass it with `--pair`. The engine must support the pair, and transliteration is only
   implemented for Greek.
+
+## Getting the Perseus data
+
+The texts are the Greek files of Perseus
+[canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit) that have an English
+translation. The scripts in `scripts/data/` need only Python and `git` (no install), and the
+downloads go to `data/raw/` and `data/perseus/` (not in git):
+
+```
+python scripts/data/count_tags.py        # clones Perseus into data/raw/, lists Greek works with English translations
+python scripts/data/build_dataset.py     # downloads those Greek/English pairs into data/perseus/ (takes a while)
+```
+
+The lists in `data/catalog/` and tag counts in `data/stats/` are already in the repo, so you only
+need these steps to get the XML files themselves (the experiment scripts need `data/perseus/`).
 
 ## Scripts
 
