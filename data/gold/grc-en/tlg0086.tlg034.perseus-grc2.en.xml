@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+           <title xml:lang="grc">Περὶ ποιητικῆς</title>
+            <author>Aristotle</author>
+           <editor>Rudolf Kassel</editor>
+           <sponsor>Perseus Project, Tufts University</sponsor>
+           <principal>Gregory Crane</principal>
+           <respStmt>
+             <resp>Prepared under the supervision of</resp>
+             <name>Lisa Cerrato</name>
+             <name>William Merrill</name>
+             <name>Elli Mylonas</name>
+             <name>David Smith</name>
+           </respStmt>
+           <funder n="org:AnnCPB" >The Annenberg CPB/Project</funder>
+           <respStmt>
+             <resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+             <name>tei-translate</name>
+           </respStmt>
+         </titleStmt>
+        
+
+        <publicationStmt>
+          <publisher>Trustees of Tufts University</publisher>
+          <pubPlace>Medford, MA</pubPlace>
+          <authority>Perseus Digital Library Project</authority>
+          <date type="release" when="1996" cert="high">Perseus 2.0</date>
+          <idno type="filename">tlg0086.tlg034.perseus-grc2.xml</idno>
+          <availability>
+            <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+            <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+          </availability>
+        </publicationStmt>
+
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                 <title xml:lang="lat">Aristotelis De arte poetica liber</title>
+                  <author>Aristotle</author>
+                  <editor>Rudolf Kassel</editor>
+                  <imprint>
+                     <publisher>Clarendon Press</publisher>
+                     <pubPlace>Oxford, UK</pubPlace>
+                     <date type="printing">1965</date>
+                  </imprint>
+               </monogr>
+              <ref target="https://digital.slub-dresden.de/werkansicht/dlf/112360/13?tx_dlf%5Bpagegrid%5D=0&amp;cHash=9dfdbc0be1f7342c999475fe8cca21bf">SLUB</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+
+      <encodingDesc>
+        <refsDecl n="CTS">
+          <!--<cRefPattern n="section" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+            <p>This pointer pattern extracts book and chapter and section.</p>
+          </cRefPattern>            -->
+          <cRefPattern n="subchapter" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+            <p>This pointer pattern extracts chapter and subchapter.</p>
+          </cRefPattern>
+          <cRefPattern n="chapter" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+            <p>This pointer pattern extracts chapter.</p>
+          </cRefPattern>
+        </refsDecl>
+         <refsDecl n="text=1">
+            <refState unit="text"/>
+            <refState unit="chapter" n="chunk"/>
+            <refState unit="subchapter"/>
+         </refsDecl>
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
+    
+      <profileDesc>
+         <langUsage>
+            <language ident="lat">Latin</language>
+            <language ident="grc">Greek</language>
+         </langUsage>
+      </profileDesc>
+    
+      <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change when="2024-10-15" who="Lisa Cerrato">finished markup with spacing and breaks; checked Bekker lines and pages against print; regularized other elements</change>
+        <change when="2024-10-11" who="GRC">(1) updates to unicode (with pargraphs etc. properly encoded) and to updated epiDoc compliant TEI XML; (2) square brackets and angle brackets have been converted to TEI add and del markup (which may not work in our current CSS); (3) imported the chapter/section breaks from the Bekker edition--these should now be the dominant citation scheme with Bekker pages being accesible from a secondary table of contents in Perseus 6; (4) used the same apostraphe character as in the perseus-grc2 version.  The addition of chapters and sections to Kassel should be noted prominently.</change>
+        <change when="2009-05-27" who="rsingh04">added cvs log keyword</change>
+        <change when="1993-04" who="WPM">Tagged in conformance with Prose.e dtd.</change>
+        <change when="1992">Text was scanned at St. Olaf Spring, 1992.</change>
+</revisionDesc>
+ </teiHeader>
+  
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2">
+<div n="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" type="edition" xml:lang="en">
+  <div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="1">
+    <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="1">
+    <p rend="align(indent)"> <milestone unit="page" resp="Bekker" n="1447a"/> <milestone unit="line" resp="Bekker" n="8"/> Let us speak of the art of poetry itself and of its species, what capacity each possesses, and how plots must be constructed <milestone unit="line" resp="Bekker" n="10"/> if the poetic composition is to be well made, and further from how many and what sort of parts it consists, and likewise of all other matters belonging to the same inquiry, beginning in the natural order first from first principles. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="2">
+<p>Epic poetry, then, and the composition of tragedy, and also comedy and dithyrambic poetry, and the greater part of <milestone unit="line" resp="Bekker" n="15"/> flute-playing and lyre-playing, are all, viewed as a whole, forms of imitation. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="3"><p>They differ from one another in three respects: either by imitating in different media, or by imitating different objects, or by imitating in a different manner and not in the same way. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="4"><p>For just as some people imitate many things by producing likenesses with colors and figures (some <milestone unit="line" resp="Bekker" n="20"/> through art, others through habit), and others through the voice, so too in the arts mentioned above, all produce their imitation in rhythm, language, and melody, using these either separately or combined. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="5"><p>For instance, flute-playing and lyre-playing use melody and rhythm alone, and any other arts <milestone unit="line" resp="Bekker" n="25"/> that happen to have a similar capacity, such as the art of panpipes; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="6"><p>the art of dancers <del>imitates</del> by rhythm itself without melody (for they too imitate characters, emotions, and actions through rhythmic figures);</p></div>
+
+    <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="7"><p> while the art <del>epic poetry</del> that uses bare language alone <add>and</add> the one that uses meters—and in the latter case <milestone unit="page" resp="Bekker" n="1447b"/> <milestone unit="line" resp="Bekker" n="8"/> whether mixing different meters with one another or using a single kind of meter—happen to be nameless up to the present time. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="8"><p> For we would have no <milestone unit="line" resp="Bekker" n="10"/> common name to give to the mimes of Sophron and Xenarchus and the Socratic dialogues, </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="9"><p>nor if someone were to make his imitation in trimeters or elegiacs or any other such meters. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="10"><p>People, however, attaching the word "making" to the meter, call some elegiac-makers and others epic-makers, naming them not <milestone unit="line" resp="Bekker" n="15"/> as poets in virtue of imitation, but indiscriminately according to their meter. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="11"><p>Indeed, even if someone publishes a medical or scientific treatise in meter, they are accustomed to call him a poet; yet Homer and Empedocles have nothing in common except their meter, so that it is right to call the former a poet, but the latter a natural philosopher rather than <milestone unit="line" resp="Bekker" n="20"/> a poet. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="12"><p>Likewise, even if someone produces his imitation by mixing all the meters together, just as Chaeremon composed his Centaur, a mixed rhapsody in all meters, he too must be called a poet. Let these distinctions, then, be drawn in this way. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="13"><p>There are certain arts that use all the means <milestone unit="line" resp="Bekker" n="25"/> mentioned—I mean rhythm, song, and meter—such as dithyrambic poetry, the composition of nomes, tragedy, and comedy; they differ, however, in that the former use all of them simultaneously, while the latter use them in separate parts.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:1" n="14"><p>These, then, are what I call the differences of the arts with respect to the media in which they produce their imitation. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="2">
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="1">
+   <p rend="align(indent)"><milestone unit="page" resp="Bekker" n="1448a"/> <milestone unit="line" resp="Bekker" n="1"/>Since those who imitate imitate people in action, and these must necessarily be either admirable or inferior (for character almost always follows these two categories alone, since everyone differs in character by vice and virtue), they must imitate people either better than we are, or worse, <milestone unit="line" resp="Bekker" n="5"/> or like ourselves, just as painters do. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="2"><p>For Polygnotus portrayed better people, Pauson worse, and Dionysius people like ourselves. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="3"><p>It is clear that each of the imitations we have mentioned will also have these differences, and will be distinct by imitating different objects in this manner. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="4"><p>For in dancing, flute-playing, and <milestone unit="line" resp="Bekker" n="10"/> lyre-playing these dissimilarities can arise, </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="5"><p>and also <del>in</del> prose and unaccompanied verse: for example, Homer represents better people, Cleophon people like ourselves, while Hegemon of Thasos, <add>the</add> first to compose parodies, and Nicochares, author of the Deiliad, represent worse people. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="6"><p>So too in dithyrambs and <milestone unit="line" resp="Bekker" n="15"/> nomes: one could imitate just as Timotheus and Philoxenus imitated the Cyclopes. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:2" n="7"><p>It is in this very difference that tragedy stands apart from comedy: comedy aims to imitate people worse, and tragedy people better, than those of the present day. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="3">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="1"><p rend="align(indent)">There is still a third difference among these, namely the manner in which one may <milestone unit="line" resp="Bekker" n="20"/> imitate each of these objects. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="2"><p>For it is possible to imitate the same objects in the same media sometimes by narrating—either becoming someone else, as Homer does, or remaining the same person without changing—or by representing all the characters as acting and engaging in activity. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="3"><p>Imitation, then, consists in these three differences, <milestone unit="line" resp="Bekker" n="25"/> as we said at the beginning: the media, <add>the objects,</add> and the manner. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="4"><p>Thus in one respect Sophocles would be the same kind of imitator as Homer, since both imitate admirable people, and in another respect the same as Aristophanes, since both imitate people acting and doing. Hence some say that these works are called dramas, because they imitate people doing things. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="5"><p>That is why <milestone unit="line" resp="Bekker" n="30"/> the Dorians lay claim to both tragedy and comedy—comedy is claimed by the Megarians, both those here on the ground that it arose during their democracy, and those in Sicily, since the poet Epicharmus came from there and was much earlier than Chionides and Magnes; and tragedy is claimed by some <milestone unit="line" resp="Bekker" n="35"/> of the Peloponnesians—using the names as evidence. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="6"><p>For they say that they themselves call outlying villages komai, whereas the Athenians call them demes, assuming that comedians were named not from reveling (komazein) but from wandering through the villages when dishonored and driven out of the city; <milestone unit="page" resp="Bekker" n="1448b"/> <milestone unit="line" resp="Bekker" n="1"/> and that they themselves call doing dran, whereas the Athenians call it prattein. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:3" n="7"><p>So much, then, for the differences of imitation, how many and what they are. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="4">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="1"><p rend="align(indent)">In general, two causes seem to have given birth to the art of poetry, <milestone unit="line" resp="Bekker" n="5"/> and both of them are natural. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="2"><p>For imitating is innate in human beings from childhood, and they differ from the other animals in that man is the most imitative of creatures and acquires his first pieces of knowledge through imitation; and everyone takes pleasure in imitations. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="3"><p>A sign of this is what happens <milestone unit="line" resp="Bekker" n="10"/> in practice: things that we look upon with pain in themselves, we delight in viewing when they are most accurately rendered in images, such as the forms of the vilest beasts and of corpses. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="4"><p>The reason for this too is that learning is most pleasant not only to philosophers but likewise to everyone else, though they share in it only to a small <milestone unit="line" resp="Bekker" n="15"/> extent. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="5"><p>For people take pleasure in looking at images because as they view them they learn and infer what each thing is, for instance, "that man is so-and-so." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="6"><p>For if one happens not to have seen the subject before, the image will not produce its pleasure as an imitation, but because of the craftsmanship, or the color, or some other such cause. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="7"><p><milestone unit="line" resp="Bekker" n="20"/>Since imitating is natural to us, as are melody and rhythm (for it is obvious that meters are parts of rhythms), from the beginning those who were most naturally gifted for them gradually advanced them and generated poetry out of improvisations. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="8"><p>Poetry then split apart according to the poets' own characters: <milestone unit="line" resp="Bekker" n="25"/> the more dignified imitated noble actions and those of noble people, while the more trivial imitated those of inferior people, composing invectives at first, just as the others composed hymns and encomia. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="9"><p>Of the poets before Homer we cannot name any such poem, though it is likely that there were many; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="10"><p>beginning from Homer, however, <milestone unit="line" resp="Bekker" n="30"/> we can, such as his Margites and works of that kind. In these, as was fitting, the iambic meter also came in—which is why it is now called iambic, because in this meter they lampooned (iambizein) one another. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="11"><p>And of the ancients, some became poets of heroic verse and others of iambics. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="12"><p>Just as Homer was the supreme poet in serious matters <milestone unit="line" resp="Bekker" n="35"/> (for he alone not only composed well, but also made dramatic imitations), so too he was the first to outline the form of comedy, dramatizing not invective but the laughable. For the Margites stands in the same relation to comedies as the Iliad <milestone unit="page" resp="Bekker" n="1449a"/> <milestone unit="line" resp="Bekker" n="1"/> and the Odyssey stand to tragedies. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="13"><p>Once tragedy and comedy had come to light, those who were drawn to each kind of poetry according to their own nature became comic poets instead of iambic poets, <milestone unit="line" resp="Bekker" n="5"/> and tragic poets instead of epic poets, because these forms were grander and more esteemed than the earlier ones. Whether or not tragedy is now sufficiently developed in its constituent forms, judged both in itself and in relation to audiences, is another question. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="14"><p>Having come into being, then, from an improvisational <milestone unit="line" resp="Bekker" n="10"/> beginning—both tragedy itself and comedy, the one from the leaders of the dithyramb, the other from the leaders of the phallic songs that still remain customary in many cities—tragedy gradually grew as poets developed each element of it that came to light; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="15"><p>and after undergoing many changes, <milestone unit="line" resp="Bekker" n="15"/> tragedy stopped changing once it had attained its own proper nature. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="16"><p>Aeschylus was the first to raise the number of actors from one to two, reduced the part of the chorus, and made spoken dialogue take the leading role; Sophocles introduced three actors and scene-painting. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="17"><p>Further, as to magnitude: from small plots and <milestone unit="line" resp="Bekker" n="20"/> laughable diction, because it developed out of a satyr-like form, it acquired dignity only late, and its meter changed from tetrameter to iambic. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="18"><p>At first they used the tetrameter because the poetry was satyr-like and more suited to dancing; but when spoken dialogue came in, nature herself discovered the appropriate meter, for the iambic is the most <milestone unit="line" resp="Bekker" n="25"/> conversational of meters. A sign of this is that </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="19"><p>we speak iambics very often in our conversation with one another, whereas we rarely speak hexameters, and only when we depart from conversational rhythm. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="20"><p>Further, there was the number of episodes. And as for all the other ways in which each part is said to have been embellished, <note n="GRC">Missing text? λέγεται. περὶ μὲν οὖν τούτω τοσαῦτα ἔστω </note><milestone unit="line" resp="Bekker" n="30"/>let us take them as already stated; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:4" n="21"><p>for it would perhaps be a great task to go through them one by one. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="5">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="1"><p rend="align(indent)">Comedy, as we said, is an imitation of inferior people—not, however, with respect to every kind of vice, but insofar as the laughable is a subdivision of the ugly. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="2"><p>For the laughable is <milestone unit="line" resp="Bekker" n="35"/> a sort of flaw and ugliness that is painless and not destructive, just as, for an immediate example, the comic mask is ugly and distorted without pain. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="3"><p>Now the transformations of tragedy and the men who brought them about have not escaped notice, whereas comedy escaped notice because it was not <milestone unit="page" resp="Bekker" n="1449b"/> <milestone unit="line" resp="Bekker" n="1"/> taken seriously at first; indeed, it was only late that the archon granted a chorus of comic performers, who previously were volunteers. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="4"><p>It is only after comedy already had certain definite forms that its so-called poets are remembered. Who introduced masks or prologues or <milestone unit="line" resp="Bekker" n="5"/> numbers of actors and all such things is unknown. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="5"><p>The making of plots <del>Epicharmus and Phormis</del> originally came from Sicily; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="6"><p>among the Athenians, Crates was the first to abandon the iambic form and begin composing generalized stories and plots. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="7"><p>Epic poetry, then, agrees with tragedy insofar as it is an imitation of admirable people in language <milestone unit="line" resp="Bekker" n="10"/> with meter; they differ, however, in that epic has a single meter and is narrative. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="8"><p>They also differ in length: tragedy tries as far as possible to stay within a single revolution of the sun or to exceed it only slightly, whereas epic is unlimited in time, and differs in this respect— </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="9"><p>although <milestone unit="line" resp="Bekker" n="15"/> at first they did this in tragedies in the same way as in epics. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="10"><p>As for their constituent parts, some are the same, while others are peculiar to tragedy. </p></div>
+
+ <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:5" n="11"><p>Consequently, whoever knows about good and bad tragedy also knows about epic; for all the elements that epic possesses belong to tragedy, whereas not all that belong to tragedy are found in <milestone unit="line" resp="Bekker" n="20"/> epic.</p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="6">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="1"><p rend="align(indent)">We shall speak later about imitation in hexameters and about comedy; let us now speak of tragedy, taking up the definition of its essence that results from what has been said. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="2"><p>Tragedy, then, is an imitation of an action that is admirable, <milestone unit="line" resp="Bekker" n="25"/> complete, and possesses magnitude; in language made pleasurable, each of its species separately in different parts; performed by actors, not through narration; effecting through pity and fear the purification of such emotions. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="3"><p>By "pleasurable language" I mean language that has rhythm and melody <del>and song</del>; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="4"><p>and by "the species separately," <milestone unit="line" resp="Bekker" n="30"/> that some parts are carried out through meters alone and others again through song. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="5"><p>Since they produce the imitation by acting, in the first place the ordering of spectacle must necessarily be a part of tragedy; and then song-making and diction, for it is in these media that they produce the imitation. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="6"><p>By "diction" I mean the very <milestone unit="line" resp="Bekker" n="35"/> composition of the verses, and by "song-making" that whose meaning is entirely evident. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="7"><p>Since it is an imitation of an action, and an action is performed by certain agents, who must necessarily have certain qualities of character and thought (for it is because of these that we say <milestone unit="page" resp="Bekker" n="1450a"/> <milestone unit="line" resp="Bekker" n="1"/> actions too are of a certain quality, <del>there are naturally two causes of actions, thought and character</del> and in accordance with these everyone either succeeds or fails), </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="8"><p>the plot is the imitation of the action—for by "plot" I mean here the <milestone unit="line" resp="Bekker" n="5"/> structuring of the events—while "character" is that in virtue of which we say that the agents are of a certain quality, and "thought" is everything in which speakers demonstrate something or also state a general maxim. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="9"><p>Necessarily, then, there are six parts of every tragedy, according to which tragedy has its particular quality; these are plot, character, diction, <milestone unit="line" resp="Bekker" n="10"/> thought, spectacle, and song-making. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="10"><p>For two parts are the media in which they imitate, one is the manner in which they imitate, and three are the objects that they imitate; and beyond these there is nothing. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="11"><p>Not a few of the poets, so to speak, have used these forms; for every tragedy has spectacle, character, plot, diction, song, and thought alike. </p></div>
+
+ <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="12"><p><milestone unit="line" resp="Bekker" n="15"/>The most important of these is the structuring of the events. For tragedy is an imitation not of human beings, but of action and of life <del>and happiness and unhappiness reside in action, and the end is a certain kind of action, not a quality; people are of a certain quality according to their characters, but according to their <milestone unit="line" resp="Bekker" n="20"/> actions they are happy or the opposite</del>. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="13"><p>Therefore they do not act in order to imitate characters, but they include characters for the sake of the actions; so that the events and the plot are the end of tragedy, and the end is the most important thing of all. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="14"><p>Furthermore, without action there could not be a tragedy, whereas without character <milestone unit="line" resp="Bekker" n="25"/> there could. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="15"><p>For the tragedies of most of the recent poets are devoid of character, and in general many poets are like that, just as among painters Zeuxis stands in relation to Polygnotus: Polygnotus is a good painter of character, whereas the painting of Zeuxis has no character at all. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="16"><p>Again, if someone strings together speeches expressive of character that are well crafted in diction <milestone unit="line" resp="Bekker" n="30"/> and thought, he will not achieve what is the proper function of tragedy; far more will a tragedy that is inferior in these respects, yet possesses a plot and structuring of events. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="17"><p>In addition to this, the most powerful means by which tragedy moves the soul are parts of the plot, namely reversals and <milestone unit="line" resp="Bekker" n="35"/> recognitions. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="18"><p>A further sign is that beginners in poetry are able to achieve precision in diction and character sooner than in structuring events, as was the case with nearly all the earliest poets. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="19"><p>The plot, then, is the first principle and, as it were, the soul of tragedy, while character holds second place. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="20"><p>(It is much the same <milestone unit="page" resp="Bekker" n="1450b"/> <milestone unit="line" resp="Bekker" n="1"/> in painting: if someone were to smear on the most beautiful colors at random, it would not give as much pleasure as a portrait sketched in outline.) </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="21"><p>
+Tragedy is an imitation of an action, and principally for the sake of the action, an imitation of the agents.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="22"><p>Third is thought: this <milestone unit="line" resp="Bekker" n="5"/> is the ability to say what is inherent in a situation and appropriate to it, which in speeches is the function of politics and rhetoric. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="23"><p>For the older poets made their characters speak like statesmen, whereas those of today make them speak like rhetoricians. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="24"><p>Character is the sort of thing that reveals moral choice, of whatever kind it is <del>in situations where it is not obvious what someone <milestone unit="line" resp="Bekker" n="10"/> chooses or avoids</del>; hence there is no character in speeches in <milestone unit="line" resp="Bekker" n="10a"/> which there is nothing at all that the speaker chooses or avoids. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="25"><p>Thought is found where speakers demonstrate that something is or is not the case, or make some universal statement.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="26"><p>Fourth among the verbal elements is diction; and by diction, as was said before, I mean expression through the choice of words, which has the same force both in verse and <milestone unit="line" resp="Bekker" n="15"/> in prose.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="27"><p>Of the remaining parts, song-making is the greatest of the embellishments; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:6" n="28"><p>while spectacle is emotionally engaging, yet least artistic and least integral to the art of poetry. For the power of tragedy exists even without performance and actors, and moreover the art of the stage-designer is more decisive for the production <milestone unit="line" resp="Bekker" n="20"/> of visual effects than that of the poets. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="7">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="1"><p rend="align(indent)">Now that these distinctions have been made, let us next discuss what kind of structuring of the events is required, since this is both the first and the most important element of tragedy. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="2"><p>We have laid down that tragedy is an imitation of a complete and whole action <milestone unit="line" resp="Bekker" n="25"/> possessing a certain magnitude; for a thing can be a whole and yet possess no magnitude. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="3"><p>A whole is that which has a beginning, a middle, and an end. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="4"><p>A beginning is that which does not itself necessarily follow anything else, but after which something else naturally exists or comes to be. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="5"><p>An end, conversely, is that which itself naturally follows something else, either <milestone unit="line" resp="Bekker" n="30"/> of necessity or for the most part, while nothing else comes after it. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="6"><p>A middle is that which both itself follows something else and is followed by something else. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="7"><p>Well-constructed plots, therefore, must neither begin at some random point nor end at some random point, but must employ the principles just stated. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="8"><p>Furthermore, since a beautiful thing—whether a living creature or any <milestone unit="line" resp="Bekker" n="35"/> object composed of parts—must not only have those parts arranged in order, but must also possess a magnitude that is not just any random size (for beauty consists in magnitude and order), </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="9"><p>consequently neither could a very tiny creature be beautiful (since our view of it is confused, occurring in an almost imperceptible time), nor a very huge one (since <milestone unit="page" resp="Bekker" n="1451a"/> <milestone unit="line" resp="Bekker" n="1"/> our view does not take place all at once, and the unity and wholeness escape the viewers' contemplation)—for instance, if a creature were ten thousand stades long. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="10"><p>Therefore, just as bodies and living creatures must have magnitude, yet one easily taken in at a single view, so <milestone unit="line" resp="Bekker" n="5"/> too plots must have length, yet one easily held in memory. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="11"><p>As for the limit of length, <add>the one</add> determined by dramatic competitions and sense-perception does not belong to the art; for if a hundred tragedies had to compete, they would compete by the water-clock, as they say used to happen at some other time. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:7" n="12"><p>But as for the limit determined by the actual nature <milestone unit="line" resp="Bekker" n="10"/> of the matter, the greater the plot, so long as it remains clearly intelligible as a whole, the finer it is in respect of magnitude; to give a simple definition, whatever magnitude allows a change from bad fortune to good fortune, or from good fortune to bad fortune, to occur through a sequence of events according to probability or necessity, is a sufficient <milestone unit="line" resp="Bekker" n="15"/> limit of magnitude.</p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="8">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:8" n="1"><p rend="align(indent)">A plot is not unified, as some suppose, merely if it is about one person. For countless things happen to a single person, some of which form no unity at all; and in the same way a single person performs many actions, out of which no single action arises. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:8" n="2"><p>Therefore all those poets seem <milestone unit="line" resp="Bekker" n="20"/> to err who have composed a Heracleid, a Theseid, or other poems of that sort; they think that because Heracles was one person, his plot ought also to be one. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:8" n="3"><p>Homer, however, just as he excels in other respects, seems to have seen this clearly as well, whether by art or by nature. In composing the Odyssey, <milestone unit="line" resp="Bekker" n="25"/> he did not include everything that ever happened to Odysseus—such as his being wounded on Mount Parnassus or his feigning madness at the muster, neither of which made it necessary or probable that the other should happen—but he constructed the Odyssey around a single action of the sort we mean, and likewise the Iliad. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:8" n="4"><p><milestone unit="line" resp="Bekker" n="30"/>Accordingly, just as in the other imitative arts a single imitation is of a single object, so too the plot, since it is an imitation of an action, must be of a single and whole action, and the parts of the events must be so structured that if any part is displaced or removed, the whole is disjointed and disturbed. For whatever makes no noticeable difference whether it is present <milestone unit="line" resp="Bekker" n="35"/> or absent is no real part of the whole.</p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="9">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="1"><p rend="align(indent)">It is also clear from what has been said that the function of a poet is not to relate what has happened, but what might happen—things that are possible according to probability or necessity. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="2"><p>For the <milestone unit="page" resp="Bekker" n="1451b"/> <milestone unit="line" resp="Bekker" n="1"/> historian and the poet do not differ by speaking in verse or in prose (the work of Herodotus could be put into verse, and it would still be a kind of history no less in verse than without verse); rather, they differ in that the one relates what has happened, <milestone unit="line" resp="Bekker" n="5"/> while the other relates what might happen. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="3"><p>For this reason poetry is both more philosophical and more serious than history; for poetry speaks rather of universals, whereas history speaks of particulars. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="4"><p>A universal is the sort of thing that a certain kind of person will say or do according to probability or necessity, which is what <milestone unit="line" resp="Bekker" n="10"/> poetry aims at even while attaching individual names; a particular is what Alcibiades did or what happened to him. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="5"><p>In comedy this has already become clear: having constructed the plot through probabilities, comic poets then assign whatever names they please, and do not compose about a particular individual as the iambic poets <milestone unit="line" resp="Bekker" n="15"/> do. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="6"><p>In tragedy, however, they cling to historical names. The reason is that what is possible is convincing; now we do not yet believe that what has not happened is possible, whereas what has happened is obviously possible, for it would not have happened if it were impossible. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="7"><p>Nevertheless, even in tragedies there are some in which only one <milestone unit="line" resp="Bekker" n="20"/> or two of the names are familiar and the rest are invented, and in some none at all, as in Agathon's Antheus; for in this play both the events and the names are invented alike, and it gives no less pleasure. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="8"><p>Consequently one must not seek at all costs to cling to the traditional stories around which tragedies are built. <milestone unit="line" resp="Bekker" n="25"/> Indeed, it is absurd to insist on this, since even the familiar stories are familiar only to a few, and yet they give pleasure to all.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="9"><p>It is clear from these considerations, then, that a poet must be a maker of plots rather than of verses, inasmuch as he is a poet in virtue of imitation, and what he imitates are actions. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="10"><p>And even if he happens <milestone unit="line" resp="Bekker" n="30"/> to compose about actual events, he is nonetheless a poet; for nothing prevents some actual events from being such as would probably happen <del>and could possibly happen</del>, and it is in that respect that he is their poet. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="11"><p rend="align(indent)">Of simple plots and actions, the episodic are the worst. By an episodic plot I mean one in which the <milestone unit="line" resp="Bekker" n="35"/> sequence of episodes is neither probable nor necessary. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="11b"><p>Such plots are composed by bad poets on their own account, and by good poets on account of the actors; for in composing display pieces and stretching the plot beyond its capacity, <milestone unit="page" resp="Bekker" n="1452a"/><milestone unit="line" resp="Bekker" n="1"/> they are often forced to distort the logical sequence. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="11c"><p>Since the imitation is not <milestone unit="line" resp="Bekker" n="2"/> only of a complete action, but also of fearful and pitiable events, these arise most of all <del>and even more</del> when they happen contrary to expectation yet because of one another. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="12"><p>For the <milestone unit="line" resp="Bekker" n="5"/> element of wonder will be greater in this way than if they happen spontaneously and by chance, since even among chance occurrences those seem most wondrous that appear to have happened as if by design—for instance, how the statue of Mitys at Argos killed the man responsible for Mitys' death by falling upon him while he was watching a festival; for such events do not seem <milestone unit="line" resp="Bekker" n="10"/> to occur at random. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:9" n="13"><p>Plots of this kind, therefore, are necessarily finer. </p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="10">
+ <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:10" n="1"><p rend="align(indent)">Of plots, some are simple and others complex; for the actions of which plots are imitations are straightaway of these two kinds. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:10" n="2"><p>By a simple action I mean one whose <milestone unit="line" resp="Bekker" n="15"/> course is continuous and unified, as defined above, and in which the change of fortune takes place without reversal or recognition; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:10" n="3"><p>by a complex action, one in which the change of fortune is accompanied by recognition or reversal or both. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:10" n="4"><p>These must arise from the very structure of the plot, so that from what has happened before they follow <milestone unit="line" resp="Bekker" n="20"/> either by necessity or by probability; for it makes a great difference whether these things happen because of those or merely after those. </p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="11">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="1"><p rend="align(indent)">Reversal is a change of the actions to their opposite, as has been said, and this too, as we maintain, according to probability or necessity. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="2"><p>For example, in the <milestone unit="line" resp="Bekker" n="25"/> Oedipus, the messenger came intending to cheer Oedipus and free him from his fear regarding his mother, yet by revealing who he was, he achieved the opposite; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="3"><p>and in the Lynceus, Lynceus was being led away to die while Danaus followed to kill him, yet it turned out from the course of events that Danaus died and Lynceus was saved.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="4"><p>Recognition, <milestone unit="line" resp="Bekker" n="30"/> as the very name indicates, is a change from ignorance to knowledge, leading either to friendship or to enmity among those marked out for good or bad fortune. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="5"><p>The finest recognition is one that occurs simultaneously with a reversal, such as the one in the Oedipus. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="6"><p>There are indeed other kinds of recognition: for it can occur in relation to inanimate and <milestone unit="line" resp="Bekker" n="35"/> random objects, as has been said, and one can recognize whether someone has done a thing or not. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="7"><p>But the kind that belongs most to plot and most to action is the one just described; for such a recognition and reversal will evoke either pity <milestone unit="page" resp="Bekker" n="1452b"/> <milestone unit="line" resp="Bekker" n="1"/> or fear (and tragedy is assumed to be an imitation of actions of that sort), since both bad fortune and good fortune will come about in such cases. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="8"><p>Since recognition is recognition of persons, some recognitions are of one person by the other only, when it is already clear who the other <milestone unit="line" resp="Bekker" n="5"/> is, while sometimes both must recognize each other: for instance, Iphigenia was recognized by Orestes from the sending of the letter, whereas another recognition was needed for him to be recognized by Iphigenia. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="9"><p rend="align(indent)">These, then, are two parts of the plot, reversal <milestone unit="line" resp="Bekker" n="10"/> and recognition; a third is suffering. Reversal and recognition have been explained; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:11" n="10"><p>suffering is a destructive or painful action, such as deaths in full view, agonies, woundings, and all things of that sort.</p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="12">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="1">
+<p rend="align(indent)"> The parts of tragedy that must be used as its constituent forms <milestone unit="line" resp="Bekker" n="15"/> we have stated earlier; quantitatively, the separate sections into which it is divided are these: prologue, episode, exode, and choral part, </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="2"><p>the last being divided into parode and stasimon. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="3"><p>These are common to all tragedies, whereas songs from the stage and kommoi are peculiar to some.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="4"><p>A prologue is an entire part of a tragedy preceding the chorus's <milestone unit="line" resp="Bekker" n="20"/> parode; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="5"><p>an episode is an entire part of a tragedy between complete choral songs; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="6"><p>an exode is an entire part of a tragedy after which there is no choral song. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="7"><p>Of the choral part, a parode is the first complete utterance of a chorus; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="8"><p>a stasimon is a choral song without anapests or trochees; </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="9"><p>a kommos is a lament shared by the chorus and the actors on <milestone unit="line" resp="Bekker" n="25"/> stage. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:12" n="10"><p rend="align(indent)">The parts of tragedy that must be used <add>as constituent forms</add> we stated earlier; quantitatively, the separate sections into which it is divided are these. </p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="13">
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="1">
+    <p rend="align(indent)">What one should aim at and what one should guard against in constructing plots, and from what source the proper effect of tragedy will arise, <milestone unit="line" resp="Bekker" n="30"/> should be discussed next in sequence after what has just been said. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="2">
+<p>Since, then, the structure of the finest tragedy must be not simple but complex, and must be imitative of fearful and pitiable events (for this is the distinctive mark of such imitation), it is clear in the first place that decent men must not <milestone unit="line" resp="Bekker" n="35"/> be shown passing from good fortune to bad fortune, for that is neither fearful nor pitiable, but repulsive; </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="3"><p>nor depraved men from bad fortune to good fortune, for that is the most untragic of all, having none of the qualities required, since it is neither morally satisfying <milestone unit="page" resp="Bekker" n="1453a"/> <milestone unit="line" resp="Bekker" n="1"/> nor pitiable nor fearful; </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="4"><p> nor again should a thoroughly wicked man fall from good fortune into bad fortune, for such a structure might satisfy moral feeling, yet it would evoke neither pity nor fear—for pity concerns the man who suffers undeservedly, and fear <milestone unit="line" resp="Bekker" n="5"/> concerns one like ourselves (pity for the undeserving, fear for one like ourselves)—so that the outcome will be neither pitiable nor fearful.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="5"><p>There remains, then, the person intermediate between these. Such is a man who neither excels in virtue and justice nor falls into misfortune through vice and depravity, but through <milestone unit="line" resp="Bekker" n="10"/> some error—one of those who enjoy great renown and prosperity, such as Oedipus, Thyestes, and illustrious men from families of that kind. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="6"><p>A well-constructed plot, therefore, must necessarily be single rather than double, as some claim, and must change not from bad fortune to good fortune, but on the contrary <milestone unit="line" resp="Bekker" n="15"/> from good fortune to bad fortune, not through depravity but through a great error on the part of a man such as we have described, or one better rather than worse. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="7"><p>What actually happens is a sign of this: at first the poets recounted any stories that came to hand, whereas nowadays the finest tragedies are composed around a few houses, such as <milestone unit="line" resp="Bekker" n="20"/> those of Alcmaeon, Oedipus, Orestes, Meleager, Thyestes, Telephus, and any others whose lot it has been either to suffer or to do terrible things. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="8"><p>The finest tragedy according to the art, then, comes from this structure. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="9"><p>Hence those who criticize Euripides make the very same mistake when they fault him for doing this <milestone unit="line" resp="Bekker" n="25"/> in his tragedies and ending most of them in misfortune. For this, as has been said, is right. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="10"><p>The greatest sign is that on the stage and in competitions such plays appear the most tragic, if they are well executed, and Euripides, even if he does not manage other matters well, nevertheless <milestone unit="line" resp="Bekker" n="30"/> appears the most tragic of the poets.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="11"><p>Second best is the structure that some call first—the one that has a double construction, like the Odyssey, and ends in opposite ways for the better and worse characters. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="12"><p>It is thought to be first because of the weakness of audiences; for the poets follow along, composing to suit <milestone unit="line" resp="Bekker" n="35"/> the spectators' wishes. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:13" n="13"><p>Yet this is not the pleasure that comes from tragedy, but belongs rather to comedy; for there, those who are the bitterest enemies in the story, such as Orestes and Aegisthus, walk off as friends at the end, and no one is killed by anyone. </p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="14">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="1"><p rend="align(indent)"><milestone unit="page" resp="Bekker" n="1453b"/> <milestone unit="line" resp="Bekker" n="1"/>Now the fearful and pitiable can arise from spectacle, and they can also arise from the very structure of the events, which is superior and the mark of a better poet. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="2"><p>For the plot should be so constructed that even without seeing it, anyone <milestone unit="line" resp="Bekker" n="5"/> who hears the events taking place both shudders and feels pity at what happens—just as one would feel on hearing the plot of the Oedipus. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="3"><p>To produce this effect through spectacle is less artistic and requires financial outlay. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="4"><p>Those who use spectacle to produce not the <milestone unit="line" resp="Bekker" n="9"/> fearful, but merely the monstrous, <milestone unit="line" resp="Bekker" n="10"/> have nothing in common with tragedy; for one must not seek every kind of pleasure from tragedy, but the pleasure proper to it. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="5"><p>And since the poet must produce the pleasure that comes from pity and fear through imitation, it is clear that this must be built into the events.</p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="6"><p>Let us grasp, then, what sorts of occurrences appear terrible or <milestone unit="line" resp="Bekker" n="15"/> pitiable. Necessarily such actions take place between friends, or between enemies, or between people who are neither. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="7"><p>Now if an enemy acts against an enemy, there is nothing pitiable either in doing the deed or in intending it, except for the suffering itself; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="8"><p>nor if they are neutral toward one another. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="9"><p>But when the sufferings occur within close relationships—<milestone unit="line" resp="Bekker" n="20"/> for instance, when brother kills brother, or son father, or mother son, or son mother, or intends to do so, or commits some other such deed—these are what must be sought. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="10"><p>One cannot undo the traditional stories—I mean, for example, Clytemnestra's being killed by Orestes and Eriphyle by Alcmaeon— </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="11"><p><milestone unit="line" resp="Bekker" n="25"/>but the poet must invent for himself and use the traditional material well. Let us state more clearly what we mean by "well." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="12"><p>The action may be performed as the older poets represented it, with full knowledge and awareness, just as Euripides represented Medea killing her children. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="13"><p>Or one may <milestone unit="line" resp="Bekker" n="30"/> perform the terrible deed in ignorance, and afterward recognize the bond of kinship, like Sophocles' Oedipus; in that case the deed lies outside the play, whereas inside the tragedy itself we have examples like the Alcmaeon of Astydamas or Telegonus in the Wounded Odysseus. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="14"><p>Still a third possibility besides these is <milestone unit="line" resp="Bekker" n="35"/> to be on the point of doing something irreparable in ignorance, and to recognize the truth before doing it. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="15"><p>And besides these there is no other way: one must either act or not act, and either with knowledge or without knowledge. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="16"><p>Of these, to intend to act with full knowledge and then fail to act is the worst: it is repulsive, and not tragic, because it lacks suffering. Accordingly no one <milestone unit="page" resp="Bekker" n="1454a"/> <milestone unit="line" resp="Bekker" n="1"/> composes in this way, except rarely, as Haemon against Creon in the Antigone. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="17"><p>To perform the deed is second worst. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="18"><p>Better is to act in ignorance and to recognize the truth after acting; for there is nothing repulsive in it, and the recognition is startling. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="19"><p>Best of all <milestone unit="line" resp="Bekker" n="5"/> is the last: I mean, for example, in the Cresphontes Merope is about to kill her son, yet does not kill him, but recognizes him; and in the Iphigenia the sister recognizes her brother; and in the Helle the son, on the point of handing over his mother, recognizes her.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="20"><p>For this reason, as was said long ago, tragedies are not about many <milestone unit="line" resp="Bekker" n="10"/> families. For in their search, the poets discovered not by art but by chance how to produce this effect in their plots; so they are compelled to have recourse to those houses in which such sufferings have occurred.</p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:14" n="21"><p> Regarding the structuring of the events, then, and what sorts of plots are required, <milestone unit="line" resp="Bekker" n="15"/>enough has been said.</p></div> </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="15">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="1"><p rend="align(indent)">With regard to character, there are four things to aim at. One, and the first, is that it should be good. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="2"><p>A play will have character if, as was stated, speech or action makes clear some moral choice, <add>whatever</add> it may be, and good character if the choice is <milestone unit="line" resp="Bekker" n="20"/> good. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="3"><p> Goodness is possible in each class of person: for both a woman can be good and a slave, even though perhaps the former is inferior and the latter is altogether base. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="4"><p>The second thing is appropriateness: a character can be manly, yet it is not appropriate for a woman to be manly or clever in this way. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="5"><p>The third is likeness to life; for this is different <milestone unit="line" resp="Bekker" n="25"/> from making character good and appropriate in the senses already stated. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="6"><p>The fourth is consistency: for even if the person who provides the subject of the imitation is inconsistent, and such a character is posited, still he must be consistently inconsistent. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="7"><p>An example of unnecessary depravity of character is Menelaus in the Orestes; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="8"><p>of the <milestone unit="line" resp="Bekker" n="30"/> unseemly and inappropriate, the lament of Odysseus in the Scylla and the speech of Melanippe; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="9"><p>of the inconsistent, Iphigenia at Aulis, for the girl who begs for her life is not at all like the later Iphigenia. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="10"><p>In characterization, just as in the structuring of events, one must always seek either the necessary or the probable, <milestone unit="line" resp="Bekker" n="35"/> so that it is either necessary or probable that such a person should say or do such things, and either necessary or probable that this should happen after that. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="10b"><p> It is clear, then, that the resolutions of plots too must arise from the plot <milestone unit="page" resp="Bekker" n="1454b"/> <milestone unit="line" resp="Bekker" n="1"/> itself, and not by a stage machine as in the Medea, or in the episode of the departure in the Iliad. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="10c"><p>Rather, the machine should be used for things outside the drama—either events that happened before it which no human being could know, or events after it which <milestone unit="line" resp="Bekker" n="5"/> require foretelling and announcement; for we grant to the gods the power to see all things.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="10d"><p>There should be nothing irrational in the events; or if there is, it should be outside the tragedy, like the irrationality in Sophocles' Oedipus. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="11"><p>Since tragedy is an imitation of people better than ourselves, poets must imitate good <milestone unit="line" resp="Bekker" n="10"/> portrait-painters: for they too, while reproducing the individual's distinctive form and making a likeness, paint him handsomer than he is. So too the poet, when imitating people who are irascible or indolent or have other such traits of character, should make them admirable while keeping them such—just as Homer portrayed Achilles as an example of harshness and yet noble. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:15" n="12"><p><milestone unit="line" resp="Bekker" n="15"/> These points, then, one must observe, and in addition those that concern the sense-perceptions necessarily accompanying the poetic art; for one can often go wrong in these as well. Enough, however, has been said about them in my published writings. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="16">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="1"><p rend="align(indent)">What recognition is has been stated earlier. As for the species <milestone unit="line" resp="Bekker" n="20"/> of recognition, the first is the least artistic and the one most used out of lack of resource: recognition through tokens. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="2"><p>Of these, some are congenital, such as <q>the spear which the Earth-born bear</q> </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="3"><p>or the stars such as Carcinus used in his Thyestes; others are acquired, and of these some are on the body, such as scars, and others external, such as <milestone unit="line" resp="Bekker" n="25"/> necklaces, or the cradle in the Tyro. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="4"><p>Even these tokens, however, can be used better or worse: for example, Odysseus was recognized by his scar in one way by the nurse and in another way by the swineherds. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="5"><p>Recognitions contrived for the sake of proof, and all such, are less artistic, whereas those arising from a reversal, like <milestone unit="line" resp="Bekker" n="30"/> the one in the Washing Scene, are better. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="6"><p>Second are recognitions manufactured by the poet, and therefore inartistic. For instance, Orestes in the Iphigenia revealed that he was Orestes: she was recognized through the letter, whereas he himself says what the poet wants, <milestone unit="line" resp="Bekker" n="35"/> not what the plot demands;</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="7"><p> hence this comes close to the fault just mentioned, since he might just as well have brought along some tokens too. Another example is the "voice of the shuttle" in Sophocles' Tereus.</p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="8"><p> The third kind is through memory, when seeing something awakens <milestone unit="page" resp="Bekker" n="1455a"/> <milestone unit="line" resp="Bekker" n="1"/> a feeling—as in the Cyprians of Dicaeogenes, where the hero wept on seeing the painting, and in the Tale of Alcinous, where Odysseus wept on hearing the lyre-player and remembering the past, and thus they were recognized. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="9"><p>Fourth is recognition from reasoning, as in the Choephori: <milestone unit="line" resp="Bekker" n="5"/> "Someone like me has come; no one is like me except Orestes; therefore Orestes has come." So too the suggestion of Polyidus the sophist regarding the Iphigenia: he said it was probable that Orestes should reason that his sister had been sacrificed and that it was now his own lot to be sacrificed. And in the Tydeus of Theodectes, the father says that having come to find his son he is himself <milestone unit="line" resp="Bekker" n="10"/> perishing. And the recognition in the Phineidae: on seeing the place, the women inferred their fate, that it was fated for them to die there, since they had also been exposed there. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="10"><p>There is also a composite kind arising from false reasoning on the part of the audience, as in the Odysseus the <milestone unit="line" resp="Bekker" n="14"/> False Messenger: that he could string the bow and no one else <milestone unit="line" resp="Bekker" n="14a"/> could is a contrivance of the poet and a premise, <milestone unit="line" resp="Bekker" n="14b"/> and so too if he said he would recognize the bow which he had not <milestone unit="line" resp="Bekker" n="15"/> seen; but to make the audience assume he would recognize it through that means is a fallacy. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="11"><p>Best of all recognitions is that which arises from the events themselves, the astonishment coming about through probabilities, as in Sophocles' Oedipus and the Iphigenia (for it is natural that she should wish to send a letter). For such recognitions <milestone unit="line" resp="Bekker" n="20"/> alone dispense with contrived tokens and necklaces. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:16" n="12"><p>Second best are those from reasoning.</p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="17">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="1"><p rend="align(indent)">In constructing plots and working them out in diction, one should set them as vividly as possible before one's eyes; for in this way, seeing <del>them</del> most clearly as if present at the very <milestone unit="line" resp="Bekker" n="25"/> events, one will discover what is fitting and will least overlook <del>any</del> inconsistencies. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="2"><p>A sign of this is the criticism made against Carcinus: Amphiaraus was coming back out of a temple, which escaped notice if one did not visualize it <del>the spectator</del>, yet on stage the play failed because the audience was annoyed by this. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="3"><p>So far as possible, one should even work out the play with the gestures <milestone unit="line" resp="Bekker" n="30"/> themselves; for those who are actually in the grip of the emotions are most convincing by virtue of their shared human nature, and one who is agitated expresses agitation and one who is angry expresses anger most truthfully. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="4"><p>Hence the art of poetry belongs to a naturally gifted person or to a madman: the former are adaptable, the latter are carried outside themselves. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="5"><p> Both stories already composed and those one invents oneself <milestone unit="page" resp="Bekker" n="1455b"/> <milestone unit="line" resp="Bekker" n="1"/> should be set out in general outline, and only then expanded into episodes and lengthened. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="6"><p>What I mean by viewing the general outline can be seen in the case of the Iphigenia: a certain maiden was sacrificed and vanished mysteriously from those who sacrificed her, and being settled in another land, where <milestone unit="line" resp="Bekker" n="5"/> it was the custom to sacrifice strangers to the goddess, she held this priesthood. Some time later it happened that the priestess's brother arrived—the fact that the god gave an oracle <del>for some reason outside the general outline</del> bidding him go there, and the purpose of his journey, lie outside the plot. Arriving and being captured, as he is about to be sacrificed he reveals his identity, whether as <milestone unit="line" resp="Bekker" n="10"/> Euripides or as Polyidus contrived it, remarking with probability that not only his sister, then, but he too was destined to be sacrificed; and from this comes his rescue. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="7"><p>Only after this should the poet supply the names and develop the episodes. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="8"><p>One must see that the episodes are germane to the plot, such as in the case of Orestes the madness through which he was captured and his <milestone unit="line" resp="Bekker" n="15"/> rescue through the purification. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="9"><p>Now in dramas the episodes are concise, whereas <del>epic poetry</del> is lengthened by them. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="10"><p>For the story of the Odyssey is not long: a certain man is away from home for many years, closely watched by Poseidon and left alone; meanwhile affairs at home are in such a state that his <milestone unit="line" resp="Bekker" n="20"/> property is being consumed by suitors and his son is being plotted against; he himself arrives after enduring storms, reveals himself to certain people, attacks, and is himself saved while destroying his enemies. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:17" n="11"><p>That is the essential story; everything else is episodes.</p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="18">
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="1"><p rend="align(indent)">Every tragedy has a complication and a resolution: <milestone unit="line" resp="Bekker" n="25"/> the events outside the play and often some of those inside it form the complication, and the rest forms the resolution. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="2"><p>By "complication" I mean everything from the beginning up to that final part from which the change to good fortune or bad fortune takes place; by "resolution," everything from the beginning of the change to the end. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="3"><p>For example, in the Lynceus of Theodectes, <milestone unit="line" resp="Bekker" n="30"/> the complication consists of the prior events, the seizure of the child, and then their own seizure; <add>the resolution</add> is everything from the accusation of murder to the end. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="4"><p>There are four species of tragedy (for the same number of constituent parts was mentioned): </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="5"><p>the complex, which consists wholly of reversal and recognition; </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="6"><p>the tragedy of suffering, such as the <milestone unit="page" resp="Bekker" n="1456a"/> <milestone unit="line" resp="Bekker" n="1"/> Ajaxes and the Ixions; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="7"><p>the tragedy of character, such as the Phthiotides and the Peleus; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="8"><p> and the fourth is the simple (or spectacular), such as the Phorcides, the Prometheus, and all plays set in Hades. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="9"><p>Ideally, then, one should try to include all four, or failing that, the greatest and most of them—especially <milestone unit="line" resp="Bekker" n="5"/> given the way critics nowadays carp at poets: because there have been good poets in each individual element, they demand that a single poet surpass the distinctive excellence of each. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="10"><p>It is right to call a tragedy different or the same on no basis so much as the plot—that is, when the complication and resolution are the same. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="11"><p>Many poets who construct the complication well <milestone unit="line" resp="Bekker" n="10"/> handle the resolution badly; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="12"><p>both, however, must be mastered equally. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="13"><p>One must remember what has been said many times and not turn a tragedy into an epic structure—by "epic" I mean having multiple plots—as if someone were to dramatize the entire story of the Iliad. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="14"><p>In epic, because of its length, the parts receive their proper scale, whereas <milestone unit="line" resp="Bekker" n="15"/> in dramas the result falls far short of expectation. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="15"><p>A sign of this is that all who have composed the Sack of Troy as a whole and not in part like Euripides, <add>or</add> the story of Niobe and not as Aeschylus did, either fail completely or fare badly in competition; indeed, Agathon himself failed in this point alone. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="16"><p>In reversals and in <milestone unit="line" resp="Bekker" n="20"/> simple actions, however, poets hit their mark wonderfully; for this is both tragic and morally satisfying. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="17"><p>This happens when a clever <add>but</add> wicked man is outwitted, like Sisyphus, and a brave but unjust man is defeated. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="18"><p>And this is also probable, as Agathon says: for it is probable that many things should happen <milestone unit="line" resp="Bekker" n="25"/> even contrary to probability. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="19"><p>The chorus too should be treated as one of the actors, and be a part of the whole and share in the action—not as in Euripides, but as in Sophocles. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:18" n="20"><p>In the remaining poets, the songs sung belong no more to the plot than to any other tragedy; hence they sing interludes, a practice <milestone unit="line" resp="Bekker" n="30"/> first begun by Agathon. Yet what difference is there between singing interludes and transferring a speech or an entire episode from one play into another?</p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="19">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="1"><p rend="align(indent)">The other constituent elements have now been discussed; it remains to speak of diction and thought.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="2"><p>Now what concerns thought may be left to <milestone unit="line" resp="Bekker" n="35"/> our treatise on Rhetoric, for it belongs more properly to that discipline. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="3"><p>Under thought fall all the effects that must be produced by speech. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="4"><p>Its subdivisions are proof and refutation, the arousing of emotions (such as <milestone unit="page" resp="Bekker" n="1456b"/> <milestone unit="line" resp="Bekker" n="1"/> pity, fear, anger, and the like), and also amplification and belittlement.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="5"><p>Clearly one must draw on the same forms in the events as well, whenever it is necessary to make them appear pitiable, terrible, important, or probable; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="6"><p>there is only this much <milestone unit="line" resp="Bekker" n="5"/> difference, that the events must appear so without verbal instruction, whereas the effects in speech must be produced by the speaker and arise from his words. For what would be the speaker's task if the desired impression were already evident without speech? </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="7"><p>As for diction, one branch of inquiry concerns the modes of utterance, <milestone unit="line" resp="Bekker" n="10"/> knowledge of which belongs to the art of delivery and to the master of that craft—for instance, what is a command, a prayer, a narrative, a threat, a question, an answer, and anything else of the sort. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="8"><p>For no criticism worth taking seriously can be brought against the art of poetry based on knowledge or ignorance of these matters. <milestone unit="line" resp="Bekker" n="15"/> Who would suppose that there is a fault in what Protagoras censures—that Homer, intending to pray, issues a command when he says <quote><l part="I">Sing, goddess, of the wrath</l></quote>? For telling someone to do or not to do something, he says, is a command. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:19" n="9"><p>Let us therefore pass over this as an inquiry belonging to another art and not to poetics. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="20">
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="1"><p rend="align(indent)"><milestone unit="line" resp="Bekker" n="20"/> The parts of all diction are these: letter, syllable, conjunction, noun, verb, joint-word, inflection, and utterance. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="2"><p>A letter is an indivisible sound—not just any sound, however, but one from which an intelligible sound can naturally arise; for animals too make indivisible sounds, none of which I call a letter. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="3"><p>The <milestone unit="line" resp="Bekker" n="25"/> subdivisions of this are the vowel, the semivowel, and the mute. A vowel is <add>a letter</add> having an audible sound without contact of the vocal organs; a semivowel is one having an audible sound with contact, such as S and R; a mute is one with contact that has no sound of its own, yet becomes <milestone unit="line" resp="Bekker" n="30"/> audible when combined with letters that have some sound, such as G and D. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="4"><p>These differ according to the configurations of the mouth and the places of articulation, aspiration and unaspiration, length and shortness, and also acute, grave, and intermediate pitch; it belongs to metrics to examine each of these in detail.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="5"><p> A syllable <milestone unit="line" resp="Bekker" n="35"/> is a non-significant sound composed of a mute and a letter that has sound: for GR without A is a syllable, and so is it with A, as GRA. Yet examining the differences of these too belongs to metrics. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="6"><p>A conjunction is a non-significant sound which neither <milestone unit="page" resp="Bekker" n="1457a"/> <milestone unit="line" resp="Bekker" n="1"/> hinders nor produces a single significant sound out of several sounds, naturally placed either at the ends or in the middle, which it is not proper to place at the beginning of a sentence by itself—such as men, etoi, de; or a non-significant sound which out of several <milestone unit="line" resp="Bekker" n="5"/> sounds—each significant—naturally produces a single significant sound. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="7"><p>A joint-word is a non-significant sound that marks the beginning, end, or division of an utterance, such as amphi, peri, and the rest; or a non-significant sound which neither hinders nor produces a single significant sound out of several sounds, naturally placed <milestone unit="line" resp="Bekker" n="10"/> both at the ends and in the middle. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="8"><p>A noun is a composite significant sound without tense, no part of which is significant by itself; for in compound nouns we do not use the parts as significant by themselves—for example, in "Theodorus" the part "-dorus" has no meaning. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="9"><p>A verb is a composite significant sound with <milestone unit="line" resp="Bekker" n="15"/> tense, no part of which is significant by itself, just as with nouns: for "man" or "white" does not indicate when, whereas "walks" or "has walked" additionally indicates present time in the one case and past time in the other. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="10"><p>Inflection of a noun or verb is that which indicates "of this" or "to this" <milestone unit="line" resp="Bekker" n="20"/> and the like; or singular and plural, such as "men" or "man"; or modes of delivery, such as question or command—for "Did he walk?" or "Walk!" is an inflection of the verb in these modes. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="11"><p>An utterance is a composite significant sound, some parts of which signify something by themselves</p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="12"><p>(for not every utterance consists of verbs and nouns—for example, the <milestone unit="line" resp="Bekker" n="25"/> definition of "man"—but it is possible to have an utterance without verbs; it will, however, always have some significant part), such as "Cleon" in "Cleon walks." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:20" n="13"><p>An utterance is one in two ways: either as signifying one thing, or as linking several things by a conjunction; thus the Iliad is <milestone unit="line" resp="Bekker" n="30"/> one by conjunction, whereas the definition of "man" is one by signifying one thing. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="21">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="1"><p rend="align(indent)">Of nouns, one kind is simple—by simple I mean one not composed of significant parts, such as "earth"—and the other is compound. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="2"><p>Of the latter, one kind is composed of a significant and a non-significant part (though not significant and non-significant within the <milestone unit="line" resp="Bekker" n="33a"/> noun itself), and the other of two significant parts. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="3"><p>There could also be a triple, quadruple, or <milestone unit="line" resp="Bekker" n="35"/> multiple noun, such as most of the names used by the Massaliots, <milestone unit="page" resp="Bekker" n="1457b"/> <milestone unit="line" resp="Bekker" n="1"/> "Hermocaicoxanthus" . . . </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="4"><p>Every noun is either a standard word, a loanword, a metaphor, an ornament, a coined word, a lengthened word, a shortened word, or an altered word. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="5"><p>By "standard word" I mean one used by each community itself, </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="6"><p>and by "loanword" one used by other communities. Clearly, then, the same word can be both a <milestone unit="line" resp="Bekker" n="5"/> loanword and a standard word, though not to the same people: for "sigynon" (spear) is a standard word to Cyprians, but a loanword to us. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="7"><p>Metaphor is the application of a word belonging to something else, either from genus to species, or from species to genus, or from species to species, or by analogy. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="8"><p>By "from genus to <milestone unit="line" resp="Bekker" n="10"/> species" I mean, for example, <q>Here stands my ship,</q> for lying at anchor is a species of standing. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="9"><p>From species to genus: <q>Truly ten thousand noble deeds has Odysseus wrought,</q> for "ten thousand" is a great number, which the poet here uses instead of "many." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="10"><p>From species to species: <q>drawing off the life with bronze</q> and <q>cutting with unyielding bronze</q>; here <milestone unit="line" resp="Bekker" n="15"/> the poet has used "drawing off" for "cutting" and "cutting" for "drawing off," since both are forms of taking away. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="11"><p>By "analogy" I mean when the second term stands to the first as the fourth stands to the third; for then the poet will say the fourth instead of the second, or the second instead of the fourth. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="12"><p>And sometimes they add the term to which the replaced word <milestone unit="line" resp="Bekker" n="20"/> is related. For example, a wine-cup stands to Dionysus as a shield stands to Ares; so the poet will call the wine-cup "the shield of Dionysus" and the shield "the wine-cup of Ares." </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="13"><p>Or as old age is to life, so evening is to day; so one will call evening "the old age of day," or, as <milestone unit="line" resp="Bekker" n="25"/> Empedocles does, call old age "the evening of life" or "the sunset of life." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="14"><p>In some cases there is no established name for one of the analogous terms, yet it will still be expressed in the same way: for example, scattering seed is called "sowing," whereas scattering flame from the sun has no name; yet this stands to the sun as sowing stands to seed, and therefore it has been said, <q>sowing the god-created <milestone unit="line" resp="Bekker" n="30"/> flame.</q> </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="15"><p>One can also use this mode of metaphor in another way: by applying the borrowed term and denying one of its proper attributes, </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="16"><p>for instance, calling the shield not "the wine-cup of Ares," but "the wineless cup" . . . </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="17"><p>A coined word is one not used by anyone at all, which the poet invents himself; some words appear to be of this kind, such as <milestone unit="line" resp="Bekker" n="35"/> "sprouters" (ernyges) for horns and "prayer" (areter) for priest. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="18"><p>A word is lengthened <milestone unit="page" resp="Bekker" n="1458a"/><milestone unit="line" resp="Bekker" n="1"/> or shortened: lengthened if it uses a longer vowel than its proper one or has an extra syllable inserted; shortened if something has been removed from it. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="19"><p>Examples of lengthening are "poleeos" for "poleos" and "Peleiadeo" for "Peleidou"; examples of shortening are <milestone unit="line" resp="Bekker" n="5"/> "kri" (barley), "do" (house), and <q>one eye (ops) is shared by both.</q> </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="20"><p>An altered word is when the poet leaves part of the usual word and invents the rest, as <q>on the right-hand (dexiteron) breast</q> instead of "right" (dexion). </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="21"><p rend="align(indent)">Of nouns themselves, some are masculine, some feminine, and some neuter. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="22"><p>Masculine are all that end in N, R, and S, <milestone unit="line" resp="Bekker" n="10"/> and all letters compounded with S (of which there are two, Ps and X); feminine are all that end in the vowels that are always long, </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="23"><p>namely long E and long O, and among the lengthenable vowels, A. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="24"><p>Thus the number of endings for masculine and feminine nouns turns out to be equal, since Ps and X are compounds. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="25"><p>No noun ends in a mute, nor in a <milestone unit="line" resp="Bekker" n="15"/> short vowel. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:21" n="26"><p>Only three end in I: meli (honey), kommi (gum), and peperi (pepper); five end in U. Neuter nouns end in these vowels, and in N and S. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="22">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="1"><p rend="align(indent)">The excellence of diction is to be clear and not mean. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="2"><p>Now the clearest diction is that composed of standard words, but it is <milestone unit="line" resp="Bekker" n="20"/> mean; examples are the poetry of Cleophon and that of Sthenelus. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="3"><p>Dignified and elevated above the ordinary is diction that uses unfamiliar words; by "unfamiliar" I mean loanwords, metaphors, lengthenings, and everything departing from standard usage. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="4"><p>Yet if someone composes entirely in such words, it will be either a riddle or <milestone unit="line" resp="Bekker" n="25"/> barbarism: if of metaphors, a riddle; if of loanwords, barbarism. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="5"><p>For the very nature of a riddle is to express actual facts while combining impossibilities. Now this cannot be done by combining <add>ordinary</add> words, but with metaphors it is possible—for example, <q>I saw a man gluing bronze upon a man <milestone unit="line" resp="Bekker" n="30"/> with fire,</q> and the like. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="6"><p>A composition of loanwords is barbarism. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="7"><p>Therefore one needs a certain blend of these elements: the one kind—loanwords, metaphors, ornaments, and the other species mentioned—will keep the diction from being ordinary and mean, <milestone unit="line" resp="Bekker" n="34"/> while standard words will provide clarity. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="8"><p>No small contribution <milestone unit="page" resp="Bekker" n="1458b"/> <milestone unit="line" resp="Bekker" n="1"/> to clarity and elevation of diction is made by lengthenings, shortenings, and alterations of words: by differing from the standard form and departing from custom, they will prevent the diction from being ordinary, while by <milestone unit="line" resp="Bekker" n="5"/> retaining a share of what is customary, clarity will be preserved. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="9"><p>Therefore those who censure this manner of language and ridicule the poet—like the elder Euclides, claiming it is easy to compose poetry if one is allowed to lengthen syllables as much as one pleases, and parodying it in the very wording: <q>I saw Epichares <milestone unit="line" resp="Bekker" n="10"/> walking to Marathon,</q> and <q>not having desired his hellebore</q>—are wrong to find fault. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="10"><p>To be visibly using this device to excess is indeed laughable, but moderation is a requirement common to all parts of diction; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="11"><p>for someone who used metaphors, loanwords, and the other forms inappropriately and deliberately for comic effect would produce the <milestone unit="line" resp="Bekker" n="15"/> same result. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="12"><p>How much difference appropriateness makes may be observed in epic verse by substituting ordinary words into the meter. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="13"><p>And in the case of loanwords, metaphors, and the other forms, by substituting standard words one can see that what we say is true. For instance, Aeschylus and Euripides composed the same <milestone unit="line" resp="Bekker" n="20"/> iambic line, with Euripides changing only a single word—putting a rare word in place of a familiar standard word—and the one line appears fine while the other appears cheap. For Aeschylus in his Philoctetes wrote, <quote type="verse" rend="align(blockquote)"><l met="iambic">The ulcer that eats the flesh of my foot,</l></quote> whereas Euripides substituted "feasts upon" for "eats." Or take <milestone unit="line" resp="Bekker" n="25"/> <quote type="verse" rend="align(blockquote)"><l met="hexameter">And now a puny, worthless, unseemly man,</l></quote> if one were to say, substituting standard words, <quote type="verse" rend="align(blockquote)"><l met="hexameter">And now a small, weak, ugly man;</l></quote> or <quote type="verse" rend="align(blockquote)"><l met="hexameter">Setting down an unseemly stool and a puny table,</l></quote> <milestone unit="line" resp="Bekker" n="30"/> <quote type="verse" rend="align(blockquote)"><l met="hexameter">Setting down a shabby stool and a small table;</l></quote> or <q>the shores resound,</q> compared with "the shores shout."</p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="14"><p>Again, Ariphrades used to ridicule the tragic poets because they use expressions that no one would use in ordinary conversation, such as "domaton apo" instead of "apo domaton" (from the house), "sethen" (of thee), "ego de nin" (and I him), <milestone unit="page" resp="Bekker" n="1459a"/> <milestone unit="line" resp="Bekker" n="1"/> "Achilleos peri" instead of "peri Achilleos" (concerning Achilles), and all other such phrases. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="15"><p>Precisely because they are not part of standard usage, all such expressions elevate the diction above the ordinary; and that is what Ariphrades failed to understand. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="16"><p>It is a great thing to use each of the forms mentioned <milestone unit="line" resp="Bekker" n="5"/> appropriately, including compound words and loanwords, but by far the greatest thing is to be a master of metaphor. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="17"><p>For this alone cannot be acquired from another person and is a mark of natural genius; since to make good metaphors is to perceive likeness. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="18"><p>Of words, compounds are best suited to dithyrambs, <milestone unit="line" resp="Bekker" n="10"/> loanwords to heroic verse, and metaphors to iambics. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="19"><p>In heroic verse all the forms mentioned are useful; in iambics, because they imitate ordinary speech as closely as possible, those words are fitting which one might also use in prose—namely, standard words, metaphors, and ornaments.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:22" n="20"><p> <milestone unit="line" resp="Bekker" n="15"/> Let what we have said suffice, then, regarding tragedy and imitation in action. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="23">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="1"><p>As for narrative imitation in verse, it is clear that its plots should be constructed dramatically, just as in tragedies, and around a single action that is whole and complete, <milestone unit="line" resp="Bekker" n="20"/> having a beginning, middle, and end, so that like a single whole living creature it may produce its proper pleasure; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="2"><p>and its constructions must not resemble histories, in which one must necessarily set forth not a single action but a single period of time—everything that happened during that period to one person or to several, each event standing in merely casual relation to the others. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="3"><p>For just as <milestone unit="line" resp="Bekker" n="25"/> at the very same time the sea-battle at Salamis and the battle against the Carthaginians in Sicily took place without converging toward the same end, so too in successive periods one thing sometimes happens after another without any single end resulting from them. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="4"><p>Yet nearly all the epic poets do <milestone unit="line" resp="Bekker" n="30"/> just this. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="5"><p>Hence, as we have already said, in this respect too Homer would appear inspired compared with the rest, because he did not attempt to compose a poem about the whole war, even though it had a beginning and an end; for the plot would have been too large and not easily taken in at a single view, or if moderated in length, overly entangled in its variety. <milestone unit="line" resp="Bekker" n="35"/> Instead, selecting a single part, he has used many of the other events as episodes—such as the Catalogue of Ships and other episodes with which he <del>twice</del> diversifies his poem. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="6"><p>The other poets, however, compose about a single person, <milestone unit="page" resp="Bekker" n="1459b"/> <milestone unit="line" resp="Bekker" n="1"/> a single period of time, and a single action of many parts—like the author of the Cypria and of the Little Iliad. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:23" n="7"><p>Consequently, from the Iliad and the Odyssey only one tragedy, or at most two, can be made from each, whereas many can be made from the Cypria, and from the Little <milestone unit="line" resp="Bekker" n="5"/> Iliad <del><del>more than</del> eight, such as the Judgment of Arms, Philoctetes, Neoptolemus, Eurypylus, the Begging, the Laconian Women, the Sack of Troy, and the Departure <del>and Sinon and the Trojan Women</del></del>. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="24">
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="1"><p>Furthermore, epic poetry must have the same species as tragedy—for it must be simple, complex, focused on character, or <milestone unit="line" resp="Bekker" n="10"/> focused on suffering— </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="2"><p>and the same constituent parts, apart from song-making and spectacle; for it needs reversals, recognitions, and sufferings, and also its thought and diction must be well crafted. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="3"><p>Homer was the first to use all of these, and he used them adequately. Indeed, each of his poems is constructed accordingly: the Iliad is simple <milestone unit="line" resp="Bekker" n="15"/> and centered on suffering, while the Odyssey is complex (for it is recognition throughout) and centered on character; and in addition, in diction and thought he has surpassed all others. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="4"><p rend="align(indent)">Epic poetry differs from tragedy in the length of its structure and in its meter. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="5"><p>As for length, the limit already stated is sufficient: it must be possible to take in the beginning <milestone unit="line" resp="Bekker" n="20"/> and the end in a single view. This would be achieved if the compositions were shorter than the ancient epics, and matched the length of the group of tragedies presented at a single sitting. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="6"><p>Epic poetry has a great special capacity for extending its magnitude, because in tragedy it is not possible to imitate many parts of the action happening simultaneously, <milestone unit="line" resp="Bekker" n="25"/> but only the part on stage performed by the actors; whereas in epic, because it is narrative, one can represent many parts being carried out simultaneously, and provided these are germane, the poem's scope is enlarged. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="7"><p>Thus epic has this advantage for magnificence, for varying the listener's interest, <milestone unit="line" resp="Bekker" n="30"/> and for enriching the poem with unlike episodes; for uniformity quickly satiates and causes tragedies to fail. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="8"><p>The heroic meter has proven fitting through experience. If someone were to compose a narrative imitation in any other meter, or in many meters, it would appear inappropriate; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="9"><p>for the heroic is the most stately and <milestone unit="line" resp="Bekker" n="35"/> weightiest of meters (which is why it admits loanwords and metaphors most readily, since narrative imitation too stands out from the rest), </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="10"><p>whereas the iambic and tetrameter <milestone unit="page" resp="Bekker" n="1460a"/> <milestone unit="line" resp="Bekker" n="1"/> are lively, the tetrameter suited to dancing and the iambic to action. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="11"><p>It would be even more absurd if someone mixed them, as Chaeremon did. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="12"><p>Therefore no one has composed a long work in any meter other than the heroic; rather, as we said, nature herself teaches poets to choose what is appropriate to it. <milestone unit="line" resp="Bekker" n="5"/> </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="13"><p>Homer deserves praise for many other things, and especially because he alone of the poets is not unaware of what he himself ought to do. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="14"><p>For the poet himself should say as little as possible, since it is not in speaking in his own person that he is an imitator. Now the other poets perform in their own person throughout, and imitate little and rarely; whereas Homer, after a brief <milestone unit="line" resp="Bekker" n="10"/> prelude, straightaway brings on a man, a woman, or some other character, and none without character, but all possessing character. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="15"><p>One must indeed create a sense of wonder in tragedies, but epic admits the irrational to a greater degree—and it is through the irrational that wonder chiefly arises—because in epic <milestone unit="line" resp="Bekker" n="13"/> we do not see the agent. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="16"><p>Thus the circumstances of <milestone unit="line" resp="Bekker" n="15"/> the pursuit of Hector would appear ridiculous on stage—the Greeks standing still and not pursuing, and Achilles shaking his head at them—whereas in epic this passes unnoticed. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="17"><p>Wonder is pleasurable; a sign of this is that everyone exaggerates when telling a story, thinking to give pleasure. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="18"><p>Homer above all has also taught the other poets how to tell falsehoods properly. <milestone unit="line" resp="Bekker" n="20"/> This is a matter of false inference. For people suppose that whenever B exists if A exists, or B happens if A happens, then if the consequent B exists, the antecedent A also exists or happens; yet this is a fallacy. Therefore, if the first thing is false, but something else must necessarily exist or happen if it is true, the poet should add that consequent; for because our mind knows the consequent to be true, <milestone unit="line" resp="Bekker" n="25"/> it falsely infers that the antecedent is true as well. An example of this is the passage from the Washing Scene. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="19"><p>One should prefer plausible impossibilities to unconvincing possibilities. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="20"><p>Plots should not be constructed out of irrational parts; ideally they should contain nothing irrational at all, or else it should lie outside the story—like <milestone unit="line" resp="Bekker" n="30"/> Oedipus' not knowing how Laius died—and not inside the drama, like the messengers reporting the Pythian Games in the Electra, or the man in the Mysians who travels all the way from Tegea to Mysia without speaking. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="21"><p>To say that otherwise the plot would have been ruined is ridiculous: one should not construct such plots in the first place. But if the poet does admit an irrationality and it appears <milestone unit="line" resp="Bekker" n="35"/> to be handled more reasonably, even an absurdity may be accepted; </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="22"><p>for even the irrationalities in the Odyssey concerning Odysseus' being put ashore would clearly be intolerable <milestone unit="page" resp="Bekker" n="1460b"/> <milestone unit="line" resp="Bekker" n="1"/> if a bad poet had composed them; as it is, the poet conceals the absurdity by sweetening it with his other excellences. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:24" n="23"><p>Diction should be elaborated in the inactive parts, which display neither character nor thought; for overly brilliant <milestone unit="line" resp="Bekker" n="5"/> diction, on the other hand, obscures both character and thought.</p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="25">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="1"><p rend="align(indent)">Regarding critical problems and their solutions, how many species they have and what they are will become clear if we examine them as follows. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="2"><p>Since the poet is an imitator, just like a painter or any other maker of images, he must always imitate one of three <milestone unit="line" resp="Bekker" n="10"/> things: either things as they were or are, or things as people say and think they are, or things as they ought to be. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="3"><p>These are expressed in diction that includes loanwords, metaphors, and many modifications of language; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="4"><p>for we grant these to poets. Furthermore, the standard of correctness is not the same in politics and in poetry, nor in any other <milestone unit="line" resp="Bekker" n="15"/> art and in poetry. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="5"><p>Within the art of poetry itself, error is of two kinds: essential and incidental. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="6"><p>If the poet chose to imitate something and failed through lack of ability, the error is essential to the art; but if he made an incorrect choice—for example, portraying a horse with both right legs thrown forward <add>at once</add>—or committed an error pertaining to a particular art, <milestone unit="line" resp="Bekker" n="20"/> such as medicine or any other art <del>or impossibilities have been composed</del> whatsoever, the error is not essential to poetry. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="7"><p>Accordingly, one must resolve the criticisms in critical problems by examining them from these standpoints. First, criticisms concerning the art itself: if impossibilities have been composed, that is an error; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="8"><p>yet it is right if it achieves the end of the art itself (and its <milestone unit="line" resp="Bekker" n="25"/> end has been stated)—if in this way it makes either that part or another part more astonishing. An example is the pursuit of Hector. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="9"><p>If, however, the end could have been achieved better or <add>no</add> less well while observing the art dealing with those matters, <del>to have erred</del> it is not right; for if possible there should be no error at all. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="10"><p>Again, to which category does the <milestone unit="line" resp="Bekker" n="30"/> error belong—those essential to the art, or something incidental? For it is a lesser fault not to know that a female deer has no horns than to paint one unconvincingly. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="11"><p>In addition, if a poem is criticized for not being true, perhaps it represents things <add>as</add> they ought to be—just as Sophocles said that he portrayed people as they ought to be, while Euripides portrayed them as they are; this is how the objection should be <milestone unit="line" resp="Bekker" n="35"/> resolved. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="12"><p>If it is neither, one may answer that this is what people say, as in stories about the gods: </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="13"><p>perhaps it is neither better to speak so nor true, and it may happen to be <milestone unit="page" resp="Bekker" n="1461a"/> <milestone unit="line" resp="Bekker" n="1"/> as Xenophanes says; still, that is what people say.</p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="14"><p> Other things are perhaps not better, yet that is how they were, such as the passage about the weapons, <q>and their spears stood upright on their butt-spikes</q>; for that was the custom then, just as it still is among the Illyrians. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="15"><p>As to whether something has been said or done well or <milestone unit="line" resp="Bekker" n="5"/> badly by a character, one must examine not only the deed or word itself to see whether it is admirable or base, but also the person who does or says it, to whom, when, by what means, and for what end—for instance, whether it is to achieve a greater good or to avert a greater evil. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="16"><p>Other objections must be resolved by looking to the <milestone unit="line" resp="Bekker" n="10"/> diction—for example, by recognizing a loanword in <q>first the mules (oureas)</q>, for perhaps he means not mules, but sentries; and of Dolon, <q>who indeed was ill in form (eidos),</q> not ill-proportioned in body, but ugly in face, since Cretans use "well-formed" (eueides) to mean "handsome-faced"; and <milestone unit="line" resp="Bekker" n="15"/> <q>mix it livelier (zoroteron),</q> not "unmixed" as for drunkards, but "more quickly." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="17"><p>Another expression is used metaphorically, such as <q>all gods and men slept all night long,</q> while at the same time he says, <q>whenever he gazed on the Trojan plain, the din of flutes and pipes</q>; for "all" is used instead of "many" by <milestone unit="line" resp="Bekker" n="20"/> metaphor, since "all" is a kind of "many." So too <q>alone has no share</q> is metaphorical, for the best-known is called "alone." </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="18"><p>Other difficulties are resolved by accentuation, as Hippias of Thasos resolved <q>we grant (didomen) him to win glory</q> and <q>part of which (ou) rots in the rain.</q> </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="19"><p>Others by punctuation, as in Empedocles: <q>Straightaway things grew mortal that before <milestone unit="line" resp="Bekker" n="25"/> had learned to be immortal, and things formerly pure were mixed.</q></p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="20"><p> Others by ambiguity, as <q>more (pleo) of the night has passed,</q> for "pleio" is ambiguous. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="21"><p>Others by linguistic custom: people call mixed wine "wine," whence is coined <q>a greave of newly wrought tin,</q> and they call ironworkers "coppersmiths," whence <milestone unit="line" resp="Bekker" n="30"/> Ganymede is said to pour wine for Zeus, though the gods do not drink wine. This last, however, could <add>also</add> be explained by metaphor. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="22"><p>Whenever a word seems to signify some contradiction, one must consider how many meanings it can bear in the passage—for instance, in <q>there the bronze spear was checked,</q> in how many ways "being checked there" can be taken,</p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="23"><p> in this sense or in that, according to how <milestone unit="line" resp="Bekker" n="35"/> one might best understand it—the opposite of what </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="24"><p>Glaucon describes, <milestone unit="page" resp="Bekker" n="1461b"/> <milestone unit="line" resp="Bekker" n="1"/> when he says that some critics make an unreasonable assumption beforehand, pass judgment on that basis, and then reason from it, censuring the poet as if he had said whatever they think, if it contradicts their own notion. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="25"><p>This is what has happened in the case of Icarius: they assume he was a Laconian, <milestone unit="line" resp="Bekker" n="5"/> and therefore find it absurd that Telemachus did not meet him when he went to Lacedaemon. Yet perhaps the truth is as the Cephallenians say: they claim that Odysseus married from among them and that the father was Icadius, not Icarius; so the problem is probably due to a mistake. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="26"><p>In general, the impossible must be referred to the requirements of <milestone unit="line" resp="Bekker" n="10"/> poetry, or to what is better, or to received opinion. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="27"><p>For the purposes of poetry, a convincing impossibility is preferable to an unconvincing possibility; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="28"><p>. . . that people should be such as Zeuxis painted them, yes, for the better; since the ideal model should surpass reality. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="29"><p> Irrationalities should be referred to what people say, and also to the fact that at times a thing is not irrational, <milestone unit="line" resp="Bekker" n="15"/> since it is probable that things should happen even contrary to probability. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="30"><p>Apparent contradictions in speech should be examined just like refutations in dialectic—whether the same thing is meant, in relation to the same thing, and in the same way—so that we judge the poet either by what he himself says or by what an intelligent person would assume. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="31"><p>Censure of irrationality and of depravity is justified when, without <milestone unit="line" resp="Bekker" n="20"/> any necessity, the poet makes no real use of the irrationality—as Euripides does with Aegeus—or of the wickedness, as in the Orestes with <add>that</add> of Menelaus. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:25" n="32"><p>Thus criticisms are brought under five heads: as impossible, irrational, harmful, contradictory, or contrary to artistic correctness. The solutions must be sought from the <milestone unit="line" resp="Bekker" n="25"/> headings stated above, which are twelve in number. </p></div>
+</div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2" n="26">
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="1"><p rend="align(indent)">One might raise the question whether epic imitation or tragic imitation is better. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="2"><p>If the less vulgar is better, and such is always that addressed to better spectators, it is very clear that the art which imitates everything is vulgar. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="3"><p>For supposing the audience will not perceive <milestone unit="line" resp="Bekker" n="30"/> unless the performer adds it himself, they make excessive movements—like bad flute-players whirling around if they have to imitate a discus, or dragging at the chorus-leader when playing the Scylla. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="4"><p>Tragedy, then, is said to be like this, just as the older actors viewed those who came after them: Mynniscus called Callippides <milestone unit="line" resp="Bekker" n="35"/> an ape for overacting so wildly, and the same opinion was held of <milestone unit="page" resp="Bekker" n="1462a"/> <milestone unit="line" resp="Bekker" n="1"/> Pindarus. And as these actors stand to the older ones, so the entire art of tragedy is said to stand to epic. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="5"><p>They say, then, that epic is addressed to refined spectators <add>who</add> have no need of gestures, whereas tragedy is addressed to inferior ones; if, then, it is vulgar, it would clearly be inferior. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="6"><p>In the first place, <milestone unit="line" resp="Bekker" n="5"/> this accusation applies not to the art of poetry, but to the art of acting, since it is also possible to overdo gestures while reciting epic—as Sosistratus <del>does</del> did—and while singing in competition, as Mnasitheus of Opus used to do. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="7"><p>Secondly, not all movement is to be rejected—any more than dancing is—but only that of inferior people, which is precisely what was criticized in Callippides and nowadays <milestone unit="line" resp="Bekker" n="10"/> in others, for imitating women who are not freeborn. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="8"><p>Further, tragedy achieves its proper effect even without movement, just like epic; for through reading alone its quality is manifest. If, therefore, it is superior in other respects, this feature at least does not necessarily belong to it. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="9"><p>Next, because tragedy possesses everything that epic possesses </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="10"><p>(for it may even use the epic <milestone unit="line" resp="Bekker" n="15"/> meter), and in addition has no small part in music <del>and spectacle</del>, through which its pleasures are constituted most vividly; </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="11"><p>and further, it possesses vividness both in reading and in performance. </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="12"><p>Moreover, the end of its imitation is achieved in a shorter compass <milestone unit="page" resp="Bekker" n="1462b"/> <milestone unit="line" resp="Bekker" n="1"/> (for what is more concentrated is more pleasurable than what is diluted over a long stretch of time—for instance, if someone were to put Sophocles' Oedipus into as many lines as the Iliad). </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="13"><p>Again, the imitation of epic poets has less unity (a sign of this is that out of any single epic imitation several <milestone unit="line" resp="Bekker" n="5"/> tragedies are made), so that if they compose a single plot, either it is presented briefly and appears curtailed, or it follows the length of the meter and appears watery; by this I mean if it is composed of several actions, </p></div>
+
+  <div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="14"><p>just as the Iliad and the Odyssey have many such parts <add>which</add> even by <milestone unit="line" resp="Bekker" n="10"/> themselves possess magnitude—and yet those poems are constructed as well as possible and are as nearly as possible an imitation of a single action. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="15"><p>If, then, tragedy excels in all these respects, and also in achieving the proper function of the art (for they must produce not just any chance pleasure, but the one already stated), it is clear that tragedy would be superior, since it attains its <milestone unit="line" resp="Bekker" n="15"/> end more fully than epic. </p></div>
+
+<div type="textpart" subtype="subchapter" xml:base="urn:cts:greekLit:tlg0086.tlg034.perseus-grc2:26" n="16"><p> Regarding tragedy and epic, then—both themselves and their species and parts, how many they are and how they differ, what are the causes of success or failure, and regarding critical problems and their solutions—let this much suffice. . . . </p>
+
+</div>
+</div>
+</div>
+</body>
+</text>
+</TEI>
