@@ -1,0 +1,821 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+        <fileDesc>            
+            <titleStmt>
+                <title xml:lang="grc">Εὐθύφρων</title>
+                <author>Plato</author>
+                <editor>John Burnet</editor>
+                <sponsor>Perseus Project, Tufts University</sponsor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Lisa Cerrato</name>
+                    <name>William Merrill</name>
+                    <name>Elli Mylonas</name>
+                    <name>David Smith</name>
+                </respStmt>
+                <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+                <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+            </titleStmt>
+            
+           
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+                <date type="release">1996</date>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                    <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+                </availability>
+            </publicationStmt> 
+            <notesStmt>
+                <note anchored="true">Text was scanned at St. Olaf Spring, 1992.</note>
+                <note>Perseus 2.0</note>
+            </notesStmt>
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Plato</author>
+                        <title xml:lang="lat">Platonis Opera</title>
+                        <editor>John Burnet</editor>                       
+                        <imprint>
+                            <pubPlace>Oxford</pubPlace>
+                            <publisher>Clarendon Press</publisher>
+                            <date>1905</date>
+                        </imprint>
+                        <biblScope unit="volume">1</biblScope>
+                    </monogr>                    
+                    <ref target="https://archive.org/details/operarecognovitb01platuoft/page/1/mode/1up">Internet Archive</ref>
+                </biblStruct>
+            </sourceDesc>
+            
+            
+        </fileDesc>
+        
+        <encodingDesc>
+            
+            <refsDecl n="CTS">
+                <cRefPattern n="section" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])" matchPattern="(\w+)">
+                    
+<p>This pointer pattern extracts section</p>
+                </cRefPattern>
+            </refsDecl>
+            
+            
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
+            </langUsage>
+            <particDesc>
+                <person><persName>Εὐθύφρων</persName></person>
+                <person><persName>Σωκράτης</persName></person>
+            </particDesc>
+        </profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change who="Lisa Cerrato" when="2017-03-13">CTS and EpiDoc file conversion</change>
+            <change who="DAS" when="1992-07-01">Tagged in conformance with Prose.e dtd.</change>
+            
+        </revisionDesc>
+        
+    </teiHeader>
+    <text xml:lang="en">
+        <body xml:base="urn:cts:greekLit:tlg0059.tlg001.perseus-grc1">
+            <div n="urn:cts:greekLit:tlg0059.tlg001.perseus-grc1" xml:lang="en" type="edition">
+
+                <head>Euthyphro</head>
+                
+<div resp="perseus" n="2" subtype="section" type="textpart">                
+<p><said who="#Εὐθύφρων"><milestone n="2" unit="page" resp="Stephanus"/><milestone n="2a" unit="section" resp="Stephanus"/><label>Euth.</label>
+What new thing has happened, Socrates, that you have left your pastimes in the Lyceum and are now spending your time here, around the portico of the king? For surely you too do not happen to have some lawsuit before the king, as I do.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+The Athenians at least, Euthyphro, do not call it a lawsuit, but an indictment.
+            </said></p>
+
+<p><said who="#Εὐθύφρων"><milestone n="2b" unit="section" resp="Stephanus"/><label>Euth.</label>
+What are you saying? Someone, it seems, has brought an indictment against you; for I will certainly not accuse you of this, that you have indicted someone else.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+No, indeed.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But someone else has indicted you?</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Certainly.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Who is he?</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+I do not know the man very well myself, Euthyphro, for he seems to me young and unknown; they call him, however, I believe, Meletus. He is of the deme of Pitthus, if you have in mind some Pitthian Meletus with straight hair and not much of a beard, but with a somewhat hooked nose.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do not have him in mind, Socrates; but what indictment, then, has he brought <milestone n="2c" unit="section" resp="Stephanus"/>against you?</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+What indictment? Not an ignoble one, it seems to me; for it is no small thing, young as he is, to have come to know so great a matter. For he, as he says, knows in what way the young are corrupted and who those are who corrupt them. And he is likely to be some wise man, and having perceived my ignorance, on the ground that I am corrupting those of his own age, he comes to accuse me before the city, as before a mother. And of the politicians he seems to me <milestone n="2d" unit="section" resp="Stephanus"/>alone to begin rightly; for it is right to take care of the young first, so that they will be as good as possible, just as a good farmer is likely to take care of the young plants first, and after this of the others too.</said></p></div>
+    
+                <div resp="perseus" n="3" subtype="section" type="textpart">
+                    <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label>
+                        And so Meletus perhaps is first clearing away <milestone n="3" unit="page" resp="Stephanus"/><milestone n="3a" unit="section" resp="Stephanus"/>us who corrupt the young shoots, as he says; then after this, it is clear, once he has taken care of the older ones, he will become the cause of very many and very great goods for the city, as is at least likely to happen to one who has started from such a beginning.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I should like it, Socrates, but I dread that the opposite may happen; for he seems to me simply to begin harming the city at its hearth, when he attempts to wrong you. And tell me, by doing what does he say that you corrupt the young?</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="3b" unit="section" resp="Stephanus"/><label>Soc.</label>
+Strange things, my wonderful friend, to hear at first. For he says that I am a maker of gods, and because I make new gods and do not believe in the old ones, he has indicted me on account of these very ones, as he says.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I understand, Socrates: it is because you say that the divine sign comes to you on every occasion. So he has brought this indictment on the ground that you are making innovations in religious matters, and he is going to the court to slander you, knowing that such things are easily slandered before the many. Indeed, they laugh at me too, <milestone n="3c" unit="section" resp="Stephanus"/>whenever I say something in the assembly about divine matters, foretelling the future to them, as if I were mad; and yet there is nothing I have foretold that I have not spoken truly, but nevertheless they envy all of us who are like this. But we must not worry about them at all, but go to meet them.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+My dear Euthyphro, being laughed at is perhaps no matter. For the Athenians, it seems to me, do not much care if they think someone clever, as long as he does not teach his own wisdom; but whoever they think <milestone n="3d" unit="section" resp="Stephanus"/>makes others like himself too, with him they are angry, whether out of envy, as you say, or for some other reason.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+On this point, then, how they are disposed toward me, I am not very eager to put it to the test.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Perhaps you seem to make yourself scarce and to be unwilling to teach your own wisdom; but I fear that, because of my love of mankind, I seem to them to pour out whatever I have to every man, not only without pay, but even gladly adding something myself, if anyone is willing to listen to me. If, then, as I was saying just now, they were going to laugh at me as <milestone n="3e" unit="section" resp="Stephanus"/>you say they do at you, it would not be at all unpleasant to pass the time in the court jesting and laughing; but if they are going to be in earnest, how this will turn out is then unclear except to you prophets.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But perhaps it will come to nothing, Socrates, and you will fight out your case as you wish, and I think I shall fight out mine too.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And what is your case, Euthyphro? Are you defending or prosecuting?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I am prosecuting.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Whom?</said></p></div>
+
+<div resp="perseus" n="4" subtype="section" type="textpart">
+<p><said who="#Εὐθύφρων"><milestone n="4" unit="page" resp="Stephanus"/><milestone n="4a" unit="section" resp="Stephanus"/><label>Euth.</label>
+One for prosecuting whom I am in turn thought to be mad.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Why? Are you prosecuting someone who can fly?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+He is far from flying, since he happens to be very old indeed.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Who is he?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+My father.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Your father, my good man?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And what is the charge, and what is the suit about?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Murder, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Heracles! Surely, Euthyphro, the many do not know how it is ever right; for I do not think it is for any chance person to <milestone n="4b" unit="section" resp="Stephanus"/><del>rightly</del> do this, but for one who is already far advanced in wisdom.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Far indeed, by Zeus, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And is the one who was killed by your father one of your relatives? Or is that clear? For surely you would not be prosecuting him for murder on behalf of a stranger.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It is ridiculous, Socrates, that you think it makes any difference whether the dead man is a stranger or a relative, and not that this alone must be watched, whether the killer killed with justice or not, and if with justice, to let him be, but if not, to prosecute him, even if the killer shares a hearth with <milestone n="4c" unit="section" resp="Stephanus"/>you and eats at your table; for the pollution is equal if you knowingly associate with such a man and do not purify yourself and him by proceeding against him at law. Now the man who died was a dependent of mine, and when we were farming on Naxos, he worked there for hire on our land. So, having got drunk and become angry with one of our household slaves, he cuts his throat. My father, then, having bound his feet and hands together and thrown him into a ditch, sends a man here to inquire of the religious adviser what he ought <milestone n="4d" unit="section" resp="Stephanus"/>to do. In the meantime he took little heed of the man who was bound and neglected him, as a murderer, thinking it no matter even if he should die; which is exactly what happened to him: for he dies from hunger and cold and his bonds before the messenger came back from the adviser. And so both my father and my other relatives are indignant at this, that on behalf of the murderer I am prosecuting my father for murder, when he did not kill him, as they say, and even if he had certainly killed him, since the dead man was a murderer, one ought not to care about such a man—<milestone n="4e" unit="section" resp="Stephanus"/>for it is unholy for a son to prosecute his father for murder—knowing badly, Socrates, how the divine stands concerning the holy and the unholy.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But you, by Zeus, Euthyphro, do you think you know so exactly how matters stand concerning divine things, and things holy and unholy, that, these things having been done as you say, you are not afraid that in going to law against your father you may in turn be doing an unholy deed?</said></p></div>
+
+<div resp="perseus" n="5" subtype="section" type="textpart">
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I would be of no use, Socrates, nor would Euthyphro be <milestone n="5" unit="page" resp="Stephanus"/><milestone n="5a" unit="section" resp="Stephanus"/>in any way different from the majority of men, if I did not know all such things exactly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then is it best for me, wonderful Euthyphro, to become your pupil, and before the indictment against Meletus to challenge him on these very points, saying that I, in former times too, considered it of great importance to know about divine things, and that now, since he says that I am going wrong by speaking offhand and making innovations about divine things, I have become your pupil — <q>and if, Meletus,</q> I would say, <q>you agree that Euthyphro is <milestone n="5b" unit="section" resp="Stephanus"/>wise in such matters, <del>also</del> consider that I too believe rightly, and do not take me to court; but if not, bring a suit against that teacher of mine before me, for corrupting the old, me and his own father, me by teaching me, and him by admonishing and punishing him</q> —and, if he does not obey me nor release me from the suit or indict you instead of me, to say in the court these very things with which I challenged him?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes, by Zeus, Socrates, if he should try to <milestone n="5c" unit="section" resp="Stephanus"/>indict me, I would find, I think, where he is unsound, and there would much sooner have been talk about him in the court than about me.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And I, my dear friend, knowing this, desire to become your pupil, since I know that both someone else, I suppose, and this Meletus here do not even seem to see you, but he has seen through me so sharply <del>outright</del> and easily that he has indicted me for impiety. Now, then, by Zeus, tell me what you just now firmly declared that you knew clearly: what sort of thing do you say piety is, and impiety, <milestone n="5d" unit="section" resp="Stephanus"/>both with regard to murder and with regard to other things? Or is not the holy the same as itself in every action, and the unholy, in turn, the opposite of everything holy, but like itself, and everything that is to be unholy having some one form with respect to its unholiness?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly, I suppose, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Tell me, then, what do you say the holy is, and what the unholy?</said></p></div>
+                    
+                    
+<div resp="perseus" n="6" subtype="section" type="textpart">
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I say, then, that the holy is what I am doing now: to prosecute the wrongdoer who offends either by murders or by thefts of sacred things or in any other such matter, whether it is one's father he <milestone n="5e" unit="section" resp="Stephanus"/>happens to be, or one's mother, or anyone else whatever, and that not to prosecute is unholy. For, Socrates, see how great a proof I will give you that the law is so—which I have already told others too, that it would be right for these things to happen so—not to give way to the impious man, whoever he may happen to be. For these very men happen to believe that Zeus is the best and most just of the gods, <milestone n="6" unit="page" resp="Stephanus"/><milestone n="6a" unit="section" resp="Stephanus"/>and they agree that he bound his own father because he unjustly swallowed his sons, and that he in turn castrated his own father for other such reasons; but they are angry with me because I am prosecuting my father for his wrongdoing, and so they say contradictory things about the gods and about me.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Is it this, Euthyphro, <del>that</del> on account of which I am a defendant in this indictment, that whenever someone says such things about the gods, I somehow accept them with displeasure? It is for this, it seems, that someone will say I am doing wrong. Now then, if you too, who are <milestone n="6b" unit="section" resp="Stephanus"/>well informed about such things, share these beliefs, then we too, it seems, must needs agree. For what indeed shall we say, we who ourselves admit that we know nothing about them? But tell me, by the god of friendship, do you truly believe that these things happened so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes, and things still more wonderful than these, Socrates, which the many do not know.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And do you believe that there really is war among the gods against one another, and terrible enmities and battles and many other such things, such as are told by the poets, and with which our sacred things in general have been adorned by the <milestone n="6c" unit="section" resp="Stephanus"/>good painters, and in particular at the Great Panathenaea the robe, full of such embroideries, is carried up to the Acropolis? Are we to say that these things are true, Euthyphro?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Not only these, Socrates, but, as I said just now, I will also relate to you, if you wish, many other things about divine matters, which I know well you will be amazed to hear.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+I should not be surprised. But you will relate these things to me another time at leisure; now try to say <milestone n="6d" unit="section" resp="Stephanus"/>more clearly what I asked you just now. For before, my friend, when I asked what the holy might be, you did not teach me sufficiently, but you told me that what you are now doing, prosecuting your father for murder, happens to be holy.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+And I was telling the truth, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Perhaps. But, Euthyphro, you say that many other things too are holy.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+And so they are.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Do you remember, then, that this was not what I urged you to do, to teach me one or two of the many holy things, but that very form by which all holy things are holy? For you said, I think, that by one form <milestone n="6e" unit="section" resp="Stephanus"/>the unholy things are unholy and the holy things holy; or do you not remember?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then teach me what this form itself is, so that, looking at it and using it as a model, I may say that whatever of the things you or anyone else does is of that kind is holy, and that whatever is not of that kind is not.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Well, if you wish it so, Socrates, I will tell you so too.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Indeed I do wish it.</said></p></div>
+
+<div resp="perseus" n="7" subtype="section" type="textpart">
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Well then, what is dear to the gods is holy, <milestone n="7" unit="page" resp="Stephanus"/><milestone n="7a" unit="section" resp="Stephanus"/>and what is not dear to them is unholy.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Excellent, Euthyphro; you have now answered just as I was looking for you to answer. Whether truly, however, I do not yet know; but you will clearly go on to show me that what you say is true.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Come then, let us examine what we are saying. The god-beloved thing and the god-beloved man are holy, and the god-hated thing and the god-hated man unholy; and the holy is not the same as the unholy, but its very opposite; is it not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It is so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And does it seem to have been well said?
+                                                                                            </said></p>
+
+<p><said who="#Εὐθύφρων"><milestone n="7b" unit="section" resp="Stephanus"/><label>Euth.</label>
+I think so, Socrates. <del>For it has been said.</del></said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Has it not also been said, Euthyphro, that the gods are at strife and disagree with one another, and that there is enmity among them toward one another?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes, it has been said.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But disagreement about what, my excellent friend, produces enmity and anger? Let us look at it this way. If you and I disagreed about number, which of two sets is greater, would the disagreement about these things make us enemies and angry with one another, or would we, having turned to calculation, quickly <milestone n="7c" unit="section" resp="Stephanus"/>be rid of it, about such things at least?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And if we disagreed about the greater and the smaller, would we not, having turned to measuring, quickly put an end to our disagreement?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+That is so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And having turned to weighing, I think, we would settle the question of the heavier and the lighter?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Of course.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But about what would we disagree, and to what decision would we be unable to come, so that we would be enemies to one another and angry? Perhaps you do not have it at hand, but as I speak, <milestone n="7d" unit="section" resp="Stephanus"/>consider whether these are the just and the unjust, and the noble and the shameful, and the good and the bad. Are not these the things about which, when we disagree and cannot come to a satisfactory decision about them, we become enemies to one another, whenever we do, both I and you and all other men?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes, Socrates, this is the disagreement, and it is about these things.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And what of the gods, Euthyphro? If indeed they disagree at all, would they not disagree because of these very things?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Quite necessarily.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="7e" unit="section" resp="Stephanus"/><label>Soc.</label>
+Then among the gods too, noble Euthyphro, according to your account, different ones consider different things just, and noble and shameful and good and bad; for surely they would not be at strife with one another unless they disagreed about these things; is that not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+You are right.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And what each of them considers noble and good and just, these things they also love, and the opposites of these they hate?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    Certainly.</said></p></div>
+                    
+<div resp="perseus" n="8" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But the same things, as you say, some consider just <milestone n="8" unit="page" resp="Stephanus"/><milestone n="8a" unit="section" resp="Stephanus"/>and others unjust, and in disputing about these they are at strife and at war with one another; is it not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It is.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then the same things, it seems, are both hated by the gods and loved, and the same things would be both god-hated and god-beloved.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It seems so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then by this argument, Euthyphro, the same things would be both holy and unholy.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It may be so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then you did not answer what I asked, my wonderful friend. For I was not asking this: what happens to be one and the same thing, both holy and unholy; yet whatever is god-beloved is also god-hated, as it seems. <milestone n="8b" unit="section" resp="Stephanus"/>So, Euthyphro, it would be no wonder if, in doing what you are now doing in punishing your father, you are doing something dear to Zeus but hateful to Cronus and Uranus, and dear to Hephaestus but hateful to Hera, and if any other of the gods disagrees with another about it, the same holds for them too.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But I think, Socrates, that about this at least none of the gods disagrees with any other, so as to say that he who kills someone unjustly need not pay the penalty.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+What then? Have you ever heard anyone among men, Euthyphro, <milestone n="8c" unit="section" resp="Stephanus"/>arguing that one who has killed unjustly or done anything else whatever unjustly need not pay the penalty?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Why, they never stop arguing about these things, both elsewhere and in the courts; for, having done a great many wrongs, they do and say everything to escape the penalty.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Do they really admit, Euthyphro, that they do wrong, and, admitting it, nevertheless say that they need not pay the penalty?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+No, not that at all.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then they do not do and say everything; for this, I think, they do not dare to say or to argue, that if indeed <milestone n="8d" unit="section" resp="Stephanus"/>they do wrong, they need not pay the penalty; but, I think, they say that they do not do wrong; is that not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+What you say is true.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then they do not argue that the wrongdoer need not pay the penalty, but perhaps they argue about this: who the wrongdoer is, and what he did, and when.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+What you say is true.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then do not the gods too experience these very things, if indeed they are at strife about the just and the unjust, as your account goes, and some say that others do wrong, while others deny it? For surely, my wonderful friend, no one, either of gods or of <milestone n="8e" unit="section" resp="Stephanus"/>men, dares to say that the wrongdoer need not pay the penalty.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes, what you say is true, Socrates, in the main.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But I think, Euthyphro, that those who dispute, both men and gods, if gods do dispute, dispute about each of the things done; differing about some action, some say that it was done justly, others unjustly; is it not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    Certainly.</said></p></div>
+                    
+<div resp="perseus" n="9" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><milestone n="9" unit="page" resp="Stephanus"/><milestone n="9a" unit="section" resp="Stephanus"/><label>Soc.</label>
+Come now, my dear Euthyphro, teach me too, so that I may become wiser, what proof you have that all the gods consider that man to have died unjustly who, while working for hire, became a murderer, was bound by the master of the dead man, and died because of his bonds before the one who bound him could learn from the advisers what ought to be done about him, and that on behalf of such a man it is right for a son to prosecute his father and to denounce him for murder. Come, try to show me something <milestone n="9b" unit="section" resp="Stephanus"/>clear about these matters, that all the gods consider this action right beyond everything; and if you show me sufficiently, I shall never stop praising you for your wisdom.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But perhaps it is no small task, Socrates; though I could certainly show you quite clearly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+I understand: it is because I seem to you slower to learn than the judges, since to them you will clearly show that such deeds are unjust and that all the gods hate such things.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Quite clearly, Socrates, if only they listen to me when I speak.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="9c" unit="section" resp="Stephanus"/><label>Soc.</label>
+But they will listen. If, that is, you seem to speak well. But this occurred to me while you were speaking, and I am considering it with myself: <q>If Euthyphro should teach me ever so well that all the gods consider such a death unjust, what more have I learned from Euthyphro about what the holy and the unholy are? For this deed would be god-hated, as it seems. But it has just been shown that the holy and the not-holy are not defined by this; for what was god-hated was shown to be god-beloved too.</q> So I let you off this point, Euthyphro: if you wish, let all the gods <milestone n="9d" unit="section" resp="Stephanus"/>regard it as unjust and let all of them hate it. But is this what we are now correcting in our argument—that what all the gods hate is unholy, and what they love is holy, while what some love and others hate is neither or both—is it so that you wish us now to define the holy and the unholy?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Why, what prevents it, Socrates?</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Nothing prevents me, Euthyphro; but you consider your own part, whether by assuming this you will most easily teach me what you promised.
+                                                                                                                                                </said></p>
+
+<p><said who="#Εὐθύφρων"><milestone n="9e" unit="section" resp="Stephanus"/><label>Euth.</label>
+Well, I would say that the holy is this, whatever all the gods love, and that its opposite, whatever all the gods hate, is unholy.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+    Shall we, then, examine this in turn, Euthyphro, whether it is well said, or shall we let it go, and thus accept our own statements and those of others, granting that a thing is so if someone merely says that it is? Or must we examine what the speaker says?</said></p>
+    
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    We must examine it; I, however, think that this is well said now. </said></p></div>
+                    
+<div resp="perseus" n="10" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><milestone n="10" unit="page" resp="Stephanus"/><milestone n="10a" unit="section" resp="Stephanus"/><label>Soc.</label>
+Soon, my good friend, we shall know better. For consider this: is the holy loved by the gods because it is holy, or is it holy because it is loved?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do not know what you mean, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Well, I will try to say it more clearly. We speak of something carried and something carrying, something led and something leading, something seen and something seeing; and do you understand that all such things are different from one another, and in what way they are different?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I think I understand.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And is there not also something loved, and, different from it, that which loves?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Of course.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="10b" unit="section" resp="Stephanus"/><label>Soc.</label>
+Tell me, then, is the carried thing a carried thing because it is carried, or for some other reason?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+No, for this reason.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And the led thing because it is led, and the seen thing because it is seen?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then it is not because it is a seen thing that it is seen, but on the contrary it is a seen thing because it is seen; nor is it because it is a led thing that it is led, but because it is led it is a led thing; nor is it carried because it is a carried thing, but it is a carried thing because it is carried. Is it quite clear, Euthyphro, what <milestone n="10c" unit="section" resp="Stephanus"/>I mean? I mean this: that if anything comes to be or is affected, it does not come to be because it is a thing coming to be, but it is a thing coming to be because it comes to be; nor is it affected because it is a thing affected, but it is a thing affected because it is affected. Or do you not agree that it is so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Is not a loved thing also either something coming to be or something affected by something?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And so this too is just as with the previous ones: it is not because it is a loved thing that it is loved by those who love it, but it is a loved thing because it is loved?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Necessarily.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="10d" unit="section" resp="Stephanus"/><label>Soc.</label>
+What, then, do we say about the holy, Euthyphro? Is it not loved by all the gods, according to your account?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Is it loved for this reason, because it is holy, or for some other reason?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+No, for this reason.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+It is loved, then, because it is holy, and it is not holy because it is loved?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It seems so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But surely it is because it is loved by the gods that the god-beloved is a loved thing and god-beloved.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Of course.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then the god-beloved is not holy, Euthyphro, nor is the holy god-beloved, as you say, but the one is different from the other.
+                                                                                                                                                                    </said></p>
+
+<p><said who="#Εὐθύφρων"><milestone n="10e" unit="section" resp="Stephanus"/><label>Euth.</label>
+How so, Socrates?</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Because we agree that the holy is loved for this reason, because it is holy, and is not holy because it is loved; is that not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But that the god-beloved, because it is loved by the gods, is god-beloved by this very fact of being loved, and is not loved because it is god-beloved.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    What you say is true.</said></p></div>
+                    
+<div resp="perseus" n="11" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But if the god-beloved and the holy were the same, my dear Euthyphro, then, if the <milestone n="11" unit="page" resp="Stephanus"/><milestone n="11a" unit="section" resp="Stephanus"/>holy were loved because of its being holy, the god-beloved too would be loved because of its being god-beloved; and if the god-beloved were god-beloved because of its being loved by the gods, the holy too would be holy because of its being loved; but as it is, you see that the two are in opposite cases, as being entirely different from each other. For the one is of a sort to be loved because it is loved; the other is loved because it is of a sort to be loved. And it seems, Euthyphro, that when you are asked what the holy is, you do not wish to make its essence clear to me, but you mention some attribute of it, that the holy has this attribute, of being loved by all the <milestone n="11b" unit="section" resp="Stephanus"/>gods; but what it is, you have not yet said. So, if you please, do not hide it from me, but say again from the beginning what the holy is, whether it is loved by the gods or has whatever other attribute—for we shall not quarrel about that—but tell me eagerly, what are the holy and the unholy?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But, Socrates, I do not know how to tell you what I mean; for whatever we put forward somehow always moves around on us and will not stay where we set it.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Your statements, Euthyphro, seem to belong to our ancestor <milestone n="11c" unit="section" resp="Stephanus"/>Daedalus. And if I were the one making them and putting them forward, perhaps you would mock me, saying that, because of my kinship with him, my works in words too run away and will not stay where one puts them; but as it is, the hypotheses are yours. So some other jest is needed; for they will not stay put for you, as you yourself think.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But it seems to me, Socrates, that what has been said needs nearly the same jest; for it is not I who put into them this going around and not staying in the same place, <milestone n="11d" unit="section" resp="Stephanus"/>but you seem to me to be the Daedalus, since as far as I am concerned these things would have stayed as they were.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then it seems, my friend, that I have become more skilful in the art than that man by so much, that he made only his own works not stay, while I, as it seems, do so with the works of others besides my own. And indeed this is the most subtle part of my art, that I am wise against my will; for I would rather have my arguments stay and be fixed immovably than have, besides <milestone n="11e" unit="section" resp="Stephanus"/>Daedalus' wisdom, the wealth of Tantalus. But enough of this; since you seem to me to be fastidious, I myself will eagerly help you <del>to show</del> how you may teach me about the holy. And do not give up too soon; for see whether it does not seem to you necessary that everything holy is just.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    It does.</said></p></div>
+                    
+<div resp="perseus" n="12" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then is everything just also holy? Or is the holy <milestone n="12" unit="page" resp="Stephanus"/><milestone n="12a" unit="section" resp="Stephanus"/>all just, while the just is not all holy, but part of it is holy and part something else?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do not follow what you are saying, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And yet you are younger than I by no less than you are wiser; but, as I say, you are spoiled by the wealth of your wisdom. But, my blessed friend, exert yourself; for it is not even hard to understand what I mean. For I say the opposite of what the poet wrote who wrote—<quote type="verse"><l met="dactylic">Zeus, <del>both</del> the one who did it and who planted all these things,</l></quote>
+                                                                                                                                           <milestone n="12b" unit="section" resp="Stephanus"/><cit><quote type="verse"><l met="c">you are not willing to rebuke; for where there is fear, there is also reverence.</l></quote><bibl>Stasinus Cypria Fr. 20</bibl></cit>Now I disagree with this poet. Shall I tell you in what way?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+It does not seem to me that <q>where there is fear, there is also reverence</q>; for many people seem to me to fear diseases and poverty and many other such things, and though they fear them, to feel no reverence at all for these things that they fear; does it not seem so to you too?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But where there is reverence, there is also fear; for is there anyone who, feeling reverence and shame about some matter, is not frightened <milestone n="12c" unit="section" resp="Stephanus"/>and does not at the same time dread a reputation for wickedness?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+He does dread it.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then it is not right to say: <q>for where there is fear, there is also reverence,</q> but rather that where there is reverence, there is also fear, though it is not true that wherever there is fear there is everywhere reverence; for I think fear is wider than reverence. For reverence is a part of fear, just as odd is a part of number, so that it is not true that where there is number, there is also odd, but that where there is odd, there is also number. You follow me now, surely?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+It was something of this kind that I was asking about there too, when I said: is it the case that where <milestone n="12d" unit="section" resp="Stephanus"/>the just is, there is also the holy? Or that where the holy is, there is also the just, but where the just is, there is not everywhere the holy; for the holy is a part of the just? Shall we say so, or does it seem otherwise to you?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+No, but so. For you seem to me to be right.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Now see what comes next. If the holy is part of the just, we must, it seems, find out what part of the just the holy would be. Now if you were asking me about one of the things just mentioned, for example what part of number the even is and what this number happens to be, I would say that it is the one that is not scalene but isosceles; or do you not think so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="12e" unit="section" resp="Stephanus"/><label>Soc.</label>
+Then try in this way to teach me too what part of the just is holy, so that we may also tell Meletus not to wrong us any longer and not to indict us for impiety, since we have already learned sufficiently from you what is pious and holy and what is not.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    Well then, Socrates, this seems to me to be the part of the just that is pious and holy, the part concerned with the care of the gods, and the part concerned with the care of men to be the remaining part of the just.</said></p></div>
+                    
+<div resp="perseus" n="13" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And you seem to me to speak well, Euthyphro; but I still lack <milestone n="13" unit="page" resp="Stephanus"/><milestone n="13a" unit="section" resp="Stephanus"/>some small thing; for I do not yet understand what care you mean. For surely you do not mean that the care concerning the gods is of the same kind as the kinds of care concerning other things— for we do speak of it—as, for instance, we say that not everyone knows how to care for horses, but only the horseman; is that not so?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+For horsemanship, I suppose, is the care of horses.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Nor does everyone know how to care for dogs, but only the huntsman.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+So it is.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+For hunting, I suppose, is the care of dogs.
+                                                                                                                                                                                                                </said></p>
+
+<p><said who="#Εὐθύφρων"><milestone n="13b" unit="section" resp="Stephanus"/><label>Euth.</label>
+Yes.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And cattle-driving is the care of cattle.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And holiness and piety are the care of the gods, Euthyphro? Is that what you mean?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It is.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then does not all care accomplish the same thing? For instance, something like this: it is for some good and benefit of the one cared for, as you see that horses cared for by horsemanship are benefited and become better; or do they not seem so to you?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+They do.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And dogs, I suppose, by hunting, and <milestone n="13c" unit="section" resp="Stephanus"/>cattle by cattle-driving, and all the others likewise; or do you think that care is for the harm of what is cared for?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+By Zeus, I do not.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But for its benefit?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Of course.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Is holiness, then, being care of the gods, a benefit to the gods, and does it make the gods better? And would you agree to this, that whenever you do something holy, you make one of the gods better?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+By Zeus, I would not.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Nor do I think, Euthyphro, that you mean this —far from it—but it was for this very reason that I asked <milestone n="13d" unit="section" resp="Stephanus"/>what care of the gods you meant, since I did not believe that you meant this kind.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+And rightly, Socrates; for I do not mean that kind.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Well; but what care of the gods would holiness be?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+The kind, Socrates, with which slaves care for their masters.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+I understand; it would be, it seems, a kind of service to the gods.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Could you tell me, then, the service to doctors: towards the achievement of what result does it happen to be a service? Do you not think towards that of health?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="13e" unit="section" resp="Stephanus"/><label>Soc.</label>
+And what of the service to shipbuilders? Towards the achievement of what result is it a service?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Clearly, Socrates, of a ship.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And that to housebuilders, I suppose, of a house?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Yes.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Tell me, then, my excellent friend: the service to the gods, towards the achievement of what result would it be a service? For clearly you know, since you say that you know divine matters best of all men.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+And I speak the truth, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+    Tell me, then, by Zeus, what is that very fine work which the gods accomplish by using us as servants?</said></p></div>
+                    
+<div resp="perseus" n="14" subtype="section" type="textpart">
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Many fine things, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="14" unit="page" resp="Stephanus"/><milestone n="14a" unit="section" resp="Stephanus"/><label>Soc.</label>
+So do the generals, my friend; but nevertheless you could easily tell the chief of them, that they achieve victory in war; or not?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Of course.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And the farmers too, I think, produce many fine things; but nevertheless the chief of their production is the food from the earth.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Well then, what of the many fine things which the gods produce? What is the chief of their work?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I told you a little while ago too, Socrates, that it is a <milestone n="14b" unit="section" resp="Stephanus"/>greater task to learn exactly how all these things are; but this much I tell you simply: if one knows how to say and do what is pleasing to the gods, in praying and sacrificing, these are the holy things, and such things preserve both private households and the common affairs of cities; and the opposite of what is pleasing to them is impious, which indeed overturns and destroys everything.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Surely, Euthyphro, you could have told me the chief point of what I was asking much more briefly, if you had wished; but you are not <milestone n="14c" unit="section" resp="Stephanus"/>eager to teach me—that is clear. For just now, when you were on the very point, you turned aside; if you had answered it, I would already have learned holiness sufficiently from you. But now—for the lover must follow the beloved wherever he may lead—what again do you say the holy and holiness are? Is it not a kind of knowledge of sacrificing and praying?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It is.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+And is not sacrificing making gifts to the gods, and praying asking from the gods?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Very much so, Socrates.</said></p>
+
+    <p><said who="#Σωκράτης"><milestone n="14d" unit="section" resp="Stephanus"/><label>Soc.</label>
+Then by this argument holiness would be a knowledge of asking from the gods and giving to them.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+You have understood what I said very well, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Yes, for I am eager for your wisdom, my friend, and I give my mind to it, so that whatever you say will not fall to the ground. But tell me, what is this service to the gods? Do you say that it is asking from them and giving to them?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then would not asking rightly be asking them for those things which we need from them?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+What else?</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="14e" unit="section" resp="Stephanus"/><label>Soc.</label>
+And again, giving rightly would be giving them in return those things which they happen to need from us? For surely it would not be skilful to bring gifts by giving someone things of which he has no need.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+What you say is true, Socrates.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then holiness would be a kind of art of trading, Euthyphro, between gods and men with each other.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+    Of trading, if you prefer to call it so.</said></p></div>
+                    
+<div resp="perseus" n="15" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But I prefer nothing, unless it happens to be true. But tell me, what benefit do the gods happen to get from the gifts which they receive from us? For what they give is clear <milestone n="15" unit="page" resp="Stephanus"/><milestone n="15a" unit="section" resp="Stephanus"/>to everyone; for we have no good thing that they do not give. But how are they benefited by what they receive from us? Or do we have so much the advantage over them in the trade that we receive all good things from them, and they nothing from us?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+But do you think, Socrates, that the gods are benefited by the things which they receive from us?</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+But what then would these gifts from us to the gods be, Euthyphro?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+What else do you think but honour and gifts of honour and, as I was saying just now, gratitude?</said></p>
+
+<p><said who="#Σωκράτης"><milestone n="15b" unit="section" resp="Stephanus"/><label>Soc.</label>
+Then the holy is pleasing, Euthyphro, but not beneficial or dear to the gods?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I think it is dearest of all things.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then this again, it seems, is the holy: what is dear to the gods.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Very much so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Will you then be surprised, when you say this, if your arguments appear not to stay but to walk about, and will you accuse me of being the Daedalus who makes them walk, when you yourself are much more skilful than Daedalus and make them go around in a circle? Or do you not perceive that our argument has gone around and <milestone n="15c" unit="section" resp="Stephanus"/>come back again to the same place? For you remember, I suppose, that earlier the holy and the god-beloved appeared to us not to be the same but different from each other; or do you not remember?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+I do.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then do you not realize that now you say that what is dear to the gods is holy? And does this turn out to be anything other than god-beloved? Or not?</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Certainly.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then either we were not right in agreeing just now, or, if we were right then, we are not right in what we are putting forward now.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+It seems so.</said></p>
+
+<p><said who="#Σωκράτης"><label>Soc.</label>
+Then we must examine again from the beginning what the holy is, since I will not willingly give up before I learn it. <milestone n="15d" unit="section" resp="Stephanus"/>Do not scorn me, but apply your mind in every way and now tell me the truth as best you can; for you know it, if any man does, and, like Proteus, you must not be let go before you tell. For if you did not know clearly the holy and the unholy, there is no way you would ever have attempted to prosecute an old man, your father, for murder on behalf of a hired labourer; but you would have feared to run the risk before the gods that you might not be doing it rightly, and you would have been ashamed before men; but as it is, I know well that you think you <milestone n="15e" unit="section" resp="Stephanus"/>clearly know what is holy and what is not. So tell me, my most excellent Euthyphro, and do not hide what you think it is.</said></p>
+
+<p><said who="#Εὐθύφρων"><label>Euth.</label>
+Another time, then, Socrates; for now I am in a hurry to go somewhere, and it is time for me to leave.</said></p>
+</div>
+                    
+<div resp="perseus" n="16" subtype="section" type="textpart">
+<p><said who="#Σωκράτης"><label>Soc.</label>
+What a thing you are doing, my friend! You go away and cast me down from a great hope that I had, that by learning from you what is holy and what is not I should get rid of the indictment brought by Meletus, by showing <milestone n="16" unit="page" resp="Stephanus"/><milestone n="16a" unit="section" resp="Stephanus"/>him that I have now become wise in divine matters through Euthyphro, and that I no longer speak offhand out of ignorance or make innovations about them, and, above all, that I would live better for the rest of my life.</said></p></div>
+                </div>
+</body></text>
+</TEI>

@@ -258,3 +258,6 @@ same_structure(greek, output) # False: the <label> tag was lost
 `is_valid_xml` and `same_structure` can also be used **inside the pipeline**, to check each translated passage straight away (e.g. log or retry when the output lost a tag).
 
 To try the functions interactively, type `python` and import them as above. If printing Greek text gives `UnicodeEncodeError: 'charmap' codec ...`, run `$env:PYTHONUTF8 = "1"` (PowerShell) once in that terminal first.
+
+### Viewing the translation as human-readable text
+To view the translation in a more human-readable format, visit [Mano Project](https://mano-project.github.io/viewer.html) page and upload the XML file.

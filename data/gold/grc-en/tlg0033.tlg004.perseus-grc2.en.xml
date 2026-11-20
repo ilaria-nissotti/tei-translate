@@ -1,0 +1,714 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="grc">Ἰσθμιονῖκαι</title>
+                <author>Pindar</author>
+                <sponsor>Perseus Project, Tufts University</sponsor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Lisa Cerrato</name>
+                    <name>William Merrill</name>
+                    <name>Elli Mylonas</name>
+                    <name>David Smith</name>
+                </respStmt>
+                <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+                <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+                <date type="release">1992</date>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                    <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+                </availability>
+            </publicationStmt>
+
+            <notesStmt>
+               <note anchored="true" place="unspecified">Text scanned at U. Chicago in 1987. Basic tagging done by EM and Scott Ettinger. </note>
+                <note>Perseus 1.0</note>
+            </notesStmt>
+            
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Pindar</author>
+                        <title>The Odes of Pindar</title>
+                        <editor>Sir John Sandys</editor>
+                        <imprint>
+                            <publisher>Harvard University Press; William Heinemann Ltd.</publisher>   
+                            <pubPlace>Cambridge, MA; London</pubPlace>
+                            <date type="reprint">1937</date>
+                        </imprint>
+                    </monogr>
+                    <ref target="https://archive.org/details/odesofpindarincl0000pind/page/n55/mode/2up" type="login_restricted">Internet Archive</ref>
+                    <ref target="https://archive.org/details/in.ernet.dli.2015.183513/page/n45/mode/2up" type="free">Internet Archive</ref>
+                </biblStruct>
+            </sourceDesc>
+            
+        </fileDesc>
+        <encodingDesc>
+            <refsDecl n="CTS">
+                <cRefPattern n="line" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:l[@n='$2'])">
+                    <p>This pointer pattern extracts poem and line.</p>
+                </cRefPattern>
+                <cRefPattern n="poem" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts poem.</p>
+                </cRefPattern>
+                
+            </refsDecl>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure match="div/div[@subtype='poem']" use="@n" unit="poem" delim=":" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change when="2022-04-21" who="Lisa Cerrato">reviewed header and content for consistency and best practices</change>
+            <change when="2016-01-22" who="TDBuck">editied mark-up, hookified</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="1992-05-21" who="David Smith">fixed the accent on *)alfew| to *)alfew=|</change>
+            <change when="1991-11-01" who="WPM">Entered Svarlien's responses to Hubbard. Changes made to Sandys' Greek text whenever the translator felt a different reading was necessary are noted in the English text.</change>
+            <change when="1991-09-01" who="WPM">Entered Hubbard's revisions.</change>
+            <change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+            <change when="1990" who="EM and SFSH">Make sure that the file matches new DTDs.</change>
+        </revisionDesc>
+    </teiHeader>
+    
+    <text xml:lang="en">
+        <body xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" type="edition" xml:lang="en">
+                <head xml:lang="en" rend="center">Isthmian Odes</head>
+                
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="1">
+                    <head>
+                        <title xml:lang="en">Isthmian 1</title>
+                        <persName xml:lang="en" type="winner">Herodotus of Thebes</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Chariot race</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="1"> My mother, Thebe of the golden shield, your </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="2"> concern, even above my lack of leisure, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="3"> I shall place. Let not rocky </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="4"> Delos, in whose praise I have poured myself out, resent me. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="5"> What is dearer to good men than noble parents? </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="6"> Give way, island of Apollo; with the help of the gods I shall yoke together the completion of both graces, </l>
+                    <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="7"> honouring in the dance both Phoebus of the unshorn hair </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="8"> in wave-washed Ceos, together with its seafaring </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="9"> <milestone ed="Steph" n="10" unit="line"/>men, and the sea-fenced ridge of the Isthmus; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="10"> since garlands, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="11"> six of them, it granted to the host of Cadmus from its games, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="12"> the glory of fair victory for the fatherland. In it Alcmena too bore her fearless </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="13"> son, before whom the bold hounds of Geryon once shuddered. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="14"> But I, fashioning for Herodotus a prize of honour for his four-horse chariot, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="15"> <milestone ed="Steph" n="20" unit="line"/>and for having guided the reins with hands not another's, wish </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="16"> to fit him into a hymn either of Castor or of Iolaus. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="17"> For those two, among heroes, were born the mightiest charioteers, in Lacedaemon and in Thebes; </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="18"> and in games they tried their hand at the most contests, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="19"> and adorned their house with tripods </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="20"> and cauldrons and bowls of gold, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="21"> tasting garlands </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="22"> <milestone ed="Steph" n="30" unit="line"/>of victory; and their excellence shines clear </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="23"> both in the naked footraces and in the shield-clashing races of armed men, </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="24"> and in what they did with their hands, hurling spears, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="25"> and whenever they threw with discuses of stone. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="26"> For there was no pentathlon, but for each </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="27"> feat a prize was set. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="28"> Often binding their hair with thick </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="29"> sprays from these, they appeared by the streams of Dirce and near the Eurotas, </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="30"> <milestone ed="Steph" n="40" unit="line"/>the son of Iphicles, being of one people with the race of the Sown Men, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="31"> and the son of Tyndareus, among the Achaeans <seg type="sling" part="N">dwelling</seg> in his high-plained seat of Therapne. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="32"> Farewell. And I, for Poseidon and the holy Isthmus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="33"> and the shores of Onchestus, arraying them with song, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="34"> <milestone ed="Steph" n="50" unit="line"/>shall proclaim, among the honours of this man, the glorious fortune of his father Asopodorus </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="35"> and the ancestral land of Orchomenus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="36"> which received him, hard pressed by shipwrecks </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="37"> from the boundless sea, in chilling </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="38"> misfortune; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="39"> but now once more his inborn destiny has set him on </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="40"> the fair weather of old. And he who has toiled gains forethought in his mind as well; </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="41"> and if a man devotes his whole spirit to excellence, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="42"> with both expense and toils, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="43"> <milestone ed="Steph" n="60" unit="line"/>we must bring to those who have attained it a proud boast, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="44"> not with grudging </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="45"> thoughts. For it is a light gift for a skilled man, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="46"> in return for toils of every kind, to speak a good word and so to set up a common good. </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="47"> For different wages for different works are sweet to men, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="48"> to the shepherd and the ploughman and the bird-catcher and the man whom the sea feeds; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="49"> <milestone ed="Steph" n="70" unit="line"/>and every man strains to ward off grievous hunger from his belly; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="50"> but he who in games or in war wins delicate glory, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="51"> being well spoken of, receives the highest gain, the finest flower of the tongues of citizens and strangers. </l>
+                   <milestone unit="strophe" subtype="str." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="52"> It befits us to celebrate the earth-shaking son of Cronus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="53"> repaying our neighbour as a benefactor, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="54"> the lord of the horse-race of chariots, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="55"> and to address your </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="56"> <milestone ed="Steph" n="80" unit="line"/>sons, Amphitryon, and the secluded valley of Minyas, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="57"> and Eleusis, the famous grove of Demeter, and Euboea in the curving race-courses; </l>
+                   <milestone unit="strophe" subtype="ant." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="58"> Protesilas, and your precinct of Achaean men </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="59"> in Phylace I add as well. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="60"> But to tell out all that Hermes, lord of games, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="61"> granted to Herodotus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="62"> and his horses is prevented by the short measure </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="63"> of my hymn. Truly, often even what is kept in silence brings greater cheer. </l>
+                   <milestone unit="strophe" subtype="epode" n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="64"> <milestone ed="Steph" n="90" unit="line"/>May he, lifted up on the shining wings of the sweet-voiced </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="65"> Pierian Muses, also with choice sprays from Pytho and from the Olympic games </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="66"> of the Alpheus arm his hand, winning honour for seven-gated </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="67"> Thebes. But if someone keeps hidden wealth inside his house, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:1" n="68"> <milestone ed="Steph" n="100" unit="line"/>and falling upon others laughs at them, he does not consider that he is paying his soul to Hades without glory. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="2">
+                    <head>
+                        <title xml:lang="en">Isthmian 2</title>
+                        <persName xml:lang="en" type="winner">Xenocrates of Acragas</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Chariot race</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="1"> The men of old, Thrasybulus, who, of the golden-filleted </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="2"> Muses, mounted the chariot, joining the glorious lyre, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="3"> lightly shot forth honey-voiced hymns for boys, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="4"> for whoever, being fair, had the ripeness that recalls Aphrodite </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="5"> on her fair throne, the sweetest ripeness. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="6"> <milestone ed="Steph" n="10" unit="line"/>For the Muse was not yet a lover of gain then, nor a hired worker; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="7"> nor were sweet songs from honey-voiced Terpsichore sold, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="8"> soft-voiced songs with their faces silvered. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="9"> But now she bids us heed <add>the</add> Argive's </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="10"> saying, which comes nearest to <add>real</add> truth: </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="11"> <q> Money, money makes the man,</q> said he who was bereft of his possessions and his friends at once. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="12"> For you are wise. Not unknown is what I sing, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="13"> <milestone ed="Steph" n="20" unit="line"/>the Isthmian victory with horses, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="14"> which Poseidon granted to Xenocrates, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="15"> and sent him a garland of Dorian </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="16"> celery to bind on his hair, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="17"> honouring the man of the fine chariot, the light of the Acragantines. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="18"> And in Crisa wide-ruling Apollo looked upon him and granted him splendour </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="19"> there too; <add>and</add> joined with the famous favours of the sons of Erechtheus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="20"> <milestone ed="Steph" n="30" unit="line"/>in shining Athens, he found no fault with </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="21"> the chariot-saving hand of the man who drove the horses, </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="22"> the hand with which Nicomachus at the right moment gave full rein; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="23"> him the heralds of the seasons also recognised, the truce-bearers of Cronus' son </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="24"> Zeus, the Eleans, having no doubt received from him some act of hospitality; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="25"> and with sweet-breathing voice they greeted him </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="26"> when he fell into the lap of golden Victory </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="27"> <milestone ed="Steph" n="40" unit="line"/>in their own land, which they call the grove of Olympian </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="28"> Zeus; where with immortal honours the sons of Aenesidamus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="29"> were mingled. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="30"> For indeed your houses are not unacquainted </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="31"> either with lovely revels, Thrasybulus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="32"> or with songs of sweet boasting. </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="33"> For it is no hill, nor does the path become steep, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="34"> <milestone ed="Steph" n="50" unit="line"/>if one brings the honours of the Heliconian maidens to the homes of glorious men. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="35"> Having hurled the discus far, may I cast the javelin as far as the temper </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="36"> that Xenocrates, sweet beyond all men, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="37"> possessed. He was respected in his dealings with his townsmen, </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="38"> and he practised horse-breeding after the custom of all the Greeks; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="39"> and he embraced all the feasts of the gods; and never did the hospitable </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="40"> <milestone ed="Steph" n="60" unit="line"/>wind, blowing, make him furl the sail around his table; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="41"> but he travelled as far as Phasis in the summer days, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="42"> and in winter sailed to the shores of the Nile. </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="43"> Now, since envious hopes hang about the minds of mortals, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="44"> let him never keep silent either his father's excellence </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="45"> or these hymns; for, you know, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="46"> I did not make them to stand idle. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="47"> Give out these words, Nicasippus, when </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:2" n="48"> you come to my trusted host. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="3">
+                    <head>
+                        <title xml:lang="en">Isthmian 3</title>
+                        <persName xml:lang="en" type="winner">Melissus of Thebes</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Horse race</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="1"> If any man, having had good fortune either in glorious games </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="2"> or through the strength of wealth, restrains in his mind grievous excess, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="3"> he is worthy to be mingled with the praises of his townsmen. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="4"> Zeus, great excellences attend mortals </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="5"> from you; and greater prosperity lives with those who revere you, but with crooked minds </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="6"> <milestone ed="Steph" n="10" unit="line"/>it does not keep company, flourishing alike, for all time. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="7"> As recompense for glorious deeds we must hymn the noble man, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="8"> and we must exalt him in revel with the gentle Graces. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="9"> And Melissus has a portion of twin <seg type="sling" part="N">contests</seg>, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="10"> to turn to sweet joyfulness </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="11"> his heart: in the glens of the Isthmus he received garlands, and in the hollow </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="12"> <milestone ed="Steph" n="20" unit="line"/>valley of the deep-chested lion he had Thebes proclaimed, </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="13"> winning in the horse race. And the excellence of men </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="14"> born in him he does not disgrace. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="15"> You know, surely, Cleonymus' </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="16"> ancient glory in chariots; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="17"> and, kin to the Labdacids on their mother's side, they walked the path of wealth with the toils of four-horse teams. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:3" n="18"> <milestone ed="Steph" n="30" unit="line"/>But life, with its rolling days, changes now one thing, now another; unwounded, however, are the children of the gods. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="4">
+                    <head>
+                        <title xml:lang="en">Isthmian 4</title>
+                        <persName xml:lang="en" type="winner">Melissus of Thebes</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Pancratium</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="1"> Thanks to the gods, I have countless paths on every side; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="2"> for, Melissus, you revealed abundant resources at the Isthmian games </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="3"> for pursuing your family's excellences in hymn, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="4"> with which the sons of Cleonymus, flourishing always, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="5"> with a god's help pass through to the mortal end of life. But at different times a different wind </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="6"> <milestone ed="Steph" n="10" unit="line"/>rushes down upon all men and drives them. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="7"> These men, then, are said to have been honoured in Thebes from the beginning, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="8"> and to be public friends of their neighbours, and free of loud </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="9"> insolence; and as for the testimonies that blow among men, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="10"> testimonies of dead and living men </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="11"> of boundless fame, they have touched them in full measure; and by their utmost deeds of manhood </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="12"> <milestone ed="Steph" n="20" unit="line"/>they reach from home the pillars of Heracles; </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="13"> and pursue excellence no farther. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="14"> And they became breeders of horses, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="15"> and pleased bronze-clad Ares. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="16"> But in a single day </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="17"> the rough snowstorm of war of four </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="17b"> men bereft their blessed hearth; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="18"> but now again, after the wintry gloom of the changing months, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="18b"> <milestone ed="Steph" n="30" unit="line"/>the ground has blossomed as if with crimson roses </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="19"> by the will of the gods. And the shaker of the earth, who dwells at Onchestus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="20"> and on the sea-bridge before the walls of Corinth, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="21"> by granting the family this wondrous hymn, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="22"> raises from her bed their ancient fame </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="23"> <milestone ed="Steph" n="40" unit="line"/>for glorious deeds; for she had fallen asleep; but now awakened she shines in her body, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="24"> wondrous to see, like the Morning Star among the other stars; </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="25"> she who, proclaiming their chariot victorious both on the hills of Athens </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="26"> and at the games of Adrastus in Sicyon, granted them </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="27"> such leaves of song from the poets of that time. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="28"> Nor did they keep from the common festivals </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="29"> <milestone ed="Steph" n="50" unit="line"/>their curved chariot, but contending with all the Greeks they rejoiced in spending on horses. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="30"> For those who make no attempt have silence and obscurity, </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="31"> and fortune stays hidden even for those who strive, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="32"> until they reach the highest goal; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="33"> for she gives of this and of that; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="34"> and a stronger man the skill of weaker men </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="35"> <milestone ed="Steph" n="59" unit="line"/>has overtaken and tripped up. You know indeed the bloody might of Aias, which late </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="36"> in the night he cut through by falling on his own sword, and he brings blame on the sons of the Greeks, all who went to Troy. </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="37"> But Homer has honoured him among men, who, setting upright all his </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="38"> excellence, told it with the staff </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="39"> of his divine verses for later men to delight in. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="40"> For this goes forth sounding with an immortal voice, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="41"> <milestone ed="Steph" n="70" unit="line"/>if someone says something well; and over the fruitful earth and across the sea has gone </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="42"> the radiance of fine deeds, unquenchable forever. </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="43"> May we find the Muses willing, so as to kindle that torch of hymns </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="44"> for Melissus too, a garland worthy of the pancratium, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="45"> the scion of Telesiades. For in daring he resembles </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="46"> in spirit loud-roaring wild lions </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="47"> <milestone ed="Steph" n="80" unit="line"/>in the struggle, and in cunning the fox, who, falling on her back, holds off the swoop of the eagle. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="48"> One must do anything to obscure the enemy. </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="49"> For he was not allotted the build of Orion; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="50"> but he is contemptible to look at, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="51"> yet heavy to grapple with in his strength. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="52"> And yet once to the house of Antaeus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="53"> <milestone ed="Steph" n="90" unit="line"/>from Cadmean Thebes there came to wrestle him a man short in form but unbending in spirit, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="54"> to wheat-bearing Libya, to stop him from roofing the temple of Poseidon with the skulls of strangers: </l>
+                   <milestone unit="strophe" subtype="str." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="55"> the son of Alcmena; who went to Olympus, after he had explored all lands </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="56"> and the steep-cliffed hollow of the grey sea, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="57"> and had tamed the strait for seafaring. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="58"> And now beside the Aegis-bearer, the most beautiful prosperity </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="59"> <milestone ed="Steph" n="100" unit="line"/>enjoying, he dwells, and he is honoured as a friend by the immortals, and is wedded to Hebe, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="60"> lord of a golden house and son-in-law of Hera. </l>
+                   <milestone unit="strophe" subtype="ant." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="61"> For him, above the Electran gates, we townsmen, preparing a feast </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="62"> and the newly built circle of altars, heap up </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="63"> burnt offerings for the eight bronze-armed dead, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="64"> the sons whom Megara, Creon's daughter, bore him; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="65"> <milestone ed="Steph" n="110" unit="line"/>for them, at the setting of the rays, the flame rises and blazes on all night long, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="66"> kicking the air with <seg type="sling" part="N">savoury</seg> smoke, </l>
+                   <milestone unit="strophe" subtype="epode" n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="67"> and on the second day the close of the yearly games </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="68"> takes place, a work of strength. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="69"> There, his head made white </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="70"> with myrtle, this man a double </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="71"> <milestone ed="Steph" n="120" unit="line"/>victory displayed, <add>and</add> a third one earlier among the boys, trusting in the counsel of his helmsman who turns the tiller, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:4" n="72"> counsel rich in wisdom. With Orseas I shall celebrate him in revel, letting delightful grace fall upon him. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="5">
+                    <head>
+                        <title xml:lang="en">Isthmian 5</title>
+                        <persName xml:lang="en" type="winner">Phylacidas of Aegina</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Pancratium</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="1"> Mother of the Sun, Theia of many names, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="2"> for your sake men also deem gold </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="3"> mighty beyond all other things; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="4"> for indeed, contending, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="5"> ships on the sea and horses <add>under</add> chariots, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="6"> through your honour, O queen, become wondrous in swift-whirling contests; </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="7"> and in the athletic games he wins longed-for </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="8"> <milestone ed="Steph" n="10" unit="line"/>glory whose hair abundant garlands </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="9"> have bound when he has won with his hands </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="10"> or with the swiftness of his feet. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="11"> But the valour of men is judged through the gods. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="12"> And two things alone tend the sweetest flower of life, together with blossoming prosperity: </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="13"> if a man who fares well hears a good report. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="14"> Do not seek to become Zeus; you have everything, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="15"> if a share of these fine things should come to you. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="16"> <milestone ed="Steph" n="20" unit="line"/>Mortal things befit mortals. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="17"> For you a twofold flourishing excellence at the Isthmus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="18"> Phylacidas, is laid up, and at Nemea for both of you, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="19"> for you and Pytheas, in the pancratium. But my </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="20"> heart does not taste hymns without the Aeacids; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="21"> with the Graces I have come for the sons of Lampon </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="22"> to this law-abiding city. And if it has turned </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="23"> onto the clear path of god-given deeds, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="24"> <milestone ed="Steph" n="30" unit="line"/>do not grudge to mix in song the fitting boast </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="25"> in return for toils. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="26"> For among heroes too good warriors </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="27"> gained renown, and they are celebrated both with lyres and in the full-voiced harmonies of flutes </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="28"> for countless time; and they have furnished a theme for poets, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="29"> being revered by the will of Zeus: </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="30"> in the bright sacrifices of the Aetolians </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="31"> the mighty sons of Oeneus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="32"> <milestone ed="Steph" n="40" unit="line"/>and in Thebes horse-driving Iolaus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="33"> has honour, and Perseus in Argos, and the spear of Castor and of <seg type="sling" part="N">Polydeuces</seg> by the streams of Eurotas. </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="34"> But in Oenone the great-hearted spirits </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="35"> of Aeacus and his sons; they, in battles, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="36"> twice sacked the city of the Trojans, following </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="37"> Heracles the first time, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="38"> and then with the sons of Atreus. Now drive me up from the ground; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="39"> say, who killed Cycnus, who Hector, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="40"> <milestone ed="Steph" n="50" unit="line"/>and the fearless general of the Ethiopians, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="41"> bronze-armed Memnon? Who then wounded noble Telephus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="42"> with his spear by the banks of Caïcus? </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="43"> Those whose mouth proclaims Aegina as their fatherland, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="44"> the illustrious island; and long ago it was built </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="45"> as a tower for lofty excellences to climb. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="46"> Many arrows has my ready </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="47"> tongue about them </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="48"> <milestone ed="Steph" n="60" unit="line"/>to sound; and now in war the city of Aias, set upright by her sailors, could bear witness, </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="49"> Salamis, in the ruinous storm of Zeus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="50"> amid the hail-like slaughter of countless men. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="51"> But nevertheless drench your boast in silence; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="52"> Zeus dispenses this and that, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="53"> Zeus the lord of all. But in lovely </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="54"> <milestone ed="Steph" n="70" unit="line"/>honey such honours too welcome the joy of fair victory. Let a man strive, toiling </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="55"> in the games, when he has come to know well the race of Cleonicus; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="56"> surely the long </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="57"> toil of these men has not been blinded; nor have all their expenses </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="58"> fretted away their regard for their hopes. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="59"> I praise Pytheas too, among the limb-subduers, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="60"> for steering straight the course of blows for Phylacidas, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="61"> skilful with his hands, a match for him in mind. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="62"> Take a garland for him, and bring a fillet of fine wool, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:5" n="63"> <milestone ed="Steph" n="80" unit="line"/>and send along this new winged hymn. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="6">
+                    <head>
+                        <title xml:lang="en">Isthmian 6</title>
+                        <persName xml:lang="en" type="winner">Phylacidas of Aegina</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Pancratium</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="1"> As when a symposium of men is flourishing, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="2"> a second bowl of the Muses' songs </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="3"> we mix for the family of Lampon, rich in contests, at Nemea first, O Zeus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="4"> for you, having received the choicest of garlands, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="5"> and now again for the lord of the Isthmus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="6"> and the fifty Nereids, the youngest of the sons, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="7"> <milestone ed="Steph" n="10" unit="line"/>Phylacidas, being victorious. And may it be that a third, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="8"> preparing it for the Olympian Saviour, throughout Aegina </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="9"> we pour in libation with honey-voiced songs. </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="10"> For if any man, rejoicing both in expense </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="11"> and in toil, achieves god-built excellences, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="12"> and a god plants lovely fame for him besides, already at the farthest edge of prosperity </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="13"> he casts anchor, being honoured by the gods. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="14"> <milestone ed="Steph" n="20" unit="line"/>With such feelings he prays </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="15"> to meet Hades and to welcome grey old age, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="16"> the son of Cleonicus; and I bid high-throned </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="17"> Clotho and her sisters to follow the glorious </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="18"> commands of a man who is my friend, the Fates. </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="19"> And you, O sons of Aeacus with your golden chariots, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="20"> I say it is my clearest law </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="21"> <milestone ed="Steph" n="30" unit="line"/>to sprinkle with praises when I set foot on this island. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="22"> Countless roads for your fine deeds have been cut, a hundred feet wide, in unbroken succession, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="23"> both beyond the springs of the Nile and through the Hyperboreans; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="24"> and there is no city so barbarous or so strange of speech </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="25"> that it does not hear of the fame of the hero Peleus, blessed son-in-law of the gods, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="26"> nor of Aias son of Telamon </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="27"> and of his father; him, to the bronze-delighting war, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="28"> <milestone ed="Steph" n="40" unit="line"/>he led with the men of Tiryns as an eager ally to Troy, a toil for heroes, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="29"> because of the offence of Laomedon, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="30"> in ships, the child of Alcmena. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="31"> And he took Pergamus, and with him he slew the tribes </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="32"> of the Meropes, and the herdsman as big as a mountain, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="33"> Alcyoneus, whom he found at Phlegrae, and he did not spare with his </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="34"> <milestone ed="Steph" n="50" unit="line"/>hands the deep-sounding bowstring, </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="35"> Heracles. But when he came to summon the son of Aeacus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="36"> to <add>that</add> voyage, he found them feasting. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="37"> As he stood in the lion's hide, he was bidden to begin the libations of nectar, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="38"> the mighty-speared son of Amphitryon, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="39"> and there handed him up, the bravest one, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="40"> a wine-holding bowl bristling with gold, Telamon; </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="41"> <milestone ed="Steph" n="60" unit="line"/>and he, stretching up to heaven his invincible hands, </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="42"> uttered such a word: <q> If ever, O father Zeus, </q></l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="43"> <q rend="merge">you have heard my prayer with a willing heart, </q></l>
+                    <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="44"><q rend="merge"> now I beseech you, now, with divine prayers, </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="45"><q rend="merge"> for a bold son from Eriboea</q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="46"><q rend="merge"> for this man, to fulfil him as my destined guest-friend,</q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="47"><q rend="merge"> unbreakable in body, as this hide that now wraps around me </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="48"><milestone ed="Steph" n="70" unit="line"/><q rend="merge"> of the beast whom I once killed at Nemea, the very first of my labours;</q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="49"> <q rend="merge">and let his spirit match.</q> When he had said this, the god sent him </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="50"> the ruler of birds, a great eagle; and sweet joy thrilled him within, </l>
+                    <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="51"> and he spoke out like a prophet: </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="52"> <q> You will have the son you ask for, O Telamon; </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="53"><q rend="merge"> and name him, after the bird that appeared, mighty Aias, among the people </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="54"><milestone ed="Steph" n="80" unit="line"/><q rend="merge"> terrible in the toils of Enyalius. </q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="55"> Having spoken thus, at once </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="56"> he sat down. But for me it would be long to <add>recount</add> all their excellences; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="57"> for I have come, O Muse, as steward of revels for Phylacidas </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="58"> and for Pytheas and Euthymenes. In the manner of the Argives </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="59"> it will be told, perhaps, even in the briefest words. </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="60"> For they won victories in the pancratium, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="61"> three from the Isthmus, others from leafy Nemea, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="62"> <milestone ed="Steph" n="90" unit="line"/>the splendid boys and their mother's brother; and what a share of hymns they have brought up to the light! </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="63"> And the clan of the Psalychidae they water </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="64"> with the loveliest dew of the Graces, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="65"> and, having set upright the house of Themistius, they inhabit this city, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="66"> dear to the gods. And Lampon, bestowing care </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="67"> on his works, greatly honours this saying of Hesiod, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="68"> <milestone ed="Steph" n="100" unit="line"/>and, quoting it to his sons, he exhorts them, </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="69"> bringing a common adornment to his own city, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="70"> and he is loved for his kindnesses to strangers, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="71"> pursuing due measure in his judgement, and holding to due measure too; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="72"> and his tongue does not stray from his mind; you would say that among athletes he is </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="73"> a Naxian whetstone among other stones, subduer of bronze. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="74"> I shall give them to drink the holy water of Dirce, which the deep-girdled daughters </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:6" n="75"> <milestone ed="Steph" n="110" unit="line"/>of golden-robed Mnemosyne made rise beside the well-walled gates of Cadmus. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="7">
+                    <head>
+                        <title xml:lang="en">Isthmian 7</title>
+                        <persName xml:lang="en" type="winner">Strepsiades of Thebes</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Pancratium</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="1"> In which of the glories of old, O blessed Thebe, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="2"> the fair glories of your land, did you most </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="3"> gladden your heart? Was it when the one who sits beside bronze-clanging </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="4"> Demeter, the one of flowing hair, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="5"> you raised up, Dionysus? Or when you received at midnight, snowing with gold, the mightiest of the gods, </l>
+                   <milestone unit="strophe" subtype="ant." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="6"> when, in the doorway of Amphitryon </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="7"> <milestone ed="Steph" n="10" unit="line"/>standing, he came to his wife for the begetting of Heracles? </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="8"> Or when it was over the shrewd counsels of Teiresias? </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="9"> Or when it was over Iolaus, skilled with horses? </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="10"> Or over the Sown Men, untiring with the spear? Or when from the mighty battle-cry you sent back Adrastus, bereft </l>
+                   <milestone unit="strophe" subtype="epode" n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="11"> of countless comrades, to Argos of the horses? </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="12"> Or because you set the Dorian colony upright </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="13"> on its feet, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="14"> <milestone ed="Steph" n="20" unit="line"/>the colony of the Lacedaemonians, and Amyclae was taken </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="15"> by the Aegeidae, your descendants, according to the Pythian oracles? </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="16"> But since ancient </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="17"> grace sleeps, and mortals are forgetful </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="18"> of whatever does not reach the highest flower of skill, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="19"> yoked to the glorious streams of verses, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="20"> then celebrate in revel with a sweet-singing hymn </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="21"> Strepsiades too; for he brings from the Isthmus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="22"> <milestone ed="Steph" n="30" unit="line"/>victory in the pancratium; he is formidable in strength and handsome to see; and he brings excellence no worse than his stature. </l>
+                   <milestone unit="strophe" subtype="ant." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="23"> And he is set ablaze by the violet-haired Muses, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="24"> and to his uncle of the same name he has given a share in his flowering garland, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="25"> for whom bronze-shielded Ares mixed his doom, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="26"> but honour is laid up in return for the good. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="27"> <milestone ed="Steph" n="40" unit="line"/>For let him know clearly, whoever in this cloud wards off the hail of blood from his dear fatherland, </l>
+                   <milestone unit="strophe" subtype="epode" n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="28"> bringing ruin against the enemy host, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="29"> that he increases the greatest glory for the race of his townsmen </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="30"> both while he lives and when he has died. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="31"> And you, son of Diodotus, emulating the warrior </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="32"> Meleager, emulating also Hector </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="33"> and Amphiaraus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="34"> breathed out your blossoming youth </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="35"> amid the throng of the front ranks, where the best </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="36"> <milestone ed="Steph" n="50" unit="line"/>sustained the strife of war with their last hopes. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="37"> They endured unspeakable grief; but now </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="38"> the Earth-holder has granted me fair weather </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="39"> after the storm. I shall sing, fitting my hair with garlands. And let not the envy of the immortals disturb </l>
+                   <milestone unit="strophe" subtype="ant." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="40"> whatever delight from day to day I pursue, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="41"> as I go quietly towards old age and the allotted </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="42"> span of life. For we all die alike; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="43"> <milestone ed="Steph" n="60" unit="line"/>but our fortunes are unequal; and if anyone gazes at far-off things, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="44"> he is too short to reach the bronze-floored seat of the gods; for winged Pegasus threw </l>
+                   <milestone unit="strophe" subtype="epode" n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="45"> his master, who wished to go to the dwellings of heaven </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="46"> and into the company, Bellerophon, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="47"> of Zeus. But what is sweet against justice </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="48"> a most bitter end awaits. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="49"> <milestone ed="Steph" n="70" unit="line"/>But grant to us, O Loxias, flourishing with golden hair, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="50"> in your own contests </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:7" n="51"> a blooming garland at Pytho too. </l>
+                </div>
+
+                <div type="textpart" subtype="poem" xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2" n="8">
+                    <head>
+                        <title xml:lang="en">Isthmian 8</title>
+                        <persName xml:lang="en" type="winner">Cleander of Aegina</persName>
+                        <l/><seg type="race" xml:lang="en" part="N">Pancratium</seg>
+                        <date> </date>
+                    </head>
+
+                    <milestone unit="strophe" subtype="str." n="1"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="1"> For Cleander and for his youth let someone, as a ransom, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="2"> a glorious one, O young men, for his toils, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="3"> going to the splendid doorway of his father Telesarchus, awaken </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="4"> the revel, a reward for his Isthmian victory, and because at Nemea </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="5"> <milestone ed="Steph" n="10" unit="line"/>he found strength in the games. Therefore I too, though grieving in my heart, am asked to call upon the golden Muse. And released from great <seg type="sling" part="N">sorrows</seg>, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="6"> let us not fall into bereavement of garlands, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="7"> nor nurse your cares; but ceasing from ills that cannot be mended, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="8"> we shall give the people something sweet, even after toil; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="9"> <milestone ed="Steph" n="20" unit="line"/>since the stone above our head, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="10"> the stone of Tantalus, some god has turned aside for us, </l>
+                   <milestone unit="strophe" subtype="str." n="2"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="11"> a toil unendurable for Greece. But </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="12"> for me the passing of fear </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="13"> has ended my strong anxiety; and it is always better <add>to look at</add> what lies before one's foot, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="14"> in every matter. For a treacherous lifetime hangs over men, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="15"> <milestone ed="Steph" n="30" unit="line"/>twisting the path of life; but even these things are curable for mortals, if only they have freedom. And a man must take thought for good hope; and one raised in seven-gated Thebes must </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="16"> offer to Aegina the choicest flower of the Graces, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="17"> because of one father twin daughters were born, of the daughters of Asopus </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="18"> <milestone ed="Steph" n="40" unit="line"/>the youngest, and they pleased Zeus the king. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="19"> He settled the one beside the fair-flowing </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="20"> Dirce, as ruler of a chariot-loving city; </l>
+                   <milestone unit="strophe" subtype="str." n="3"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="21"> and you he carried to the island Oenopia </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="22"> and lay with you, where you bore godlike </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="23"> Aeacus, dearest of men on earth to his deep-thundering father; he also </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="24"> <milestone ed="Steph" n="50" unit="line"/>settled disputes for the gods; and his godlike </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="25"> sons and his sons' war-loving children were the best in manliness at enduring the bronze, groaning din of battle; and they were prudent and wise in spirit. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="26"> These things even the assemblies of the blessed remembered, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="27"> <milestone ed="Steph" n="60" unit="line"/>when Zeus and glorious Poseidon contended over marriage with Thetis, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="28"> each of them wishing the beautiful one as wife </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="29"> to be his own; for desire held them. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="30"> But the immortal minds of the gods did not accomplish the marriage for them, </l>
+                   <milestone unit="strophe" subtype="str." n="4"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="31"> when they had heard the oracles; for there spoke </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="32"> wise-counselling Themis in their midst, </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="33"> <milestone ed="Steph" n="70" unit="line"/>saying that it was fated that the sea goddess would bear a princely offspring stronger than his father, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="34"> who would wield in his hand another weapon mightier than the thunderbolt </l>
+                   <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="35"> and the irresistible trident, if she mingled with Zeus or with the brothers of Zeus.— <q> But cease from this; having obtained a mortal's bed, </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="36"><milestone ed="Steph" n="80" unit="line"/><q rend="merge"> let her see her son die in war, </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="37"><q rend="merge"> <add>both</add> like Ares in his hands and like the lightning in the vigour of his feet. </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="38"><q rend="merge"> My counsel is to grant to Peleus the god-given </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="39"><q rend="merge"> prize of marriage, to the son of Aeacus, </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="40"><q rend="merge"> whom report says the plain of Iolcus reared as the most pious of men;</q></l>
+                    <milestone unit="strophe" subtype="str." n="5"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="41"><q rend="merge"> and let the messages go straight to the immortal cave </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="42"> <milestone ed="Steph" n="90" unit="line"/><q rend="merge">of Cheiron at once; </q> </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="43"><q rend="merge"> and let not the daughter of Nereus put the leaves of strife twice </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="44"><q rend="merge"> into our hands; and on the evenings of the full moon the lovely </q></l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="45"> <milestone ed="Steph" n="100" unit="line"/><q rend="merge">bridle of her maidenhood she may loose beneath the hero. </q> So spoke the goddess, addressing the sons of Cronus; and they nodded assent with their immortal brows; and the fruit of her words </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="46"> did not wither. For they say that the lord shared in caring </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="47"> for the marriage of Thetis too. And the mouths of the wise displayed the youthful </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="48"> excellence of Achilles to those who did not know it; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="49"> he who also the vine-clad Mysian </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="50"> <milestone ed="Steph" n="110" unit="line"/>plain bloodied, sprinkling it with the dark gore of Telephus, </l>
+                     <milestone unit="strophe" subtype="str." n="6"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="51"> and bridged a homecoming for the sons of Atreus, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="52"> and set Helen free, having cut out Troy's </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="53"> sinews with his spear, those that once held him back from the man-slaying battle's </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="54"> work as he marshalled it on the plain, the mighty force of Memnon </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="55"> <milestone ed="Steph" n="120" unit="line"/>high in spirit, and Hector and other champions; to whom Achilles, the bulwark of the Aeacids, showing the house of Persephone, made famous Aegina and his own root. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="56"> Him not even in death did songs forsake, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="57"> but beside his pyre and his tomb the maidens of Helicon </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="58"> stood, and poured over him a dirge of many voices. </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="59"> <milestone ed="Steph" n="130" unit="line"/>It seemed good, then, to the immortals </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="60"> to give a noble man, even when he has perished, to the hymns of goddesses. </l>
+                   <milestone unit="strophe" subtype="str." n="7"/>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="61"> And this even now brings a theme, and there speeds on </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="62"> the chariot of the Muses, to celebrate the memory of Nicocles </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="63"> the boxer. Honour him, who in the Isthmian valley </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="64"> won the Dorian celery; since the dwellers around </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="65"> <milestone ed="Steph" n="140" unit="line"/>he too once conquered, driving the men in rout with his inescapable hand. Him the offspring of his father's distinguished brother does not disgrace; therefore let one of his age-mates a delicate </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="66"> wreath for the pancratium weave for Cleander, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="67"> a garland of myrtle, since the contest of Alcathous, with good fortune, </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="68"> <milestone ed="Steph" n="150" unit="line"/>and the youth of Epidaurus welcomed him before; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="69"> a good man may praise him; </l>
+                    <l xml:base="urn:cts:greekLit:tlg0033.tlg004.perseus-grc2:8" n="70"> for he did not subdue his youth in a hole, untried in fine deeds. </l>
+                </div>
+            </div>
+        </body>
+    </text>
+</TEI>

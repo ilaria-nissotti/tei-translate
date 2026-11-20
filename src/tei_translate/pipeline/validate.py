@@ -6,19 +6,53 @@ the order of inline elements (English word order differs), so there the check
 is: the same elements under the same parents. Numbered sequences (@n per tag
 and @unit, e.g. milestones) must keep their order everywhere. xml:lang values
 that were changed from src to tgt are allowed.
+
+The output is also validated against the TEI schema (tei_all, RELAX NG, via
+lxml). Some source files are already invalid, so the check fails only on errors
+the source does not have.
 """
 
 from __future__ import annotations
 
 import copy
 from collections import Counter, defaultdict
+from functools import lru_cache
+from pathlib import Path
 
 from lxml import etree
 
-from tei_translate.pipeline.policy import Policy, local_name
+from tei_translate.pipeline.policy import REPO_ROOT, Policy, local_name
 
 XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
+DEFAULT_SCHEMA = REPO_ROOT / "config" / "schemas" / "tei_all.rng"
+
+
+@lru_cache(maxsize=None)
+def load_schema(path: str | Path = DEFAULT_SCHEMA) -> etree.RelaxNG:
+    """Compiled RELAX NG schema (tei_all takes ~6 s to compile, so it is cached per process)."""
+    return etree.RelaxNG(etree.parse(str(path)))
+
+
+def schema_errors(tree, schema: str | Path = DEFAULT_SCHEMA) -> list[tuple[str, int]]:
+    """[(message, line)] of RELAX NG errors; empty if the tree is valid."""
+    rng = load_schema(Path(schema).resolve())
+    if rng.validate(tree):
+        return []
+    return [(e.message, e.line) for e in rng.error_log]
+
+
+def schema_check(source_tree, output_tree, schema: str | Path = DEFAULT_SCHEMA) -> dict:
+    """Output valid, or invalid only with errors the source already had (compared by message)."""
+    out = schema_errors(output_tree, schema)
+    if not out:
+        return _check(True, "valid")
+    src = schema_errors(source_tree, schema)
+    new = Counter(m for m, _ in out) - Counter(m for m, _ in src)
+    if not new:
+        return _check(True, f"source already invalid ({len(src)} errors), no new errors")
+    first = next((m, line) for m, line in out if m in new)
+    return _check(False, f"{sum(new.values())} new errors, first: line {first[1]}: {first[0]}")
 
 
 def _texts(root):
@@ -80,7 +114,9 @@ def _sequences(entries, attr, policy: Policy):
     return dict(ordered), loose
 
 
-def validate(source_tree, output_tree, policy: Policy, src: str, tgt: str) -> dict:
+def validate(source_tree, output_tree, policy: Policy, src: str, tgt: str,
+             schema: str | Path | None = DEFAULT_SCHEMA) -> dict:
+    """Named checks {name: {ok, detail}}. `schema=None` skips the TEI schema check."""
     checks = {}
 
     # 1. Well-formed: serialize and parse again.
@@ -136,5 +172,9 @@ def validate(source_tree, output_tree, policy: Policy, src: str, tgt: str) -> di
                 e.text = (e.text or "").strip()
         return etree.tostring(h, encoding="unicode")
     checks["header unchanged"] = _check(header(source_tree) == header(output_tree))
+
+    # 6. TEI schema: no errors beyond those already in the source.
+    if schema is not None and checks["well-formed"]["ok"]:
+        checks["TEI schema (tei_all)"] = schema_check(source_tree, output_tree, schema)
 
     return checks

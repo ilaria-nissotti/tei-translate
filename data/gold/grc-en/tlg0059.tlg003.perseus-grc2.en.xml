@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+        
+        <fileDesc>
+            
+            <titleStmt>
+                <title xml:lang="grc">Κρίτων</title>
+                <author>Plato</author>
+                <editor>John Burnet</editor>
+                <sponsor>Perseus Project, Tufts University</sponsor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Lisa Cerrato</name>
+                    <name>William Merrill</name>
+                    <name>Elli Mylonas</name>
+                    <name>David Smith</name>
+                </respStmt>
+                <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+                <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+            </titleStmt>
+            
+            
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+                <date type="release">1996</date>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                    <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+                </availability>
+            </publicationStmt> 
+            <notesStmt>
+                <note anchored="true">Text was scanned at St. Olaf Spring, 1992.</note>
+                <note>Perseus 2.0</note>
+            </notesStmt>
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Plato</author>
+                        <title xml:lang="lat">Platonis Opera</title>
+                        <editor>John Burnet</editor>                       
+                        <imprint>
+                            <pubPlace>Oxford</pubPlace>
+                            <publisher>Clarendon Press</publisher>
+                            <date>1905</date>
+                        </imprint>
+                        <biblScope unit="volume">1</biblScope>
+                    </monogr> 
+                    <ref target="https://archive.org/details/operarecognovitb01platuoft/page/25/mode/1up">Internet Archive</ref>
+                </biblStruct>
+                
+            </sourceDesc>
+            
+            
+        </fileDesc>
+        
+        <encodingDesc>
+          
+<refsDecl n="CTS">
+            <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                <p>This pointer pattern extracts section.</p>
+            </cRefPattern>
+        </refsDecl>
+            
+           <!-- <refsDecl doctype="TEI.2">
+                <state unit="text"/>
+                <state unit="section"/>
+            </refsDecl>-->
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
+            </langUsage>
+           <particDesc>
+              <person><persName>Σωκράτης</persName></person>
+              <person><persName>Κρίτων</persName></person>
+           </particDesc>
+        </profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+           <change when="2017-03-16" who="Lisa Cerrato">EpiDoc and CTS file conversion; further refinements</change>
+           <change when="2014-05-01" who="Bridget Almas">Converted speaker to said and section milestones to divs.</change>
+           <change when="1992-07-01" who="DAS">Tagged in conformance with Prose.e dtd.</change>
+            
+        </revisionDesc>
+        
+    </teiHeader>
+    <text xml:lang="en">
+        <body xml:base="urn:cts:greekLit:tlg0059.tlg003.perseus-grc2">
+           <div n="urn:cts:greekLit:tlg0059.tlg003.perseus-grc2" type="edition" xml:lang="en">
+            <head>Crito</head>
+      <div type="textpart" subtype="section" resp="perseus" n="43">
+         
+         <p><said who="#Σωκράτης"><milestone n="43" unit="page" resp="Stephanus"/>
+
+            <milestone unit="section" resp="Stephanus" n="43a"/>
+            <label>Soc.</label> Why have you come at this hour, Crito? Or is it not still early?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Yes, very early indeed.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> About what time is it?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Just before dawn.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> I am surprised that the guard of the prison was willing to let you in.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> He is used to me by now, Socrates, because I come here so often, and besides he has had some kindness from me.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Have you just come, or a long while ago?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> A fairly long while ago.
+                </said></p>
+         
+         
+         <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="43b"/>
+            <label>Soc.</label> Then how is it that you did not wake me at once, but sit beside me in silence?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> No, by Zeus, Socrates, I would not myself wish to be in such sleeplessness and grief; but I have long been marvelling at you, seeing how sweetly you sleep; and I deliberately did not wake you, so that you might pass the time as pleasantly as possible. And often before, throughout your whole life, I have thought you happy in your disposition, but far most of all in the present misfortune, seeing how easily and gently you bear it.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Indeed, Crito, it would be out of tune for a man of my age to be vexed if he must now die.
+                    </said></p>
+         
+         
+         <p><said who="#Κρίτων"><milestone unit="section" resp="Stephanus" n="43c"/><label>Cri.</label> Others too, Socrates, of the same age are caught in such misfortunes, but their age does not at all free them from being vexed at their present fortune.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> That is so. But why have you come so early?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Bringing news, Socrates, that is hard, not for you, as it seems to me, but for me and for all your friends both hard and heavy, and I, I think, would bear it among the heaviest of all.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> What news is this? Or has the ship come from Delos, upon whose <milestone unit="section" resp="Stephanus" n="43d"/>arrival I must die?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> It has not arrived yet, but I think it will come today, from what some men report who have come from Sunium and left it there. It is clear, then, from these <del>messengers</del> that it will come today, and so tomorrow, Socrates, you must end your life.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Well, Crito, with good fortune; if this is dear to the gods, so be it. However, I do not think it will come today.</said></p></div>
+              
+              <div type="textpart" subtype="section" resp="perseus" n="44">
+            
+                 <p><said who="#Κρίτων"><milestone n="44" unit="page" resp="Stephanus"/>
+                    <milestone unit="section" resp="Stephanus" n="44a"/><label>Cri.</label> From what do you infer this?</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> I will tell you. I must die, I believe, on the day after the ship comes in.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> So at least those who have authority over these things say.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then I do not think it will come on the coming day, but on the next. And I infer this from a dream which I saw a little while ago in this night; and it may be that you did well, at the right moment, not to wake me.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> And what was the dream?</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> I thought that a woman, beautiful and fair of form, came to me,<milestone unit="section" resp="Stephanus" n="44b"/> wearing white garments, and called me and said: <q>Socrates, <cit>
+                  <quote type="verse">
+                     <l met="dactylic">on the third day you would come to fertile Phthia.</l>
+                  </quote>
+                  <bibl n="Hom. Il. 9.363">ηομ. ιλ. 9.363</bibl>
+               </cit></q></said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> A strange dream, Socrates.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> No, a clear one, as it seems to me at least, Crito.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> All too clear, it seems. But, my good Socrates, even now listen to me and save yourself; since for me, if you die, it is not a single misfortune, but apart from being deprived of such a friend as I shall never find again, many people, besides, who do not know you and me well, will think <milestone unit="section" resp="Stephanus" n="44c"/>that, although I could have saved you if I had been willing to spend money, I did not care. And yet what reputation could be more shameful than this, to be thought to value money more than friends? For most people will not believe that you yourself were unwilling to go away from here when we were eager for it.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> But why, my dear Crito, do we care so much about the opinion of the many? For the most reasonable men, whom it is more worth heeding, will believe that these things were done just as they were done.
+                                        </said></p>
+         
+         
+                 <p><said who="#Κρίτων"><milestone unit="section" resp="Stephanus" n="44d"/><label>Cri.</label> But you see, Socrates, that one must also care about the opinion of the many. The present situation itself makes it clear that the many are able to bring about not the smallest of evils but very nearly the greatest, if a man has been slandered among them.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> I only wish, Crito, that the many were able to do the greatest evils, so that they might also be able to do the greatest goods; then it would be well. But as it is they can do neither; for they cannot make a man either wise or foolish, but they do whatever chance brings.
+                                            </said></p>
+         
+         
+                 <p><said who="#Κρίτων"><milestone unit="section" resp="Stephanus" n="44e"/><label>Cri.</label> Let that be so; but tell me this, Socrates. Are you not concerned for me and your other friends, fearing that, if you escape from here, the informers will make trouble for us, saying that we stole you away from here, and we shall be compelled to lose either all our property or a great deal of money, or even to suffer something else besides?
+            </said></p></div>
+         
+              <div type="textpart" subtype="section" resp="perseus" n="45">
+                 <p><said who="#Κρίτων" rend="merge"><label>Cri.</label>
+             For if you fear anything <milestone n="45" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="45a"/>of this kind, let it go; for it is surely right for us, in saving you, to run this risk, and, if need be, one still greater than this. Come, listen to me and do not do otherwise.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> I am concerned about these things, Crito, and many others.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Then do not fear these things—for it is not even much money that some people want to receive in order to save you and bring you out of here. And then, do you not see how cheap these informers are, and that not much money would be needed for them? <milestone unit="section" resp="Stephanus" n="45b"/>You have my money at your disposal, which is enough, I think; and then, if out of concern for me you think you ought not to spend mine, these foreigners here are ready to spend theirs; one of them, Simmias the Theban, has even brought enough money for this very purpose, and Cebes too is ready, and very many others. So, as I say, do not, out of fear of this, give up saving yourself, and do not let what you said in the court trouble you, that if you went away you would not know what to do with yourself; for in many places <milestone unit="section" resp="Stephanus" n="45c"/>and elsewhere, wherever you go, they will welcome you; and if you want to go to Thessaly, I have friends there who will value you highly and give you safety, so that no one throughout Thessaly will trouble you.<milestone unit="para" ed="P"/>Moreover, Socrates, it seems to me that you are not even attempting a just thing, betraying yourself when you could be saved, and you are eager to bring upon yourself just the things which your enemies too would be eager for, and were eager for, in wishing to destroy you. And besides this, you seem to me to be betraying your own sons too, whom, <milestone unit="section" resp="Stephanus" n="45d"/>though you could bring them up and educate them, you will go off and abandon, and as far as you are concerned they will fare however chance has it; and they will meet, in all likelihood, with the sort of things that usually happen to orphans in their orphanhood. For either one should not have children, or one should share their toil to the end, bringing them up and educating them; but you seem to me to be choosing the easiest way. One ought instead to choose what a good and brave man would choose, especially one who claims to have cared for virtue throughout his whole life; so that I, for my part, am ashamed both <milestone unit="section" resp="Stephanus" n="45e"/>for you and for us, your friends, lest it seem that this whole affair of yours has been carried out through some cowardice of ours: both the bringing of the case into the court, how it came in when it need not have come in, and the conduct of the trial itself, how it went, and now this last thing, the crowning absurdity of the affair, that it will seem to have escaped <milestone n="46" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="46a"/>us through some baseness and cowardice of ours, since we did not save you, nor did you save yourself, though it was possible and feasible if we had been of even a little use.</said></p></div>
+               
+               <div type="textpart" subtype="section" resp="perseus" n="46">
+                  <p><said who="#Κρίτων" rend="merge"><label>Cri.</label> See to it then, Socrates, that these things are not shameful as well as bad, both for you and for us. Come, take counsel—or rather it is no longer the time to take counsel, but to have taken it—and there is only one plan; for all this must be done in the coming night, and if we still wait, it will be impossible and no longer feasible. Come, by all means, Socrates, listen to me and do not do otherwise.</said></p>
+         
+         
+                  <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="46b"/><label>Soc.</label> My dear Crito, your eagerness is worth much, if it should be joined with some rightness; but if not, the greater it is, the harder it is to deal with. So we must examine whether we ought to do this or not; for I am, not only now but always, the kind of man who obeys nothing of mine except the reasoning which seems best to me when I consider it. The arguments which I used to state before I cannot throw away now, since this fortune has come upon me, but they seem to me much the same, <milestone unit="section" resp="Stephanus" n="46c"/>and I revere and honour the same ones as before; and unless we can say anything better than these in the present situation, be well assured that I will not give in to you, not even if the power of the many tries to frighten us like children with more bogeys than those now present, sending against us imprisonments and deaths and confiscations of property. How then could we examine these things most reasonably? If we first take up this argument which you state about opinions. Was it well said every time, or not, <milestone unit="section" resp="Stephanus" n="46d"/>that we must pay attention to some opinions but not to others? Or was it well said before I had to die, while now it has become plain that it was said idly, for the sake of talk, and was in truth play and nonsense? I, for my part, desire to examine, Crito, in common with you, whether it will appear to me in any way different, now that I am in this condition, or the same, and whether we shall let it go or obey it. It used to be said every time, I think, somewhat in this way by those who thought they were talking sense, just as I was saying just now, that of the opinions which men <milestone unit="section" resp="Stephanus" n="46e"/>hold, some should be highly valued and others not. By the gods, Crito, does this not seem to you to be well said?</said></p></div> 
+                                                        
+              <div type="textpart" subtype="section" resp="perseus" n="47">
+                 <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> —for you, as far as human things go, are not about to die
+              <milestone n="47" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="47a"/>
+            tomorrow, and the present misfortune would not lead you astray; so consider—does it not seem to you rightly said that one must not honour all the opinions of men, but some and not others, nor the opinions of all men, but of some and not of others? What do you say? Is this not well said?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> It is well said.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then we should honour the good ones, but not the bad ones?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Yes.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> And are not the good ones those of the wise, and the bad ones those of the foolish?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Of course.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Come then, how again were such things said? In training, does a <milestone unit="section" resp="Stephanus" n="47b"/>man who practises it pay attention to the praise and blame and opinion of every man, or of that one man only who happens to be a doctor or a trainer?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Of that one only.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then he ought to fear the blame and welcome the praise of that one man, but not those of the many.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Clearly.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> So he must act and exercise and eat and drink in the way that seems best to the one, the overseer who understands, rather than in the way that seems best to all the others together.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> That is so.</said></p>
+         
+         
+                 <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="47c"/><label>Soc.</label> Very well. But if he disobeys the one, and disregards his opinion and his praises, and honours the <del>words</del> of the many, who understand nothing, will he not suffer some harm?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Of course he will.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> And what is this harm, and where does it tend, and to what part of the one who disobeys?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Clearly to his body; for that is what it ruins.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> You are right. Then the same holds for the other things too, Crito, so that we need not go through them all, and in particular about the just and unjust and the shameful and noble and the good and bad, about which we are now taking counsel: whether we <milestone unit="section" resp="Stephanus" n="47d"/>must follow the opinion of the many and fear it, or that of the one, if there is anyone who understands, whom we must respect and fear more than all the others together? And if we do not follow him, we shall ruin and maim that which, as we used to say, becomes better by the just and is destroyed by the unjust. Or is this nothing?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> I think it is something, Socrates.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Come then, if we destroy that which becomes better by what is healthy and is ruined by what is diseased, by obeying not the opinion of those who understand, is life worth living for us when it <milestone unit="section" resp="Stephanus" n="47e"/>has been ruined? And this, I suppose, is the body; is it not?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Yes.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Is life worth living for us, then, with a wretched and ruined body?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> By no means.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> But is life worth living for us when that is ruined which the unjust maims and the just benefits? Or do we think that it, whatever it is of <milestone n="48" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="48a"/>ours, with which injustice and justice are concerned, is of less account than the body?</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="48">
+             <p><said who="#Κρίτων"><label>Cri.</label> By no means.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> But more precious?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Much more.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then, my excellent friend, we must not care so very much what the many will say of us, but what the one who understands about the just and unjust will say, the one, and the truth itself. So, first of all, you are not right in this proposal, when you propose that we must care about the opinion of the many about the just and noble and good and their opposites. <q>But surely,</q> someone might say, <q>the many are able to kill us.</q></said></p>
+         
+         
+               <p><said who="#Κρίτων"><milestone unit="section" resp="Stephanus" n="48b"/><label>Cri.</label> That too is clear; for someone might say so, Socrates. You are right.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> But, my admirable friend, this argument which we have gone through still seems to me the same as before; and consider in turn whether this one still stands for us or not, that it is not living that we must value most, but living well.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Why, it stands.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> And that living well and nobly and justly are the same thing, does that stand or not?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> It stands.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then from what has been agreed we must examine this: whether it is just for me to try to go away from here without the <milestone unit="section" resp="Stephanus" n="48c"/>Athenians letting me go, or not just; and if it appears just, let us try, and if not, let us give it up. But as for the considerations you speak of, about spending money and reputation and the bringing up of children, I fear, Crito, that these are in truth the considerations of those who lightly put men to death and would bring them back to life again, if they could, without any sense, these many. But for us, since the argument so decides, there is nothing else to consider except what we were saying just now: whether we shall act justly in paying money and thanks to those <milestone unit="section" resp="Stephanus" n="48d"/>who will lead me out of here, and in ourselves leading out and being led out, or whether in truth we shall act unjustly in doing all these things; and if it appears that we are doing this unjustly, I fear that we must not take into account either whether we must die if we stay here and keep quiet, or suffer anything else whatever, rather than do wrong.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> I think you speak well, Socrates; but see what we are to do.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Let us examine it together, my good friend, and if you can in any way contradict <milestone unit="section" resp="Stephanus" n="48e"/>what I say, contradict me and I will obey you; but if not, stop now, my dear friend, telling me over and over the same story, that I must go away from here against the will of the Athenians; for I think it important to act with your consent, and not against your will. And see whether the starting point of our inquiry is stated to you <milestone n="49" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="49a"/>
+           satisfactorily, and try to answer what is asked in the way you most truly think.</said></p></div>
+              
+            <div type="textpart" subtype="section" resp="perseus" n="49">
+               <p><said who="#Κρίτων"><label>Cri.</label> Well, I will try.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Do we say that one must in no way willingly do wrong, or that one must do wrong in one way but not in another? Or is doing wrong never good or noble, as we have often agreed in former times? <del>as was said just now too</del> Or have all those former agreements of ours been poured away in these few days, and have we, Crito, <del>old</del> men of such an age, long been talking seriously with one another <milestone unit="section" resp="Stephanus" n="49b"/>without noticing that we ourselves were no different from children? Or is it, above all, just as we used to say then: whether the many say so or not, and whether we must suffer still harsher things than these or even milder ones, nevertheless doing wrong is in every way both bad and shameful for the one who does it? Do we say so or not?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> We say so.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then one must in no way do wrong.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Certainly not.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Nor, then, when wronged, must one do wrong in return, as the many think, since one must in no way do wrong.</said></p>
+         
+         
+               <p><said who="#Κρίτων"><milestone unit="section" resp="Stephanus" n="49c"/><label>Cri.</label> It seems not.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> What then? Must one do harm, Crito, or not?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> Surely one must not, Socrates.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> What then? Is it just to do harm in return when one has been harmed, as the many say, or not just?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> By no means.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> For doing harm to men, I suppose, differs not at all from doing wrong.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> You are right.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then one must neither do wrong in return nor do harm to any man, whatever one may suffer at their hands. And see, <milestone unit="section" resp="Stephanus" n="49d"/>Crito, in agreeing to this, that you do not agree contrary to your belief; for I know that only a few people hold this view or will hold it. And those who hold this view and those who do not have no common counsel, but they must necessarily despise one another when they see one another's decisions. So consider very carefully whether you share this view and agree with me, and let us start our deliberation from this point, that it is never right to do wrong or to do wrong in return, or, when one is harmed, to defend oneself by doing harm in return; or do you withdraw and not share this starting point? <milestone unit="section" resp="Stephanus" n="49e"/>For I have long thought so and still think so now; but if you have come to think otherwise in any way, speak and teach me. But if you abide by what we said before, hear what follows.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> I do abide by it and agree with you; so speak.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then I state the next point, or rather I ask: when a man has agreed with someone that something is just, ought he to do it or to break faith?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> He ought to do it.</said></p></div>
+              
+            <div type="textpart" subtype="section" resp="perseus" n="50">
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then consider what follows from this. If we go away from here without <milestone n="50" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="50a"/>persuading the city, are we doing harm to some, and that to those whom we ought least to harm, or not? And are we abiding by what we agreed was just, or not?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> I cannot answer what you ask, Socrates; for I do not understand.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> Then consider it this way. If, as we were about to run away from here, or whatever one should call it, the laws and the commonwealth of the city came and stood before us and asked: <q>Tell me, Socrates, what do you have in mind to do? Do you intend anything else by this <milestone unit="section" resp="Stephanus" n="50b"/>deed which you are attempting than to destroy us, the laws, and the whole city, as far as in you lies? Or do you think that a city can still exist and not be overturned, in which the judgments that have been given have no force, but are made invalid and destroyed by private persons?</q> What shall we say, Crito, to this and other such words? For one could say many things, especially an orator, on behalf of this law that is being destroyed, which orders that the judgments that have been pronounced shall be valid. <milestone unit="section" resp="Stephanus" n="50c"/>Or shall we say to them, <q>Yes, for the city wronged us and did not judge the case rightly?</q> Shall we say this, or what?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> This, by Zeus, Socrates.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> What then if the laws should say: <q>Socrates, was this too agreed between us and you, or was it to abide by the judgments which the city pronounces?</q> And if we were surprised at their words, they would perhaps say: <q>Socrates, do not be surprised at what is said, but answer, since you are accustomed to make use of questioning and answering. Come now, what complaint do you have against
+               <milestone unit="section" resp="Stephanus" n="50d"/>us and the city, that you are trying to destroy us? Did we not first give you birth, and was it not through us that your father took your mother in marriage and begot you? Tell us, then, do you find fault with those of us, the laws concerning marriage, as not being good?</q> <q>I find no fault,</q> I should say. <q>Then with those concerning the nurture and education of the child, in which you too were educated? Or did those of us who were appointed for this not give good orders, when they instructed your father to educate you in
+               <milestone unit="section" resp="Stephanus" n="50e"/>music and gymnastics?</q> <q>They did well,</q> I should say. <q>Very well. And since you were born and brought up and educated, could you say, first, that you were not our offspring and slave, both you yourself and your forefathers? And if this is so, do you think that right is on an equal footing between you and us, and that whatever we try to do to you, you think it right to do in return to us?</q></said></p>
+              </div>
+              
+              <div type="textpart" subtype="section" resp="perseus" n="51">
+                 <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> <q rend="merge">Or was right not on an equal footing between you and your father, or your master, if you happened to have one, so that you could do in return whatever you suffered, neither, when reviled, <milestone n="51" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="51a"/>to revile in return, nor, when struck, to strike back, nor many other such things; but against your fatherland and the laws it will be permitted to you, so that, if we try to destroy you, thinking it to be just, you in turn will try, as far as you are able, to destroy us, the laws, and your fatherland, and you will say that in doing this you are acting justly, you who truly care for virtue? Or are you so wise that it has escaped you that your fatherland is more to be honoured than mother and father and all your other ancestors, and more venerable and holier,
+ <milestone unit="section" resp="Stephanus" n="51b"/>and held in higher esteem both among the gods and among men of understanding, and that one must revere it and yield to it and appease it when it is angry, more than a father, and either persuade it or do whatever it commands, and suffer in silence whatever it orders one to suffer, whether to be beaten or to be bound, or if it leads one to war to be wounded or killed, this must be done, and right is so, and one must not give way or retreat or leave one's post, but in war and in court and everywhere one must do whatever the
+      <milestone unit="section" resp="Stephanus" n="51c"/>city and the fatherland command, or persuade it of what is by nature just; but that it is impious to use violence against mother or father, and much more still against the fatherland?</q> What shall we say to this, Crito? That the laws speak the truth, or not?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> I think they do.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> <q>Consider then, Socrates,</q> the laws would perhaps say, <q>whether we are saying this truly, that what you are now attempting to do to us is not just. For we, who brought you into the world, nurtured you, educated you, and gave you and all the other citizens a share in all the good things we
+<milestone unit="section" resp="Stephanus" n="51d"/>were able to, nevertheless proclaim, by having given the right to any Athenian who wishes, that when he has been admitted to manhood and has seen the affairs of the city and us, the laws, he may, if we do not please him, take his own property and go away wherever he wishes. And none of us laws stands in the way or forbids, if any of you wishes to go to a colony, if we and the city do not please him, or to go and settle somewhere else, to go wherever he
+ <milestone unit="section" resp="Stephanus" n="51e"/>wishes, keeping his own property. But whoever of you stays here, seeing the way in which we pronounce judgments and administer the city in other respects, we say that he has thereby agreed with us in deed to do whatever we command; and we say that the one who does not obey does wrong in three ways: because he does not obey us who gave him birth, and because he does not obey us who nurtured him, and because, having agreed to obey us, he neither obeys nor persuades us, if we are doing anything wrongly, <milestone n="52" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="52a"/>although we propose and do not harshly command him to do whatever we order, but allow him one of two things, either to persuade us or to do it, and he does neither of these.</q></said></p></div> 
+               
+               
+              <div type="textpart" subtype="section" resp="perseus" n="52">
+                 <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> <q rend="merge">To these charges, Socrates, we say that you too will be liable, if you do what you have in mind, and you not least of the Athenians, but among the most.</q> If then I should say: <q>Why so?</q> they would perhaps justly reproach me, saying that I, among the most of the Athenians, happen to have made this agreement with them. For they would say:
+ <milestone unit="section" resp="Stephanus" n="52b"/><q>Socrates, we have strong evidence of this, that both we and the city pleased you; for you would never have stayed in it more than all the other Athenians if it had not pleased you more, and you never went out of the city to a festival, except once to the Isthmus, nor anywhere else, except somewhere on military service, nor did you ever make any other journey abroad, as other men do, nor did any desire seize you to know another city or other laws, but
+<milestone unit="section" resp="Stephanus" n="52c"/>for you we and our city were sufficient; so strongly did you choose us and agree to live as a citizen under us, and in particular you had children in it, since the city pleased you. Moreover, in the trial itself you could have proposed exile as your penalty, if you had wished, and done then with the city's consent what you are now attempting against its will. But then you prided yourself on not being vexed if you had to die, and you chose, as you said, death rather than exile; but now you are neither ashamed of those words nor do you respect us, the laws, as you try to destroy us, and you are doing
+<milestone unit="section" resp="Stephanus" n="52d"/>just what the meanest slave would do, trying to run away contrary to the compacts and agreements by which you agreed with us to live as a citizen. First, then, answer us this very question, whether we speak the truth when we say that you agreed, in deed and not in word, to live as a citizen under us, or not.</q> What shall we say to this, Crito? Must we not agree?</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> We must, Socrates.</said></p>
+            <p><said who="#Σωκράτης"><label>Soc.</label> <q>Are you not, then,</q> they would say, <q>transgressing the compacts and agreements with
+<milestone unit="section" resp="Stephanus" n="52e"/>us ourselves, which you agreed to not under compulsion or deceived or forced to decide in a short time, but in seventy years, during which you could have gone away, if we did not please you and the agreements did not seem just to you.</q></said></p></div>
+              
+              <div type="textpart" subtype="section" resp="perseus" n="53">
+                 <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> <q rend="merge">But you preferred neither Lacedaemon nor Crete, which you are always saying are well governed, nor any other <milestone n="53" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="53a"/>of the Greek cities or of the barbarian ones, but you went away from it less than the lame and the blind and the other cripples; so much more than the other Athenians were you clearly pleased with the city and with us, the laws; for who would be pleased with a city without laws? And now will you not abide by what you agreed? You will, if you listen to us, Socrates; and you will not make yourself ridiculous by going out of the city.<milestone unit="para" ed="P"/>For consider, if you transgress these agreements and commit any of these faults, what good you will do yourself or those friends <milestone unit="section" resp="Stephanus" n="53b"/>of yours. For that your friends will run the risk of being exiled themselves and deprived of their city, or of losing their property, is pretty clear; and you yourself, first, if you go to one of the nearest cities, either to Thebes or to Megara— for both are well governed—you will come as an enemy, Socrates, to their government, and all who care for their own cities will look askance at you, considering you a destroyer of the laws, and you will confirm the opinion of the judges, so that they will seem to have judged the <milestone unit="section" resp="Stephanus" n="53c"/>case rightly; for whoever is a destroyer of laws would very likely be thought a destroyer of young and foolish men. Will you then avoid the well-governed cities and the most orderly of men? And if you do this, will it be worth your while to live? Or will you associate with them and be shameless enough to converse with them—with what arguments, Socrates? The same as here, that virtue and justice are of the greatest worth to men, and lawful customs and the laws? And do you not think that the affair of Socrates <del>would</del>
+<milestone unit="section" resp="Stephanus" n="53d"/>appear unseemly? One must think so. But will you depart from these places and go to Thessaly, to Crito's friends? For there, indeed, there is the greatest disorder and licence, and perhaps they would enjoy hearing from you how absurdly you ran away from the prison, putting on some disguise, either taking a leather jerkin or something else such as runaways are accustomed to dress up in, and altering your own appearance; but will no one say that you, an old man, with in all <milestone unit="section" resp="Stephanus" n="53e"/>likelihood only a short time of life left, dared to desire life so greedily, transgressing the greatest laws? Perhaps not, if you do not annoy anyone; but otherwise, Socrates, you will hear many things unworthy of yourself. So you will live fawning upon all men and serving them— doing what, except feasting in Thessaly, as if you had gone abroad to Thessaly for a dinner?</q></said></p></div>
+              
+              <div type="textpart" subtype="section" resp="perseus" n="54">
+                 <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> <q rend="merge">And those arguments about <milestone n="54" unit="page" resp="Stephanus"/><milestone unit="section" resp="Stephanus" n="54a"/>justice and the rest of virtue, where will they be for us? But do you wish to live for the sake of your children, so that you may bring them up and educate them? What then? Will you take them to Thessaly and bring them up and educate them there, making them foreigners, so that they may enjoy this too? Or not that, but if they are brought up here while you are alive, will they be better brought up and educated when you are not with them? For your friends will take care of them. Will they take care of them if you go away to Thessaly, but not take care of them if you go away to Hades? If those who say they are your friends <milestone unit="section" resp="Stephanus" n="54b"/>are of any use at all, one must think they will.<milestone unit="para" ed="P"/>But, Socrates, obey us, who brought you up, and do not value children or life or anything else above what is just, so that when you come to Hades you may have all this to say in your defence to those who rule there; for neither here does it appear better for you to do this, nor more just, nor holier, nor for any of your friends, nor will it be better for you when you arrive there. But as it is, you will depart wronged,
+                    <milestone unit="section" resp="Stephanus" n="54c"/>if you depart, not by us, the laws, but by men; but if you go out, having so shamefully returned wrong for wrong and harm for harm, having transgressed your own agreements and compacts with us and done harm to those whom you ought least to harm, yourself and your friends and your fatherland and us, we shall be angry with you while you live, and there our brothers, the laws in Hades, will not receive you kindly, knowing that you tried, as far as in you lay, to destroy us too. But do not let Crito <milestone unit="section" resp="Stephanus" n="54d"/>persuade you to do what he says, rather than us.</q><milestone unit="para" ed="P"/>This, my dear friend Crito, be well assured, is what I seem to hear, as the Corybantes seem to hear the flutes, and this sound of these words booms within me and makes me unable to hear the others; but be assured that, as far as my present opinions go, if you speak against them, you will speak in vain. Nevertheless, if you think you will accomplish anything more, speak.</said></p>
+            <p><said who="#Κρίτων"><label>Cri.</label> But, Socrates, I have nothing to say.</said></p>
+         
+         
+                 <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="54e"/><label>Soc.</label> Then let it be, Crito, and let us act in this way, since this is the way the god leads us.</said></p></div>
+           </div> 
+      </body>
+   </text>
+</TEI>

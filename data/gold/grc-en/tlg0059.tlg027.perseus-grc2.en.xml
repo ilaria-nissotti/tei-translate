@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+
+      <fileDesc>
+
+         <titleStmt>
+            <title xml:lang="grc">Ἴων</title>
+            <author>Plato</author>
+            <editor>John Burnet</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+            <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+
+         </titleStmt>
+
+         
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release">1996</date>
+             <availability>
+                 <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                 <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+             </availability>
+         </publicationStmt> 
+         <notesStmt>
+            <note anchored="true">Text was scanned at St. Olaf Spring, 1992.</note>
+            <note>Perseus 2.0</note>
+         </notesStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Plato</author>
+                  <title xml:lang="lat">Platonis Opera</title>
+                  <editor>John Burnet</editor>                       
+                  <imprint>
+                     <pubPlace>Oxford</pubPlace>
+                     <publisher>Clarendon Press</publisher>
+                     <date>1903</date>
+                  </imprint>
+                  <biblScope unit="volume">3</biblScope>
+               </monogr> 
+               <ref target="https://archive.org/details/operarecognovitb03platuoft/page/582/mode/1up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+
+
+      </fileDesc>
+
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">           
+               <p>This pointer pattern extracts section</p>
+            </cRefPattern>
+         </refsDecl>
+         
+         <!--  <refsDecl doctype="TEI.2">
+            <state unit="text"/>
+            <state unit="section"/>
+         </refsDecl>
+         <refsDecl doctype="TEI.2">
+            <state unit="text"/>
+            <state unit="page"/>
+         </refsDecl>-->
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
+
+      <profileDesc>
+         <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="eng">English</language>
+         </langUsage>
+         <particDesc>
+            <person><persName>Σωκράτης</persName></person>
+            <person><persName>Ἴων</persName></person>
+         </particDesc>
+      </profileDesc>
+      <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+         <change when="2017-07-17" who="Lisa Cerrato">EpiDoc and CTS conversion.</change>
+         <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+         <change when="1992-07-01" who="WPM">Tagged in conformance with Prose.e dtd.</change>
+ </revisionDesc>
+   </teiHeader>
+   
+   <text xml:lang="en">
+      <body xml:base="urn:cts:greekLit:tlg0059.tlg027.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0059.tlg027.perseus-grc2" type="edition" xml:lang="en">
+            <div type="textpart" subtype="section" resp="perseus" n="530">
+            <p><said who="#Σωκράτης"><milestone n="530" unit="page"/><milestone unit="section" resp="Stephanus" n="530a"/><label>Soc.</label> Greetings, Ion. Where have you come from now to visit us? From home, from Ephesus?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Not at all, Socrates, but from Epidaurus, from the festival of Asclepius.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Do the Epidaurians really hold a contest of rhapsodes too in honour of the god?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly, and of the rest of music too.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Well then? Did you compete, for our sake? And how did your competition go?</said></p>
+               <p><said who="#Ἴων"><milestone unit="section" resp="Stephanus" n="530b"/><label>Ion.</label> We carried off the first of the prizes, Socrates.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Well said; come now, see that we win the Panathenaea too.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> But so it shall be, if the god is willing.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And indeed I have often envied you rhapsodes, Ion, for your art; for that it always befits your art to have your body adorned and to look as handsome as possible, and at the same time that it is necessary to spend your time with many good poets, and above all with Homer, the best and most divine of the poets, and to <milestone unit="section" resp="Stephanus" n="530c"/>learn his thought thoroughly, not merely his verses, is enviable. For a man would never become a good rhapsode if he did not understand what is said by the poet. For the rhapsode must become an interpreter of the poet's thought to those who listen; and to do this well without knowing what the poet means is impossible. So all these things are worthy of envy.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> You speak the truth, Socrates; to me at least this part of the art has given the most work, and I think I speak about Homer more finely than any man, since neither Metrodorus <milestone unit="section" resp="Stephanus" n="530d"/>of Lampsacus nor Stesimbrotus of Thasos nor Glaucon nor anyone else who has ever lived had so many and such fine thoughts to express about Homer as I have.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> That is good news, Ion; for clearly you will not grudge to give me a display.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> And indeed it is worth hearing, Socrates, how well I have embellished Homer; so that I think I deserve to be crowned with a golden crown by the Homeridae.</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="531"> 
+               <p><said who="#Σωκράτης"><label>Soc.</label> And indeed I shall yet make leisure to listen to <milestone n="531" unit="page"/><milestone unit="section" resp="Stephanus" n="531a"/>you, but for now answer me just this: are you skilled about Homer only, or also about Hesiod and Archilochus?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Not at all, but about Homer only; for that seems to me to be enough.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And is there anything about which Homer and Hesiod both say the same things?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> I think so, and many things.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then about these, would you expound better what Homer says or what Hesiod says?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Equally well about these at least, <milestone unit="section" resp="Stephanus" n="531b"/>Socrates, about which they say the same things.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And what of those about which they do not say the same things? For example, about divination both Homer and Hesiod say something.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Well then? All that these two poets say about divination, both alike and differently, would you expound it better, or one of the good seers?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> One of the seers.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And if you were a seer, would you not, if you were able to expound the things said alike, also know how to expound the things said differently?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Clearly.</said></p>
+               <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="531c"/><label>Soc.</label> Why then are you skilled about Homer, but not about Hesiod, nor about the other poets? Or does Homer speak about other things than those that all the other poets together speak about? Has he not for the most part gone through war, and the dealings with one another of men good and bad, laymen and craftsmen, and the gods, how they deal with one another and with men, and the happenings in the heavens and the things in Hades, and the origins both of gods <milestone unit="section" resp="Stephanus" n="531d"/>and of heroes? Are these not the things about which Homer has made his poetry?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> You speak the truth, Socrates.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And what of the other poets? Do they not speak about these same things?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes, but, Socrates, they have not composed in the same way as Homer.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> How then? Worse?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Much worse.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And Homer better?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Better indeed, by Zeus.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Now, Ion, dear heart, when many are speaking about number and one of them speaks best, someone, I suppose, will recognize <milestone unit="section" resp="Stephanus" n="531e"/>the one who speaks well?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> I agree.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Will it then be the same one who also recognizes those who speak badly, or another?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> The same, I suppose.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And this is the one who has the art of arithmetic?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And what then? When many are speaking about wholesome foods, what sort they are, and one of them speaks best, will one person recognize of the one who speaks best that he speaks best, and another of the worse one that he speaks worse, or the same person?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Clearly, I suppose, the same.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Who is he? What is his name?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> A doctor.</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="532">
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then we say, in sum, that the same person will always recognize, when many are speaking about the same things, <milestone n="532" unit="page"/><milestone unit="section" resp="Stephanus" n="532a"/>both who speaks well and who badly; or, if he does not recognize the one who speaks badly, clearly he will not recognize the one who speaks well either, at least about the same subject.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> So it is.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then the same man turns out to be skilled about both?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Now you say that both Homer and the other poets, among whom are Hesiod and Archilochus, speak about the same things, but not in the same way, but the one well, and the others worse?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> And what I say is true.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then, if you recognize the one who speaks well, <milestone unit="section" resp="Stephanus" n="532b"/>you would also recognize of those who speak worse that they speak worse.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> So it seems.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then, my excellent friend, we shall not be wrong in saying that Ion is equally skilled about Homer and about the other poets, since he himself agrees that the same man will be a competent judge of all who speak about the same things, and that the poets nearly all treat the same things.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> What then is the reason, Socrates, that I, when someone discusses some other poet, neither pay <milestone unit="section" resp="Stephanus" n="532c"/>attention and am unable to contribute anything worth mentioning, but simply doze off, whereas when someone mentions Homer, I am at once awake and pay attention and have plenty to say?</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> That is not hard to guess, my friend, but it is clear to everyone that you are unable to speak about Homer by art and knowledge; for if you were able to do it by art, you would be able to speak about all the other poets as well; for there is, I suppose, an art of poetry as a whole. Or is there not?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="532d"/><label>Soc.</label> Then when someone takes any other art whatever as a whole, will the same method of inquiry hold for all the arts? Do you need to hear from me how I mean this, Ion?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes, by Zeus, Socrates, I do; for I enjoy listening to you wise men.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> I would wish you were speaking the truth, Ion; but surely it is you who are wise, you rhapsodes and actors and those whose poems you sing, while I speak nothing but the truth, <milestone unit="section" resp="Stephanus" n="532e"/>as is to be expected of a layman. For about this too that I just asked you, see how trivial and commonplace it is, and anyone's to know, what I was saying, that the inquiry is the same whenever someone takes an art as a whole. Let us take it in our argument: is there an art of painting as a whole?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And there are and have been many painters, good and bad?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly.</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="533">
+               <p><said who="#Σωκράτης"><label>Soc.</label> Now, have you ever seen anyone who is skilled at pointing out, about Polygnotus son of Aglaophon, what he paints well and what not, but about the other painters <milestone n="533" unit="page"/><milestone unit="section" resp="Stephanus" n="533a"/>is unable? And when someone displays the works of the other painters, he dozes and is at a loss and has nothing to contribute, but when he must give his opinion about Polygnotus or any other one painter you like, he is awake and pays attention and has plenty to say?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No, by Zeus, certainly not.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And what? In sculpture, have you ever seen anyone who, about Daedalus son of Metion <milestone unit="section" resp="Stephanus" n="533b"/>or Epeius son of Panopeus or Theodorus of Samos or some other single sculptor, is skilled at expounding what he has made well, but among the works of the other sculptors is at a loss and dozes, having nothing to say?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No, by Zeus, I have not seen this one either.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And further, as I at least believe, neither in flute-playing nor in lyre-playing nor in singing to the lyre nor in rhapsody have you ever seen a man who is skilled at expounding about Olympus or about Thamyras or about <milestone unit="section" resp="Stephanus" n="533c"/>Orpheus or about Phemius, the rhapsode of Ithaca, but about Ion of Ephesus, <del>the rhapsode</del>, is at a loss and cannot contribute what he recites well and what not.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> I cannot contradict you about this, Socrates; but this I am conscious of in myself, that I speak most finely of all men about Homer and have plenty to say, and all the others say that I speak well, but about the others not. And yet see what this is.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> I do see it, Ion, and I am going to show you <milestone unit="section" resp="Stephanus" n="533d"/>what this seems to me to be. For this speaking well about Homer is not an art in you, as I was saying just now, but a divine power that moves you, as in the stone which Euripides named the Magnesian, but most people call the Heraclean. For this stone not only attracts the iron rings themselves, but also puts a power into the rings, so that they in turn are able to do this same thing that the stone does, to <milestone unit="section" resp="Stephanus" n="533e"/>attract other rings, so that sometimes a very long chain of pieces of iron and rings hangs from one another; and for all of these the power hangs from that stone. So too the Muse herself makes men inspired, and through these inspired men a chain of others who are inspired hangs from her.</said></p></div> 
+            
+            <div type="textpart" subtype="section" resp="perseus" n="534">
+              <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> For all the good epic poets utter all these fine poems not from art, but being inspired and possessed, and the good lyric poets likewise; just as the Corybantes <milestone n="534" unit="page"/><milestone unit="section" resp="Stephanus" n="534a"/>do not dance when they are in their senses, so too the lyric poets do not compose these fine songs when they are in their senses, but when they have stepped into harmony and rhythm, they are in a Bacchic frenzy and possessed, just as the Bacchants draw honey and milk from the rivers when they are possessed, but not when they are in their senses; and the soul of the lyric poets does this very thing, as they themselves say. For the poets tell us, of course, that <milestone unit="section" resp="Stephanus" n="534b"/>they gather their songs from honey-flowing springs in certain gardens and glades of the Muses and bring them to us like the bees, flying like them themselves; and they speak the truth. For a poet is a light thing, and winged and sacred, and is not able to compose until he has become inspired and out of his senses, and his mind is no longer in him; as long as he keeps this possession, every man is unable to compose and to chant oracles. Since, then, it is not by art that they compose and say many fine things about <milestone unit="section" resp="Stephanus" n="534c"/>their subjects, as you do about Homer, but by a divine dispensation, each is able to compose well only that to which the Muse has stirred him, one dithyrambs, another encomia, another dance-songs, another epic, another iambics; but in the other kinds each of them is poor. For they do not say these things by art, but by divine power, since, if they knew by art how to speak well about one kind, they would know about all the others too. And for this reason the god, taking away their mind, uses them as his servants, as he also uses <milestone unit="section" resp="Stephanus" n="534d"/>the oracle-singers and the divine seers, so that we who hear may know that it is not they who say these things of so great worth, they who have no mind in them, but that it is the god himself who speaks, and through them he utters his voice to us. And the greatest proof of the argument is Tynnichus of Chalcis, who never composed any other poem that anyone would think worth mentioning, but composed the paean that everyone sings, almost the finest of all songs, simply, as he himself says, <milestone unit="section" resp="Stephanus" n="534e"/><q>an invention of the Muses.</q> For in this above all, it seems to me, the god has shown us, so that we should not doubt, that these fine poems are not human nor the work of men, but divine and the work of gods, and that the poets are nothing but interpreters of the gods, possessed by whichever god each is possessed. To show this, the god deliberately sang the finest song through the most worthless <milestone n="535" unit="page"/><milestone unit="section" resp="Stephanus" n="535a"/>poet; or do I not seem to you to speak the truth, Ion?</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="535">
+               <p><said who="#Ἴων"><label>Ion.</label> Yes, by Zeus, to me you do; for somehow you touch my soul with your words, Socrates, and it seems to me that it is by divine dispensation that the good poets interpret these things to us from the gods.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And you rhapsodes in turn interpret the works of the poets?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> This too you say truly.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then you become interpreters of interpreters?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Entirely so.</said></p>
+            
+            
+               <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="535b"/><label>Soc.</label> Hold now and tell me this, Ion, and do not conceal whatever I ask you: when you recite epic verses well and most amaze the spectators, either when you sing of Odysseus leaping onto the threshold, revealing himself to the suitors and pouring out the arrows before his feet, or of Achilles rushing at Hector, or one of the pitiful passages about Andromache or about Hecuba or about Priam, are you then in your senses, or are you <milestone unit="section" resp="Stephanus" n="535c"/>outside yourself, and does your soul, inspired, believe itself to be present at the events you speak of, whether they are in Ithaca or in Troy or wherever the verses place them?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> How vivid is this proof you have told me, Socrates; for I shall tell you without concealing anything. When I say something pitiful, my eyes fill with tears; and when it is something fearful or terrible, my hair stands on end with fear and my heart leaps.
+</said></p>
+            
+            
+               <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="535d"/><label>Soc.</label> Well then? Are we to say, Ion, that this man is in his senses at that moment, who, adorned with embroidered clothing and golden crowns, weeps at sacrifices and festivals, though he has lost none of these things, or is afraid while standing among more than twenty thousand friendly people, when no one is stripping him or wronging him?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No, by Zeus, not at all, Socrates, to tell the truth.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Do you know, then, that you rhapsodes produce these same effects on most of the spectators too?
+</said></p>
+            
+            
+               <p><said who="#Ἴων"><milestone unit="section" resp="Stephanus" n="535e"/><label>Ion.</label> Very well indeed I know it; for each time I look down on them from the platform above, weeping and looking terribly at me and amazed along with the words. For I must also pay very close attention to them; since if I set them weeping, I myself shall laugh as I take the money, but if laughing, I myself shall weep as I lose the money.</said></p></div>
+               
+            <div type="textpart" subtype="section" resp="perseus" n="536">
+               <p><said who="#Σωκράτης"><label>Soc.</label> Do you know, then, that this spectator is the last of the rings which I said receive the power from one another by the Heraclean stone? And the middle one is you, the <milestone n="536" unit="page"/><milestone unit="section" resp="Stephanus" n="536a"/>rhapsode and actor, and the first is the poet himself; and the god through all of these draws the soul of men wherever he wishes, hanging the power from one to another. And as from that stone, a very great chain hangs of choral dancers and masters and under-masters, hanging sideways from the rings that hang down from the Muse. And one of the poets hangs from one Muse, another from another—we call it "is possessed," and that <milestone unit="section" resp="Stephanus" n="536b"/>is much the same; for he is held—and from these first rings, the poets, others in turn hang, one from one and another from another, and are inspired, some from Orpheus, others from Musaeus; but most are possessed and held by Homer. Of these you, Ion, are one, and are possessed by Homer, and when someone sings the work of some other poet, you fall asleep and are at a loss what to say, but when someone utters a song of this poet, you are at once awake and your soul dances and you have plenty to <milestone unit="section" resp="Stephanus" n="536c"/>say; for it is not by art or knowledge that you say what you say about Homer, but by divine dispensation and possession, just as the Corybantes perceive keenly only that song which belongs to the god by whom they are possessed, and for that song they have plenty of gestures and words, but care nothing for the others; so you too, Ion, when someone mentions Homer, have plenty to say, but about the others you are at a loss; <milestone unit="section" resp="Stephanus" n="536d"/>and the reason for this, which you ask me, why you have plenty to say about Homer but not about the others, is that it is not by art but by divine dispensation that you are a skilled praiser of Homer.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> You speak well, Socrates; but I should be surprised if you spoke so well as to persuade me that I praise Homer when I am possessed and mad. And I think that I would not seem so to you either, if you heard me speaking about Homer.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And indeed I am willing to hear you, but not <milestone unit="section" resp="Stephanus" n="536e"/>before you have answered me this: about which of the things Homer speaks of do you speak well? For surely not about all of them.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Be assured, Socrates, there is not one about which I do not.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Surely not also about those things which you happen not to know, but which Homer speaks of.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> And what sort of things are these, which Homer speaks of, but which I do not know?</said></p></div>
+    
+            <div type="textpart" subtype="section" resp="perseus" n="537">
+            <p><said who="#Σωκράτης"><milestone n="537" unit="page"/><milestone unit="section" resp="Stephanus" n="537a"/><label>Soc.</label> Does not Homer speak in many places and at length about arts as well? For example, about chariot-driving—if I remember the verses, I will tell them to you.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No, I will say them; for I remember.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Tell me then what Nestor says to his son Antilochus, advising him to be careful about the turn in the horse race in honour of Patroclus.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label>
+                  <cit><quote type="verse">
+                     <l met="dactylic"/>
+                     <l>And lean yourself, he says, in the well-polished chariot</l>
+
+               <milestone unit="section" resp="Stephanus" n="537b"/>
+
+                        <l>slightly to the left of the pair; but the right-hand horse</l>
+                        <l>goad on with a shout, and give him the reins with your hands.</l>
+                        <l>And at the turning-post let your left horse graze close,</l>
+                        <l>so that the nave may seem to you to reach the edge</l>
+                        <l>of the well-made wheel; but beware of touching the stone.</l>
+                  </quote>
+                  <bibl n="Hom. Il. 23.335">Hom. Il. 23.335 ff.</bibl>
+                  </cit>
+               </said></p>
+            
+            <p><said who="#Σωκράτης"><label>Soc.</label> Enough. Now, Ion, whether Homer speaks these verses <milestone unit="section" resp="Stephanus" n="537c"/>rightly or not, who would know better, a doctor or a charioteer?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> A charioteer, I suppose.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Is it because he has this art, or for some other reason?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No, but because he has the art.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then to each of the arts has been assigned by the god some work which it is able to know? For surely what we know by the art of piloting we shall not also know by medicine.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly not.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Nor, indeed, what we know by medicine shall we also know by carpentry.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> <milestone unit="section" resp="Stephanus" n="537d"/>Certainly not.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then so it is with all the arts too: what we know by one art we shall not know by another? But first answer me this: do you say that one art is one thing and another another?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Do you, like me, judging that when one is a knowledge of some things and another of others, I call the one one <milestone unit="section" resp="Stephanus" n="537e"/>art and the other another, do you do so too?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> For if, I suppose, there were a knowledge of the same things, why should we say that one is one art and the other another, when the same things could be known from both? Just as I know that these fingers are five, and you, like me, know the same things about them; and if I asked you whether you and I know the same things by the same art, arithmetic, or by another, you would say, I suppose, by the same.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="538">
+            <p><said who="#Σωκράτης"><milestone n="538" unit="page"/><milestone unit="section" resp="Stephanus" n="538a"/><label>Soc.</label> Then tell me now what I was about to ask you just now, whether you think it is so with all the arts, that by the same art one must know the same things, and by another not the same, but that, if it is a different art, it must also know different things.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> So it seems to me, Socrates.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then whoever does not have some art will not be able to judge well the things said or done in that art?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> <milestone unit="section" resp="Stephanus" n="538b"/>You speak the truth.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then about the verses which you recited, whether Homer speaks well or not, will you know better or a charioteer?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> A charioteer.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> For you are a rhapsode, I suppose, and not a charioteer.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And the rhapsode's art is different from the charioteer's?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> If, then, it is different, it is also a knowledge of different things.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And what, then, when Homer says that Hecamede, Nestor's concubine, <milestone unit="section" resp="Stephanus" n="538c"/>gives the wounded Machaon a posset to drink? And he says something like this—
+                  <quote type="verse">
+                     <l met="dactylic">With Pramnian wine, he says, and over it she grated goat's cheese</l>
+                     <l>with a bronze grater; and beside it an onion, a relish for the drink;</l>
+                  </quote>
+                   <bibl n="Hom. Il. 11.639">Hom. Il. 11.639-40</bibl> whether Homer speaks these things rightly or not, is it for medicine to discern well or for the rhapsode's art?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> For medicine.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And what, when Homer says—<milestone unit="section" resp="Stephanus" n="538d"/>
+
+                  <quote type="verse">
+                     <l met="dactylic">And she went down into the depths like a lead weight,</l>
+                     <l>which, set on the horn of an ox of the field,</l>
+                     <l>goes bringing death among the ravenous fishes;</l>
+                  </quote>
+                  <bibl n="Hom. Il. 24.80">Hom. Il. 24.80-82</bibl> are we to say that it is for the art of fishing rather than for the rhapsode's to judge these things, what he means and whether it is well said or not?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Clearly, Socrates, for the art of fishing.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Consider now, if you were the questioner and asked me: <q>Since, <milestone unit="section" resp="Stephanus" n="538e"/>then, Socrates, you find in Homer for each of these arts the passages which it belongs to each to judge, come, find out for me also the passages of the seer and of the seer's art, what sort are those which it belongs to him to be able to discern, whether they are well or badly composed</q> — consider how easily and truly I shall answer you. For he speaks of it in many places in the Odyssey too, for example what the seer of the Melampodidae says to the suitors, Theoclymenus—</said></p></div>
+            <div type="textpart" subtype="section" resp="perseus" n="539">
+            <p><said who="#Σωκράτης" rend="merge"><milestone n="539" unit="page"/><milestone unit="section" resp="Stephanus" n="539a"/><label>Soc.</label>
+                  <quote type="verse">
+                     <l met="dactylic">Wretched men, what evil is this you suffer? In night your</l>
+                     <l>heads and faces and knees beneath are wrapped,</l>
+                     <l>and wailing is kindled, and your cheeks are wet with tears;</l>
+                     <l>and the porch is full of ghosts, and full too is the court,</l>
+                     <l>of ghosts hastening to Erebus beneath the gloom; and the sun</l>
+                     <milestone unit="section" resp="Stephanus" n="539b"/>
+                     <l>has perished out of heaven, and an evil mist has spread over all;</l>
+                  </quote>
+                  <bibl n="Hom. Od. 20.351">Hom. Od. 20.351-57</bibl>
+
+                 and in many places in the Iliad too, for example at the fight at the wall; for there too he says -- <cit>
+                     <quote type="verse">
+                        <l met="dactylic">For a bird had come upon them as they were eager to cross,</l>
+                        <l>a high-flying eagle, skirting the host on the left,</l>
+                       <milestone unit="section" resp="Stephanus" n="539c"/>
+                      <l>carrying in its talons a monstrous blood-red snake,</l>
+                     <l>alive, still writhing; and it had not yet forgotten the fight.</l>
+                     <l>For it struck the bird that held it on the breast beside the neck,</l>
+                     <l>bending backwards; and the eagle cast it from him to the ground</l>
+                     <l>in the pain of its wounds, and dropped it in the middle of the throng;</l>
+                      <milestone unit="section" resp="Stephanus" n="539d"/>
+                        <l>and itself, with a scream, flew off on the breath of the wind.</l> </quote>
+                    <bibl n="Hom. Il. 12.200">Hom. Il. 12.200-7</bibl>
+                 </cit>
+                  These and such as these I shall say it belongs to the seer both to examine and to judge.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> And you speak the truth, Socrates.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And you too, Ion, say this truly. Come now, you in turn for me, just as I picked out for you from both the Odyssey and the Iliad what sort of passages belong to the seer and what sort to the doctor and <milestone unit="section" resp="Stephanus" n="539e"/>what sort to the fisherman, so you too pick out for me, since you are more experienced than I in the works of Homer, what sort belong to the rhapsode, Ion, and to the rhapsode's art, which it belongs to the rhapsode to examine and to distinguish beyond other men.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> I say, Socrates, all of them.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Surely you do not say all, Ion; or are you so forgetful? And yet it would not befit a rhapsode to be forgetful.</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="540">
+            <p><said who="#Ἴων"><milestone n="540" unit="page"/><milestone unit="section" resp="Stephanus" n="540a"/><label>Ion.</label> And what do I forget?</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Do you not remember that you said that the rhapsode's art is different from the charioteer's?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> I remember.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And did you not also agree that, being different, it will know different things?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then by your own account the rhapsode's art will not know everything, nor will the rhapsode.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Except perhaps such things as those, Socrates.
+</said></p>
+            
+            
+               <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="540b"/><label>Soc.</label> By "such things" you mean roughly the things of the other arts; but what sort of things will it know, since not all?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> What it befits, I think, for a man to say and what sort for a woman, and what sort for a slave and what sort for a free man, and what sort for one ruled and what sort for a ruler.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Do you mean that what sort of things it befits the ruler of a storm-tossed ship at sea to say, the rhapsode will know better than the pilot?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No, but the pilot will know this at least.
+</said></p>
+               <p><said who="#Σωκράτης"><milestone unit="section" resp="Stephanus" n="540c"/><label>Soc.</label> But what sort of things it befits the ruler of a sick man to say, will the rhapsode know better than the doctor?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Not this either.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> But what befits a slave, you say?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> For example, what it befits a slave who is a cowherd to say when he soothes his cattle when they grow wild, you say the rhapsode will know, but not the cowherd?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly not.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> But what is fitting for a woman who spins wool to say about the <milestone unit="section" resp="Stephanus" n="540d"/>working of wool?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> No.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> But he will know what it befits a man to say, a general exhorting his soldiers?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes, such things the rhapsode will know.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> What then? Is the rhapsode's art the art of the general?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> I at least would know what it befits a general to say.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Perhaps because you are also skilled as a general, Ion. For indeed if you happened to be skilled with horses and at the same time with the lyre, you would know horses <milestone unit="section" resp="Stephanus" n="540e"/>well and badly ridden; but if I had asked you: <q>By which art, Ion, do you know the horses that are well ridden? By that by which you are a horseman, or by that by which you are a lyre-player?</q> what would you have answered me?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> By that by which I am a horseman, I would.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then if you were also distinguishing those who play the lyre well, you would agree that you distinguish them in so far as you are a lyre-player, and not in so far as you are a horseman.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Yes.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And since you know military matters, do you know them in so far as you are skilled as a general or in so far as you are a good rhapsode?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> To me it seems to make no difference.</said></p></div>
+
+            <div type="textpart" subtype="section" resp="perseus" n="541">
+            <p><said who="#Σωκράτης"><milestone n="541" unit="page"/><milestone unit="section" resp="Stephanus" n="541a"/><label>Soc.</label> How? Do you say it makes no difference? Do you say that the rhapsode's art and the general's art are one art, or two?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> One, it seems to me.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> So whoever is a good rhapsode, he also happens to be a good general?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly, Socrates.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Then also whoever happens to be a good general is a good rhapsode too.</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> This, on the other hand, does not seem so to me.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> But that at least does seem so to you, that whoever is a good <milestone unit="section" resp="Stephanus" n="541b"/>rhapsode is also a good general?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Certainly.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> And you are the best rhapsode of the Greeks?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> By far, Socrates.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Are you also the best general of the Greeks, Ion?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> Be assured of it, Socrates; and this too I learned from the works of Homer.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> Why then, by the gods, Ion, being the best of the Greeks at both, as general and as rhapsode, do you go around performing as a rhapsode for the Greeks, but not as a general? Or <milestone unit="section" resp="Stephanus" n="541c"/>does it seem to you that the Greeks have great need of a rhapsode crowned with a golden crown, but none of a general?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> For our city, Socrates, is ruled by you Athenians and commanded by your generals and has no need of a general, while yours and that of the Lacedaemonians would not choose me as general; for you think you are sufficient yourselves.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> My excellent Ion, do you not know Apollodorus of Cyzicus?</said></p>
+               <p><said who="#Ἴων"><label>Ion.</label> What man is this?</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> One whom the Athenians have often chosen as their general, <milestone unit="section" resp="Stephanus" n="541d"/>though he is a foreigner; and Phanosthenes of Andros and Heraclides of Clazomenae, whom this city, though they are foreigners, since they have shown that they are worthy of note, appoints both to generalships and to the other offices; and will it then not choose Ion of Ephesus as general and honour him, if he seems worthy of note? What then? Are you Ephesians not Athenians by origin, and is Ephesus <milestone unit="section" resp="Stephanus" n="541e"/>inferior to no city? But in fact, Ion, if you speak the truth that it is by art and knowledge that you are able to praise Homer, you do me wrong, since after promising me that you know many fine things about Homer and saying that you would display them, you deceive me and are far from displaying them, you who are not even willing to say what these things are in which you are skilled, though I have long been entreating you,</said></p></div>
+            
+            <div type="textpart" subtype="section" resp="perseus" n="542">
+              <p><said who="#Σωκράτης" rend="merge"><label>Soc.</label> but simply like Proteus you take all kinds of shapes, twisting up and down, until at last, escaping me, you have appeared as a general, <milestone n="542" unit="page"/><milestone unit="section" resp="Stephanus" n="542a"/>so that you need not show how skilled you are in your wisdom about Homer.
+
+            If, then, being an artist, as I was saying just now, you deceive me after promising to give a display about Homer, you are unjust; but if you are not an artist, but, possessed by a divine dispensation from Homer, you say many fine things about the poet without knowing anything, as I said of you, you do no wrong. Choose, then, whether you wish to be thought by us an unjust man or a divine one.</said></p>
+            <p><said who="#Ἴων"><milestone unit="section" resp="Stephanus" n="542b"/><label>Ion.</label> There is a great difference, Socrates; for it is much finer to be thought divine.</said></p>
+               <p><said who="#Σωκράτης"><label>Soc.</label> This finer title, then, is yours in our eyes, Ion, to be a divine and not an artful praiser of Homer.</said></p></div>
+            
+         </div>
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="grc">Ἀπολογία ὑπὲρ Λυκόφρονος</title>
+                <author>Hyperides</author>
+                <editor>J. O. Burtt</editor>
+                <sponsor>Perseus Project, Tufts University</sponsor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Lisa Cerrato</name>
+                    <name>William Merrill</name>
+                    <name>Elli Mylonas</name>
+                    <name>David Smith</name>
+                </respStmt>
+                <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+                <respStmt><resp>gold translation (grc to en), translator: Claude Opus 5.5 (claude-opus-5-5), with the Perseus English translations as reference</resp><name>tei-translate</name></respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+                <date type="release" when="1996">Perseus 2.0</date>
+                <idno type="filename">tlg0030.tlg001.perseus-grc2.xml</idno>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                    <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Hyperides</author>
+                        <title>Minor Attic Orators</title>
+                        <editor>J. O. Burtt</editor>
+                        <imprint>
+                            <pubPlace>London</pubPlace>
+                            <publisher>William Heinemann, Ltd.</publisher>
+                            <pubPlace>Cambridge, MA</pubPlace>
+                            <publisher>Harvard University Press</publisher>
+                            <date type="printing">1954</date>
+                            <date type="reprint">1962</date>
+                        </imprint>
+                        <biblScope unit="volume">2</biblScope>
+                    </monogr>
+                    <ref target="https://archive.org/details/minoratticorator02maiduoft/page/376/mode/2up">Internet Archive</ref>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <refsDecl n="CTS">
+               <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts section.</p>
+                </cRefPattern>
+            </refsDecl>
+            <refsDecl>
+                <refState unit="speech"/>
+                <refState unit="section"/>
+                <refState unit="fragment"/>
+            </refsDecl>
+
+            <refsDecl>
+                <refState unit="speech"/>
+                <refState unit="fragment"/>
+            </refsDecl>
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n" n="chunk"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
+                <language ident="lat">Latin</language>
+            </langUsage>
+        </profileDesc>
+        
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change when="2023-03-29" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+            <change when="2014-08-01" who="Stella Dee">edited markup</change>
+            <change when="2014-07" who="Stella Dee">split composite text and converted to unicode </change>
+            <change when="1993-05-03" who="em">when importing, did lots of changes. Restored is now square brackets, like Bacchyl. gap is note type="text" and columns is note type="papyr". Also fixed SGML errors. and added spaces around notes. fixed some beta errors.</change>
+            <change when="1992-07" who="das">tagged FRAGWORD’s and restored text</change>
+            <change when="1992-06" who="W. Merrill">checkmark</change>
+            <change when="1992-06" who="W. Merrill">Change markup in accordance with orator dtd</change>
+           </revisionDesc>
+    </teiHeader>
+    
+    <text xml:lang="en">
+        <body xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2">
+            <div n="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" type="edition" xml:lang="en">
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_1">
+                <head rend="align(center)" xml:lang="lat">Frag. I<note resp="editor" xml:lang="lat">Hoc fragmentum restituit Kenyon.</note></head>
+                <p rend="align(indent)"><note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 41</note> <gap reason="lost" rend=" . . . "/><add>both in private</add> each man and <add>in public</add>, then in the <add>law</add> and in the oath, which <add>bids</add> you <add>to listen</add> equally both to the <add>accusers<note resp="editor"><foreign xml:lang="grc">κατηγόρων</foreign> Fuhr:<foreign xml:lang="grc">κατηγορούντων</foreign> Kenyon.</note> and to those</add> <add>making their defence</add> and <gap reason="lost" rend=" . . . "/><note resp="perseus" type="text" xml:lang="lat">Desunt col. 41 versus fere viginti unus et col. 42 fere tota.</note> </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_2">
+                <head rend="align(center)" xml:lang="lat">Frag. II</head>
+                <p rend="align(indent)"><note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 43</note> to make use of the accusation, so allow me too to make my defence in the way I have chosen and as I am able. And let none of you interrupt me while I am speaking with <q>Why are you telling us this?</q> nor add anything of your own to the accusation, but <add>rather</add> to the defence <gap reason="lost" rend=" . . ."/><note resp="perseus" type="text" xml:lang="lat">Desunt col. 43 versus fere quindecim et col. 44 versus fere decem.</note> </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_3">
+                <head rend="align(center)" xml:lang="lat">Frag. III</head>
+                <p rend="align(indent)"><note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 44</note> <add>Nor</add> does the law give anyone who <add>wishes</add> the <add>power</add> to <add>join in accusing</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">συγκατηγορεῖν</foreign> Sauppe.</note> those <add>on trial</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">κρινομένων</foreign> Boeckh, Sauppe.</note> while forbidding him to join in their defence. But so as not to <add>spend</add>,<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἀναλώσω</foreign> Babington.</note> before the matter itself, <add>a great</add> <add>many</add> words, I shall proceed to the <add>defence</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἀπολογίαν</foreign> Boeckh, Sauppe.</note> itself, after praying to the gods to help me and save me from the present trial, and asking of you, gentlemen of the jury, this: first <gap reason="lost" rend=" . . . "/><note resp="perseus" type="text" xml:lang="lat">Deest col. 45 fere tota.</note> </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_3a">
+                <head rend="align(center)" xml:lang="lat">Frag. IIIa (IV)<note resp="editor" xml:lang="lat">Hoc fragmentum a Polluce (9. 156) servatum huc inseruit Blass.</note></head>
+                <p rend="align(indent)"> either betrayal of the dockyards or burning of the public offices or seizure of the citadel <gap reason="lost" rend=" . . . . "/> </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_4">
+                <head rend="align(center)" xml:lang="lat">Frag. IV (V)</head>
+                <p rend="align(indent)"><note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 46</note><note resp="perseus" type="text" xml:lang="lat">Desunt col. 46 versus fere quindecim.</note> <gap reason="lost" rend=" . . . . . . "/><add>Euphemus</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">Εὔφημος</foreign> Blass.</note><gap reason="lost" rend=" . . . . . "/><add>first</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">πρῶτον</foreign> Fuhr.</note><gap reason="lost" rend=" . . . . . . . "/><add>when</add> <add>that man died</add><gap reason="lost" rend=" . . . . . . . . . . . . . "/><seg type="noparse">ros</seg> of <add>Phlya,</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐπειδὴ</foreign> usque ad<foreign xml:lang="grc">Φλυεύς</foreign> restituit Sauppe:<foreign xml:lang="grc">ἐκεῖνος ὁ Χαρίσανδρος ὁ Φλυεύς</foreign> Colin.</note><gap reason="lost" rend=" . . . . . "/>from him <gap reason="lost" rend=" . . . . . . "/> <note resp="perseus" type="text" xml:lang="lat">Desunt col. 46 versus septem</note> <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 47</note> <gap reason="lost" rend=" . . . . . "/>that the woman<gap reason="lost" rend=" . . . . . . . "/><seg type="noparse">ton</seg> and <seg type="noparse">to</seg><gap reason="lost" rend=" . . . . . "/><seg type="noparse">ato</seg> that man <add>had left</add> <add>with child</add> his <add>wife by</add> himself, which did not happen contrary to the <add>laws</add>. <add>But if, just as</add> Ariston <add>writes</add>,<note resp="editor"><foreign xml:lang="grc">ὥσπερ</foreign> et <foreign xml:lang="grc">γράφει</foreign> Kenyon.</note> <add>in the</add> impeachment, they <add>had supposed the</add> facts about <add>these matters to be</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">τούτων εἶναι</foreign> Jensen.</note> so, <add>surely they</add> ought not to have prevented <add>the nearest</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐγγυτάτω</foreign> Boeckh.</note> <add>of kin from ejecting</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">κυοῦσαν</foreign> usque ad <foreign xml:lang="grc">ἐξάγειν</foreign> plerumque restituit Blass.</note> Euphemus, but should have let them. But as it is, by doing this they have themselves testified by their action that the charge against me is false. And besides this, how is it not absurd that, if anything had happened to the child either at birth or even later, they would have relied on this will, in which <gap reason="lost" rend=" . . . . . "/><note resp="perseus" type="text" xml:lang="lat">Desunt col. 48 versus fere viginti.</note> <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 48</note> <gap reason="lost" rend=" . . . . . . . . . . . . . . . . "/><add>Euphemus</add><gap reason="lost" rend=" . . . . . . "/> was preventing<gap reason="lost" rend=" . . . . . . . . "/><add>providing</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">Εὔφημον</foreign> et <foreign xml:lang="grc">παρέχοντα</foreign> Blass.</note><gap reason="lost" rend=" . . . . . . "/><add>testimonies</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">μαρτυρίας</foreign> Boeckh.</note> <gap reason="lost" rend=" . . . . . . . . . . . . . . . . . . "/></p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_4a">
+                <head rend="align(center)" xml:lang="lat">Frag. IVa<note resp="editor" xml:lang="lat">Haec duo fragmenta a Polluce (ii. 152 et ix. 137) servata huc inseruit Blass.</note></head>
+                <p rend="align(indent)"><bibl n="Poll. 2.152" xml:lang="lat">Pollux ii. 152</bibl>For it is not possible to deny even one's own handwriting. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="frag_4b">
+                <head rend="align(center)" xml:lang="lat">Frag. IVb<note resp="editor" xml:lang="lat">Haec duo fragmenta a Polluce (ii. 152 et ix. 137) servata huc inseruit Blass.</note></head>
+                <p rend="align(center)"><bibl n="Poll. 9.137" xml:lang="lat">Pollux ix.. 137</bibl>to be sluggish </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="1">
+                <p rend="align(indent)"><note resp="editor" xml:lang="eng">Source is Pap. Ardenianus.</note><note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 2</note> And he had <add>slaves</add> of Ariston in <add>the</add> works; and he himself testified to this for you in the <add>court</add>, when <add>this man</add> had his suit against <add>Archestratides</add>.<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">Ἀρχεστρατίδην</foreign> Babington.</note> </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="2">
+                <p>For <add>such</add> is the business of <add>Ariston</add> here: <add>he</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">οὗτος</foreign> Shilleto: <foreign xml:lang="grc">αὐτὸς</foreign> Schneidewin.</note> goes about summoning everybody, and those who <add>do</add> not give <add>him</add> money he <add>brings to trial and</add> accuses, while <add>all who</add> are willing <add>to pay</add>,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ὁπόσοι</foreign> et <foreign xml:lang="grc">ἀποτίνειν</foreign> Babington.</note> he lets go; and <add>the</add> money he gives to <add>Theomnestus</add>;<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">Ἀρίστωνος</foreign> usque ad <foreign xml:lang="grc">Θεομνήστῳ</foreign> plerumque restituit Schneidewin.</note> and <add>that man</add> takes it and buys slaves, and supplies him with provisions, as one does for pirates, and gives him for each <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 3</note> slave an obol a day, so that he may be an immortal informer. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="3">
+                <p rend="align(indent)">It is right, gentlemen of the jury, to examine the matter starting from there too, from the charges which they themselves made at the very first in the Assembly. For <add>the</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">οἱ</foreign> add. Schneidewin.</note> relatives sent<note resp="editor" xml:lang="lat"><app><lem xml:lang="grc">ἀπέστειλαν</lem></app> <foreign xml:lang="grc">ἐπέστειλαν</foreign> Blass.</note> me in writing both the impeachment and the charges which they brought against me in the Assembly when they were bringing in the <add>impeachment</add>, in <add>which it was</add> written that Lycurgus <add>says</add>, <add>claiming</add> to have <add>heard</add> it from the <add>members</add> of the <add>household</add>,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">οἰκείων ἀκηκοέναι</foreign> Babington.</note> that I, following along when Charippus was marrying the woman, urged her not to go near<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">πλησιάσει</foreign> Schneidewin: <foreign xml:lang="grc">πλησιάσῃ</foreign> A.</note> Charippus but to keep herself safe. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="4">
+                <p>But the very thing that, both to my <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 4</note> <add>friends and</add> to the <add>relatives</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">οἰκείους</foreign> Babington.</note> <add>of my own immediately</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">εὐθὺς</foreign> Blass: <foreign xml:lang="grc">τότε</foreign> Babington.</note> on arriving, I <add>said, I also</add> now <add>say to you</add>,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">λέγω</foreign> Schneidewin: <foreign xml:lang="grc">ἐρῶ</foreign> Babington.</note> namely that, if <add>these</add> things are true, I <add>admit</add> that I <add>have done all</add> the other things as well that are <add>written</add><note resp="editor"><foreign xml:lang="grc">γεγραμμένα</foreign> Babington.</note> <add>in the</add> impeachment. But that they <add>are false</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ψευδῆ</foreign> Schneidewin.</note> is, <add>I think</add>,<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">οἶμαι</foreign> Caesar.</note> easy <add>for everyone to see</add>.<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἰδεῖν</foreign> Caesar: <foreign xml:lang="grc">γνῶναι</foreign> Patakis.</note> For who of those in the <add>city</add> <add>is so</add> unreasoning, </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="5">
+                <p><add>as to</add> believe <add>these</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐστι</foreign> et sq. Babington, sed<foreign xml:lang="grc">τούτοις τοῖς</foreign> Blass:<foreign xml:lang="grc">τοιούτοις</foreign> Babington.</note> words? <add>For it was necessary</add>,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἀνάγκη γὰρ ἦν</foreign> Sauppe:<foreign xml:lang="grc">ἦν</foreign> om. Blass.</note> gentlemen of the <add>jury,</add> first that a muleteer and a guide <add>should follow</add> the carriage which was taking the woman, <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 5</note> and then that the boys escorting her should follow, and Dioxippus too; for he too was in attendance, because she was a widow being given in marriage. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="6">
+                <p>Then did I come to such a pitch of madness that, when so many other people were following along, and Dioxippus and Euphraeus his training partner<note resp="editor" xml:lang="lat"><app><lem xml:lang="grc">προσγυμναστοῦ</lem></app>  <foreign xml:lang="grc">προγυμναστοῦ</foreign> Westermann.</note> too, who are admittedly the strongest of the Greeks, I <add>neither</add> felt ashamed to speak such words about a free woman in everyone's hearing, <add>nor</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">οὔτ’ . . . οὔτʼ</foreign> Sauppe:<foreign xml:lang="grc">οὐκ . . .  οὐδʼ</foreign> Blass.</note> feared that I would be killed <add>on the spot</add> by <add>strangling</add>?<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">πνιγόμενος</foreign> Kenyon: <foreign xml:lang="grc">ἀπαγόμενος</foreign> Babington, Colin.</note> <add>For</add> who would have put up with <add>such things</add> about his own <note resp="P" type="Papyr">Column 6</note> <add>sister, hearing</add> what <add>these men allege</add> me to <add>have said, and<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">καὶ</foreign> Schneidewin: <foreign xml:lang="grc">ἆρʼ</foreign> Babington.</note> not</add> have <add>killed<note resp="editor" xml:lang="lat"><app><lem xml:lang="grc">ἀπέκτεινε</lem></app>  <foreign xml:lang="grc">ἀπεκώλυσε</foreign>  Colin.</note> the</add> speaker? </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="7">
+                <p><add>But the crowning point</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἀπούων</foreign> usque ad <foreign xml:lang="grc">κεφάλαιον</foreign> plerumque restituit Babington.</note> of <add>all,<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἁπάντων</foreign> Sauppe.</note> as</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ὡς</foreign> Blass:<foreign xml:lang="grc">ὧν</foreign> Colin.</note> I said a little <add>earlier</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">πρότερον</foreign> Sauppe.</note> too, is that <add>Charippus</add>, it seems, <add>came</add> to <add>such a degree of stupidity</add> that, though <add>first</add>, as they say, <add>the woman</add> <add>told him beforehand</add> that she <add>had sworn an oath</add> with me, and <add>then again</add> he heard <add>me urging</add> <add>her</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">τοῦτο</foreign> usque ad<foreign xml:lang="grc">αὐτῇ</foreign> Babington.</note> to <add>abide</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐμμείνειεν</foreign> Herwerden: <foreign xml:lang="grc">ἐμμενεῖ ἐν</foreign> Schneidewin.</note> by the oaths <add>which she had sworn</add>, he still took <add>the</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">τὴν</foreign> Babington: <foreign xml:lang="grc">ὅμως</foreign> Blass.</note> woman? And <add>would these things seem</add> to you to have been done either by that madman <add>Orestes</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">Ὀρέστης</foreign> Blass.</note> or by Margites, the most foolish <add>of all</add>? </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="8">
+                <p rend="align(indent)"><add>But</add> I think, <add>gentlemen of the jury</add>, that in trials the accusers have many <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 7</note> advantages over the defendants. For the former, because the trial carries no risk for them, easily say whatever they like and tell lies, while those on trial, because of their fear, forget to mention many even of the things they have actually done. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="9">
+                <p>Then, when they get to speak first,<note resp="editor" xml:lang="lat"><app><lem xml:lang="grc">πρότερον</lem></app>  <foreign xml:lang="grc">τὸν πρότερον</foreign> Colin: <foreign xml:lang="grc">πρότεροι</foreign> Patakis.</note> they not only state the just arguments that they themselves have about the matter, but they also concoct false slanders against those on trial and drive them away from their defence; so that one of two things happens to them: either, while <note resp="P" type="Papyr">Column 8</note> <add>defending themselves</add><note resp="editor"><foreign xml:lang="grc">ἀπολογουμένοις</foreign> usque ad<foreign xml:lang="grc">διαστρέφουσιν</foreign> plerumque restituit Babington.</note> against the extraneous slanders, they find their <add>defence</add> <add>on the</add> matter itself <add>left behind,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἀπολελεῖφθαι</foreign> Schneidewin.</note> or</add>, by not <add>remembering</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἢ</foreign> et <foreign xml:lang="grc">μεμνημένοις</foreign> Shilleto.</note> the<note resp="editor" xml:lang="lat"><app><lem xml:lang="grc">τῶν</lem></app>  <foreign xml:lang="grc">περὶ τῶν</foreign> Babington.</note> <add>accusations made</add> earlier, they <add>leave</add> the <add>impression</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">οἴησιν</foreign> Schneidewin:<foreign xml:lang="grc">οὕτω δόξαν</foreign> Blass.</note> with the <add>jurors that</add> <add>what was said</add> is true. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="10">
+                <p><add>And besides</add> this, they <add>slander in advance</add> those who <add>are going</add> to help <add>the defendants</add>,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">τοῖς φεύγουσι</foreign> Caesar.</note> and the <add>defence</add> of <add>the accused</add> himself they <add>distort</add>;<note resp="editor" xml:lang="lat">See note on<foreign xml:lang="grc">ἀπολογουμένοις</foreign> above.</note> just as <add>Ariston</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">Ἀρίστων</foreign> Sauppe.</note> here <add>attempted<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἐνεχείρησε</foreign> Schneidewin.</note> to do</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ποιῆσαι</foreign> Blass: <foreign xml:lang="grc">που</foreign> Kenyon.</note> in the <add>prosecution,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">κατηγορία</foreign> Babington.</note> he who</add> does not even<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ὃς οὐδʼ</foreign> Blass:<foreign xml:lang="grc">οὐδʼ</foreign> Kayser.</note> <add>allow me to benefit<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἀπολαύειν</foreign> Sudhaus: <foreign xml:lang="grc">ἀπολογίαν</foreign> Blass.</note></add> from those <add>coming forward</add> <add>on my behalf and</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">δίδωσι</foreign> usque ad<foreign xml:lang="grc">καὶ</foreign> Blass.</note> <add>intending to join in my defence</add>.<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">συναπολογησομένων</foreign> Kayser.</note> <add>And why should these men</add> not <add>speak in my defence?</add><note resp="editor"><foreign xml:lang="grc">διὰ</foreign> usque ad <foreign xml:lang="grc">ἀπολογῶνται</foreign> Blass: <foreign xml:lang="grc">ἀπολογήσονται</foreign> Fuhr.</note> <add>Is it <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 9</note> not just</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">δίκαιόν ἐστι</foreign> Sauppe.</note> for their relatives and friends to help those on trial? Or is there anything in the city more democratic than this, that those who are able to speak should help those citizens who are unable when they are in danger? </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="11">
+                <p>But you have not only made your speeches about my advocates, you also lay down the order of my defence; and you instruct the jurors on what they ought to listen to <add>and</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">καὶ</foreign> add. Kayser:<foreign xml:lang="grc">ἀκούειν</foreign> del. Schneidewin.</note> bid me plead in my defence, and on what they ought not to allow me to speak. And how is this fair, that you should make the prosecution as you wished, <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 10</note> but, knowing in advance the just arguments I have to make against your lies, should take my defence away from me? </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="12">
+                <p>And you accuse me in the impeachment of overthrowing the democracy by <add>breaking</add> the laws, while you <add>yourself</add>, <add>leaping over all</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἅπαντας</foreign> Blass.</note> the <add>laws</add>,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">νόμους</foreign> usque ad<foreign xml:lang="grc">τραγῳδίας</foreign> plerumque restituit Babington.</note> <add>have lodged an impeachment</add> about matters for which <add>public indictments</add> lie before the <add>Thesmothetae</add> under the <add>laws</add>, so that, <add>first</add>, you <add>might enter without risk</add> into <add>the trial,</add> and <add>then</add> that <add>you might be free<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐξῇ σοι</foreign> Kayser.</note> to put tragic</add> scenes<note resp="editor" xml:lang="lat">See note on <foreign xml:lang="grc">νόμους</foreign> above.</note> <add>in writing into the</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">γράψαι εἰς τὴν</foreign> Blass.</note> <add>impeachment, such</add> as<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">οἵασπερ</foreign> Kayser.</note> you have now <add>written, you who</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ὅς μʼ</foreign> Blass.</note> accuse me on the ground that <add>many<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">πολλὰς μὲν</foreign> Sauppe.</note></add> <add>women I cause</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ποιῶ</foreign> Blass.</note>, <add>unmarried, at home,</add> <add>to grow old,<note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἀγάμους ἔνδον καταγηράσκειν</foreign> Babington.</note> and many</add> <add>to live with men</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">πολλὰς</foreign> usque ad <foreign xml:lang="grc">οἷς</foreign> Sauppe.</note> <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 11</note> to whom it is not fitting, contrary to the laws. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="13">
+                <p>So then<note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">οὐκοῦν</foreign> Babington: <foreign xml:lang="grc">οὔκουν</foreign> Schneidewin.</note> you cannot name any other woman in the city to whom I am the cause of these things; but as for the woman about whom you have now made your accusation, did you think<note resp="editor" xml:lang="lat">Post<foreign xml:lang="grc">ᾤου</foreign> add. <foreign xml:lang="grc">οὐ</foreign> Kirchhoff.</note> it fitting that she should live, given in marriage, with Charippus, one of the citizens, or that she should grow old at home unmarried, she who was given in marriage at once, Euphemus adding a talent of silver for her, clearly not out of wickedness but out of kindness? </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="14">
+                <p rend="align(indent)">This man, then, is free, <add>O</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ὦ</foreign> add. Babington, quod dubium an A supra versum habeat.</note> men of the jury, both to say whatever he wishes and to tell lies against me; but you, I think, ought to judge me not from the prosecutor's <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 12</note> slanders, but after examining the whole life that I have lived. For it is not possible for anyone in the city, whether he is wicked or decent, to escape the notice of your community; rather, the time that has passed is for each man the most exact witness of his character, especially in the case of charges such as this one <add>is</add>. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="15">
+                <p>For those <add>of the</add> offences which, <add>in every</add> stage <add>of</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">τῇ</foreign> Sauppe.</note> a man's life, it <add>is possible</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐνδέχεται</foreign> usque ad<foreign xml:lang="grc">τοιοῦτος</foreign> plerumque restituit Babington.</note> to <add>commit, these</add> one must <add>examine</add> on the basis of the very <add>charge</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">ἐγκλήματος</foreign> Blass: <foreign xml:lang="grc">ἀξιώματος</foreign> Babington.</note> which <add>one faces; adultery</add>, <add>however, cannot</add> be begun by <add>a man</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">ἄνθρωπον</foreign> olim Jensen: <foreign xml:lang="grc">ἀρξάμενον</foreign> Babington.</note> from <add>fifty</add> years of age onwards, but either he <add>has long been of that sort</add>,<note resp="editor" xml:lang="lat">See note on<foreign xml:lang="grc">ἐενδέχεται</foreign> above.</note> which let these men prove, <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 13</note> or the charge is likely to be false. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="16">
+                <p>Now I, gentlemen of the jury, having spent all my time with you in the city, have never incurred any disgraceful charge, nor have I ever had a complaint against any of the citizens, nor have I been a defendant in any lawsuit, nor have I prosecuted another; but I have spent all my time keeping horses with ambition, beyond my means and beyond my own property. And I have been crowned by all the knights for bravery, and by my fellow officers. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="17">
+                <p>For you, gentlemen of the jury, <note resp="P" type="Papyr">Column 14</note> first elected me phylarch, and then hipparch for Lemnos; and I held command there for two years, alone of all who have ever been hipparch, and I stayed on there for a third year in addition, not wishing to exact headlong from citizens who were in financial difficulty the pay for the horsemen. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="18">
+                <p>And during this time none of the people there brought any charge against me, either private or public, but I was crowned with three crowns by the <add>people</add> in <add>Hephaestia</add> and with others <add>by</add> the people in Myrina; and these things <add>ought</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">χρὴ</foreign> Blass.</note> to <add>be</add><note resp="editor" xml:lang="lat"> <foreign xml:lang="grc">εἶναι</foreign> Sauppe.</note> proofs to you, for this <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 15</note> trial, that <add>the</add><note resp="editor" xml:lang="lat"><foreign xml:lang="grc">αἱ</foreign> add. Babington.</note> charges against me are false. For it is not possible that a man who is wicked in Athens should be good in Lemnos, nor did you send me there as being such a man, when you entrusted two of your own cities to me. </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="19">
+                <p rend="align(indent)">What I had to say on my own behalf, then, gentlemen of the jury, you have more or less heard. But <add>since</add> the prosecutor, who is not inexperienced in speaking and is used to contending often in court, called advocates to help him ruin one of the citizens unjustly, I too beg and entreat you to bid me also to call those who will speak <note resp="perseus" type="Papyr" xml:lang="eng" place="margin">Column 16</note> for me in so great a trial, and to listen with goodwill, if any of my relatives or friends is able to help me, </p>
+            </div>
+            <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0030.tlg001.perseus-grc2" n="20">
+                <p>since I am your fellow citizen, a private man and not used to speaking, and am on trial and in danger not only of death, for that is the least thing to those who reason rightly, but of being banished and, when dead, not even being buried in my native land. So if you bid me, gentlemen of the jury, I call someone to help me. Come up, Theophilus, and speak with me whatever you can; the jurors bid you.</p>
+            </div></div>
+
+        </body>
+    </text>
+</TEI>

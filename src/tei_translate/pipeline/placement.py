@@ -159,7 +159,32 @@ def place(layout: Layout) -> tuple[list[Placed], Counter]:
     """Place every anchor of the block. Raises Fallback if the block must go span-wise."""
     counts: Counter = Counter()
     placed = _place_list(layout, layout.det.anchors, (0, len(layout.english)), counts)
+    _check_marker_order(placed)
     return placed, counts
+
+
+def _output_order(items: list[Placed]):
+    """Placed anchors in the order rebuild() will write them (same sort as _fill)."""
+    for it in sorted(items, key=lambda p: (p.start, p.end, p.anchor.index)):
+        yield it
+        yield from _output_order(it.children)
+
+
+def _check_marker_order(placed: list[Placed]) -> None:
+    """Markers of the same kind must come out in source order across nesting levels too.
+
+    _place_list keeps them in order within one level only: a marker outside a <q>
+    can still end up after one inside it (pb in Clement, tlg0555.tlg004).
+    """
+    last: dict = {}
+    for p in _output_order(placed):
+        node = p.anchor.node
+        if p.anchor.kind != POINT or not is_element(node):
+            continue
+        key = (node.tag, node.get("unit"))
+        if key in last and p.anchor.index < last[key]:
+            raise Fallback(f"{_name(p.anchor)}:out-of-order")
+        last[key] = p.anchor.index
 
 
 def _place_list(layout: Layout, anchors: list[Anchor], bounds: tuple[int, int], counts: Counter) -> list[Placed]:
