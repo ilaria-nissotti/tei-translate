@@ -57,7 +57,9 @@ Consequences:
 
 ## 3. What a gold item looks like
 
-One item = one hybrid block (`<p>`, `<l>`, `<head>`, ... with treatment `translate` and no block inside it) from a Greek file in `data/perseus/texts/*/greek/`. Proposed format: one JSON object per line in `data/gold/grc-en/gold.jsonl` (tracked in git; small) **(confirm location)**.
+One item = one hybrid block (`<p>`, `<l>`, `<head>`, ... with treatment `translate` and no block inside it) from a Greek file in `data/perseus/texts/*/greek/`. Proposed format: one JSON object per line in `data/gold/grc-en/gold.jsonl` **(confirm format)**.
+
+**Location (decided):** the gold set lives in the repo, in `data/gold/grc-en/`. The folder exists and is tracked in git (it holds only a `.gitkeep` for now; delete that once real files are added). Unlike `data/raw/` and `data/perseus/` it is **not** git-ignored, because the gold set is small and hand-checked and cannot be re-created by a script. Put everything that belongs to the set there: `gold.jsonl`, `GUIDELINES.md`, the sample selection from Step 1, and the prompt used in Step 2. The `grc-en` subfolder keeps the layout language-pair agnostic, so a later pair gets its own folder next to it. Scripts that write there should still `mkdir(parents=True, exist_ok=True)`.
 
 | Field | Meaning |
 |---|---|
@@ -154,7 +156,7 @@ Proposed fix **(confirm)**: an evaluation mode that scores the placement **befor
 
 ## 6. Open questions for the team
 
-1. Location and format of the gold files (`data/gold/grc-en/gold.jsonl` proposed).
+1. Format of the gold files (`gold.jsonl` proposed; the folder `data/gold/grc-en/` is decided, for now in the repo).
 2. Size: pilot ~20 blocks, then 150–250?
 3. Who checks the translations and the tags (someone who reads Greek; Andjela owns texts/tags, Ilaria the metrics, Ennio the MT models)?
 4. Which frontier model, and are its terms OK for this use?
