@@ -66,7 +66,9 @@ Agreed with the user (approach E): tags are removed, whole sentences are transla
 - Generation uses each model's defaults (no repetition penalty); Opus models loop on input they don't understand (e.g. Homer).
 - `tie_output_embeddings` (called only in `MarianEngine._load`): Transformers 5 no longer ties `lm_head` to the embeddings when a checkpoint stores both with different values; `opus-mt-tc-big-el-en` then outputs random words. Do NOT make it generic: Transformers 5 reports `tie_word_embeddings=True` even for MADLAD, whose config.json says false and whose separate `lm_head` is real (forcing the tie gave garbage). If a new model outputs word salad even on easy input (check with "Καλημέρα, πώς είσαι;"), check its lm_head/embedding tying first.
 - Current ranking (54 passages, `docs/engine_comparison.md`): `madlad-3b` chrF 31.5 ≥ `pivot-grc-el-en` 30.4 >> `opus-bible-ine` 23.7 ≈ `opus-grk-en` 22.6. The top two are close; most chain errors come from step 1 (NLLB).
+- **Default engine: `madlad-3b`** (user's decision 2026-11-20, locally and on the HF Space; `engine:` in `config/pairs/grc-en.yaml`). `pivot-grc-el-en` is the fallback if MADLAD is too slow on the Space CPU or the team fine-tunes (reasons in `docs/engine_comparison.md`, "Decision"). So a run without `--engine` needs the `mt` extra and the 11.8 GB model; tests and quick checks should pass `--engine identity`/`tag` explicitly.
 - `scripts/compare_engines.py` (`--reuse RUN_DIR` reuses an earlier run's passages/translations and only runs new engines; writes `run.json` with models/timings): plain-text bake-off on Perseus prose sections + Pindar odes aligned by citation ref (leaf textpart divs; notes/bibl/head/reg removed — `<reg>` holds gazetteer text in some English files), corpus chrF/BLEU overall and per work → `outputs/compare/<timestamp>/`. Results (Opus models, pivot chain, MADLAD): `docs/engine_comparison.md`. `--subset N` / `--max-words W` (with `--reuse`) score all engines on a smaller subset, for slow engines.
+- `scripts/bench_engine_threads.py ENGINE THREADS RUN_DIR [--every K] [--aligner ugarit]`: speed and peak memory (Windows counters) with limited CPU threads, on a compare run's passages; one engine per process. With 2 threads (like the free HF Space): pivot 2.0 words/s, MADLAD 1.75; peak committed memory 9.2 GB / 11.9 GB, both under 16 GB. Untested: the Space CPU's bfloat16 speed. See `docs/engine_comparison.md`.
 
 Later (HANDOVER ideas, not agreed): placeholders, real engines after the bake-off, tei_all validation, name lists for standard English forms.
 
@@ -87,7 +89,7 @@ Why and what follows from it:
 
 Done: project skeleton, span-wise pipeline with test engines and validation, hybrid tag placement with word aligners (UGARIT), Opus-MT/MADLAD/NLLB-LoRA engine wrappers, the `pivot-grc-el-en` chain, and a comparison of the Opus models and the chain. Still open:
 - The user raised "which languages to use and how to present them" in the UI. Settle this: which source/target language pairs to offer, and how language and option choices appear in the UI.
-- The engine choice (local and hosted), and the open questions at the end of `HANDOVER.md`.
+- The open questions at the end of `HANDOVER.md`. (Engine choice: settled, MADLAD by default.)
 
 ## Commands
 
