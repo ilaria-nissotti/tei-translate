@@ -111,6 +111,8 @@ Tags with the same meaning are grouped and get one rule, so we can cover more ta
 - `name` has a `type`: person (12,424), ethnic (3,561), place (2,305). Ethnic names such as Ἀθηναῖος ("Athenian") should be **translated**, not transliterated. Many famous names also have a standard English form (Ἀθήναιος → Athenaeus, not "Athenaios").
 - `said` and `quote` often wrap a whole speech or block of verse, so they behave partly like text blocks.
 
+**Current setting (2026-11-20, Ennio, for now):** numbers (`num`) and names (`name`, `persName`, `placeName`, `rs`) are **translated by the MT model** in `config/policy.yaml`, not kept / transliterated as proposed above. Speaker labels stay transliterated. Note: 93% of `num` are letters naming points in Euclid's *Elements* (ΑΒ), not numbers. To confirm with the team.
+
 ### Selecting the groups 🟡
 **Proposal:** handle the groups that together cover the three treatments and most occurrences:
 1. Speech and quotations (translate)

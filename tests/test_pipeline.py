@@ -27,7 +27,7 @@ def test_all_checks_pass(path, engine):
 
 @pytest.mark.parametrize("path", ALL, ids=[p.name for p in ALL])
 def test_identity_roundtrip_keeps_translated_text(path):
-    """With the identity engine only names (transliterated), xml:lang and the respStmt change."""
+    """With the identity engine only transliterated text (speaker labels), xml:lang and the respStmt change."""
     source = etree.parse(str(path))
     result = translate_document(path, engine="identity", placement="spanwise")
     src_text = find(source, "//t:text")[0]
@@ -36,7 +36,8 @@ def test_identity_roundtrip_keeps_translated_text(path):
     out_nodes = [e for e in out_text.iter() if isinstance(e.tag, str)]
     assert len(src_nodes) == len(out_nodes)
     for a, b in zip(src_nodes, out_nodes):
-        if etree.QName(a).localname in ("name", "persName", "placeName", "rs", "label", "speaker"):
+        inside_label = any(etree.QName(e).localname in ("label", "speaker") for e in a.iterancestors())
+        if etree.QName(a).localname in ("label", "speaker") or inside_label:
             continue
         assert (a.text, a.tail) == (b.text, b.tail)
 
@@ -58,8 +59,9 @@ def test_translated_spans_are_wrapped():
 def test_keep_and_note_unchanged_and_in_place():
     tree = tagged()
     p = find(tree, "//t:text//t:p")[0]
-    assert find(tree, "//t:num")[0].text == "δʹ"
     assert find(tree, "//t:bibl")[0].text == "Hom. Il. 2.108"
+    assert find(tree, "//t:term")[0].text == "Μ"
+    assert find(tree, "//t:p/t:foreign")[0].text == "ita"
     note = find(tree, "//t:note")[0]
     assert etree.tostring(note, encoding="unicode", with_tail=False).endswith(
         'coni. <foreign xml:lang="grc">Ἀπελτ</foreign> Apelt</note>')
@@ -69,13 +71,19 @@ def test_keep_and_note_unchanged_and_in_place():
     assert note.tail == " [EN:τοῖς] "
 
 
-def test_names():
+def test_names_and_numbers_translated():
     tree = tagged()
-    assert find(tree, "//t:name[@type='person']")[0].text == "Perikles"
+    assert find(tree, "//t:name[@type='person']")[0].text == "[EN:Περικλῆς]"
     assert find(tree, "//t:name[@type='ethnic']")[0].text == "[EN:Ἀθηναίοις]"
-    speaker = find(tree, "//t:speaker")[0]
-    assert speaker.text == "Sokrates "
-    assert find(tree, "//t:speaker/t:num")[0].text == "α"  # keep wins inside a transliterated speaker
+    assert find(tree, "//t:p/t:num")[0].text == "[EN:δʹ]"
+
+
+def test_speaker_labels_transliterated():
+    tree = tagged()
+    assert find(tree, "//t:speaker")[0].text == "Sokrates "
+    # transliterate wins over translate for a number inside a speaker
+    assert find(tree, "//t:speaker/t:num")[0].text == "a"
+    assert find(tree, "//t:label")[0].text == "SO."
 
 
 def test_markers_comments_and_tails():

@@ -78,7 +78,7 @@ def test_identity_tags_stay_on_their_words():
     tree = result.tree
     p1, p2 = find(tree, "//t:text//t:p")[:2]
     assert inner(p1) == (
-        'ὁ <name type="person">Perikles</name> εἶπε <num>δʹ</num> λόγους<note xml:lang="lat" n="n1">coni. '
+        'ὁ <name type="person">Περικλῆς</name> εἶπε <num>δʹ</num> λόγους<note xml:lang="lat" n="n1">coni. '
         '<foreign xml:lang="grc">Ἀπελτ</foreign> Apelt</note> τοῖς <name type="ethnic">Ἀθηναίοις</name> '
         'καὶ ἀπῆλθεν.<milestone unit="para" n="2"/>')   # para milestone: boundary -> sentence end
     assert inner(p2) == ('<pb n="12"/>ἔφη δὲ <q>ἴωμεν</q> καὶ <bibl>Hom. Il. 2.108</bibl> '
@@ -86,8 +86,11 @@ def test_identity_tags_stay_on_their_words():
     p3 = find(tree, "//t:p[@xml:id='p2']")[0]
     # lb: boundary (start of its sentence); comment between sentences stays there; gap follows οὐδὲν.
     assert inner(p3) == '<lb/>τί φής; <!-- a comment --> οὐδὲν <gap reason="lost"/> λέγεις.'
+    # Fixed elements: the label is transliterated, term and foreign are kept.
+    p4 = find(tree, "//t:p[t:term]")[0]
+    assert inner(p4) == '<label>SO.</label> τὸ <term>Μ</term> γράμμα <foreign xml:lang="lat">ita</foreign> λέγεται.'
     h = result.report.hybrid
-    assert h.blocks == 5 and h.spanwise == {"contains-blocks": 1}
+    assert h.blocks == 6 and h.spanwise == {"contains-blocks": 1}
 
 
 def test_block_with_blocks_inside_stays_spanwise():
@@ -111,7 +114,7 @@ def test_reordering_moves_tags_with_their_words():
     tree = translate_document(HANDMADE, engine=ReverseEngine(), placement="hybrid", aligner=ExactAligner()).tree
     p1 = find(tree, "//t:text//t:p")[0]
     assert inner(p1).startswith('ἀπῆλθεν. καὶ <name type="ethnic">Ἀθηναίοις</name> τοῖς λόγους<note')
-    assert inner(p1).endswith('<num>δʹ</num> εἶπε <name type="person">Perikles</name> ὁ<milestone unit="para" n="2"/>')
+    assert inner(p1).endswith('<num>δʹ</num> εἶπε <name type="person">Περικλῆς</name> ὁ<milestone unit="para" n="2"/>')
 
 
 # -- single blocks with hand-made translations and links ------------------------------
@@ -136,8 +139,12 @@ def test_wrap_covers_all_aligned_words():
 
 
 def test_fixed_element_replaces_the_model_words():
-    out = run('ὁ <name type="person">Περικλῆς</name> εἶπε.', ["Pericles said ."], {0: {(1, 0), (2, 1), (3, 2)}})
-    assert out == '<name type="person">Περικλῆς</name> said .'   # content: transliterated later by its span
+    # The model wrote "Mu" for the kept <term>; it is replaced by the element with its own content.
+    out = run('τὸ <term>Μ</term> γράμμα.', ["the letter Mu ."], {0: {(0, 0), (1, 2), (2, 1), (3, 3)}})
+    assert out == 'the letter <term>Μ</term> .'
+    # A transliterated element keeps its Greek here; its span is transliterated afterwards.
+    out = run('<label>ΣΩ</label> ἔφη.', ["Soc he said ."], {0: {(0, 0), (1, 2), (2, 3)}})
+    assert out == '<label>ΣΩ</label> he said .'
 
 
 def test_points_left_and_right():

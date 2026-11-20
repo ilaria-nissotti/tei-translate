@@ -21,12 +21,12 @@ the English, which has a different word order.
    <name type="ethnic">Ἀθηναίοις</name> καὶ ἀπῆλθεν.</p>
 
 <!-- English output (what we want) -->
-<p>Perikles gave <num>δʹ</num> speeches to the
+<p><name type="person">Pericles</name> gave <num>four</num> speeches to the
    <name type="ethnic">Athenians</name> and left.</p>
 ```
 
-(Here the first `<name>` holds `Perikles`, written in our transliteration, and
-`<num>` keeps the Greek numeral unchanged. Section 3 explains why.)
+(Names and numbers are translated by the model, like normal text; section 3 has the
+rules for every tag.)
 
 **The main rule of the project:** the translation model never sees any XML. All the
 structure comes from the original file and is put back by our code, never written by
@@ -94,13 +94,21 @@ happens to its text):
 
 | Treatment | What happens | Tags |
 |---|---|---|
-| **translate** | text translated, tag kept around the English | `p`, `l`, `head`, `q`, `said`, `quote`, `hi`, `add`, `del`, `corr`, ethnic names ("Athenians") ... |
-| **keep** | copied exactly, Greek included | `num`, `bibl` (references), `term`, `foreign`, empty markers |
-| **transliterate** | written in Latin letters (Περικλῆς → Perikles) | `name`, `persName`, `placeName`, `rs`, `label`, `speaker` |
+| **translate** | text translated, tag kept around the English | `p`, `l`, `head`, `q`, `said`, `quote`, `hi`, `add`, `del`, `corr`, names (`name`, `persName`, `placeName`, `rs`), numbers (`num`) ... |
+| **keep** | copied exactly, Greek included | `bibl` (references), `term`, `foreign`, empty markers |
+| **transliterate** | written in Latin letters (ΣΩΚΡΑΤΗΣ → SOKRATES) | speaker labels: `speaker`, `label` |
 | **keep whole** | the tag and everything inside copied unchanged | `note` (editors' notes, mostly Latin/English already) |
 
 A tag that is not in the list is translated like normal text, kept in place, and
 reported as "unknown" so we notice it.
+
+**Names and numbers (changed 2026-11-20).** They used to be transliterated
+(Περικλέους → *Perikleous*, with the Greek case ending) and kept (`δʹ`). Now the
+model translates them, so the English shows *Pericles* and *four*. The old rules are
+still in `policy.yaml` as comments, to switch back. One known problem: 93% of all
+`<num>` tags are letters naming points and lines in Euclid's *Elements* (ΑΒ = "the
+line AB"). The model copies most of them into Latin letters but makes mistakes (ΒΓΔ →
+*BBD*, ΑΓΕ → *AE*, Γ sometimes *C* and sometimes *G*), which matters in geometry.
 
 ---
 
@@ -135,8 +143,8 @@ When the tags are removed, each one is remembered as one of three kinds:
 
 ```mermaid
 flowchart TD
-    T["A tag inside a block"] --> W["<b>Wrap</b><br/>its words are translated<br/>e.g. &lt;q&gt;, &lt;hi&gt;, ethnic &lt;name&gt;"]
-    T --> F["<b>Fixed</b><br/>its words must not be translated<br/>e.g. &lt;name&gt;, &lt;num&gt;"]
+    T["A tag inside a block"] --> W["<b>Wrap</b><br/>its words are translated<br/>e.g. &lt;q&gt;, &lt;hi&gt;, &lt;name&gt;, &lt;num&gt;"]
+    T --> F["<b>Fixed</b><br/>its words must not be translated<br/>e.g. &lt;foreign&gt;, &lt;term&gt;, &lt;label&gt;"]
     T --> P["<b>Point</b><br/>sits at one position<br/>e.g. &lt;pb/&gt;, &lt;milestone/&gt;, &lt;note&gt;, &lt;bibl&gt;"]
     W --> W2["tag goes around the English words<br/>linked to its Greek words"]
     F --> F2["the model still sees the Greek (better sentence),<br/>then its English words are replaced<br/>by the original content (kept or transliterated)"]
@@ -152,12 +160,12 @@ show the steps, not a real run):
 | Tags removed (model input) | `ὁ Περικλῆς εἶπε δʹ λόγους τοῖς Ἀθηναίοις καὶ ἀπῆλθεν.` |
 | Model output | `Pericles gave four speeches to the Athenians and left.` |
 | Alignment | Περικλῆς ↔ *Pericles*, δʹ ↔ *four*, Ἀθηναίοις ↔ *Athenians*, ... |
-| Tags placed | `<name>Perikles</name> gave <num>δʹ</num> speeches to the <name type="ethnic">Athenians</name> and left.` |
+| Tags placed | `<name>Pericles</name> gave <num>four</num> speeches to the <name type="ethnic">Athenians</name> and left.` |
 
-Note what happens with the fixed tags: the model's *Pericles* is replaced by the
-transliteration *Perikles*, and *four* by the original `δʹ`. That is what the "keep"
-and "transliterate" decisions mean in practice (whether names should use the usual
-English form instead is still open, see section 6).
+All three tags here are *wrap* tags: each goes around the English words aligned to
+its Greek words. A *fixed* tag works the same way, but then the model's English words
+are swapped for the original content. For example, a `<foreign>` Latin word is put
+back unchanged in place of whatever the model made of it.
 
 ### Where markers go
 
@@ -244,8 +252,7 @@ This writes `outputs/<name>.en.xml` and prints the report.
 |---|---|
 | **User interface** (Gradio `app.py`, local + Hugging Face Spaces) | decided, not started (`ui/` is empty). Also open: which language pairs to offer and how options appear in the UI |
 | **Tag placement evaluation** | the scoring code exists (`metrics/scores.py`); the gold set of hand-checked English TEI files is in progress (`data/gold/grc-en/`, 8 Lucian works so far); not yet run on hybrid output |
-| **Names in their usual English form** (Pericles, not Perikles) | needs a name list; today all names are transliterated letter by letter |
-| **Greek numerals → Arabic numbers** (`δʹ` → 4) | not implemented, `num` is kept as is |
+| **Names and numbers handled by our own code** (not the model) | for now the model translates them (section 3). If that turns out unreliable: transliterate the dictionary form stored in each name's `key` attribute and/or use a name list; for numbers, a Greek-numeral parser plus Latin letters for Euclid's point labels |
 | **COMET score** | planned in the proposal; only chrF and BLEU exist now |
 | **TEI schema check** (`tei_all`) | the checks only test that the XML is well formed and has the same structure as the input, not the full TEI schema |
 | **Fine-tuning a model** | in the original plan; nothing done, and it depends on hardware |
@@ -257,8 +264,7 @@ This writes `outputs/<name>.en.xml` and prints the report.
 | Decision | Where it comes from |
 |---|---|
 | Final translation model, locally and on the hosted app | engine comparison (MADLAD vs pivot are close) |
-| Names: transliteration (Perikles) or usual English form (Pericles)? | `tag_decisions.md`, `gold_set_handover.md` |
-| `num`: keep Greek numerals or convert? | `tag_decisions.md` |
+| Confirm that names and numbers stay translated by the model (changed 2026-11-20); the gold set was made with the old rules (`<num>` kept in Greek) | `tag_decisions.md`, `gold_set_handover.md` |
 | Which inline tag groups are officially in scope (editors' corrections?) | `tag_decisions.md` §5 |
 | Position of empty markers: the current rules (section 4) are a proposal to confirm | `tag_decisions.md` §3 |
 | `<del>` and `<choice>` handling | `HANDOVER.md` open questions |

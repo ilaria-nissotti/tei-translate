@@ -71,15 +71,21 @@ tags:
   note:    {role: inline, treatment: keep-subtree, params: {placement: align, anchor: left, fallback: boundary}}
 
   # Inline groups (tag_decisions §5)
-  num:     {role: inline, treatment: keep, params: {convert: none}}
+  # Numbers and names: translated by the MT model for now (decided 2026-11-20), so the
+  # English shows the model's form ("four", "Pericles"). Earlier rules, to switch back:
+  #   num:  {role: inline, treatment: keep, params: {convert: none}}
+  #   name, rs, persName, placeName, label: {role: inline, treatment: transliterate, params: {scheme: simple}}
+  # Note: 93% of <num> are point labels in Euclid's Elements (ΑΒ = "line AB"), not numbers.
+  num:     {role: inline, treatment: translate}
   bibl:    {role: inline, treatment: keep, params: {mt_input: remove, placement: align, anchor: left, fallback: boundary}}
   term:    {role: inline, treatment: keep}
   foreign: {role: inline, treatment: keep}
 
-  name:      {role: inline, treatment: transliterate, params: {scheme: simple}}
-  rs:        {role: inline, treatment: transliterate, params: {scheme: simple}}
-  persName:  {role: inline, treatment: transliterate, params: {scheme: simple}}
-  placeName: {role: inline, treatment: transliterate, params: {scheme: simple}}
+  name:      {role: inline, treatment: translate}
+  rs:        {role: inline, treatment: translate}
+  persName:  {role: inline, treatment: translate}
+  placeName: {role: inline, treatment: translate}
+  # Speaker labels inside dialogues (ΜΟΣΧΙΩΝ.), like <speaker>: still transliterated.
   label:     {role: inline, treatment: transliterate, params: {scheme: simple}}
 
   q:        {role: inline, treatment: translate}
@@ -98,6 +104,6 @@ tags:
 
 # Attribute-based exceptions, checked first; the first match wins.
 overrides:
-  - {tag: name, attr: {type: ethnic}, role: inline, treatment: translate}
+  # (name[type=ethnic] -> translate was here; all names are translated now.)
   # Paragraph milestones already sit at sentence ends (97% in the Greek files).
   - {tag: milestone, attr: {unit: para}, role: empty, treatment: keep, params: {placement: boundary}}
