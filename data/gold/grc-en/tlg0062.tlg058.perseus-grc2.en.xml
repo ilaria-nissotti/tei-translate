@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Ὑπὲρ τοῦ ἐν τῇ Προσαγορεύσει Πταίσματος</title>
+<author>Lucian</author>
+<editor>Karl Jacobitz</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+    <principal>Gregory Crane</principal>
+    <respStmt>
+        <resp>Prepared under the supervision of</resp>
+        <name>Bridget Almas</name>
+        <name>Lisa Cerrato</name>
+        <name>Rashmi Singhal</name>
+    </respStmt>
+    <funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+    
+    <publicationStmt>
+        <publisher>Trustees of Tufts University</publisher>
+        <pubPlace>Medford, MA</pubPlace>
+        <authority>Perseus Project</authority>
+        <date type="release" when="2011-03-14">Perseus 4.0</date>
+        <idno type="filename">tlg0062.tlg058.perseus-grc2.xml</idno>
+        <availability>
+            <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+            <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> 
+        </availability>
+    </publicationStmt>
+    
+    <sourceDesc>
+        <biblStruct>
+            <monogr>
+                <title xml:lang="lat">Luciani Samosatensis Opera</title>
+                <author>Lucian</author>
+                <editor>Karl Jacobitz</editor>
+                <imprint>
+                    <publisher>Teubner</publisher>
+                    <pubPlace>Leipzig</pubPlace>
+                    <date>1909</date>
+                </imprint>
+                <biblScope unit="volume">1</biblScope>
+            </monogr>
+            <ref target="https://archive.org/details/operaexrecogniti01luciuoft/page/328/mode/2up">Internet Archive</ref>
+        </biblStruct>
+    </sourceDesc>
+</fileDesc>
+        
+        <encodingDesc>
+            <editorialDecl>
+                <correction method="silent">
+                    <p>keyboarding</p>
+                </correction>
+            </editorialDecl>
+            
+            <refsDecl n="CTS">
+                <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts section.</p>
+                </cRefPattern>
+            </refsDecl>
+            
+            <!--<refsDecl doctype="TEI.2">
+<state unit="chapter" n="chunk"/>
+<state unit="altsection"/>
+</refsDecl>-->
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change who="Lisa Cerrato" when="2023-05-01">EpiDoc and CTS conversion and other cleanup</change>
+        </revisionDesc>
+    </teiHeader>
+    
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2">
+    <div n="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" type="edition" xml:lang="en">
+<pb n="p.328"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="1">
+<p rend="align(indent)">It is difficult for a mortal to escape the spite of some divine power, and far more difficult to find a defense for an absurd, heaven-sent slip—both of which have now happened to me. Having come to you to offer the morning greeting, when I ought to have uttered the usual phrase and bidden you "Joy," I, fine fellow that I am, forgot and wished you <milestone unit="Reitz_page" n="725"/>"Health"—an auspicious wish indeed, yet untimely since it does not belong to the morning. At this I immediately sweated and blushed and was at a complete loss in my embarrassment; as for those present, some thought me out of my wits, naturally enough, others thought I was rambling from old age, and others that I was still full of yesterday's hangover—although you yourself bore what happened with the utmost courtesy, not marking my slip of the tongue with so much as the faintest smile. It therefore seemed a good idea to compose a little consolation for myself, so that I might not be overly distressed at the slip or consider it intolerable if, as an old man, I fell so far short of propriety before so many witnesses; for no defense was needed, I think, on behalf of a tongue that slipped into so auspicious a <milestone unit="Reitz_page" n="726"/>wish. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="2">
+<p>When I began writing, I thought I would face a very difficult problem, but as I went on, plenty of things to say came into view. I shall not state them, however, before saying what is fitting about "Joy" itself, and "Doing well," and "Health." "Joy," then, is an ancient greeting, yet not confined to the morning or to the first meeting: they did indeed say it on first seeing one another, as in <quote rend="blockquote">"Joy to you, lord of this Tirynthian land."</quote> <pb n="p.329"/>And after dinner, when already turning to talk over the wine, as in <quote rend="blockquote">"Joy, Achilles! Of a fair feast we have no lack,"</quote> when Odysseus was delivering to him the embassy he had been sent on. And again when parting from one another, as in <quote rend="blockquote">"Joy to you! For to you I am an immortal god, no longer mortal."</quote> No special time was assigned to the greeting, nor, <milestone unit="Reitz_page" n="727"/>as now, only the morning; indeed, they even used it on ominous and most dreadful occasions, like Euripides' Polynices already at the end of his life: <quote rend="blockquote">"And joy to you, for already darkness wraps me round."</quote> And it was not only a token of friendliness for them, but also of aversion and of having no more to do with one another: bidding a "long joy" to something, for instance, means no longer caring about it. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="3">
+<p>Philippides the courier is said to have been the first to use it in our sense when announcing the victory from Marathon to the magistrates as they sat anxious over the outcome of the battle: "Joy to you, we win!"—and having said this, he died with his message and breathed his last on "Joy." At the beginning of a letter, Cleon the Athenian demagogue was the first to prefix "Joy" from Sphacteria, bringing the good news of <milestone unit="Reitz_page" n="728"/>the victory there and the capture of the Spartans; yet even after him Nicias, writing from Sicily, kept to the ancient style of letters, beginning straightway with the business itself. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="4">
+<p>But the admirable Plato, a trustworthy lawgiver in such matters, bids us altogether reject "Joy" as a poor expression signifying nothing serious, and introduces "Doing well" in its place as a shared symbol of body and soul being in a good state; and when writing to Dionysius he reproves him because in composing a poem to Apollo he addressed the <milestone unit="Reitz_page" n="729"/>god with "Joy," as unworthy of the Pythian and fitting not even for sensible men, let alone gods.<pb n="p.330"/> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="5">
+<p>As for the divine Pythagoras, although he did not see fit to leave us any writings of his own, so far as one may judge from Ocellus the Lucanian and Archytas and his other disciples, he prefixed neither "Joy" nor "Doing well," but bade them begin with "Health." At any rate, all his followers, when writing to one another on any serious matter, urged "Health" right at the start, as being most suited to both soul and body and encompassing altogether all human goods. Indeed, that triple <milestone unit="Reitz_page" n="730"/>interlaced triangle of theirs, the pentagram, which they used as a token among those of the same persuasion, was named "Health" by them; and in general they considered that "Doing well" and "Joy" were contained in "Health," whereas "Health" was not necessarily contained in either <milestone unit="Reitz_page" n="731"/>"Doing well" or "Joy." There are also some who even <milestone unit="Reitz_page" n="732"/>called the tetractys—their greatest oath, which makes up their perfect number—the "Beginning of Health," among whom is Philolaus. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="6">
+<p>And why should I speak to you of the ancients, when even Epicurus—a man who thoroughly rejoiced in "Joy" and chose pleasure before all things—in his more serious letters (and these are few) and especially in those to his dearest friends bids them "Health" right at the beginning? You will also find "Health" often spoken right at the start in tragedy and in Old Comedy: for <quote rend="blockquote">"Good health and much joy to you"</quote> clearly places "Health" ahead of "Joy." Alexis says: <quote rend="blockquote">"Master, good health! How long it has been since you came."</quote> And Achaeus: <quote rend="blockquote">"I have come in terrible straits, yet good health to you."</quote> <pb n="p.331"/>And Philemon: <quote rend="blockquote">"I ask for health first, then prosperity, <lb/>thirdly joy, and then to owe nothing to anyone."</quote> And the author of the drinking-song whom Plato too mentions, <milestone unit="Reitz_page" n="733"/>what does he say? "Health is best, second to be handsome, and third to be wealthy"—and of "Joy" he made no mention at all! Not to mention to you that most familiar song on everyone's lips: <quote rend="blockquote">"Health, eldest of the blessed ones, with you may I dwell for the remainder <lb/>of my life."</quote> Therefore, if Health is the eldest, her work—being healthy—must be placed ahead of all other goods. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="7">
+<p>Though I could point out to you countless other passages from poets, historians, and philosophers who prefer "Health," I shall pass them by, lest my treatise fall into a childish display of pedantry and we risk driving out one nail with another; instead, I thought it well to add for you a few items from ancient history that I recall as pertinent to the present subject. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="8">
+<p>When Alexander was about to fight the battle of Issus, as Eumenes of Cardia says <milestone unit="Reitz_page" n="734"/>in his letter to Antipater, Hephaestion entered his tent early in the morning and, either forgetting or confused like me, or else compelled by some god, said the same thing as I did: "Health, O King, it is now time to draw up the battle line." When those present were disturbed at the strangeness of the greeting and Hephaestion nearly died of shame, Alexander said, "I accept the omen; for it has already promised me that we shall return safe from the battle." </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="9">
+<p>And Antiochus Soter, when he was about to engage the Galatians, dreamed that Alexander stood beside him and bade him give "Health" as the watchword to the army before the battle; and under this watchword he won that marvelous victory.<pb n="p.332"/> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="10">
+<p>And Ptolemy son of Lagus, writing to Seleucus, clearly reversed the order, greeting him with "Health" at the beginning of the letter and subscribing "Joy" at the end instead of "Farewell," as Dionysodorus, who collected his letters, reports. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="11">
+<p>It is also worthwhile to mention <milestone unit="Reitz_page" n="735"/>Pyrrhus of Epirus, a man who took second place after Alexander in generalship and endured countless turns of fortune. Whenever he prayed, sacrificed, and made offerings to the gods, he never once asked them for victory or greater royal dignity or renown or excess of wealth, but prayed for this one thing—"Health"—believing that so long as he had this, all the rest would easily accrue to him. And he thought most wisely, in my opinion, reckoning that all good things are of no use so long as health alone is missing. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="12">
+<p>"Yes," someone says, "but nowadays a proper time has been assigned by us to each greeting, and you switched it; even if you said nothing else amiss, still by fair reckoning you would not be free of error—just as if someone fastened his helmet on his shin or his greaves on his head." "My good sir," I would reply to him, "you would speak reasonably if there were any time at all that did not need health; as it is, health is always necessary—at dawn, at midday, and at night—and especially for rulers and busy men like you, inasmuch as <milestone unit="Reitz_page" n="736"/>for most tasks you need your body. Moreover, the man who says 'Joy' merely uses an auspicious opening, and the thing is a wish; whereas the man who urges 'Health' both does something useful and reminds you of what contributes to health, and not only joins in a wish, but also gives a precept." </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="13">
+<p><pb n="p.333"/>Why, in the book of instructions which you always receive from the Emperor, is not this the very first injunction to you—to take care of your own health? And quite reasonably; for you would be of no use for anything else if you were not in that condition. Indeed, you yourselves, if I understand anything of the Roman tongue, when returning a greeting often answer with the word for "Health." </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="14">
+<p>And I have said all this not as if I had deliberately discarded "Joy" and contrived to say "Health" in its place, but as having done so unintentionally; otherwise I would indeed be ridiculous, acting strangely and swapping the times of greetings. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="15">
+<p>I give thanks to the gods, however, that my slip turned into something far more auspicious <milestone unit="Reitz_page" n="737"/>and that I slid into something better; and perhaps this was done by the inspiration of Health or Asclepius himself, promising you health through me—for how could I have experienced this without a god, having never before in my long life been confused in such a way? </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="16">
+<p>And if I must also offer a human defense for what happened, it is nothing strange if, being very eager to be known to you for the best, out of excessive desire I grew confused and fell into the opposite. Perhaps, too, a crowd of soldiers might startle someone out of proper reasoning, some pushing forward and others not keeping their place in the order of greeting. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="17">
+<p>But I know well that even if others attribute the matter to folly or lack of breeding or madness, you took it as a token of modesty and simplicity and a soul having nothing vulgar or artificial; for excessive boldness in such situations is not far from audacity and shamelessness. For my part, may I never make any such slip—or if it should happen, <milestone unit="Reitz_page" n="738"/>may it turn into an auspicious omen. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="18">
+<p><pb n="p.334"/>Under the first Augustus, for instance, something like this is said to have happened. He had judged a certain case rightly and acquitted of a very grave charge a man who was being unjustly prosecuted; the man, expressing his thanks in a loud voice, said, "I thank you, Emperor, for judging badly and unjustly!" When Augustus's attendants grew indignant and wanted to tear the man to pieces, he said, "Stop being angry; for it is not his tongue, but his intention that ought to be examined." So he said; and as for you, whether you examine my intention, you will find it thoroughly well-disposed, or my tongue, it too is auspicious. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg058.perseus-grc2" n="19">
+<p>Having now reached this point, I seem likely with good reason to fear something else: that some may think I erred on purpose in order to compose this defense. And may this essay, dearest Asclepius, turn out to be such that it seems not a defense, but an occasion for a display piece. </p>
+</div></div>
+</body>
+</text>
+</TEI>

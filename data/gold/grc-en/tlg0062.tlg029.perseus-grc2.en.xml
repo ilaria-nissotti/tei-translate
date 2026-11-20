@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Περὶ τοῦ Ἐνυπνίου ἤτοι Βίος Λουκιανοῦ</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg029.perseus-grc2.xml</idno>
+ <availability>
+  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+  <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+ </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date>1921</date>
+     </imprint>
+     <biblScope unit="volume">3</biblScope>
+    </monogr>
+    <series>
+     <title>Loeb Classical Library</title>
+    </series>
+    <ref target="https://archive.org/details/lucianhar03luciuoft/page/214/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+<!--<refsDecl doctype="TEI.2">
+<state unit="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-25">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" type="edition" xml:lang="en">
+<pb n="v.3.p.214"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="1">
+<p rend="align(indent)"> I had just stopped going to school, being already nearly of age, and my father was considering with his friends what he should have me taught. Most of them thought that higher education required great labor, a long time, no small expense, and brilliant fortune, whereas our means were modest and demanded speedy relief; but if I should learn one of these manual crafts, first I would immediately have enough for myself from the craft and no longer be eating at home at my age, and before long I would also gladden my father by regularly bringing home my earnings. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="2">
+<p rend="align(indent)"> So the topic of a second deliberation was proposed: which of the crafts was best, easiest to learn, fitting for a free man, with equipment easy to obtain and an income sufficient. As one praised one craft and another another, according to each man's judgment or experience, my father looked at my uncle—for my mother's brother was present, reputed to be an excellent sculptor <note xml:lang="mul" type="footnote" n="v.3.p.214.n.1">δοκῶν MSS. add καὶ (not in γ) λιθοξόος ἐν τοῖς μάλιστα εὐδοκίμοις: excised by Schmieder. Cf. 7.</note>—and said, <q>"It is not right,"</q> he said, <q><pb n="v.3.p.216"/>"that any other craft should prevail while you are present; rather, take this boy—"</q> pointing to <corr>me</corr> — <q>"receive him and teach him to be a good stone-worker, mason, and sculptor; for he is capable of this too, since, as you know, he has a clever natural gift."</q> He inferred this from my games with wax; for whenever I was dismissed by my teachers, I would scrape off the wax and mold oxen or horses or, by <corr>Zeus</corr>, even men—lifelike ones, <note xml:lang="mul" type="footnote" n="v.3.p.216.n.1">εἰκότας Naber: εἰκότως MSS.</note>as my father thought. For these I used to get beatings from my teachers, but at that time even these won praise for my natural talent, and they had good hopes of me that I would quickly learn the craft, judging from that modeling. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="3">
+<p rend="align(indent)"> As soon as a day seemed suitable for beginning a craft, I was handed over to my uncle—by Zeus, not greatly displeased with the matter; on the contrary, it seemed to me to involve a rather enjoyable game and a chance to show off before my peers, if I should be seen carving gods and fashioning little statues for myself and for those I favored. And then happened that very first experience usual for beginners. My uncle gave me a chisel and told me to strike gently on a slab lying in the middle, adding the common saying, <q>"Well begun is half done."</q> But when I brought it down too hard out of inexperience, the slab broke; and he, growing angry, seized a stick lying nearby and initiated me in no gentle or encouraging way, so that tears were the prelude to my craft. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="4">
+<p rend="align(indent)"><pb n="v.3.p.218"/>Running away from there, I arrived home sobbing continuously and with my eyes full of tears, and I told about the stick and showed my welts, and accused him of great cruelty, adding that he had done this out of envy, lest I surpass him in the craft. After my mother comforted me and roundly abused her brother, when night came on I fell asleep still tearful and thinking of the stick.<note xml:lang="mul" type="footnote" n="v.3.p.218.n.1">σκυτάλην Steigerthal: νύκτα ὅλην MSS.</note> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="5">
+<p rend="align(indent)"> Up to this point what has been told is laughable and boyish; but what follows, gentlemen, you will hear is no longer to be made light of, but requires very attentive listeners. For, to speak in Homer's words, <quote rend="blcokquote">
+<l>A divine dream came to me in my sleep </l>
+
+<l>Through the ambrosial night,</l>
+</quote> so vivid that it fell in no way short of reality. Even now, after so long a time, the shapes of those who appeared remain in my eyes and the voice of what I heard still rings in my ears, so clear was it all. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="6">
+<p rend="align(indent)"> Two women, taking me by the hands, each dragged me toward herself very violently and forcefully; indeed, they almost tore me apart in their rivalry with each other, for at one moment the one would prevail and almost have all of me, and at the next I would again be held by the other. Each shouted at the other, the one saying that she wished to possess me since I belonged to her, the other that she was vainly claiming what belonged to someone else. <pb n="v.3.p.220"/>One was workmanlike and masculine, with unkempt hair, hands full of calluses, her garment tucked up, covered all over with marble dust, just as my uncle was whenever he chipped stones; the other was very fair of face, dignified in bearing, and neat in her attire.</p>
+<p rend="align(indent)"> At last, then, they left it to me to decide which of them I wished to associate with. First that harsh and masculine one spoke: </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="7">
+<p rend="align(indent)"> <q>"I, dear boy, am the craft of <corr>Sculpture</corr>, which you began to learn yesterday, akin to you and related from home; <note xml:lang="mul" type="footnote" n="v.3.p.220.n.1">μητρόθεν Fritzsche, as in Toxar. 51.</note>for your grandfather—"</q> naming my mother's father — <q>"was a stone-carver, and both your uncles are very famous through us. If you are willing to keep away from this woman's nonsense and drivel,"</q> — pointing to the other — <q>"and to follow and live with me, first you will be generously fed and have strong shoulders, and you will be a stranger to all envy; you will never go away to a foreign land, leaving behind your <corr>homeland</corr> and your kinsfolk, nor for words... <note xml:lang="mul" type="footnote" n="v.3.p.220.n.2">λόγοις Lacuna noted by Bourdelot. At least ἀλλʼ ἐπʼ ἔργοις is necessary.</note>will all men praise you."</q> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="8">
+<p rend="align(indent)"> <q>"Do not be disgusted by the humbleness of my appearance <note xml:lang="mul" type="footnote" n="v.3.p.220.n.3">σχήματος Bekker: σώματος MSS.</note>nor the dirtiness of my clothing; for starting from such things even that famous Phidias revealed Zeus, Polyclitus fashioned Hera, Myron was praised, and Praxiteles was marveled at. Indeed, these men are worshipped alongside the gods. If then you should become one of them, how will you not yourself be famous <note xml:lang="mul" type="footnote" n="v.3.p.220.n.4">ἔσῃ Dindorf: γένοιο MSS.</note>among all mankind, and make your father envied, and render your homeland renowned?<pb n="v.3.p.222"/>"</q></p>
+ <p rend="align(indent)"> These things and even more than these Craft said, stumbling and speaking very ungrammatically, stringing her words together in great haste and trying to persuade me; but I no longer remember, for most of it has already escaped my memory. </p>
+ <p rend="align(indent)">When she had finished, the other began somewhat as follows: </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="9">
+<p rend="align(indent)"> <q>"And I, my child, am Education, already familiar and known to you, even if you have not yet experienced me to the full. How great are the benefits you will gain by becoming a stone-carver, this woman has already told you: you will be nothing but a laborer, toiling with your body and placing in it your entire hope of a livelihood, obscure yourself, receiving small and ignoble wages, humble in mind, insignificant in public appearance, neither sought out by friends nor feared by enemies nor envied by your fellow citizens, but simply a laborer and one of the common crowd, always cowering before the prominent man and courting the man who can speak, living the life of a hare and being a windfall for anyone stronger. Even if you should become a Phidias or a Polyclitus and <corr>produce</corr> many marvelous works, everyone will praise your craft, but there is no one among those who see them, if he has any sense, who would pray to become like you; for whatever sort of man you may be, you will be considered a mechanic, a handicraftsman, and one who lives by his hands."</q> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="10">
+<p rend="align(indent)"><pb n="v.3.p.224"/>"But if you obey me, <note xml:lang="mul" type="footnote" n="v.3.p.222.n.1">δʼ ἐμοὶ Lehmann: δέ μοι MSS.</note>first I shall show you many works of men of old and wondrous deeds and report their sayings, and make you experienced in practically everything; and your soul, which is most vital to you, I shall adorn with many noble ornaments—temperance, justice, piety, gentleness, reasonableness, understanding, steadfastness, love of noble things, and zeal for the most sublime; for these are truly the pure adornment of the soul. Nothing from the past will escape you, nor anything that must now be done, but with me you will even foresee the future; and in short, everything that exists, both divine and human, I shall teach you before <corr>long</corr>. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="11">
+<p rend="align(indent)"> <q>"And you, who are now the poor son of a nobody, who <corr>considered</corr> taking up so ignoble a craft, will after a little while be envied and emulated by all, honored and praised, esteemed for the highest qualities and looked up to by those preeminent in birth and wealth, wearing clothing such as this,"</q> — pointing to her own, and she wore a very splendid robe — <q>"and deemed worthy of office and precedence. And if you ever travel abroad, not even in a foreign land will you be unknown or obscure; I will place upon you such marks of distinction that everyone who sees you will nudge his neighbor and point you out with his finger, saying, 'That is he!'</q> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="12">
+<p> "And if anything of serious importance befalls your friends or even the whole city, all will look to you; and if you chance to speak anywhere, the multitude will listen open-mouthed, marveling and calling you blessed for the power of your words and your father for his good fortune.<note xml:lang="mul" type="footnote" n="v.3.p.224.n.1">εὐπαιδίας Ψ2 (conjectural?) and Hemsterhuys.</note> <pb n="v.3.p.226"/>And what they say, that some mortals actually become immortal, this I shall secure for you; for even when you yourself depart from life, you will never cease associating with the educated and conversing with the best. You see that famous Demosthenes—whose son he was, and how great I made him. You see Aeschines, how he was the son of a tambourine-player, yet nevertheless <note xml:lang="mul" type="footnote" n="v.3.p.226.n.1">ὅμως Ν marg., Ϛ, vulg.: ὅπως MSS.</note>Philip courted him because of me. And Socrates himself, raised under this Sculpture here, as soon as he understood what was better and ran away from her and deserted to me—you hear how he is sung of by all. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="13">
+<p rend="align(indent)"> "On the other hand, if you give up such great and noble men, and brilliant deeds, and lofty words, and dignified bearing, and honor and glory and praise and precedence and power and offices, and being esteemed for eloquence and congratulated for intelligence, you will put on a filthy little tunic, assume a servile appearance, and hold bars and gravers and chisels and mallets in your hands, bent down over your work, groveling, low-minded, and humble in every way, never looking up nor conceiving any manly or liberal thought, taking care that your works be well-proportioned and shapely, but caring least of all that you yourself be well-proportioned and orderly, making yourself of less worth than stones."</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="14">
+<p rend="align(indent)"><pb n="v.3.p.228"/>While she was still saying these things, without waiting for the end of her speech, I stood up and declared my decision, and leaving behind that ugly working-woman I went over to Education right joyfully, especially when the stick came into my mind and how it had dealt me not a few blows right <note xml:lang="mul" type="footnote" n="v.3.p.228.n.1">ὁ θεῖος Hemsterhuys.</note>at the start yesterday. The one left behind at first was indignant and clapped her hands together and ground her teeth; at last, just as we hear of Niobe, she grew rigid and turned to stone. If she suffered strange things, do not disbelieve it, for dreams are wonder-workers. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="15">
+<p rend="align(indent)"> The other, looking at me, said, <q>"Therefore I shall repay you,"</q> she said, <q>"for this justice, because you judged the case well; come now and mount this chariot—"</q> pointing to a chariot of winged horses resembling Pegasus — <q>"so that you may know what great and wondrous things you would have remained ignorant of if you had not followed me."</q> When I had mounted, she drove and held the reins, and lifted up on high I surveyed, beginning from the east all the way to the west, <note xml:lang="mul" type="footnote" n="v.3.p.228.n.2">τὰ ἑσπέρια Gronovius: τὰς ἑσπερίας MSS.</note>cities and nations and peoples, sowing something upon the earth like Triptolemus. I no longer remember, however, what that seed was, except this alone, that men looking up from below praised me and sped me on with words of blessing wherever I passed in my flight. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="16">
+<p rend="align(indent)"> After showing me all these things and me to those who praised me, she brought me back again, no longer wearing that same garment which I had when I flew away, but I seemed to myself to <corr>return</corr> finely clad in purple. <pb n="v.3.p.230"/>Finding my father standing and waiting, she <note xml:lang="mul" type="footnote" n="v.3.p.230.n.1">ἐκείνη Ϛ, Allinson: ἐκείνην MSS.</note>showed him my clothing and me, in what state I had come, and even reminded him gently of what they had nearly decided about me.</p>
+ <p rend="align(indent)"> This is what I remember seeing while still a young lad, agitated, it seems to me, by fear of the beatings. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="17">
+<p rend="align(indent)"> In the middle of my speaking, <q>"Heracles,"</q> said someone, <q>"what a long and tedious dream!"</q> Then another broke in, <q>"A winter dream, when <note xml:lang="mul" type="footnote" n="v.3.p.230.n.2">ὅτε Graeviua (Z1?): ὅτι MSS.</note>the nights are longest, or perhaps it too is a product of three nights, like Heracles! What possessed him to babble this nonsense to us and recall a night of his childhood and old, superannuated dreams? Stale is such frigid talk! Surely he doesn't take us for some sort of interpreters of dreams?"</q> No, my good sir; for neither did Xenophon, when he once related his dream—how it seemed to him that a thunderbolt fell and burned his father's house <note xml:lang="mul" type="footnote" n="v.3.p.230.n.3"><add>κεραυνὸς ἐμπεσὼν</add> καίειν τὴν πατρῴαν οἰκίαν Harmon: καὶ ἐν τῇ πατρῴᾳ οἰκίᾳ MSS.</note>and the rest (for you know it)—recount it for interpretation or as one bent on talking nonsense, and that too in war and desperate straits with enemies all around, but the narrative had a useful purpose. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg029.perseus-grc2" n="18">
+<p rend="align(indent)"><pb n="v.3.p.232"/>And so I too have told you this dream for that very reason, so that the young may turn toward what is better and cling to education, and especially if any one of them loses heart because of poverty and inclines toward the worse course, spoiling a nature not ignoble. He too, I know well, will be strengthened by hearing the tale, setting me before himself as a sufficient example, reflecting from what state I set out toward the noblest things and longed for education, showing no cowardice in the face of my poverty then, and in what state I have returned to you—if nothing else, at least no less renowned than any of the stone-carvers.</p>
+</div></div>
+</body>
+</text>
+</TEI>

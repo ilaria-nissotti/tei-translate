@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Μυίας Ἐγκώμιον</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+    <date type="release" when="2010-12-13">Perseus 4.0</date>
+    <idno type="filename">tlg0062.tlg006.perseus-grc2.xml</idno>
+    <availability>
+        <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+        <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+    </availability>
+</publicationStmt>
+
+    <sourceDesc>
+        <listBibl>
+            <biblStruct>
+                <monogr>
+                    <author>Lucian</author>
+                    <title>Lucian</title>
+                    <editor>Austin Morris Harmon</editor>
+                    <imprint>
+                        <pubPlace>London</pubPlace>
+                        <publisher>William Heinemann Ltd.</publisher>
+                        <pubPlace>Cambridge, MA</pubPlace>
+                        <publisher>Harvard University Press</publisher>
+                        <date>1913</date>
+                    </imprint>
+                    <biblScope unit="volume">1</biblScope>
+                </monogr>
+               <series>
+                   <title>Loeb Classical Library</title>
+               </series>
+                <ref target="https://archive.org/details/lucianha01luciuoft/page/82/mode/2up">Internet Archive</ref>
+            </biblStruct>
+        </listBibl>
+    </sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+    <refsDecl n="CTS">
+        <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+            <p>This pointer pattern extracts section.</p>
+        </cRefPattern>
+    </refsDecl>
+<!-- <refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+</revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2">
+    <div n="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" type="edition" xml:lang="en">
+<pb n="v.1.p.82"/>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="1">
+<p rend="align(indent)"> The fly is not the <note xml:lang="mul" type="footnote" n="v.1.p.82.n.1">οὐ τὸ vulg.: οὕτω MSS.: οὐ τῶν σμικροτάτων ὀρνέων Νilen.</note>smallest of winged creatures, so far as comparing her with gnats and midges and things still tinier, but she exceeds them in size as much as she falls short of a bee. She is not winged in the same way as the others, so that some are feathered over the whole body while others use quill-feathers, but like locusts, cicadas, and bees she is membrane-winged, having wings as much more delicate as Indian cloth is finer and softer than Greek. Moreover, she is brightly colored like peacocks, if one looks intently at her whenever she spreads her wings and flutters in the sun. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="2">
+<p> Her flight is neither with the continuous rowing of wings like bats, nor with a leap like locusts, nor with a whizzing rush like wasps, but easily turning toward whatever quarter of the <corr>air</corr> she heads for. Moreover, she also has this quality, that she flies not in silence, but with a song—not harsh like that of midges and gnats, nor displaying the deep boom of bees or the fearful and threatening buzz of wasps, but she is as much more melodious as flutes are sweeter than trumpets and cymbals.<pb n="v.1.p.84"/> </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="3">
+<p> As for the rest of her body, her head is very slenderly joined to the neck and is easily turned, not grown together with the body like that of <corr>locusts</corr>; her eyes are prominent and have much of the nature of horn; her chest is compact, and her legs grow out from the waist <note xml:lang="mul" type="footnote" n="v.1.p.84.n.1">τῇ ἐντομῇ Schwartz: not in MSS</note>itself, which is not at all tightly pinched like that of wasps.<note xml:lang="mul" type="footnote" n="v.1.p.84.n.2">ἐσφιγμένῃ Schwartz: ἐσφιγμένοι MSS.</note> Her belly too is fortified <note xml:lang="mul" type="footnote" n="v.1.p.84.n.3">αὐτῇ Harmon: αὐτὴ MSS.</note>and resembles a breastplate, having broad bands and scales. She defends herself, however, not with her tail like a wasp and a bee, but with her mouth and proboscis, which she possesses just like elephants, foraging with it, seizing things, and clinging fast, since it resembles a sucker at its tip. From it protrudes a tooth, with which she pierces and drinks blood—for she drinks milk too, yet blood is also sweet to her—without great pain to those she pierces. Being six-footed, she <corr>walks</corr> on four alone, and uses the front two as hands as well. You could therefore see her standing on four legs, holding something edible aloft in her two hands, quite in human fashion and just like us. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="4">
+            <p rend="align(indent)"> She does not come into being like this at once, but first as a grub from either humans or other animals that have <corr>died</corr>; then little by little she puts forth legs, grows her wings, and from a creeping thing becomes a winged creature, and she conceives and gives birth to a tiny grub, the fly to be. <pb n="v.1.p.86"/>Living with humans, sharing their food and their table, she <corr>tastes</corr> everything except oil; for it is death to her to drink this. And indeed, being short-lived—for her life is measured out within a very narrow span—she delights most in the light and conducts her affairs in it; at night she keeps peace and neither flies nor sings, but crouches down and stays still. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="5">
+<p> I can tell of no small intelligence in her whenever she escapes her plotting foe, the spider: she watches him lying in ambush and looks straight at him, turning aside from his attack, so as not to be caught, netted, and entangled in the beast's <corr>webs</corr>. Of her courage and prowess it is not for us to speak, but for Homer, the mightiest-voiced of poets: for when seeking to praise the best of heroes, he compares his prowess not to a lion or a leopard or a boar, but to the boldness of the fly and the fearless persistence of her assault; for he says that she possesses not recklessness, but boldness. Even when driven off, he says, she still does not desist, but is eager to bite. So greatly does he praise and cherish the fly that he mentions her not once nor in few places, but often; so much does she adorn his verses when mentioned. <pb n="v.1.p.88"/>Now he describes <note xml:lang="mul" type="footnote" n="v.1.p.86.n.1">διέρχεται <cit><bibl>Iliad 2, 469:</bibl><quote><l part="F">the many hordes of clustering flies</l><l>That dart about the sheepfolds in the spring,</l><l>When pails are wet with milk.</l></quote></cit> <cit><bibl>Iliad 16, 641</bibl><quote><l>They swarmed about the body like the flies</l><l>That in the fold buzz round the milky pails.</l></quote></cit></note>her swarming flight toward the milk; now, when Athena wards off the arrow from Menelaus so that it may not strike the most vital parts, comparing her to a mother tending her sleeping infant, he brings the fly once more into the simile. Moreover, he adorned them with a most beautiful epithet, calling them "clustering" and naming their swarm "nations." </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="6">
+            <p rend="align(indent)"> So strong is she that whenever she bites anything, she wounds not only the skin of a human, but also that of an ox and a horse, and she annoys even an elephant by slipping into its wrinkles and scratching it with her trunk in proportion to her size. In mating, love, and marriage they have great freedom, and the male does not mount and immediately leap off like cocks, but rides the female for a long time, and she carries her bridegroom, and they fly together without interrupting that aerial union by their flight. And a fly whose head has been cut off lives on in its body for a long time and still breathes. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="7">
+            <p rend="align(indent)"> But what is greatest in their nature, this I wish to tell. And Plato seems to me to have overlooked this alone in his discourse on the soul and its immortality. For when a dead fly has ashes sprinkled over it, it rises up, and a kind of rebirth and another life from the beginning comes to it, so that all are thoroughly convinced that their soul too is immortal, since even after departing it returns again, recognizes and revives the body, and makes the fly fly, and confirms the tale about Hermotimus of Clazomenae, that his soul often left him and traveled abroad by itself, and then returning filled his body again and raised Hermotimus up.<pb n="v.1.p.90"/> </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="8">
+            <p rend="align(indent)"> Idle and carefree herself, she reaps the fruits of others' labors, and a full table is set for her everywhere: for goats are milked for her, and the bee works not <corr>least</corr> for flies as well as humans, and cooks season their dishes for her, and she tastes before kings themselves, and walking about on their tables feasts with them and shares in the enjoyment of everything. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="9">
+<p> She has established no nest or dwelling in a single place, but having chosen a wandering flight like the Scythians, wherever she happens to be overtaken by night, there she makes both her hearth and her bed. Under darkness, however, as I said, she does nothing, nor does she consent to act in secret, nor does she think it right to do anything shameful that would disgrace her if done in the light. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="10">
+            <p rend="align(indent)"> Legend says that in ancient times there was also a human being named Myia, very beautiful, yet talkative, chattering, and fond of song, and that she became a rival in love to Selene, both at the same time <note xml:lang="mul" type="footnote" n="v.1.p.90.n.1">κατὰ τὸ αὐτὸ ἀμφοτέρας: probably a gloss (Herwerden, Nilén).</note>loving Endymion. Then, because she continually woke the sleeping <corr>youth</corr> by chattering and <corr>singing</corr> and reveling over him, he grew vexed, and Selene in anger <corr>transformed</corr> Myia into this creature; and for this reason she now begrudges sleep to all sleepers, still remembering Endymion, and especially to the young and tender; and her very bite and desire for blood is a sign not of savagery, but of love and fondness for mankind. <pb n="v.1.p.92"/>For she enjoys them as best she can and culls something of their beauty. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="11">
+            <p rend="align(indent)"> Among the ancients there was also a woman of the same name, a poetess, very beautiful and wise, and another, a famous Attic courtesan, about whom the comic poet also said, "Myia bit him right to the heart"; thus not even comic wit disdained or excluded the name of the fly from the stage, nor were parents ashamed to call their daughters so. Tragedy too mentions the fly with great praise, as in these lines:
+                <quote rend="blockquote"><l>It is a strange thing that the fly with sturdy strength </l>
+                    <l>Leaps upon men's bodies, to be sated with gore, </l>
+                    <l>While men-at-arms dread the foeman's spear. </l></quote>
+ And I would have had much to say about Myia the Pythagorean as well, were not her story well known to everyone. </p>
+</div>
+        <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg006.perseus-grc2" n="12">
+            <p rend="align(indent)"> There are also certain very large flies, which most people call soldier-flies and others dog-flies, very harsh in their buzz and very swift in their flight, which are also the <corr>longest-lived</corr> and endure the whole winter without food, mostly crouching under roofs; about them this too is worthy of wonder, that they perform both the part of females and that of males, both being mounted and <note xml:lang="mul" type="footnote" n="v.1.p.94.n.1">βαινόμεναι καὶ Schwartz: not in MSS.</note>mounting in turn, like the child of Hermes and Aphrodite, mixed in nature and double in beauty. <pb n="v.1.p.94"/>Though I still have much to say, I shall end my speech, lest I seem, as the proverb goes, to be making an elephant out of a fly.</p>
+</div></div>
+</body>
+</text>
+</TEI>

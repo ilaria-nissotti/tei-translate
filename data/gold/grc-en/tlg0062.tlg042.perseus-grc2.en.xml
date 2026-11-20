@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Περὶ τῆς Περεγρίνου Τελευτῆς</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg042.perseus-grc2.xml</idno>
+<availability> <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence><p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date type="printing">1936</date>
+     </imprint>
+     <biblScope unit="volume">5</biblScope>
+    </monogr>
+    <series>
+     <title>Loeb Classical Library</title>
+    </series>
+    <ref target="https://archive.org/details/lucianhar05luciuoft/page/n15/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+<!--<refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-28">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" type="edition" xml:lang="en">
+<pb n="v.5.p.2"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="1">
+<p rend="align(indent)"> Lucian to Cronius: best wishes. <note xml:lang="mul" type="footnote">This piece is wanting in N and several other MSS. because
+  it was in the Index Librorum Prohibitorum. It has been
+  edited separately by <persName n="https://www.jewishencyclopedia.com/articles/9825-levi-lionello">Lionello Levi</persName>, with the readings of
+  eight MSS., chief of which are Γ, X (Pal. 73), and M (Par.
+  2954).</note></p>
+<p rend="align(indent)"><sic><sic><sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr> unlucky Peregrinus—or, as he delighted in calling himself, Proteus—has experienced that very thing of Homer's Proteus: having become everything for the sake of glory and undergone countless transformations, at last he has even become fire, so great a passion for glory possessed him. And now he has been burned to cinders for you, <sic><sic><sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr> excellent fellow, after the manner of Empedocles—except that <sic><sic><sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr> at least tried to escape notice when throwing himself into the craters, whereas this fine gentleman <sic><sic><sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr></sic><corr>Lucian</corr>, waiting for the most crowded of the Greek festivals, heaped up a very large pyre and leaped into it before so many witnesses, even delivering some speeches on this subject to the Greeks not many days before his bold deed.<pb n="v.5.p.4"/> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="2">
+<p rend="align(indent)"> I seem to see you laughing heartily at the old man's driveling folly, or rather I even hear you shouting what you would naturally shout: <q>"Oh, the stupidity! Oh, the vainglory! Oh—"</q> all the other things we are accustomed to say about them. You do this from afar and far more safely, whereas I said it right beside the fire itself and even earlier amid a great crowd of listeners, annoying some of them—all who admired the old man's madness—though there were also some who laughed at him themselves. Yet I was nearly torn to pieces by the Cynics, like Actaeon by his dogs or his cousin Pentheus by the Maenads. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="3">
+<p rend="align(indent)"> The whole staging of the affair was as follows. You know what the playwright was like and what grand tragedies he performed throughout his whole life, surpassing Sophocles and Aeschylus. As soon as I arrived in Elis, going up <note xml:lang="mul" type="footnote" n="v.5.p.4.n.1">ἀνιὼν Sommerbrodt.: αὐτῶν MSS.</note>through the gymnasium, I overheard a certain Cynic in a loud, harsh voice bawling out the usual street-corner praises of Virtue and abusing everyone indiscriminately. <pb n="v.5.p.6"/>Then his shouting ended with Proteus, and as best I can I shall try to recall for you the very words as they were spoken; you will surely recognize the style, having often stood by while they were shouting. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="4">
+<p rend="align(indent)"> <q>"Does anyone dare,"</q> he said, <q>"to call Proteus vainglorious, O earth and sun and rivers and sea and ancestral Heracles—Proteus, who was imprisoned in Syria, who gave up five thousand talents to his homeland, who was banished from the city of Rome, who is more illustrious than the sun, who is able to rival Olympian Zeus himself? Yet because he has resolved to depart from life through fire, do some attribute this to vainglory? Did not Heracles do so? Did not Asclepius and Dionysus by the thunderbolt? Did not Empedocles at last into the craters?"</q> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="5">
+ <p rend="align(indent)"> When Theagenes—for that was what that bawler was called—said these things, I asked one of the bystanders, <q>"What is the meaning of this about the fire, or what have Heracles and Empedocles to do with Proteus?"</q> He replied, <q>"Before long,"</q> he said, <q>"Proteus will burn himself at Olympia."</q> <q>"How,"</q> I said, <q>"or for what reason?"</q> Then he tried to tell me, but the Cynic was shouting so that it was impossible to hear anyone else. <pb n="v.5.p.8"/>So I listened as he poured out the rest and went through astonishing exaggerations about Proteus: he did not even deign to compare the man of Sinope or his teacher Antisthenes to him, nor even Socrates himself, but challenged Zeus to the contest; then, however, he decided to keep them somewhat equal, and thus ended his speech: </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="6">
+<p> <q>"<corr>For</corr> these two noblest masterpieces,"</q> he said, <q>"has the world beheld: the Olympian Zeus and Proteus; and their sculptors and craftsmen were Phidias for the one, Nature for the other. But now this sacred image will depart from among men to the gods, borne upon the fire, leaving us orphans."</q> Having delivered this with much sweat, he wept quite ridiculously and tore his hair, taking care not to <corr>pull</corr> too hard; and at last some of the Cynics led him away sobbing as they tried to comfort him. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="7">
+ <p rend="align(indent)"> Immediately after him another man went up, not waiting for the crowd to disperse, but pouring libations while the earlier offerings were still ablaze. At first he laughed for a long time and was clearly <corr>doing</corr> it from the heart; then he began somewhat as follows: <q>"Since that accursed Theagenes made the tears of Heraclitus the end of his most abominable speech, I on the contrary shall begin with the laughter of Democritus."</q> And again he laughed for a long time, so that he drew most of us into doing the same. </p>
+</div><pb n="v.5.p.10"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="8">
+<p>Then composing himself, <q>"Why, what else,"</q> he said, "<corr>O</corr> men, ought we to do when hearing such ridiculous speeches and seeing <note xml:lang="mul" type="footnote" n="v.5.p.10.n.1">ἀκούοντας . . . ὁρῶντας Γ: ἀκούοντα . . . ὁρῶντα XMF,</note>old men practically turning somersaults in public for the sake of a despicable bit of notoriety? So that you may know what sort of 'sacred image' it is that is about to be burned, listen to me, who have observed his character from the beginning and kept watch on his life; and some things I learned from his fellow citizens and those who necessarily knew him accurately. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="9">
+<p rend="align(indent)"> "For this creation and masterpiece of nature, this Canon of Polyclitus, as soon as he began to come of age, was caught committing adultery in Armenia and received a great many blows, and at last escaped by leaping from the roof with a radish stuffed up his backside. Next, having corrupted a handsome youth, he bought himself off for three thousand drachmas from the boy's parents, who were poor, so as not to be hauled before the governor of Asia. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="10">
+<p rend="align(indent)"> "These and similar things I think I will pass over; for he was still unmolded clay, and a finished sacred image had not yet been crafted for us. What he did to his father, however, is quite <corr>worth</corr> hearing; though you all know it, and have heard how he strangled the old man, unable to bear him living on past sixty years. Then, when the matter was noised abroad, condemning himself to exile, he wandered about, moving from one land to another.  </p>
+</div><pb n="v.5.p.12"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="11">
+<p rend="align(indent)"> "It was then that he learned the wondrous lore of the Christians, associating with their priests and scribes in Palestine. And what happened? In a short time he made them look like children, being prophet and <note xml:lang="mul" type="footnote" n="v.5.p.12.n.1">καὶ ΜF: not in ΓΧ.</note>cult-leader and head of the synagogue and everything all by himself; some of their books he interpreted and explained, and many he even composed himself; and they revered <note xml:lang="mul" type="footnote" n="v.5.p.12.n.2">ᾐδοῦντο Cοbst, Fritzsche: ἡγοντο MSS.</note>him as a god, used him as a lawgiver, and enrolled him as a protector, next after <note xml:lang="mul" type="footnote" n="v.5.p.12.n.3">ἐπεγράφοντο, μετὰ Cοbet: ἐπέγραφον· τόν μέγαν MSS.</note>that man whom <note xml:lang="mul" type="footnote" n="v.5.p.12.n.4">ὃν Hermann: not in MSS.</note>they still worship, the man who was crucified in Palestine because he introduced this <note xml:lang="mul" type="footnote" n="v.5.p.12.n.5">ταῦτα ΓΧ.</note>new cult into <note xml:lang="mul" type="footnote" n="v.5.p.12.n.6">ἐπὶ ΓΧ.</note>the world. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="12">
+<p rend="align(indent)"> "Then at length Proteus was arrested for this and thrown into prison, which itself procured him no small prestige for his subsequent life and the charlatanism and notoriety-seeking of which he was enamored. When he was imprisoned, the Christians, treating the affair as a calamity, left nothing undone in trying to rescue him. Then, when this proved impossible, every other kind of attention was paid him, not casually but with zeal: right from dawn one could see aged widows and orphan children waiting by the prison, while their officials even slept inside with him after bribing the jailers. Then elaborate meals were brought in, their sacred discourses were spoken, and the excellent Peregrinus—for he was still called that—was named by them 'the new Socrates.'  </p>
+</div><pb n="v.5.p.14"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="13">
+<p rend="align(indent)">
+  "Moreover, even from <note xml:lang="mul" type="footnote" n="v.5.p.14.n.1">κἀκ Jacobitz, Dindorf: καὶ MSS.</note>some of the cities in Asia people came, sent by the Christians at public expense, to assist, defend, and comfort the man. They display extraordinary speed whenever any such <corr>public</corr> matter occurs; for in no time they spare nothing. And so much money came to Peregrinus from them at that time on the pretext of his imprisonment, and he made <note xml:lang="mul" type="footnote" n="v.5.p.14.n.2">ἐποιήσατο X2 (Faber): ἐποιήσαντο X1, cett,</note>no small income from this. For the poor wretches have convinced themselves above all that they will be immortal and live for all time, on account of which they despise death and most of them willingly give themselves up. Next, their first lawgiver persuaded them that they are all brothers of one another once they have transgressed by denying the Greek gods and worshipping that crucified sophist himself <note xml:lang="mul" type="footnote" n="v.5.p.14.n.3">αὐτὸν X, Sommerbrodt: αὐτῶν ΓM.</note>and living according to his laws. Therefore they despise all things equally and regard them as common property, having accepted such doctrines without any exact proof. If then any charlatan and trickster, able to exploit circumstances, comes among them, he becomes rich in a very short time, laughing up his sleeve at simple folk. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="14">
+<p rend="align(indent)"><pb n="v.5.p.16"/>"However, Peregrinus was released by the then governor of Syria, a man fond of philosophy, who, recognizing his madness and that he would gladly die so as to leave behind a reputation for it, let him go, not considering him worthy even of punishment. Returning to his homeland, he found the matter of his father's murder still inflamed and many pressing the accusation. Most of his property had been plundered during his absence, and only his farms remained, worth about fifteen talents; for the entire estate the old man left was worth around thirty talents, not five thousand as that utterly ridiculous Theagenes claimed—for that much not even the entire city of the Parians, together with the five neighboring ones, would fetch if sold with its people, cattle, and all the rest of its <corr>belongings</corr>. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="15">
+<p rend="align(indent)"> "Still, the accusation and charge were hot, and it seemed likely that someone would soon rise against him, and especially the people themselves were indignant, mourning a good old man—as those who knew him said—so impiously slain. Look what this wise Proteus devised to meet all this, and how he escaped the danger: coming forward into the assembly of the Parians—he already wore his hair long, was wrapped in a dirty cloak, had a wallet slung at his side and the staff in his hand, and was altogether very theatrically got up—appearing before them like this, he announced that he relinquished all the property which his late <corr>father</corr> had left him to be public property. <pb n="v.5.p.18"/>When the people—poor folk gaping for distributions—heard this, they immediately shouted: 'The one true philosopher! The one true patriot! The one true emulator of Diogenes and Crates!' His enemies were muzzled, and if anyone tried to mention the murder, he was pelted with stones at once. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="16">
+<p rend="align(indent)"> "So he went forth a second time to wander, having ample traveling-funds in the Christians, attended by whom he lived in unlimited plenty. For some time he was fed in this way; then, having transgressed in some way against them too—he was seen, I think, eating some of the foods forbidden to them—when they no longer received him, being at a loss, he thought he should sing a recantation and demand his property back from the city; and submitting a petition, he expected to recover it by order of the Emperor. Then, when the city sent a counter-embassy, nothing came of it, and he was ordered to abide by what he had once decided under no compulsion from anyone. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="17">
+<p rend="align(indent)"> "A third journey followed this, to Egypt to visit Agathobulus, where he practiced that marvelous asceticism—shaving half his head, smearing his face with mud, masturbating amid a great crowd of bystanders and displaying what is called 'indifference,' <note xml:lang="mul" type="footnote" n="v.5.p.20.n.1">ἀδιάφθορον MSS.: corrected in ed. Flor. (1496).</note>then beating and being beaten on the buttocks with a fennel stalk, and performing many other still more outrageous stunts.<pb n="v.5.p.20"/> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="18">
+<p rend="align(indent)"> "From there, thus equipped, he sailed for Italy <note xml:lang="mul" type="footnote" n="v.5.p.20.n.2">Ἰταλίας ΓΧ: Ἰταλίαν MF, edd.</note>and, disembarking from the ship, immediately began abusing everyone, especially the Emperor, knowing him to be most mild and gentle, so that he was bold with safety; for the Emperor, naturally, cared little for his insults and did not think it right to punish for mere words someone cloaking himself in <note xml:lang="mul" type="footnote" n="v.5.p.20.n.3">τὴν XF: τὸν ΓΜ.</note>philosophy, especially one who had made abuse a profession. Even from this his reputation grew, at least among the common people, and he was conspicuous for his madness, until the wise <corr>man</corr> entrusted with the city expelled him for carrying the thing too far, saying that the city had no need of such a philosopher. Yet even this became famous for him and on everyone's lips—'the philosopher banished for his frankness and excessive freedom of speech'—and in this respect he rivaled Musonius and Dio and Epictetus and anyone else who had been in such circumstances. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="19">
+<p rend="align(indent)"><pb n="v.5.p.22"/>"Coming thus to Greece, at one time he abused the Eleans, at another he urged the Greeks to take up arms against the Romans, and at another he reviled a man preeminent in culture and rank because, among his other benefactions to Greece, he had brought water to Olympia and stopped the festival-goers from perishing of thirst—accusing him of making the Greeks effeminate, as though the spectators at the Olympic games ought to endure thirst and, by Zeus, many of them die from the violent diseases which previously prevailed in the great crowd because of the dryness of the place! And he said these things while drinking of the same water.</p>
+ <p rend="align(indent)"> "When everyone rushed at him and nearly stoned him to death, at that time the noble fellow escaped death by fleeing to Zeus for sanctuary,</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="20">
+<p> and at the next Olympiad he brought out before the Greeks a speech he had composed over the four intervening years, praising the man who brought the water and defending his own flight on that occasion. </p>
+ <p rend="align(indent)">"Already neglected by everyone and no longer conspicuous as before—for everything was stale and he could no longer invent anything new by which to astound <note xml:lang="mul" type="footnote" n="v.5.p.22.n.1">ἐκπλήξει MF, edd: ἐκπλήξειε ΓΧ.</note>those he met and make them marvel and look at him, for which from the start he had felt a fierce passion—he devised this final bold stroke of the pyre, and spread the word among the Greeks immediately after the previous Olympic games that at the next one he would burn himself. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="21">
+<p><pb n="v.5.p.24"/>"And now he is performing these very wonders, they say, digging a pit, gathering firewood, and promising extraordinary endurance.</p>
+<p rend="align(indent)"> "He ought, I think, above all to await death and not run away from life; or if he had altogether <corr>resolved</corr> to depart, not to use fire or these theatrical trappings, but choosing <note xml:lang="mul" type="footnote" n="v.5.p.24.n.1">ἐλεύθερον 1.</note>some other manner of death—there being countless ones—to depart. And if he welcomes fire as something Heraclean, why on earth did he not silently choose a well-wooded mountain and burn himself there alone, taking along just one person like Theagenes here as his Philoctetes? Instead, at Olympia with the festival thronged, he will roast himself practically on stage—not undeservingly, by Heracles, if parricides and atheists too ought to pay the penalty for their crimes! In that respect he seems to be doing it very late, since he ought long ago to have been cast into the bull of Phalaris and paid his due, rather than opening his mouth once to the flame and dying in an instant. <pb n="v.5.p.26"/>For indeed most people tell me this too<!--note n="v.5.p.26.n.1" place="margin" anchored="true" /-->, that no other manner of death is swifter than that by fire: one need only open one's mouth and die at once. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="22">
+<p rend="align(indent)"> "The spectacle is contrived, I suppose, as something grand—a man burning in a sacred place where it is not even lawful to bury others who die. You have heard, I suppose, how in olden times too someone wanting to become famous, since he could not achieve this in any other way, burned down the temple of Ephesian Artemis. Something like that he too has in mind, so deeply has the passion for glory penetrated him. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="23">
+<p rend="align(indent)"> "Yet he says he does it for the sake of mankind, to teach them to despise death and endure terrors. I would gladly ask not him, but you, whether you would wish criminals too to become his pupils in this endurance and despise death and burning and such terrors. I know well you would not! How then will Proteus distinguish this, and benefit the good without making the wicked more reckless and daring? </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="24">
+<p rend="align(indent)"> "Suppose even that it were possible for only those who will view the thing profitably to attend. I will ask you again: would you accept your own sons becoming emulators of such a man? You would not say so. <pb n="v.5.p.28"/>And why did I ask this, when not even one of his own disciples would emulate him? For one might especially blame Theagenes <note xml:lang="mul" type="footnote" n="v.5.p.28.n.1">γοῦν Bekker: οὖν ΜSS.</note>for this, that while emulating everything else about the man, he does not follow his teacher and accompany him as he departs to Heracles, as he says, though he could in an instant become wholly blessed by plunging headlong <note xml:lang="mul" type="footnote" n="v.5.p.28.n.2">ἐπὶ κεφαλῆς MSS.: corrected by Jacobitz.</note>with him into the fire.</p>
+<p rend="align(indent)"> "For emulation does not lie in wallet and staff and cloak—those are safe and easy and within anyone's reach—rather, one must emulate the end and culmination, and piling up a pyre of fig-tree logs as green as possible, be suffocated in the smoke; <corr>for</corr> fire itself belongs not only to Heracles and Asclepius, but also to temple-robbers and murderers, whom one may see suffering it by judicial sentence. So death by smoke is better, for it would be peculiar to you alone. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="25">
+<p rend="align(indent)"> "Besides, Heracles, if indeed he even dared any such thing, did it because of disease, being consumed by the Centaur's blood, as <corr>tragedy</corr> says; <corr>but</corr> for what reason does this man throw himself into the fire? By Zeus, so that he may display endurance like the Brahmans! For Theagenes thought fit to compare him <note xml:lang="mul" type="footnote" n="v.5.p.28.n.3">αὐτὸν ς, Faber: ἑαυτὸν ΓΩΧΜF.</note>to them, as if there could not also be some foolish and vainglorious men in India. Still, let him at least imitate them! <corr>For</corr> they do not leap into the fire, as Onesicritus, Alexander's pilot, who saw Calanus burning, reports; rather, when they have built the pyre, standing motionless beside it they endure being roasted, and then mounting it they burn in due posture, not altering even a little <note xml:lang="mul" type="footnote" n="v.5.p.30.n.1">ἐκτρέψαντες Faber, accepted by Jacobitz, Bekker, Dindorf, Fritzsche. But cf. fugit. 7; als0 Schmid, Atticismus, I, 393, citing Hist. Conscr. 15, Pseudol., 7, 14. The genitive depends on ὀλίγον.</note>of their reclining position.<pb n="v.5.p.30"/></p>
+ <p rend="align(indent)"> "As for this man, what is so great if he falls in and dies snatched up by the fire? It is not beyond expectation that he will jump back out half-burned, unless, as they say, he arranges for the pyre to be deep down in a pit. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="26">
+<p>"There are some who say he has even changed his mind <note xml:lang="mul" type="footnote" n="v.5.p.30.n.2">μεταβάλλεσθαι X2, F2, edd., mistakitng the meaning.</note>and tells of certain dreams, as though Zeus does not permit polluting a sacred place. Let him take heart on that score; for I would swear an oath that none of the gods would be angry if Peregrinus died a wretched <note xml:lang="mul" type="footnote" n="v.5.p.30.n.3">κακῶς MSS. (except κακὸς X1): κακὸς κακῶς Fritzsche.</note>death. Nor indeed is it easy for him to back out anymore; for the dogs with him urge him on and push him toward the fire and inflame his resolve, not allowing him to <corr>flinch</corr>. If he should drag a couple of them down with him into the pyre, this alone <note xml:lang="mul" type="footnote" n="v.5.p.30.n.4">ἂν Jacobitz: ἐργάσεται Χ, perhaps right.</note>would be a charming deed. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="27">
+<p rend="align(indent)"> "I also heard that he no longer deigns to be called Proteus, but has renamed himself Phoenix, because the phoenix too, the Indian bird, is said to mount a pyre when very far advanced in old age. Moreover, he invents myths and recites certain supposedly ancient oracles, that he is destined <note xml:lang="mul" type="footnote" n="v.5.p.30.n.5">εἴῃ Bekker: εἶναι MSS.</note>to become a guardian spirit of the night, and it is obvious he already covets altars and hopes to have golden statues set up to him.  </p>
+</div><pb n="v.5.p.32"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="28">
+<p rend="align(indent)"> "And by Zeus, it is not unlikely that among the many fools some will be found who will claim to have been cured of quartan fevers by him and to have met the night-guardian spirit in the dark. And these accursed disciples of his will contrive an oracle, I think, and an inner shrine on the site of the pyre, because that famous Proteus, son of Zeus, the progenitor of his name, was prophetic. I bear witness that priests of his will indeed be appointed—priests of whips or branding-irons or some such mummery—or even, by Zeus, that some nocturnal mystery and torchlight festival will be established for him at the pyre. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="29">
+<p rend="align(indent)"> "Theagenes recently, <corr>as</corr> one of my companions reported to me, even claimed that the Sibyl had prophesied about these things; in fact he recited the verses: <quote rend="blockquote">
+<l>But whenever Proteus, by far the best of all the Cynics, </l>
+
+<l>Having kindled a fire in the precinct of loud-thundering Zeus, </l>
+
+<l>Leaps into the flame and comes to lofty Olympus, </l>
+
+<l>Then all alike who eat the fruit of the earth </l>
+
+<l>I bid honor the greatest night-wandering hero, </l>
+
+<l>Enthroned beside Hephaestus and lord Heracles. </l>
+</quote></p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="30">
+<p rend="align(indent)"> "These verses Theagenes <corr>claims</corr> to have heard from the Sibyl. <pb n="v.5.p.34"/>But I will tell him an oracle of Bacis on these matters; Bacis speaks thus, adding a very fine point: <quote rend="blockquote">
+
+<l>But whenever a many-named Cynic into a great flame </l>
+
+<l>Leaps, stirred in spirit by a Fury of glory, </l>
+
+<l>Then the other fox-dogs <corr>who</corr> follow him </l>
+
+<l>Must imitate the doom of the departing wolf.  </l>
+
+<l>And whoever, being a coward, flees the might of Hephaestus, </l>
+
+<l>Let all the Achaeans swiftly pelt him with stones, </l>
+
+<l>So that, being cold, he may not try to speak hot words, </l>
+
+<l>Stuffing his wallet with gold by lending at great interest, </l>
+
+<l>Holding thrice five talents in fair Patrae.</l>
+</quote> What do you think, gentlemen? Is Bacis an inferior oracle-monger to the Sibyl? So it is time for these wondrous followers of Proteus to look around for where they will <corr>aerify</corr> themselves—for that is what they <corr>call</corr> cremation."</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="31">
+<p rend="align(indent)"> When he said this, all the bystanders shouted, <q>"Let them be burned right now; they deserve the fire!"</q> And he stepped down laughing; <q>"Yet the shout did not escape Nestor"</q>—I mean Theagenes—but as soon as he heard the uproar, he came immediately, mounted the platform, and began shouting and pouring out countless slanders about the man who had stepped down; <pb n="v.5.p.36"/><corr>for</corr> I do not know what that excellent fellow was called. Leaving him bursting with rage, I went off to watch the athletes, for the Hellanodicae were said to be already in the Plethrium. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="32">
+<p rend="align(indent)"> That, then, is what happened at Elis. When we arrived at Olympia, the rear chamber was full of people either accusing Proteus or praising his resolve, so that most of them even came to blows, until Proteus himself came forward, escorted by a vast crowd, after the contest of the heralds, and delivered a speech about himself, recounting the life he had lived, the dangers he had risked, and all the troubles he had endured for philosophy's sake. What he said was long, though I heard little of it because of the crowd around us; then, fearing I might be crushed in such a mob, since I saw many suffering that fate, I left, bidding a long farewell to a death-craving sophist delivering his own funeral oration before his death. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="33">
+<p rend="align(indent)"> Yet this <note xml:lang="mul" type="footnote" n="v.5.p.36.n.1">τό γε Gronovius: τότε MSS.</note>much I did hear: he said he wished to put a golden tip on a golden life; <corr>for</corr> one who had lived like Heracles must die like Heracles and be mingled with the ether. <q>"And I wish,"</q> he said, <q>"to benefit mankind by showing them in what manner one ought to despise death; <pb n="v.5.p.38"/>therefore all mankind must become Philocteteses to me."</q> Now the more foolish among the people wept and shouted, <q>"Save yourself for the Greeks!"</q> while the more manly shouted, <q>"Carry out your decision!"</q>—by which the old man was not a little disturbed, since he had hoped everyone would cling to him and not give him up to the fire, but hold him back in life against his will! That <q>"Carry out <note xml:lang="mul" type="footnote" n="v.5.p.38.n.1">τὸ δὲ τέλει Fritzsche: τὸ δὴ τελεῖν MSS.(δὲ Χ2).</note>your decision,"</q> falling upon him quite unexpectedly, made him turn even paler—though his complexion was already deathly—and, by Zeus, even tremble slightly, so that he broke off his speech. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="34">
+<p rend="align(indent)"> As for me, you can imagine, I think, how I laughed; for it was not right to pity a man so hopelessly enamored of glory beyond all others driven by the same Fury. Nevertheless he was escorted by many and gorged himself on glory as he gazed at the throng of admirers, not knowing, poor wretch, that far more people follow those led off to the cross or held by the executioner. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="35">
+ <p rend="align(indent)"> And now the Olympic games came to an end, the finest Olympics I have seen, though this was already my fourth time attending. Because it was not easy to get a carriage when so many were leaving at the same time, <note xml:lang="mul" type="footnote" n="v.5.p.38.n.2">ἅμα ΜF: ἀλλὰ ΓΧ.</note>I remained behind against my will. Proteus, who kept postponing, had at last announced a night to stage his cremation; and when one of my companions invited me along, I got up <corr>around</corr> midnight and headed straight for Harpina, where the pyre was. This is a full twenty stades from Olympia as one goes east past the hippodrome. <pb n="v.5.p.40"/>As soon as we arrived, we found a pyre heaped up in a pit <note xml:lang="mul" type="footnote" n="v.5.p.40.n.1">βόθρῳ Fritzsche: βάθει MSS.</note>about a fathom deep; it consisted mostly of pine-torches with brushwood stuffed in between so that it would catch fire as quickly as possible. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="36">
+<p> And when the moon was rising—for she too had to behold this noblest deed—he came forward equipped in his usual way, and with him the chief Cynics, especially that fine fellow from Patrae holding a torch, no bad supporting actor; Proteus too carried a torch. Approaching from every side, they kindled a huge fire, fueled as it was by torches and brushwood. Then he—and pay very close attention to me now!—laying aside his wallet, cloak, and that famous Heracles club, stood in a thoroughly filthy linen shirt. Next he asked for frankincense to throw on the fire, and when someone handed it to him he threw it on and, gazing toward the south—for even this itself <note xml:lang="mul" type="footnote" n="v.5.p.40.n.2">τοῦτʼ αὐτὸ Harmon τοῦτο τὸ ΓΧ1ΜF: τοῦτο τῶν X2 (Fritzsche). Cf. below, c. 39.</note>belonged to the theatrical show, the south—said, <q>"Maternal and paternal spirits, receive me kindly."</q> Having said this, he leaped into the fire; he was not visible, however, but was enveloped by the towering flame. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="37">
+<p rend="align(indent)"> Once more I see you laughing, good Cronius, at the climax of the drama. <pb n="v.5.p.42"/>For my part, when he called upon his maternal spirits, by Zeus, I did not strongly <corr>blame</corr> him; but when he invoked his paternal ones as well, recalling what had been told about the murder, I could not even contain my laughter. The Cynics stood around the pyre not weeping, to be sure, but silently displaying some grief as they gazed into the fire, until, choked with annoyance at them, <q>"Let us go away,"</q> I said, <q>"you fools; for it is no pleasant sight to watch a roasted old man while getting filled with a foul stench. Or are you waiting until some painter comes along to depict you like the companions they paint beside Socrates in prison?"</q> They grew indignant and abused me, and some even reached for their sticks; then, when I threatened to grab a few of them and throw them into the fire so they could follow their master, they stopped and kept the peace. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="38">
+ <p rend="align(indent)"> On my way back I pondered many <note xml:lang="mul" type="footnote" n="v.5.p.42.n.1">ποικίλα ὢ, Fritzsche: ποικίλως ΓXMF.</note>things to myself, my friend, reflecting on what a thing love of glory is—how this passion alone is inescapable even for those considered thoroughly admirable, let alone that man who in other respects too had lived madly and recklessly and not undeservingly of the fire. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="39">
+<p> Then I met <note xml:lang="mul" type="footnote" n="v.5.p.42.n.2">ὕγχανον ΧΜF: ἐτύγχνανον Γ.</note>many people going out to watch for themselves, for they thought they would still find him alive; indeed, this rumor too had been spread the day before, that after greeting the rising sun—just as they say the Brahmans do—he would mount <note xml:lang="mul" type="footnote" n="v.5.p.42.n.3">ἐπιβήσεται ΓΧ: ἐπιβήσεσθαι Μ.</note>the pyre. <pb n="v.5.p.44"/>I turned most of them back by saying the deed was already done, except those to whom even this itself <note xml:lang="mul" type="footnote" n="v.5.p.44.n.1">τοῦτʼ αὐτὸ x2: ταὐτὸ ΓΧ1MF.</note>was eagerly desired—at least to see the spot itself and gather some relic of the fire.</p>
+<p rend="align(indent)"> There indeed, my friend, I had endless trouble telling the story to everyone as they questioned me and inquired closely. Whenever I saw a person of taste, I told the bare facts just as to you; but for the dullards gaping to listen, I dramatized a bit on my own account, saying that when the pyre was kindled and Proteus threw himself in, after a great earthquake occurred with a bellowing of the earth, a vulture flew up out of the midst of the flame and went off to heaven speaking in human speech <note xml:lang="mul" type="footnote" n="v.5.p.44.n.2">ἀνθρωπιστὶ Harmon: ἀνθρωπίν MSS.</note>with a loud voice: <quote rend="blockquote"><q>"I have left the earth and I go to Olympus."</q></quote> They stood amazed and worshipped with a shudder, and questioned me whether the vulture flew east or west; and I answered them whatever came to mind. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="40">
+<p rend="align(indent)"> Returning to the festival, I came upon a gray-haired man whose face, by Zeus, inspired trust with his beard and general air of dignity, telling all sorts of things about Proteus, including how after the cremation he had seen him in white raiment a little while ago, and had just now left him walking cheerfully in the Seven-Voiced Portico crowned with wild olive. <pb n="v.5.p.46"/>Then on top of it all he added the vulture, swearing solemnly that he himself had seen it flying up from the pyre—the very vulture I had just let fly a little earlier to mock those of foolish and dull disposition! </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="41">
+<p rend="align(indent)"> Imagine what is likely to happen in his honor hereafter—what bees will not settle <note xml:lang="mul" type="footnote" n="v.5.p.46.n.1">ἐπιστήσεοθαι MF: ἐπιστήσαοθαι FX.</note>on the spot, what cicadas <corr>will</corr> not sing <note xml:lang="mul" type="footnote" n="v.5.p.46.n.2">ἐπᾴσεσθαι Wyttenbach: ἐπάγεσθαι PKM.</note>over it, what crows will not fly to it as to Hesiod's tomb, and the like! As for statues, I know that very many will soon be set up both by the Eleans themselves and by the other Greeks, to whom he said <note xml:lang="mul" type="footnote" n="v.5.p.46.n.3">ἔλεγον de Soul, ἐλέγετο Fritzsche; but ἔλεγεν is right. Proteys presumaby saud it in his aeech. Cf. ἐχειροτόνησεν ... προσαγορεύσας below. What he then said was later expanded by others (φασί).</note>he had sent letters. They say he dispatched letters to nearly all the famous cities—testaments, exhortations, and laws—and appointed certain ambassadors from his companions for this purpose, naming them "messengers of the dead" and "underworld couriers." </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="42">
+<p rend="align(indent)"> Such was the end of the wretched Proteus—a man who, to sum it up briefly, never once looked toward truth, but always said and did everything for glory and the praise of the multitude, even to the point of leaping into fire when he was not even going to enjoy the praise, having become insensible to it.<pb n="v.5.p.48"/> </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="43">
+ <p rend="align(indent)"> After telling you one more story I shall stop, so that you may have plenty to laugh at. You have long known those other things, having heard them from me right away when, returning from Syria, I recounted <note xml:lang="mul" type="footnote" n="v.5.p.48.n.1">διηγούμην Γ: διηγουμένου MF. Levi cites X (his Pl) both for the same reading as Γ, and for ἧκον . . . διηγουμένου.</note>how I sailed with him from the Troad, and his general luxury on the voyage, and the handsome youth he persuaded to turn Cynic so that he too might have an Alcibiades, and how when we were tossed about <note xml:lang="mul" type="footnote" n="v.5.p.48.n.2">ἐπεὶ ταραχθείημεν Meiser: ἐπιταραχθείημεν ΓΧ: ἐπιταραχθείη μὲν MF.</note>at night in mid-Aegean <note xml:lang="mul" type="footnote" n="v.5.p.48.n.3">Αἰγαίῳ M2: ἀγῶνι M1FΓΧ. The conjecture, if it is one, is right. Things are always happening in “mid-Aegean” with Lucian (Dial. Mar. 8, 2; 10, 1). Mras rightly sets aside Levi's interpretation of ἀγῶνι as meaning lutta d’amore, but his own defence of it as meaning “discrimen” does not properly reckon with the context. The archetype had a peculiar pointed ω, frequently confused with αι and νι, and these with it.</note>when a storm came down and raised an enormous wave, that marvelous man who seemed superior to death wailed along with the women. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="44">
+<p> But shortly before his end, about nine days earlier, having eaten more than enough, I suppose, he vomited during the night and was seized with a very violent fever. This was told to me by Alexander the physician, who was summoned to examine him. He said he found him rolling on the ground, unable to bear the burning heat and begging passionately for cold water, which he refused to give him; yet he told him that if he truly wanted death, it had come to his door of its own accord, so it would be well to follow without <corr>needing</corr> the fire. Proteus replied, <q>"But that way <corr>would</corr> not be equally famous, being common to all."</q>  </p>
+</div><pb n="v.5.p.50"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg042.perseus-grc2" n="45">
+<p rend="align(indent)"> So much from Alexander. And I myself not many days before saw him smeared with ointment so that the sharp salve would make his eyes water. You see? Aeacus does not readily admit the dim-sighted! It is just as if someone about to mount a cross were treating a stubbed toe. What do you think Democritus would have done if he had seen this? Would he have laughed at the man as he deserved? Yet where could he have found so much laughter? You at any rate, my friend, laugh too—especially whenever you hear others admiring him.</p>
+</div></div>
+</body>
+</text>
+</TEI>

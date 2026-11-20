@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Ὄνειρος ἢ Ἀλεκτρυών</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+ <authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg019.perseus-grc2.xml</idno>
+ <availability>
+  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+  <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+ </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date>1915</date>
+     </imprint>
+     <biblScope unit="volume">2</biblScope>
+    </monogr>
+    <series>
+ <title>Loeb Classical Library</title>
+
+    </series>
+    <ref target="https://archive.org/details/lucianhar02luciuoft/page/172/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)"
+   replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+<!--<refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-10">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2"  type="edition" xml:lang="en">
+<pb n="v.2.p.172"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="1">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> May Zeus himself crush you, you wickedest of cocks, so envious and shrill-voiced, <corr>who</corr> woke me with a piercing, loud crow while I was rich and enjoying a sweetest dream and reveling in wondrous prosperity, so that not even at night could I escape poverty, which is far more abominable than you! Yet if one may judge by the deep silence that still prevails and by the dawn chill not yet freezing me as usual—for that is my most unerring indicator of approaching day—it is not yet midnight, and this sleepless creature, as if guarding that famous Golden Fleece, has already been crowing since early evening! Not with impunity, though: I will certainly get even with you as soon as day breaks, smashing you with my stick; right now you would only give me trouble jumping around in the dark. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Master Micyllus, I thought I would do you a favor by anticipating as much of the night as I could, so that by getting up early you might finish most of your work ahead of time; at any rate, if <note xml:lang="mul" type="footnote" n="v.2.p.172.n.1">εἰ Harmon: ἢ (or ἠ) γ; ἢν (and ἐργάσῃ) β.</note>you finish a single slipper before sunrise, you will be that much ahead in working for your daily bread. <pb n="v.2.p.174"/>If, however, sleeping is pleasanter to you, I will keep quiet for you and be far more mute than fish; only watch out that after being rich in your dream you do not go hungry when you wake up. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="2">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> O Zeus of portents and Heracles averter of evil, what calamity is this? The cock spoke like a human! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> And does it seem a portent to you if I share your language? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> How is it not a portent? Turn away the evil from us, O gods! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> You seem to me, Micyllus, to be completely uneducated and never to have read the poems of Homer, in which even Achilles's horse Xanthus, bidding a long farewell to neighing, stood in the middle of the war conversing, reciting whole verses—not without meter like me now! Indeed, he even prophesied and foretold the future and did not seem to be doing anything extraordinary, nor did his listener call upon the averter of evil like you, thinking the sound ominous. Yet what would you have done if the keel of the Argo had spoken to you as it once did, or <note xml:lang="mul" type="footnote" n="v.2.p.174.n.1">ἤ Fritzsche: not in MSS.</note>the oak at Dodona had prophesied in its own voice, or if you had seen hides crawling and beef bellowing half-roasted <note xml:lang="mul" type="footnote" n="v.2.p.174.n.2">ἡμίοπτα Cobet: ἡμίοπτα καὶ ἑφθά γ; ἡμίεφθα β.</note>impaled on spits? As for me, being the companion of Hermes, the most talkative and eloquent of all the gods, and moreover living and eating with you humans, it was not hard for me to learn human speech. <pb n="v.2.p.176"/>And if you promise to keep it secret, I will not hesitate to tell you the truer reason for my sharing your language and how I come to speak like this. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="3">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Surely this too is not a dream—a cock conversing with me like this? Tell me, however, by Hermes, my good fellow, what else is the cause of your voice. As for keeping silent and telling no one, why need you fear? For who would believe me if I told anything as having heard it spoken by a cock? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Listen then, Micyllus, to a tale I know well will seem most astonishing to you: this creature who now appears to you as a cock was not long ago a human being. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Indeed, I heard something like that long ago about your kind: that a certain young man named Alectryon was a friend of Ares, drank and reveled with the god, and shared in his <corr>love affairs</corr>. Whenever Ares went off to commit adultery with Aphrodite, he took Alectryon along, and because he was especially suspicious of the Sun, lest seeing them he report it to Hephaestus, he always left the young man outside by the doors to give notice whenever the Sun rose. Then once Alectryon fell asleep and betrayed his watch <corr>unwillingly</corr>, and the Sun caught Aphrodite and Ares unawares as Ares rested carefree, trusting that Alectryon would give warning if anyone approached. <pb n="v.2.p.178"/>And so Hephaestus, learning from the Sun, caught them by casting around and netting them in the bonds he had long contrived for them; and Ares, once released, grew angry with Alectryon and turned him into this bird, armor and all, so that he still wears the crest of his helmet on his head. For this reason you cocks, apologizing to Ares when it is no longer any use, whenever you sense the sun is about to rise, crow well in advance to announce its rising. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="4">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> They say that too, Micyllus, but my case was quite different, and it is only very recently that I changed into a cock. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> How? For I especially want to <corr>know</corr> this. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Have you heard of one Pythagoras, son of Mnesarchus, of Samos?<note xml:lang="mul" type="footnote" n="v.2.p.178.n.1">Μνησαρχίδην Σάμιον Text β: Οἰσθα ἄρα τὸν Πυθαγόραν; γ.</note> </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> You mean the sophist, the impostor, who laid down laws neither to taste meat nor to eat beans—banishing from the table what is to me at least the sweetest dish—and furthermore persuaded people that before Pythagoras he had been Euphorbus?<note xml:lang="mul" type="footnote" n="v.2.p.180.n.1">Τext β: ἔτι δὲ πείθων τοὺς ἀνθρώπους ἐς πέντε ἔτη μὴ διαλέγεσθαι; ΑΛΕΚ. Ἴσθι δῆτα κἀκεῖνο, ὡς πρὸ τοῦ Πυθαγόρου Εὔφορβος γένοιτο: γ. The γ reading is, think, due to someoneʼs desire to make a pun on Πυθαγόρας (Πειθαγόρας) to match that on Eὔφορβος.</note> <pb n="v.2.p.180"/>They say he was a charlatan and a wonder-worker, cock. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> <corr>I</corr> myself am that very Pythagoras! So stop abusing me, my good fellow, especially when you do not know what sort of character I had. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> This again is far more monstrous than the other—a philosopher cock! Tell me nevertheless, son of Mnesarchus, how you have turned up for us as a bird instead of a man, and a Tanagran instead of a Samian; for this is neither plausible nor easy to believe, since I think I have already observed two things in you utterly foreign to Pythagoras. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> What sort of things? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+ <p rend="align(indent)"> One is that you are talkative and noisy, whereas he urged keeping silent for five whole years, I think; and the other is completely <corr>unlawful</corr>: having nothing to toss to you except <note xml:lang="mul" type="footnote" n="v.2.p.180.n.2">εἰ μὴ Harmon not in MSS. Fritzsche reads οὐ γὰρ <add>ἄλλο</add> ἔχων ὅτι σοι παραβάλοιμι <add>ἢ</add>.</note>beans yesterday, I came as you know, <note xml:lang="mul" type="footnote" n="v.2.p.180.n.3">ἦκον ὡς οἶσθα Fritzsche: ἦκον ὡς οἰσθα ἔχων β; ὡς οἶσθα ἔχων ἦκσν γ.</note>and without hesitating you picked them up! So either you must be lying and be someone else, or if you are Pythagoras you have broken your own law and committed just as great an impiety by eating beans as if you had eaten your father's head.  </p> </sp> </div> <pb n="v.2.p.182"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="5">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> That is because you do not know, Micyllus, the reason for these things, nor what is fitting for each life. Back then I did not eat beans because I was practicing philosophy; now I may eat them, for it is bird food and not forbidden to us. Anyway, if you like, listen to how from Pythagoras I am now this, and in what sorts of lives I lived before, and what I gained from each transformation. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Go ahead and speak! For the tale will be exceedingly sweet to me, so that if someone offered me a choice whether I preferred to listen to you recounting such things or to see again that blissful dream from a moment ago, I do not know which I would <corr>choose</corr>; so akin do I consider your words to that sweetest vision, and I hold you both in equal honor—you and that precious dream. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Are you still brooding over whatever dream appeared to you and clinging to vain phantoms, chasing in your memory an empty and, as the poetic saying goes, "strengthless" happiness? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="6">
+<sp> <speaker>Mikyllos</speaker>
+ <p rend="align(indent)"> Indeed I shall never forget that vision, cock, know well! So much honey did the dream leave behind in my eyes when it departed that I can scarcely open my eyelids, pulled down again into sleep by it. Just as feathers twisted in the ears do, such a tickling delight did those sights give me.  </p> </sp> <pb n="v.2.p.184"/>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> By Heracles, you describe a formidable dream, <note xml:lang="mul" type="footnote" n="v.2.p.184.n.1">δεινόν τινα φὴς τὸν ὄνειρον Reifferscheid: δεινόν τινα φὴς τὸν ἔρωτα τοῦ ἐνυπνίου (or τὸν ἔρωτα φὴς τοῦ ἐνυπνίου) MSS.</note>if being winged, as they say, and having sleep as the boundary of its flight, it now leaps beyond the mark and lingers in your open eyes, appearing so honey-sweet and vivid! I want to hear, at any rate, <corr>what</corr> sort of dream it is that you long for so much. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> I am ready to <corr>tell</corr>; it is pleasant even to remember and recount something of it. But when, Pythagoras, will you tell about your transformations? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> When you, Micyllus, stop dreaming and wipe the honey from your eyelids. Now speak first, so that I may learn whether your dream came flying through the gates of ivory or through those of horn. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Through neither of those, Pythagoras. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Yet Homer mentions only those two. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Bid farewell to that babbling poet who knew nothing about dreams! Poor dreams perhaps issue through such gates—the kind he saw, and not very clearly either since he was blind himself; to me that sweetest dream came through gates of gold, golden itself, wrapped in <corr>everything</corr> golden, and bringing heaps of gold.<pb n="v.2.p.186"/> </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Stop <corr>talking gold</corr>, good Midas! Your dream clearly comes straight from his prayer, and you seem to have dreamed whole gold mines. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="7">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Much gold, Pythagoras, I saw—much, how beautiful you can imagine, and flashing what a gleam! What does Pindar say in praise of it—remind me, if you know—when after calling water best he then marvels at gold, rightly, right at the beginning of the finest of all odes? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Are you looking for this: <quote rend="blockquote">
+<l>Best is water, while gold, like blazing fire </l>
+
+<l>In the night, shines preeminent amid lordly wealth? </l>
+</quote></p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+ <p rend="align(indent)"> By Zeus, that very passage! For Pindar praises gold just as if he had seen my dream. So that you may now learn what it was like, listen, wisest cock. That I did not dine at home yesterday, you know; for the wealthy Eucrates met me in the marketplace and bade me bathe and come at the right hour to dinner.  </p> </sp> </div> <pb n="v.2.p.188"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="8">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I know that very well, having gone hungry all day long until late in the evening you came home tipsy bringing those five beans—hardly a lavish dinner for a cock who was once an athlete and competed at Olympia not without distinction! </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Well, when I returned from dinner, I went straight to sleep after tossing you the beans; and then, in Homer's words, <q>"through the ambrosial night a truly divine"</q> dream stood by me <gap reason="lost" rend=" . . ."/> </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> First tell about what happened at Eucrates's, Micyllus—what the dinner was like and everything at the banquet; for nothing prevents you from dining all over again by recreating a kind of dream of that dinner and chewing the cud of what you ate in your memory. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="9">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> I thought I would bore you by telling that too; but since you are eager, here goes. Never before in my whole life having dined at a rich man's house, by some good fortune yesterday I met Eucrates, and after greeting him as "master" as usual I was going off so as not to embarrass him by walking beside him in my shabby cloak; but he said, <q>"Micyllus,"</q> he said, <q>"today I am celebrating my daughter's birthday and have invited a great many friends; since they say one of them is unwell and unable to dine with us, you bathe and come in his place, unless <pb n="v.2.p.190"/>the invited guest himself says he will come, for at present he is doubtful."</q> Hearing this, I bowed low and went off praying to all the gods to send <corr>a</corr> <corr>shivering fever</corr> or pleurisy or gout upon that invalid whose understudy, substitute diner, and successor I had been <corr>invited</corr> to be; and I counted the time until the bath an endless age, continually checking how many feet long the sundial shadow was and when it was finally time to bathe.<note xml:lang="mul" type="footnote" n="v.2.p.190.n.1">λοῦσθαι Cobet: λελοῦσθαι MSS.</note></p>
+<p rend="align(indent)"> And when the hour finally arrived, scrubbing myself quickly I set off neatly got up, having turned my cloak inside out so that the cleaner side would be on the outside; </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="10">
+ <sp> <speaker>Mikyllos</speaker>
+  <p rend="merge">and at the doors I found many others and indeed that very man carried in a litter by four bearers, whose place at dinner I was supposed to take—the one said to be ill, and he showed he was in a bad way: he was groaning, coughing, and hawking up something deep and unpleasant, all pale and swollen, around sixty years old <corr>nearly</corr>. He was said to be one of those philosophers who babble nonsense to young men; at any rate his beard was very theatrical and desperately in need of a trim. When Archibius the physician blamed him for coming in such a condition, <q>"One must not,"</q> he said, <q>"betray one's duties, especially a philosopher, even if ten thousand diseases stand in the way; for Eucrates will think he has been slighted by us."</q> <q>"Not at all,"</q> said I, <q>"rather he will praise you if you are willing to die at home by yourself instead of at the banquet, coughing up your soul along with your phlegm!"</q> <pb n="v.2.p.192"/>He out of loftiness pretended not to have heard the jest; and shortly afterward Eucrates appeared from his bath and, seeing Thesmopolis—for that was the philosopher's name—said, <q>"Master,"</q> he said, <q>"you did well to come to us yourself, though you <corr>would</corr> not have been any worse off, for even had you been absent everything would have been sent to you in order."</q> And saying this he went in, leading Thesmopolis by the hand as he leaned on the servants too. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="11">
+ <sp><speaker>Mikyllos</speaker>
+<p rend="merge">So I was getting ready to leave, when he turned around and, after hesitating a long while, seeing me very gloomy, said, <q>"Come in,"</q> he said, <q>"you too, Micyllus, and dine with <corr>us</corr>; for I will tell my son to feast in the women's quarters with his mother so that you may have a place."</q> So I went in, having narrowly escaped being a wolf that gaped in vain, ashamed that I seemed to have driven Eucrates's little boy out of the banquet.</p>
+  <p rend="align(indent)">And when it was time to recline, first some five strapping youths hoisted Thesmopolis up—not without trouble, by Zeus—stuffing cushions around him on every side so that he might stay in position and hold out for a long time. Then, since no one could bear reclining next to him, they put me right below him so we shared a table. From then on we dined, Pythagoras, on a lavish and varied banquet served on much gold and silver; there were golden cups, handsome attendants, musicians, and jesters in between, and altogether it was a most delightful affair—except one thing annoyed me not a little: Thesmopolis bothering me, discoursing to me about some virtue, teaching me that two negatives make one affirmative and that if it is day it is not night, and sometimes even claiming that I had horns! <pb n="v.2.p.194"/>Philosophizing at me with much such stuff when I had no need of it, he cut short and spoiled my enjoyment, not letting me listen to the lyre-players or singers. That, cock, was the dinner. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Not the pleasantest, Micyllus, especially since you were paired with that babbling old man. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="12">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Now hear the <corr>dream</corr> too. I dreamed that Eucrates himself, being childless somehow, was dying, and after summoning me and making a will in which I was heir to <corr>everything</corr>, shortly afterward <corr>died</corr>; and that I, entering into the estate, was ladling out gold and silver with great tubs as it flowed in endlessly and abundantly, while everything else—clothing, tables, cups, and servants—was naturally all mine. Then I drove out behind a white team, leaning back, stared at and envied by all who saw me; many ran ahead, many rode alongside, <note xml:lang="mul" type="footnote" n="v.2.p.194.n.1">παρίππευον Mehler: προίππευον MSS.</note>and still more followed. <pb n="v.2.p.196"/>Wearing his clothes and with some sixteen heavy rings strung on my fingers, I ordered a splendid feast to be prepared to welcome my <corr>friends</corr>; and they, as happens in a dream, were already there, the dinner was being brought in, and the drinking was getting underway. While I was in the middle of this, drinking loving-cups in golden bowls to each of those present, just as the cake was being brought in, you crowed out of season, threw our banquet into confusion, overturned the tables, and sent all that wealth scattering to the winds! Do I seem to you to be indignant with you without reason? Gladly would I have seen that dream last three nights for me! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="13">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Are you so fond of gold and wealth, Micyllus, and is this the one thing above all that you admire and consider happiness—possessing much gold? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+ <p rend="align(indent)"> Not I alone, Pythagoras, but you yourself too! When you were Euphorbus, you went to fight the Achaeans with gold and silver bound in your curls, and in war, where wearing iron was better, even then you thought fit to risk battle with your locks tied up in gold. And it seems to me Homer called your hair like the Graces' for this very reason, because <q>"it was clasped with gold and silver."</q> Clearly it looked far finer and lovelier interwoven with gold and shining together with it! Yet your case, golden-haired one, is modest enough, if as son of Panthus you valued gold; <pb n="v.2.p.198"/>but the father of all gods and men, son of Cronus and Rhea, when he fell in love with that Argive maiden, having nothing lovelier to change himself into nor any way <note xml:lang="mul" type="footnote" n="v.2.p.198.n.1">ὅπως ἂν ἄλλως? </note>to bribe Acrisius's guards—surely you have heard how he became gold and, pouring through the roof, lay with his beloved! So why need I tell you further what uses gold provides, and how it makes those who have it handsome, wise, and strong, attaching honor and glory to them, and sometimes in an instant turns obscure and unknown men into admired and celebrated ones? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="14">
+ <sp><speaker>Mikyllos</speaker>
+<p rend="merge">For instance, you know my neighbor and fellow craftsman Simon, who dined with me not long ago when I boiled pea-soup for the Saturnalia, putting in two slices of sausage. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I know him—the snub-nosed, short fellow who stole our clay bowl and went off with it under his arm after dinner, the only one we <corr>had</corr>; for I saw him myself, Micyllus. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> So he stole it and then swore away <note xml:lang="mul" type="footnote" n="v.2.p.198.n.2">ἀπωμόσατο de Jong: ἐπωμόσατο MSS.</note>by so many gods! Why didn't you crow and expose him then, cock, seeing us being robbed? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I did crow, which was all I could do then. Anyway, what about Simon? For you seemed about to say something about him. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> He had an enormously rich cousin named Drimylus. <pb n="v.2.p.200"/>While alive he never gave Simon even an obol—how could he, when he didn't even touch his money himself? But when he died the other day, all of it legally belongs to Simon; and now that fellow of the filthy rags, who used to lick the bowl clean, drives out happily wrapped in purple and crimson, owning servants, teams of horses, golden cups, and ivory-footed tables, bowed down to by everyone, not even looking at us anymore! Just recently, when I saw him approaching, <q>"Greetings,"</q> I said, <q>"Simon!"</q> and he grew indignant and <q>"Tell,"</q> he said, <q>"this beggar not to shorten my name; for I am not named Simon, but Simonides!"</q> And greatest of all, women are already in love with him, while he puts on airs toward them and looks down on them, receiving some graciously while others threaten to hang themselves when neglected. You see how many blessings gold brings, since it even transforms the rather ugly and makes them lovely, like that poetic girdle! You hear the poets too <corr>saying</corr>: <quote rend="blockquote"> <l/> <l>O gold, fairest welcome to mortals,</l> </quote> and "for it is gold that holds sway over mortals." But why did you laugh in the middle, cock? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="15">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Because out of ignorance, Micyllus, you too are deceived just like the multitude about the <corr>rich</corr>; know well that they live a far more wretched life than you. <pb n="v.2.p.202"/>I tell you this having been both poor and rich many times and having experienced every kind of life; and shortly you yourself will learn every detail. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> By Zeus, it is high time now for you to tell how you were transformed and what you know of each life. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Listen, knowing this much beforehand: that I have seen no one living a happier life than you. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Than me, cock? May the same be yours! You provoke me to abuse you. Come, begin with Euphorbus and tell how you were changed into Pythagoras, and then in order down to the cock; for it is likely you have seen and experienced varied things in your many kinds of lives. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="16">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> How my soul first flew down from Apollo to earth and entered a human body to pay out some sentence would take too long to tell; besides, it is not lawful either for me to speak or for you to hear such things. But when I became Euphorbus <gap reason="lost" rend=" . . . "/> </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Wait—before that, wondrous creature, who was I? Tell me this first, whether I too was ever transformed like you. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+ <p rend="align(indent)"> Very much so.  </p> </sp> <pb n="v.2.p.204"/>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Who was I then, if you can tell? For I want to know this. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> You? An Indian ant, one of those that dig up gold. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> And did I, unlucky wretch, hesitate to come into this life provisioned with even a few of those grains from that one? <corr>And</corr> what shall I be after this, tell me—for you likely know. If it is anything good, I will get up right now and hang myself from the peg you are standing on! </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="17">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> You cannot learn that by any means. However, when I became Euphorbus—for I return to that—I fought at Troy, and after being killed by Menelaus, some time later I entered into Pythagoras; meanwhile I waited standing houseless until Mnesarchus built me a house. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Without food and drink, my friend? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Certainly; for there was no need of those except for the body alone. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Then tell me first about what happened at Troy. Was it all as Homer says it happened? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> How could he know, Micyllus, who while those things were happening was a camel in Bactria? <pb n="v.2.p.206"/>I tell you <corr>this much</corr>: nothing extraordinary happened then—neither was Ajax so tall nor Helen herself so beautiful as people think. For I saw her: fair-skinned indeed and long-necked, so you could guess she was a swan's daughter, but otherwise quite an old woman, nearly the same age as Hecuba, since Theseus first carried her off and kept her in Aphidnae when he lived in Heracles's time, and Heracles took Troy earlier, roughly in the time of our fathers then. Panthous told me this, saying he had seen Heracles when he was quite a young lad. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> What about Achilles? Was he like that, best in everything, or is that too just a myth? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I did not even encounter him, Micyllus, nor could I <corr>tell</corr> you so accurately about affairs among the Achaeans—how could I, being an enemy? His companion Patroclus, however, I killed without difficulty, running him through with my spear. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> And then Menelaus killed you far more easily! Enough of this, then; now tell about Pythagoras. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="18">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> On the whole, Micyllus, I <corr>was</corr> a sophist—for I must tell the truth, I think—yet otherwise not uneducated nor unpracticed in the noblest sciences. <pb n="v.2.p.208"/>I even traveled to Egypt to associate with the prophets for wisdom, and going down into their inner sanctuaries I mastered the books of Horus and Isis; and sailing back to Italy I so impressed the Greeks there that they regarded me as a god. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> I heard that, and how you seemed to have come back to life after dying, and how you once displayed a golden thigh to them. But tell me this: what possessed you to make a law against eating either meat or beans? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Do not question me about that, Micyllus. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Why, cock? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Because I am ashamed to tell you the truth about it. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Surely you need not hesitate to tell a housemate and a <corr>friend</corr>; for I would no longer say "master." </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> There was nothing sound or wise in it; rather, I saw that if I enacted the usual things just like everyone else, I would scarcely draw people to marvel at me, whereas the more I did strange things, the more august <note xml:lang="mul" type="footnote" n="v.2.p.208.n.1">σεμνότερος Seager: καινότερος MSS.</note>I thought I would appear to them. For this reason I chose to innovate, keeping the reason secret so that, guessing one thing and another, all might be astounded just as at obscure oracles.<pb n="v.2.p.210"/> You see? Even you are laughing at me in turn! </p> </sp>
+ <sp> <speaker>Mikyllos</speaker>
+  <p rend="align(indent)"> Not so much at you as at the people of Croton and Metapontum and Tarentum and the rest who followed you in silence and worshipped the footprints you left behind as you walked.</p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="19">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="merge"> And after stripping off Pythagoras, whom did you put on after him? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Aspasia, the <corr>courtesan</corr> from Miletus. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> What a tale! So Pythagoras became a woman along with everything else, and there was once a time when even you laid eggs, noblest of cocks, and lived with Pericles as Aspasia, and bore children by him, and carded wool and spun yarn and played the woman in courtesan style? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I was not alone in doing all that—Tiresias before me did too, and Caeneus son of Elatus—so whatever jokes you make at my expense, you will be making at theirs as well. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+ <p rend="align(indent)"> Well then, which life was pleasanter for you—when you were a man, or when Pericles lay with you?  </p> </sp> <pb n="v.2.p.212"/>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> You see what a question you have asked—one whose answer did not even turn out well for Tiresias! </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Even if you do not tell, Euripides settled that well enough, saying he would rather stand beside a shield three times than give birth once. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Indeed I shall remind you, Micyllus, before long when you are <corr>in labor</corr>; for you too will be a woman many times in your long cycle. </p> </sp>
+ <sp> <speaker>Mikyllos</speaker>
+  <p rend="align(indent)"> Go hang yourself, cock, thinking everyone is from Miletus or Samos! Indeed they say that even while you were Pythagoras, bright in your youthful beauty, you often played Aspasia to the tyrant.</p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="20">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="merge">—And who next after Aspasia did you turn up as, man or woman? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> The Cynic Crates. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> By the Dioscuri, what a contrast—from courtesan to philosopher! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Then a king, then a pauper, and shortly a satrap, then a horse, a jackdaw, a frog, and <corr>countless</corr> others; it would take too long to list each one. Lately I have been a cock many times, for I liked that kind of life. <pb n="v.2.p.214"/>And after serving many others, both poor <note xml:lang="mul" type="footnote" n="v.2.p.214.n.1">καὶ πένησι Fritzsche: βασιλεῦσι καὶ πένησι MSS.</note>and rich, at last I now live with you, laughing every day as you wail and groan over your poverty and admire the rich out of ignorance of the evils that attend them. Indeed, if you knew the worries they have, you would laugh at yourself first for thinking wealth supremely happy. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Well then, Pythagoras—or rather, what do you most like to be called, so that I don't confuse our conversation by calling you different names? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> It will make no difference whether you call me Euphorbus or <note xml:lang="mul" type="footnote" n="v.2.p.214.n.2">ἢ Mehler: ἤν τε MSS.</note>Pythagoras, or Aspasia or Crates; for I am all of these. Still, you would do better to call me what I now appear to be—cock—so as not to slight a bird that seems humble, especially when it holds so many souls within it. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="21">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Well then, cock, since you have already experienced almost every life and know everything, tell me clearly now, separately, how the rich live and how the poor live, so that I may learn whether you are telling the truth in declaring me happier than the rich. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Look now, consider it this way, Micyllus: you have little concern about war if it is said that the enemy is advancing, nor do you worry lest they invade and ravage your farm or trample your orchard or lay waste your vines; <pb n="v.2.p.216"/>at the mere sound of the trumpet, if even then, you look out for yourself alone, where to turn to save yourself and <corr>escape</corr> danger. The rich, however, both fear for themselves and are distressed as they watch from the walls everything they owned in the countryside being carried off and plundered. If a war-tax is needed, they alone are called upon; if it is necessary to march out, they risk their lives in the front as generals or cavalry commanders; whereas you, carrying a wicker shield, trim and light for saving yourself, are ready to feast at the victory celebration when the general sacrifices after winning.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="22">
+ <sp><speaker>Alektryon</speaker>
+<p rend="merge">In peacetime, again, you as one of the people go up to the assembly and lord it over the rich, while they shudder and cower and appease you with distributions. They toil so that you may have baths and spectacles and everything else in abundance, while you are a harsh examiner and judge like a master, sometimes not even granting them a hearing, and if it pleases you, you hail abundant stones upon them or confiscate their estates. You yourself fear neither an informer nor a robber climbing over the wall or digging through to steal your gold; you have no trouble doing accounts or collecting debts or fighting with accursed stewards and being pulled apart by so many worries; instead, having finished a slipper and received your seven obols' pay, you get up in the late afternoon, take a bath if you feel like it, buy yourself a salted fish or sprats or a few heads of onions, and enjoy yourself, <corr>singing</corr> most of the time and philosophizing with good old Poverty.<pb n="v.2.p.218"/></p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="23">
+ <sp> <speaker>Alektryon</speaker>
+<p rend="merge">As a result of this you are healthy and strong in body and endure the cold well; for your labors sharpen you and make you no contemptible rival against things that seem invincible to others. Certainly none of these severe diseases comes near you; if ever a mild fever catches you, after humoring it briefly you leap right up, shaking off the discomfort, and it flees immediately in fright, seeing you <note xml:lang="mul" type="footnote" n="v.2.p.218.n.1">σε Mehler: τε MSS.</note>guzzling cold water and telling medical regimens to go hang! As for the rich, wretches through intemperance, what evils do they not have—gout, consumption, pneumonia, and dropsy? For these are the offspring of those sumptuous dinners.</p>
+  <p rend="align(indent)">Accordingly, some of them, lifting themselves high like Icarus and drawing near the sun without realizing their wings were <corr>fastened</corr> with wax, sometimes make a great splash falling headfirst into the sea; while those who, like Daedalus, did not aim too high or lofty, but kept close to the ground so that the wax was occasionally moistened by sea-spray, for the most part fly across safely. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> You speak of moderate and sensible men. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"><pb n="v.2.p.220"/>Of the others, however, Micyllus, you can see disgraceful shipwrecks, when Croesus with his feathers plucked provides laughter for the Persians as he mounts the pyre, or Dionysius, deposed from his tyranny, is seen as a schoolmaster in Corinth, teaching little children to spell after so great a rule. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="24">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Tell me, cock: when you were a king—for you say you were even a king once—what sort of life did you experience then? Surely you were supremely happy, possessing the very summit of all good things? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Do not even remind me, Micyllus—so thrice-wretched was I then, seeming to all outsiders to be supremely happy, as you said, while inwardly living with ten thousand distresses! </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> What sort of distresses? For you say paradoxical and not at all <note xml:lang="mul" type="footnote" n="v.2.p.220.n.1">πάνυ τι Cobet: πάντη (πάνυ) MSS.</note>believable things. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I ruled no small country, Micyllus, fertile and among the most admirable for its population and the beauty of its cities, watered by navigable rivers and possessing a sea with fine harbors; I had a large army, well-trained cavalry, no small bodyguard, triremes, countless funds, heaps of gold, and all the rest of the theatrical pomp of rule swollen to excess—so that whenever I went out, the crowd bowed down and thought they saw a god, and people ran together in crowds to see me, while some even climbed onto the roofs and counted it a great thing to have seen clearly my chariot, cloak, diadem, vanguard, and retinue. <pb n="v.2.p.222"/>Yet I, knowing how many things distressed and tormented me, forgave them their folly and pitied myself, resembling those huge colossi such as Phidias or Myron or Praxiteles made: each of those too is on the outside a magnificent Poseidon or Zeus crafted of gold and ivory, holding a thunderbolt or lightning or trident in his right hand, but if you stoop down and look inside, you will see bars and bolts and nails driven right through, beams and wedges and pitch and clay and much such ugliness lurking within—not to mention a crowd of mice or shrews sometimes making their home in them. Such a thing is kingship too. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="25">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> You still have not told me what the clay and bolts and bars of rule are, nor what that great ugliness <corr>is</corr>; for riding out stared at, ruling so many, and being worshipped marvelously fits your <note xml:lang="mul" type="footnote" n="v.2.p.222.n.1">ἔοικέ σου τῷ Fritzsche: ἔοικεν οὕτως, ἔοικεν οὗτος, ἐοικέναι σὺ τῷ MSS.</note>colossus simile—that too is divine. Now tell me what is inside the colossus. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"><pb n="v.2.p.224"/>What shall I tell you first, Micyllus? The fears and terrors and suspicions and hatred from those around you and plots, and because of these, scant sleep—and shallow at that—and dreams full of disturbance, tangled thoughts, and ever-evil expectations; or the lack of leisure, finances, lawsuits, campaigns, commands, treaties, and accounts? Because of these you cannot enjoy anything pleasant even in a dream, but must alone look after everything and have ten thousand troubles: <quote rend="blockquote">
+<l>For neither did sweet sleep hold Agamemnon, son of Atreus, </l>
+
+<l>As he pondered many things in his mind,</l>
+</quote> even while all the Achaeans were snoring! The Lydian is grieved by his mute son, the Persian by Clearchus recruiting mercenaries for Cyrus, another by Dion whispering in the ears of some Syracusans, another by Parmenio being praised, Perdiccas by Ptolemy, and Ptolemy by Seleucus. And these things too grieve him: his favorite staying with him by compulsion, his concubine delighting in another, rumors that some are about to revolt, and two or four of his bodyguards whispering to one another. Greatest of all, one must suspect one's dearest most of all and always expect some dread blow to come from them. I myself, at any rate, died of poison at my own son's hand; another died by his favorite; and another was overtaken by some similar death. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="26">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Away with it—terrible things you tell, cock! <pb n="v.2.p.226"/>For my part, it is far safer to stoop over cutting leather than to drink from a golden bowl a <corr>loving-cup</corr> mixed with hemlock or aconite! My only danger, if my knife slips and misses the straight cut, is to nick my fingers and draw a little blood; whereas they, as you say, feast on deadly things, and that while living amid ten thousand ills. Then when they fall, they look most of all like tragic actors, many of whom you can see playing Cecrops or Sisyphus or Telephus for a while, with diadems, ivory-hilted swords, waving hair, and a gold-spangled <corr>mantle</corr>; but if—as often happens—one of them misses his footing and falls in the middle of the stage, he naturally provides laughter for the spectators when his mask is smashed along with its diadem, the actor's real head is bloodied, and his legs are bared high up so that the inside of his robe shows miserable rags and his buskins look utterly ugly and out of proportion to his foot. You see how you have already taught me to make similes too, my good cock? Well, such is what tyranny turns out to be. But when you became a horse or dog or fish or frog, how did you bear that existence? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="27">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> You stir up a long subject, and not one for the present moment; in brief, however, every single one of those lives seemed to me more carefree than human life, measured only by natural desires and <corr>needs</corr>: you would never see a tax-collecting horse or an informer frog or a sophist jackdaw or a cook gnat or a lecherous cock or any of the other things you humans practice.<pb n="v.2.p.228"/> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="28">
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Perhaps that is true, cock. Yet I am not ashamed to <corr>tell</corr> you what I feel: I still cannot unlearn the desire I have had since boyhood to become rich; indeed, the dream still stands before my eyes displaying the gold, and especially I choke with envy over that accursed Simon reveling in so many good things. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> I will cure you, Micyllus! Since it is still night, get up and follow me; I will take you to that very Simon and into the <corr>houses</corr> of the other rich men, so you may see how things are with them. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> How so, with the doors locked—unless you are going to force me to break through walls? </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Not at all; Hermes, to whom I am sacred, gave me this special privilege: if anyone takes my longest tail-feather, the one that curves from its softness— </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> But you have two like that. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+ <p rend="align(indent)"> The right-hand one, then: to whomever I grant to pluck and hold it, <note xml:lang="mul" type="footnote" n="v.2.p.228.n.1">ἀποσπάσαι παράχω καὶ ἔχειν Fritzsche: ἀποσπάσαι παράσχω καὶ ἔχῃ β; ἀποσπάσας παράσχω ἔχειν γ.</note>for as long as I wish that person can open every door and see everything without being seen himself.  </p> </sp> <pb n="v.2.p.230"/>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> I didn't realize you were a sorcerer too, cock! Once you give me that, you'll see all of Simon's property transferred here in no time; I'll slip in and carry it over, and he'll be back chewing on leather soles again! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> That is not permitted; Hermes instructed me that if the holder of the feather does anything like that, I am to crow aloud and catch him red-handed. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Unbelievable—that Hermes, a thief himself, should begrudge others such a thing! Let's go anyway; I'll keep my hands off the gold, if I can. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> First pluck the feather, Micyllus <gap reason="lost" rend=" . . . "/> What is this? You plucked both! </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Safer this way, cock, and less unsightly for you too, so you won't limp on one side of your tail. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="29">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Very well. Shall we go to Simon's first, or to one of the other rich men? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+ <p rend="align(indent)"> No, to Simon's, who now that he is rich claims to be four syllables instead of two! And here we are <corr>at</corr> the doors. What do I do next?  </p> </sp> <pb n="v.2.p.232"/>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Put the feather on the lock. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> There! By Heracles, the door flew open as if with a key! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Lead the way inside. Do you see him awake and doing his accounts? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Yes, by Zeus, by a dim and thirsty wick! And he is pale somehow, cock, and all dried up and wasted away—clearly from worries, for he wasn't said to be sick otherwise. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Listen to what he <corr>says</corr>, for you'll learn why he's in this state. </p> </sp>
+<sp> <speaker>Simon</speaker>
+ <p rend="align(indent)"> So those seventy talents are buried very safely under the bed and no one else knows; as for the sixteen, I think Sosylus the groom saw me hiding them under the manger—at any rate he's always hanging around the stable, though he's not usually diligent or hardworking. Likely far more than that has been stolen—for where else was Tibius <note xml:lang="mul" type="footnote" n="v.2.p.232.n.1">Τίβειος Harmon: Τίβιος MSS.</note>said to have bought himself so big a salt-fish yesterday, or bought his wife an earring for five whole drachmas? They are squandering my money, poor wretch that I am! Nor are my cups stored safely, so many as there are; I'm afraid someone will dig under the wall and steal them—many envy me and plot against me, especially my neighbor Micyllus!  </p> </sp> <pb n="v.2.p.234"/>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> By Zeus, yes—since I'm just like you and walk off with bowls under my arm! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Be quiet, Micyllus, lest he catch us here. </p> </sp>
+<sp> <speaker>Simon</speaker>
+<p rend="align(indent)"> Best to stay awake and <corr>guard</corr> it myself! I'll get up and make the rounds of the whole house. Who's there? I see you, burglar <gap reason="lost" rend=" . . . "/> By Zeus, it's just a pillar—all is well. I'll dig up the gold and count it again, in case I missed something the other day. Listen, someone made a noise again! Coming for me, clearly—I'm besieged and plotted against by everyone! Where's my dagger? If I catch <corr>anyone</corr> <gap reason="lost" rend=" . . . "/> Let's bury the gold again. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="30">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Such, Micyllus, is Simon's life. Let us go to someone else while a little of the night still remains. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Poor wretch, what a life he lives! May such wealth <corr>befall</corr> my enemies! I want to give him a slap on the ear before leaving. </p> </sp>
+<sp> <speaker>Simon</speaker>
+<p rend="align(indent)"> Who hit me? I'm being robbed, wretch that I am! </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Wail and stay awake and turn the same color as your gold, glued to it! Let us go to Gniphon the moneylender, if you like. He too lives not far away. <pb n="v.2.p.236"/>This door too has opened for us. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="31">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Do you see him too lying awake over his worries, calculating interest, his fingers shriveled up—a man who must shortly leave all this behind and become a cockroach or a gnat or a dog-fly? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> I see a wretched and foolish man living not much better than a cockroach or gnat even now! How utterly wasted away he too is from his accounts! Let's go to another. </p> </sp> </div>
+
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="32">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> To your friend Eucrates, if you like. Look, this door too has opened—so let's go in. </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> All of this was mine just a moment ago! </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Are you still dreaming of wealth? Well, do you see Eucrates himself, an old man, being <gap reason="lost" rend=" . . . "/> by his slave? </p> </sp>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> By Zeus, I see lewdness and lust and debauchery beyond anything <corr>human!</corr> And his wife in another room, she too by the cook <gap reason="lost" rend=" . . . "/> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg019.perseus-grc2" n="33">
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Well then? Would you like to inherit this too, Micyllus, and have everything that belongs to Eucrates?  </p> </sp> <pb n="v.2.p.238"/>
+<sp> <speaker>Mikyllos</speaker>
+<p rend="align(indent)"> Not at all, <corr>cock!</corr> I'd rather die of hunger first. Farewell to the gold and the banquets; two obols are greater wealth to me than having my house broken into by my own slaves. </p> </sp>
+<sp> <speaker>Alektryon</speaker>
+<p rend="align(indent)"> Well, since day is already breaking at the very first light, let's go back home to our own place; you shall see the rest another time, Micyllus. </p> </sp> </div> </div> </body> </text> </TEI>

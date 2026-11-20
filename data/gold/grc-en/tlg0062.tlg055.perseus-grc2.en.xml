@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Τὰ πρὸς Κρόνον</title>
+<author>Lucian</author>
+<editor>Karl Jacobitz</editor>
+ <sponsor>Perseus Project, Tufts University</sponsor>
+ <principal>Gregory Crane</principal>
+ <respStmt>
+  <resp>Prepared under the supervision of</resp>
+  <name>Bridget Almas</name>
+  <name>Lisa Cerrato</name>
+  <name>Rashmi Singhal</name>
+ </respStmt>
+ <funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+ 
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+ <authority>Perseus Project</authority>
+ <date type="release" when="2011-03-14">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg055.perseus-grc2.xml</idno>
+ <availability>
+  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+  <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> 
+ </availability>
+</publicationStmt>
+ 
+ <sourceDesc>
+  <biblStruct>
+   <monogr>
+    <title xml:lang="lat">Luciani Samosatensis Opera</title>
+    <author>Lucian</author>
+    <editor>Karl Jacobitz</editor>
+    <imprint>
+     <publisher>Teubner</publisher>
+     <pubPlace>Leipzig</pubPlace>
+     <date>1913</date>
+    </imprint>
+    <biblScope unit="volume">3</biblScope>
+   </monogr>
+   <ref target="https://archive.org/details/operaexrecogniti03luciuoft/page/300/mode/2up">Internet Archive</ref>
+  </biblStruct>
+ </sourceDesc>
+</fileDesc>
+
+  <encodingDesc>
+   
+   <editorialDecl>
+    <correction method="silent">
+     <p>keyboarding</p>
+    </correction>
+   </editorialDecl>
+   
+   <refsDecl n="CTS">
+    <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+     <p>This pointer pattern extracts section.</p>
+    </cRefPattern>
+   </refsDecl>
+   
+   <!--<refsDecl doctype="TEI.2">
+<state unit="chapter" n="chunk"/>
+<state unit="altsection"/>
+</refsDecl>-->
+    <refsDecl xml:id="CTS">
+    <citeStructure match="/TEI/text/body" use="@xml:base">
+      <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </refsDecl>
+</encodingDesc>
+  
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-05-01">EpiDoc and CTS conversion and other cleanup</change>
+  </revisionDesc>
+</teiHeader>
+ 
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" type="edition" xml:lang="en">
+<head rend="align(center)">Saturnalia</head>
+<pb n="p.301"/>
+<milestone unit="Reitz_page" n="385"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="1">
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> O Cronus, since you seem to be ruling for the present, and we have offered sacrifice to you with favorable omens, what might I best ask and receive from you over the offerings? </p>
+</sp>
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> That is for you yourself to have considered—what is desirable for you—unless you want your ruler to be a prophet at the same time and know what you would prefer to ask; for my part, I will not refuse your prayer so far as lies in my power. </p>
+</sp>
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> Oh, I have considered it long ago! I will ask for the common, obvious things: wealth, plenty of gold, to be master of estates, to own many slaves, bright and soft garments, silver, ivory, and everything else of value. Give me some of these, best Cronus, so that I too may get some benefit from your reign and not alone <milestone unit="Reitz_page" n="386"/>be without a share throughout my whole life.</p>
+</sp>
+
+</div><pb n="p.302"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="2">
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> You see? You have asked for something beyond me; it is not my province to distribute such things. So do not be upset if you fail to get them, but ask Zeus when the sovereignty comes round to him shortly. I take over the rule on fixed terms: the whole reign lasts seven days, and once I am past that limit I am immediately a private citizen and one of the common crowd; and during those seven days I am permitted to conduct no serious or public business, only to drink and get drunk, shout, play, throw dice, appoint kings, feast the servants, sing naked, clap while trembling, and sometimes even be pushed headfirst into cold water with my face smeared with soot—these are the things I am allowed to do. Those great things—wealth and gold—Zeus distributes to whomever he pleases.</p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="3">
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> Not even he does so readily or easily, Cronus! I for one have already worn myself out asking at the top of my voice, and he pays no heed at all, but shakes his aegis, <milestone unit="Reitz_page" n="387"/>brandishes his thunderbolt, glares fiercely, and terrifies those who bother him. And if he ever does nod assent to someone and make him rich, there is a great lack of judgment in it: sometimes he passes over the good and wise and pours wealth around utterly wicked and foolish men, mostly whip-worthy rogues or effeminates. Still, I want to know what things are in your power.</p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="4">
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> Not small things at all, nor altogether contemptible when judged against the scope of my whole reign—unless you think it a small thing to win at dice, and while the die rolls ones for others, for sixes always to turn up for you! Many at any rate have provisioned themselves to the full in this way, to whom the die nods graciously and favorably, while others on the contrary have swum out naked when their vessel was wrecked on so small a reef as the die. <pb n="p.303"/>Furthermore, to drink most delightfully, to be thought to sing more musically than anyone else at the banquet, and among the servants, while others fall into the water—for that is the penalty for clumsy service—for you to be proclaimed glorious victor and carry off the sausage as prize: do you see how great a good that is? And further, to become sole king over all by winning at knucklebones, so that you are neither given <milestone unit="Reitz_page" n="388"/>ridiculous orders nor unable to give them yourself—ordering one man to shout something shameful about himself, another to dance naked and pick up the flute-girl and carry her three times around the house—how are these not also proofs of my generosity? And if you find fault with such a kingship for not being real or lasting, you will act unreasonably, seeing that I myself who distribute these things hold power for only a brief time. Of these things then that I can give—gaming, ruling, singing, and what I have listed—ask with confidence, since I will never frighten you with the aegis and the thunderbolt.</p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="5">
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> Best of the Titans, I have no need of such things; rather, answer me that question which I have most longed to know, and if you tell me, you will have made sufficient return for the sacrifice, and I release you from all further debts. </p>
+</sp>
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> Just ask; for I will answer if I happen to know. </p>
+</sp>
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> First, then, whether these things we hear about you are true: that you used to devour the children born to Rhea, and she hid Zeus away and substituted a stone for the infant and gave it to you to swallow; and when he came of age he drove you from your rule after defeating you in war, and then bound you and threw you into Tartarus along with all the allied force that fought alongside you.<pb n="p.304"/> </p>
+</sp>
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> If we were not celebrating a festival, fellow, and it were not permitted to get drunk <milestone unit="Reitz_page" n="389"/>and abuse one's masters freely, you would have learned that I am at least permitted to be angry, for asking such questions without respecting so gray-haired and aged a god! </p>
+</sp>
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> I do not say this on my own authority, Cronus, but Hesiod and Homer—and I hesitate to say that practically all other men too believe these things about you.</p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="6">
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> Do you think that shepherd, that impostor, knows anything sound about me? Consider it this way: is there any man—I will not say god—who would willingly endure eating his own children, unless he were some Thyestes who fell in with an impious brother and ate them? And even granting that, how would he fail to notice he was eating a stone instead of an infant, unless he had no feeling in his teeth? No, we neither fought a war nor did Zeus seize power by force; I handed it over to him willingly and stepped aside from ruling. As for my being neither in fetters nor in Tartarus, you can see that for yourself, I think, unless you are blind like Homer.</p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="7">
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> Why on earth, Cronus, did you give up your rule? </p>
+</sp>
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> I will tell you. On the whole, because I was already old and gouty from the years—which is why most people imagined I was fettered! For I could no longer cope with such great injustice among people nowadays, but constantly had to run up and down with my thunderbolt raised, burning up perjurers or temple-robbers or violent men, and the job was very <milestone unit="Reitz_page" n="390"/>strenuous and required a young man. So I stepped aside for Zeus, and a good thing too! Besides, it seemed to me a fine idea to divide the rule among my sons and myself feast mostly in peace, neither dealing with petitioners nor bothered by those asking opposite things, nor forced to thunder or lighten or occasionally hurl hail; <pb n="p.305"/>instead, I lead this very pleasant old man's life, drinking my nectar strong and chatting with Iapetus and my other contemporaries, while he rules with countless troubles. Still, I decided to reserve these few days on the terms I mentioned, and I resume power to remind mankind what life was like under me, when everything grew for them unsown and unploughed—not ears of grain, but ready-baked bread and prepared meats, and wine flowed like a river, and there were springs of honey and milk; for all men were good and golden. This is the reason for my brief reign, and why everywhere there is clapping and singing and play and equality for all, both slaves and free; for no one was a slave in my time.</p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="8">
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> And I, Cronus, guessed that you showed this kindness toward slaves and shackled men because of that myth, honoring those who suffer the same things, since you yourself were a slave and remembered your fetters.<milestone unit="Reitz_page" n="391"/> </p>
+</sp>
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> Will you not stop talking such nonsense? </p>
+</sp>
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> Fair enough, I will stop. Just answer me this too: was gaming customary among men in your time as well? </p>
+</sp>
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> Very much so—not for talents and tens of thousands like you, however, but for nuts at the most, so that no one was distressed at losing or wept at being the only one left without dinner. </p>
+</sp>
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> Wise of them! For what would they have gambled for when they were solid gold themselves? <pb n="p.306"/>Indeed, even as you were speaking, this thought occurred to me: if someone brought one of those beaten-gold men into our present life and showed him to the multitude, what would the poor wretch suffer at their hands? They would certainly rush upon him and tear him apart, like the Maenads tore Pentheus, or the Thracian women Orpheus, or the hounds Actaeon, each competing with the others to carry off the biggest piece—people who even during a festival are not free from greed, but most of them have turned the festival into a source of income! Then some go off robbing their friends at the banquet, while others revile you without reason and smash the dice, which are innocent of what they do of their own free will. But tell me this too: why on earth, being so delicate <milestone unit="Reitz_page" n="392"/>and aged a god, have you chosen the most unpleasant season, when snow covers everything, the north wind blows hard, everything is frozen solid with cold, the trees are dry, bare, and leafless, the meadows ugly and stripped of flowers, and people hunch over like the very aged, most of them around the hearth—why do you hold your festival then? For the season is neither for old men nor suited to lovers of luxury. </p>
+</sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="9">
+<sp>
+<speaker>Kronos</speaker>
+<p rend="align(indent)"> You question me a great deal, fellow, when we ought already to be drinking! You have robbed me of no small part of my festival with these unnecessary philosophizings. So leave them for now, and let us feast at once, clap our hands, and enjoy holiday freedom; then let us play for nuts in the ancient way, elect kings, and obey them—for thus I shall verify the proverb that says old men become children a second time. </p>
+</sp>
+<sp>
+<speaker>Hiereus</speaker>
+<p rend="align(indent)"> May anyone who does not find what you say pleasing be unable to drink when thirsty, Cronus! So let us drink, for you have already answered my first questions sufficiently. <pb n="p.307"/>And I think I shall write down this conversation of ours in a book—both what I asked and what you so graciously answered—and give it to read to such of my friends as are worthy to hear your words.</p>
+</sp>
+</div>
+<milestone unit="Reitz_page" n="393"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="10">
+<head rend="align(center)">Cronosolon</head>
+<p rend="align(indent)">Thus speaks Cronosolon, priest and prophet of Cronus and lawgiver for the festival. What the poor must do I have written in another scroll and sent to them themselves, and I know well that they too will abide by the laws, or else immediately incur the heavy penalties set against the disobedient. As for you, O rich, see that you neither break the law nor disregard these commands; for whoever fails to do so, let him know that he will be slighting not me the lawgiver, but Cronus himself, who chose me to legislate for the festival—not appearing in a dream, but conversing with me visibly the other day while I was wide awake. He was neither fettered nor squalid, as the painters depict him following the nonsense of the poets; rather, he held his sickle keenly whetted, and in all other respects was radiant, strong, and royally arrayed. Such was his form when he appeared to me, and what he said was also wholly divine and worthy to be told to you first. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="11">
+<p>Seeing me gloomy and walking deep in thought, he immediately recognized, as befits a god, the cause of my grief, and how I was <milestone unit="Reitz_page" n="394"/>resenting my poverty, wearing only a single tunic unsuited to the season—for there was frost, a strong north wind, ice, and snow, and I was scarcely protected against them—and also because, with the festival very near, I saw others preparing to sacrifice and feast, while for me things were hardly festive. <pb n="p.308"/>Coming up from behind, then, and taking me by the ear and shaking it, as he is accustomed to approach me, he said, "Why is this, Cronosolon? You look distressed." "Have I not good reason, master," I said, "when I see accursed and foul men enormously rich and alone living in luxury, while I and many other educated men live with want and helplessness? Yet even you, master, will not put a stop to this and rearrange things on an equal footing." "In general," he said, "it is not easy <milestone unit="Reitz_page" n="395"/>to change what you suffer from Clotho and the other Fates; but as for what belongs to the festival, I will remedy your poverty, and let the remedy be this: go, Cronosolon, and write me some laws on what must be done during the festival, so that the rich do not celebrate by themselves, but share their good things with you." "But I do not know how," I said. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="12">
+<p>"I," said he, "will teach you." And beginning, he taught me. Then when I knew everything, he said, "And tell them that if they do not do this, I do not carry this sharp sickle around for nothing—or I would be ridiculous to have castrated my own father Uranus and yet not make eunuchs of whichever rich men break the law, so that they become galli and beg for the Great Mother with flutes and tambourines!" Thus he threatened. So you had better not transgress his ordinances.</p>
+</div>
+<milestone unit="Reitz_page" n="396"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="13">
+<head rend="align(center)">First Laws</head>
+<p rend="align(indent)">No one shall conduct any business, public or private, during the festival, except what pertains to play, luxury, and good cheer; cooks and pastry-makers alone shall be active. All shall have equal honor, both slaves and free, both poor and rich. No one shall be permitted to be angry or indignant or make threats. <pb n="p.309"/>Nor shall it be permitted to audit accounts from stewards during the Saturnalia. No one shall inspect or inventory his silver or clothing during the festival, nor exercise during the Saturnalia, nor practice or deliver speeches—except any that are witty and cheerful, displaying jest and playfulness.</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="14">
+<head rend="align(center)">Second Laws</head>
+<p rend="align(indent)">Long before the festival, the rich shall write on a tablet the name of each of their friends, and shall have ready money amounting to a tenth of their yearly income, surplus clothing from what they own, whatever furnishings are too coarse for themselves, and not a few pieces of silverware. Let these be kept ready at hand. On the day before the festival, a purificatory offering shall be carried around, and they shall drive out of their house pettiness, avarice, greed, <milestone unit="Reitz_page" n="397"/>and all other such vices that dwell with most of them. When they have made the house clean, they shall sacrifice to Zeus Giver of Wealth, Hermes the Bestower, and Apollo of Great Gifts. Then in the late afternoon that list of friends shall be read to them. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="15">
+<p>Having allotted to each according to his worth, before sunset they shall send the gifts to their friends. The bearers shall be no more than three or four, the most trustworthy of the servants, already elderly. What is sent and how much shall be written on a slip, so that neither party suspects the bearers. The servants themselves shall drink one cup each and hurry off, demanding nothing more. To educated men double of everything shall be sent, for they deserve a double share. The messages accompanying the gifts shall be as modest and brief as possible; no one shall send anything offensive or praise what is sent. No rich man shall send anything to a rich man, nor shall a rich man entertain his equal at the Saturnalia. <pb n="p.310"/><milestone unit="Reitz_page" n="398"/>Nothing of what has been set aside to be sent shall be kept back, nor shall second thoughts enter regarding the gift. If anyone was away last year and missed his share on that account, let him receive that too. The rich shall also pay debts for their poor friends, and their rent if they owe that too and cannot pay; and in general, let them take care long beforehand to know what they need most. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="16">
+<p>Let grumbling be absent from the recipients too, and let whatever is sent seem generous. A jar of wine, a hare, or a fat bird shall not be considered a Saturnalian gift, nor shall they turn Saturnalian gifts into a joke. In return, let the poor man send to the rich—if educated, one of the ancient books, something auspicious and convivial, or a composition of his own as best he can; and let the rich man receive this with a very cheerful countenance and read it at once; if he pushes it aside or throws it away, let him know <milestone unit="Reitz_page" n="399"/>that he is liable to the threat of the sickle, even if he sent all he ought. Let the others send garlands or grains of frankincense. If a poor man sends clothing or silver or gold beyond his means to a rich man, what was sent shall become public property and be sold and put into the treasury of Cronus, while the poor man shall on the next day receive from the rich man not fewer than two hundred and fifty strokes of a cane on his hands.</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="17">
+<head rend="align(center)">Laws for Banquets</head>
+<p rend="align(indent)">Bathing shall take place when the sundial shadow is six feet long; before the bath there shall be nuts and gaming. Each shall recline wherever he happens to be; rank, birth, or wealth shall contribute little to privilege. All shall drink the same wine; nor shall stomachache or headache be an excuse for the rich man to drink the better wine alone on that account. <pb n="p.311"/>Portions of meat shall be equal for all; the attendants shall show favor to no one, yet neither shall they dawdle nor rush past before the guests decide what they wish to take home. <milestone unit="Reitz_page" n="400"/>Nor shall large portions be set before one and tiny ones before another, nor the ham before one and the pig's jaw before another, but equality in all things. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="18">
+<p>The wine-pourer shall keep a sharp eye on each guest from a vantage point, and less on his master, and listen more keenly. Cups shall be of all kinds. It shall be permitted to offer a loving-cup if anyone wishes. All shall drink to all if they wish, once the rich man has begun. Drinking shall not be compulsory if someone cannot. No one who wishes shall be permitted to bring a dancer or lyre-player who is just learning to the banquet. The limit of jesting in all cases shall be what causes no pain. In all cases let them game for nuts; if anyone games for money, let him go without food the next day. Each shall stay and leave whenever he wishes. Whenever the rich man feasts his servants, his friends too shall serve along with him. Every rich man shall inscribe these laws on a bronze pillar and keep it in the very center of his courtyard, and read them. And it must be known that so long as this pillar remains, neither famine nor plague nor fire nor any other hardship shall enter <milestone unit="Reitz_page" n="401"/>their house; but if ever—which heaven forbid!—it is taken down, dreadful is what they will suffer.</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="19">
+<head rend="align(center)">Saturnalian Letters <lb/>1.</head>
+<p rend="align(indent)">I to Cronus, greetings. I had already written to you before explaining what situation I was in and how because of poverty I was in danger of alone having no share in the festival you have proclaimed, adding this too—for I remember—that it was most unreasonable for some of us to be excessively rich and live in luxury without sharing what they have with the poorer, while others perish of hunger, and that too with the Saturnalia at hand. <pb n="p.312"/>Since you sent me no reply then, I thought it necessary to remind you of the same things again. For you ought, best Cronus, to have removed this inequality and put all good things in the middle for everyone, and then bidden us celebrate. As <milestone unit="Reitz_page" n="402"/>we stand now, it is "ant or camel," as the proverb says. Better yet, imagine a tragic actor stepping with one foot on something high, like tragic buskins, while the other foot is barefoot: if he walks like that, you see that he must be tall one moment and short the next, depending on which foot he puts forward. Such is the inequality in our life too: some, putting on the buskins that Fortune supplies, play the tragic hero over us, while the rest of us walk on foot along the ground—though we could, know well, act and stride no worse than they, if someone outfitted us like them. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="20">
+<p rend="merge">Yet I hear the poets saying that in olden times things were not like this for mankind while you were still sole king: rather, the earth unsown and unploughed produced good things for them, a ready meal for each to his fill, and rivers flowed some with wine, some with milk, and some even with honey; <milestone unit="Reitz_page" n="403"/>and greatest of all, they say those people themselves were golden and poverty never came near them at all. As for us, we could not reasonably be thought even lead, but something still meaner if such exists; food comes with toil for most of us, and poverty, want, helplessness, "alas," "where will I get it?" and "oh, what bad luck!"—many such cries are common at least among us poor. <pb n="p.313"/>And we would be less distressed at these things, know well, if we did not see the rich living in such prosperity—men who lock up so much gold and so much silver, own so many garments, slaves, teams of horses, apartment-houses, and farms, possessing vast numbers of each of these, yet not only have never shared any of them with us, but do not even deign to look at the common folk. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="21">
+ <p rend="merge">This is what chokes us most of all, Cronus, and we consider it intolerable: that one man reclines on purple rugs, gorging on so many good things, belching, congratulated by his <milestone unit="Reitz_page" n="404"/>companions, and feasting continuously, while I and my like dream of where four obols might come from, so that we could at least go to sleep filled with bread or barley-cake, munching cress or thyme or onion as a relish. Either, therefore, Cronus, change these things and remake life on an equal basis, or at the very least command those rich men not to enjoy their good things alone, but from so many bushels of gold to scatter at least a single quart over all of us, and from their clothes to give us whatever would not distress them even if eaten through by moths—to give us to wear what is bound to perish and be ruined by time anyway, rather than let it rot with heavy mold in their chests and boxes. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="22">
+ <p rend="merge">Moreover, bid each of them to invite four or five of the poor at a time to dinner—not in the present style of dinners, however, but more democratically, so that all share equally, and not one man stuffing himself with delicacies while the servant stands waiting until he is exhausted from eating, whereas when he comes to us, while we are still preparing to reach out our hand, he passes by <milestone unit="Reitz_page" n="405"/>merely showing us the platter or whatever is left of the cake; nor, when a pig is brought in and carved, setting the entire half with the head before his master while bringing covered-up bones to the rest. <pb n="p.314"/>And instruct the wine-pourers too not to wait until each of us asks seven times for a drink, but when we ask once, to pour and hand it over immediately, filling a large cup just as for their master; and let the wine itself be one and the same for all the fellow-drinkers. For where is this law written, that he should get drunk on fragrant wine while my belly bursts from cheap new wine? </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="23">
+ <p rend="merge">If you correct and reform these things, Cronus, you will have made life truly life and the festival truly a festival; if not, let them keep their festival, while we will sit praying that when they come from the bath the boy may overturn and break their wine-jar, that the cook may scorch the soup and in absentmindedness throw the salted <del>fish</del> relish into the lentil soup, that the dog <milestone unit="Reitz_page" n="406"/>may slip in and eat up the entire sausage while the cooks are busy with other things, and half the cake too; that the boar, the venison, and the sucking-pigs while roasting may do the same thing Homer says the cattle of the Sun did—or rather not only crawl, but leap up and flee to the mountain, spits and all; and that the fat birds, though already plucked and dressed, may take wing and fly off as well, so they may not enjoy them alone. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="24">
+ <p rend="merge">And what would distress them most of all: that ants like those of India may dig up their gold from their treasuries and carry it off by night to the public treasury; that their clothes, through the carelessness of their keepers, may be riddled like a sieve by our good friends the mice, so as to differ nothing from a tunny-net; and that their handsome, long-haired boys whom they call Hyacinths or Achilleses or Narcissuses, right in the middle of handing them the cup, may go bald as their hair falls out and sprout a pointed beard like the wedge-beards in comedies, with the hair around their temples very thick and prickly, and the space between smooth and bare.<pb n="p.315"/> <milestone unit="Reitz_page" n="407"/>These things and more than these we would pray for, if they refuse to give up this excessive selfishness and hold their wealth for the common good and give us a moderate share.</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="25">
+ <head rend="align(center)">Saturnalian Letters <lb/>2.</head>
+ <p rend="align(indent)">Cronus to my most esteemed Me, greetings. Why do you talk such nonsense, fellow, writing to me about present affairs and bidding me carry out a redistribution of property? That belongs to another, the present ruler. I am amazed if you alone of all men do not know that I ceased being king long ago after dividing my rule among my sons, and that Zeus takes charge of such matters; my province extends only to gaming, clapping, singing, and drinking, and that for no more than seven days. So regarding those greater matters you mention—removing inequality and having all alike be either poor or rich—Zeus may deal with you. But if anyone is wronged or cheated of anything belonging to the festival, it is mine to judge; and I am writing to the rich about the <milestone unit="Reitz_page" n="408"/>dinners and the quart of gold and the clothes, so that they may send you some for the festival—for it is just and right for them to do this, as you say, unless they have some reasonable argument to make in reply. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="26">
+ <p rend="merge">On the whole, however, know that you poor are deceived and hold a false opinion about the rich, thinking them completely happy and the only ones living a pleasant life because they can dine sumptuously, get drunk on sweet wine, consort with handsome boys and women, and wear soft clothing; you have no idea what it is really like. <pb n="p.316"/>For the worries over these things are no small matter: they must stay awake watching everything, lest the steward be negligent or steal undetected, lest the wine turn sour, lest the grain swarm with weevils, or a burglar steal the cups, lest the people believe informers saying he wants to become a tyrant. Yet all these would not be the tiniest fraction of what troubles them; if you knew the fears and anxieties they have, you would consider wealth something to be fled at all costs. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="27">
+ <p rend="merge">Indeed, do you suppose I myself would ever have been so mad that, if being rich and ruling were a fine thing, I would have given them up and yielded them to others to sit as a <milestone unit="Reitz_page" n="409"/>private citizen and endure being subject to another? No, knowing all these many troubles that necessarily attend the rich and rulers, I gave up my rule, and a good thing too! </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="28">
+ <p rend="merge">Even those things you just complained of to me—that they stuff themselves with pork and cakes while you munch cress or thyme or onion at the festival—consider what they really amount to: for the moment, each of them is pleasant and not disagreeable perhaps, but in the aftermath the matter is reversed. You get up the next day neither heavy-headed from drunkenness like them, nor belching foul, smoky fumes from overeating; whereas they enjoy all that and, spending most of the night debauching with boys or women or however their lust bids, easily pick up consumption or pneumonia or dropsy from their excessive luxury. Indeed, which of them could you easily point to who is not utterly pale and looking very much like a corpse? Or who has reached old age on his own feet rather than carried on a litter by four men—all gold on the outside, yet patched together inside like tragic costumes stitched from utterly worthless rags? <pb n="p.317"/>You never taste or dine on fish, true, but do you not see that you are also unacquainted with gout or pneumonia, or whatever else happens from some other <milestone unit="Reitz_page" n="410"/>cause? Yet not even to them themselves is it pleasant to eat these things day after day beyond satiety; instead, you might sometimes see them craving vegetables and thyme more eagerly than even you crave hare and pork. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="29">
+ <p rend="merge">I leave unsaid all the other things that grieve them—a licentious son, a wife in love with a servant, a beloved who yields from necessity rather than affection; in short, there are many things of which you are ignorant, seeing only their gold and purple, and whenever you see them driving out behind a white team, you gape and bow down. Yet if you looked past and despised them, and neither turned around toward their silver carriage nor during conversation gazed at the emerald in their ring and touched their garments admiring their softness, but let them be rich for themselves alone, know well they would come to you of their own accord and beg you to dine with them so they could display to you their couches and tables and cups, which are of no use if their possession goes unwitnessed. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="30">
+ <p rend="merge">In fact, you would find that they acquire most things for your sake—not so that they themselves may use them, but so that you may marvel. With these words I console you, knowing both ways of life, and it is fitting to celebrate remembering that in a short while all must depart from life, they leaving behind their wealth and you your poverty. Still, I will write to them as <milestone unit="Reitz_page" n="411"/>I promised, and I know they will not disregard my letter.  </p>
+</div><pb n="p.318"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="31">
+ <head rend="align(center)">Saturnalian Letters <lb/>3.</head>
+ <p rend="align(indent)">Cronus to the rich, greetings. The poor have recently written to me accusing you of not sharing with them what you have, and in general they asked me to make all good things common to all and let each have his share; for it was just, they said, that equality be established and not for one man to have more while another has no share at all in pleasant things. I replied that Zeus would consider those matters better than I, but regarding present affairs and what they thought they were wronged in during the festival, I saw that the decision belonged to me, and I promised to write to you. What they ask is reasonable, as it seemed to me: "For how," they say, "shivering in such cold and gripped by hunger, could we celebrate the festival too?" If therefore I wanted them also to share in the festival, they bade me compel you to share with them any clothes you have that are surplus or too coarse for you, and to sprinkle a little of your gold upon them; if you do this, they say, they will no longer even dispute your possessions before Zeus; otherwise they threaten to summon you for a redistribution of property as soon as Zeus first holds court. These things are not at all hard for you out of so much that you happily <milestone unit="Reitz_page" n="412"/>possess. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="32">
+ <p rend="merge">By Zeus, they also asked me to add to the letter about dinners—that they dine with you—since at present you live in luxury alone behind locked doors, and if ever after a long interval you are willing to entertain any of them, there is more annoyance than enjoyment in the dinner, and most things are done to insult them: for instance, not drinking the same wine—by Heracles, how illiberal! One might well blame them themselves for not getting up in the middle and walking out, leaving the whole banquet to you. Yet even so they say they do not drink their fill, for your wine-pourers, like Odysseus's companions, have their ears stuffed with wax.<pb n="p.319"/> As for the rest, it is so shameful that I hesitate to mention what they complain of regarding the division of meat and the attendants standing beside you until you are overstuffed while racing past them, and many other petty things utterly unbecoming to free men. Truly, the pleasantest and most convivial thing is equality, and the carver presides over your banquets for this very reason, so that all may have an equal share. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="33">
+ <p rend="merge">See to it, then, that they no longer accuse you, but honor and love you for receiving a share of these few things, <milestone unit="Reitz_page" n="413"/>whose expense is imperceptible to you while to them the gift in time of need is unforgettable. Besides, you could not even inhabit your cities if the poor were not fellow citizens contributing in countless ways to your prosperity, nor would you have anyone to admire your wealth if you were rich alone, privately, and in the dark. Let many therefore see and admire your silver and tables, and as you drink loving-cups to one another, let them examine the cup while drinking, gauge its weight themselves by lifting it, and admire the precision of its relief and the amount of gold adorning the workmanship. For in addition to being called good and humane, you will also be free from their envy: who would envy a man who shares and gives a fair portion? And who would not pray that he live as long as possible enjoying his blessings? As you stand now, your prosperity has no witness, your wealth is envied, and your life is joyless. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="34">
+ <p rend="merge">Nor indeed is it equally pleasant, I think, to gorge oneself alone, as they say lions and lone wolves do, as to be in the company of clever men trying in every way to please—men who, first, will not let the banquet be deaf and mute, <milestone unit="Reitz_page" n="414"/>but will keep company with convivial stories, harmless jests, and all kinds of friendliness, the sweetest pastimes, dear to Dionysus and Aphrodite and dear to the Graces; and secondly, telling everyone the next day of your graciousness, will make you loved.<pb n="p.320"/> Such things would be well worth buying at a high price. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="35">
+ <p rend="merge">For I will ask you: if the poor went around with their eyes shut—let us suppose so—would it not distress you to have no one to whom to display your purple garments, your crowd of attendants, or the size of your rings? I leave unsaid that plots and hatred from the poor are bound to arise against you if you insist on living in luxury alone; and the curses they threaten to invoke against you are dreadful—may they never be driven to utter them! For then you will taste neither sausages nor cake except what the dog leaves; your lentil soup <milestone unit="Reitz_page" n="415"/>will have salted fish melted into it; your boar and deer while roasting will plot escape from the kitchen to the mountain; your birds, wingless though they are—"shoo!"—will stretch out and fly away straight to the poor themselves; and worst of all, the handsomest of your wine-pourers will go bald in an instant, and that right over your broken wine-jar! In view of this, deliberate on what will be both fitting for the festival and safest for you, and lighten their heavy poverty, winning no mean friends at a small cost.</p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="36">
+ <head rend="align(center)">Saturnalian Letters <lb/>4.</head>
+<p rend="align(indent)">The rich to Cronus, greetings. Do you think these letters have been written by the poor to you alone, Cronus, and that Zeus has not already been deafened by their shouting, demanding this very redistribution and blaming both Fate for making an unequal division and us for refusing to share anything with them?<pb n="p.321"/> But he, being Zeus, knows where the blame lies, and therefore ignores <milestone unit="Reitz_page" n="416"/>most of what they say. To you, however, we will make our defense, since you rule over us at present. Having kept before our eyes everything you have written—how fine it is to help the needy out of plenty and how much pleasanter to associate and feast with the poor—we always used to do so, living on equal terms with them so that not even our fellow-diner could find any fault. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="37">
+ <p rend="merge">They, however, though claiming at first to need little, once we threw open our doors to them never stopped asking for one thing after another; and if they did not receive everything immediately at a word, there was anger, hatred, and ready slanders—and whatever lies they told about us, listeners believed them as knowing accurately from having associated with us. Thus one of two things was unavoidable: either by not giving to become their enemy outright, or by giving away everything to become poor on the spot and join the ranks of the beggars ourselves. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="38">
+ <p rend="merge">And the rest is moderate enough; but at the dinners themselves, neglecting to fill and stuff themselves too, once they have drunk more than enough they either squeeze the hand of a handsome boy <milestone unit="Reitz_page" n="417"/>as he hands them the cup, or make advances to a concubine or wedded wife; then, after vomiting all over the banquet, the next day they go down and abuse us, telling how thirsty they were and how they lived with hunger. And if we seem to you to be lying about them, recall your own parasite Ixion, who, deemed worthy of your common table and holding equal rank with you, got drunk and made advances to Hera, noble fellow! </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg055.perseus-grc2" n="39">
+ <p rend="merge"><pb n="p.322"/>These and similar things are why we decided for the future, for our own safety, no longer to make our house accessible to them. If, however, they agree before you to ask for moderate things, as they now say, and to commit no outrage at banquets, let them share with us and dine with us, with good fortune! We will send some clothes, as you command, and as much gold as possible, and spend extra too, and in short fall short in nothing; and let them too give up dealing with us artfully and be friends instead of flatterers and parasites. For you will have no fault to find with us if they are willing to do what is right.</p>
+</div></div>
+</body>
+</text>
+</TEI>

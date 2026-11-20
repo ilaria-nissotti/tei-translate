@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Περὶ τῶν Διψάδων</title>
+<author>Lucian</author>
+<editor>Karl Jacobitz</editor>
+    <sponsor>Perseus Project, Tufts University</sponsor>
+    <principal>Gregory Crane</principal>
+    <respStmt>
+        <resp>Prepared under the supervision of</resp>
+        <name>Bridget Almas</name>
+        <name>Lisa Cerrato</name>
+        <name>Rashmi Singhal</name>
+    </respStmt>
+    <funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+<date type="release" when="2011-03-14">Perseus 4.0</date>
+    <idno type="filename">tlg0062.tlg054.perseus-grc2.xml</idno>
+    <availability>
+        <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+        <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> 
+    </availability>
+</publicationStmt>
+    
+    <sourceDesc>
+        <biblStruct>
+            <monogr>
+                <title xml:lang="lat">Luciani Samosatensis Opera</title>
+                <author>Lucian</author>
+                <editor>Karl Jacobitz</editor>
+                <imprint>
+                    <publisher>Teubner</publisher>
+                    <pubPlace>Leipzig</pubPlace>
+                    <date>1913</date>
+                </imprint>
+                <biblScope unit="volume">3</biblScope>
+            </monogr>
+            <ref target="https://archive.org/details/operaexrecogniti03luciuoft/page/204/mode/2up">Internet Archive</ref>
+        </biblStruct>
+    </sourceDesc>
+</fileDesc>
+
+        <encodingDesc>
+            
+            <editorialDecl>
+                <correction method="silent">
+                    <p>keyboarding</p>
+                </correction>
+            </editorialDecl>
+            
+            <refsDecl n="CTS">
+                <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts section.</p>
+                </cRefPattern>
+            </refsDecl>
+            
+            <!--<refsDecl doctype="TEI.2">
+<state unit="chapter" n="chunk"/>
+<state unit="altsection"/>
+</refsDecl>-->
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change who="Lisa Cerrato" when="2023-05-01">EpiDoc and CTS conversion and other cleanup</change>
+        </revisionDesc>
+</teiHeader>
+    
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2">
+    <div n="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" type="edition" xml:lang="en">
+<pb n="p.205"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="1">
+<p rend="align(indent)"><pb n="p.206"/>The southern parts of Libya are deep sand and parched earth, desert for a wide extent, completely barren, all flat plain, having neither grass nor herb nor plant nor water, unless perhaps a remnant of scanty rain standing in hollows, and even this is thick and foul-smelling, undrinkable even for a very thirsty man. It is therefore uninhabited for these reasons; for how could it be inhabited, being so wild and dry and barren and oppressed by intense drought? The very heat itself, and the air being altogether fiery and blazing, and the seething sand render the country completely impassable. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="2">
+<p>Only the Garamantes, who live nearby—a trim <milestone unit="Reitz_page" n="235"/>and agile race, tent-dwellers living mostly by hunting—sometimes make raids to hunt, especially around the winter solstice, watching for when Zeus sends rain, when most of the heat is quenched and the sand is moistened and becomes passable after a fashion. Their quarry consists of wild asses and the large ground-running ostriches, and especially apes, and sometimes elephants; for these alone hold out against the thirst and endure for a long time suffering under the intense, scorching sun. Even so, as soon as the Garamantes consume the provisions they brought with them, they immediately drive back, fearing that the sand may blaze up again and become hard to cross and impassable, and that they too may be caught as in a net and perish along with their quarry. For there is no escape if the sun draws up the moisture and, quickly drying out the country, boils over, striking with fiercer rays sharpened by the dampness; for this is fuel to the fire. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="3">
+<p>Yet all these things I have mentioned—the heat, the thirst, the desolation, having nothing to take from the earth—will seem to you less grievous than what is about to be told, and for which that country is altogether to be avoided. <pb n="p.207"/>For reptiles of many kinds, huge in size, vast in number, monstrous in form, and irresistible in venom, overrun <milestone unit="Reitz_page" n="236"/>the land, some underground, lurking in the depths of the sand, others roaming on the surface: puff-adders, asps, vipers, horned snakes, stinging beetles, dart-snakes, amphisbaenas, pythons, and a twofold kind of scorpions—one terrestrial and crawling, huge and many-jointed, the other aerial and winged, with membranous wings like those of locusts, cicadas, and bats. Many such winged creatures flying about make that part of Libya not easy to approach. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="4">
+<p>But the most terrible of all the reptiles that the sand breeds is the dipsas, a snake not very large, resembling a viper, violent in its bite, swift in its venom, bringing unceasing pains immediately; for it burns and rots and causes them to catch fire, and they cry out like men lying on a pyre. What wears them down and exhausts them most of all is an affliction sharing the reptile's name: for they thirst to excess, and what is <milestone unit="Reitz_page" n="237"/>most paradoxical, the more they drink, the more they crave drink, and their desire intensifies far more. Nor could you ever quench their thirst, not even if you gave them the Nile itself or the whole Ister to drink dry, but by watering the disease you will inflame it further, just as if someone tried to extinguish a fire with oil. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="5">
+<p>The sons of physicians say that the cause is this: that the venom, being thick, when wetted by drink becomes swift-moving, growing more fluid, as is natural, and spreading very widely. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="6">
+    <p rend="align(indent)">I myself have never seen anyone who suffered this—and may I never, O gods, see a human being tormented so!—nor have I even set foot in Libya at all, happily for me. But I heard an epitaph which one of my companions told me he himself had read on the gravestone of a man who died in this way. Leaving Libya for Egypt, he said, he made his journey along the Great Syrtis, for there is no other way. <pb n="p.208"/>There <milestone unit="Reitz_page" n="238"/>indeed he came upon a tomb by the shore right at the water's edge, and a gravestone standing on it showing the manner of his destruction: carved upon it was a man such as they paint Tantalus, standing in a lake and scooping up water as if to drink, while the beast, the dipsas, fastened upon him, was coiled around his foot, and several women carrying water were pouring water over him together; nearby lay eggs like those of the ostriches which I said the Garamantes hunt. Inscribed beside it was the epitaph—and it is not amiss to recite it as well: <quote rend="blockquote">Having suffered such things, I think, from fiery venom, Tantalus too <lb rend="align(indent)"/>never stilled his thirsty pain, <lb/>and the daughters of Danaus could not fill such a jar, <lb rend="align(indent)"/>ever pouring water with water-bearing toil.</quote> There are four more verses about the eggs, and how he was bitten while picking them up; but I no longer remember those. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="7">
+<p>The neighboring peoples collect these eggs and prize them, not only for eating, but they also empty them and use them as vessels and make drinking-cups from them; <milestone unit="Reitz_page" n="239"/>for they cannot make pottery because the land is sand. And if large ones are found, two caps are even made from each egg, for either half is a sufficient cap for the head. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="8">
+<p>There, then, the dipsads lie in wait beside the eggs, and whenever a man approaches, creeping out of the sand they bite the wretch; and he suffers those things mentioned just now, drinking continually, thirsting all the more, and never being satisfied. </p>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg054.perseus-grc2" n="9">
+<p>By Zeus, I have not recounted these things in rivalry with the poet Nicander, nor so that you might learn that I have not been neglectful of knowing the natures of Libyan reptiles; for that praise would belong rather to physicians, who must know these things so as to be able to ward them off with their art. <pb n="p.209"/>Rather, it seems to me—and in the name of Zeus of Friendship, do not be offended at the comparison being drawn from beasts—that I myself experience something similar toward you to what those bitten by the dipsas experience toward drink: the more I come before you, the more I long for it, and an uncontrollable thirst is kindled in me, and I seem unlikely ever to be sated with such a drink. Quite reasonably! For where could I encounter water so clear and pure? <milestone unit="Reitz_page" n="240"/>So forgive me if, bitten myself in the soul with this sweetest and most wholesome bite, I drink deeply with open mouth, putting my head beneath the spring. May only what flows from you never fail, nor your eager attention be spilled and leave me still gaping and thirsty; for so far as my thirst for you is concerned, nothing would prevent me from drinking forever; for according to the wise Plato, there is no satiety of noble things. </p></div>
+</div>
+</body>
+</text>
+</TEI>

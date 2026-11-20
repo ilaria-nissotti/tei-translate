@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Δραπέται</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg043.perseus-grc2.xml</idno>
+<availability> <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence><p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date type="printing">1936</date>
+     </imprint>
+     <biblScope unit="volume">5</biblScope>
+    </monogr>
+    <series>
+     <title>Loeb Classical Library</title>
+    </series>
+    <ref target="https://archive.org/details/lucianhar05luciuoft/page/54/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+ <!--<refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-28">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2">
+
+<div n="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" type="edition" xml:lang="en">
+<pb n="v.5.p.54"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="1">
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> Is it true what they say, father, that someone threw himself into the fire right in front of the Olympic festival—already an elderly man, and no mean wonder-worker in such things? For Selene was telling us, saying that she herself saw him burning. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Quite true, <corr>Apollo</corr>; would that it had never happened! </p> </sp>
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> Was the old man so good and undeserving of perishing in fire? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Perhaps that too; but I remember enduring great annoyance at that time from a foul stench, such as is likely to rise from roasting human bodies. <pb n="v.5.p.56"/>Indeed, if I had not gone off straight to Arabia at once, I would have perished, know well, from the awfulness of the smoke; and even so, amid so much fragrance and abundance of spices and heaps of frankincense, my nostrils scarcely consented to forget and unlearn that taint of odor, and even now I almost feel sick when reminded of it. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="2">
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> But with what intention, Zeus, did he do such a thing to himself? Or what is the good of being burned to cinders by leaping into the pyre? </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> On that point, my son, you might as well blame <corr>Empedocles</corr> before him, who also leaped into the craters in Sicily. </p> </sp>
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> You speak of a terrible madness. <corr>Yet</corr> <corr>this</corr> man—what reason in the world did he have for his desire? </p> </sp>
+ <sp> <speaker>Zeus</speaker>
+  <p rend="align(indent)"> I will tell you a speech of his own which he delivered to the festival assembly, defending himself to them for his end.</p></sp></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="3">
+<sp> <speaker>Zeus</speaker>
+<p rend="merge">For he said, if I remember—but who is this approaching in haste, disturbed and weeping, looking very much like one being wronged? Why, it is Philosophy, and she is calling upon my name in distress! Why are you weeping, daughter? Or why have you left life on earth and come here? Surely the common people have not plotted against you again as before, when they killed Socrates after he was accused by Anytus, and you are fleeing from them on that account?<pb n="v.5.p.58"/> </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Nothing of the sort, father; on the contrary, they—the common crowd—praised me and held me in honor, respecting and admiring and almost worshipping me, even if they did not much understand what I said. It is the others—how shall I put it?—those who claim to be my intimates and friends and slip under my name, it is they who have done me the most terrible wrongs. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="4">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Have the philosophers hatched some plot against you? </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Not at all, father; they themselves have been wronged along with me. </p> </sp>
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> By whom then have you been wronged, if you blame neither the common people nor the philosophers? </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> There are certain men, Zeus, in the borderland between the multitude and those who practice philosophy, resembling us in appearance, glance, and gait, and dressed in the same way; indeed, they claim to be enlisted under me and enroll themselves under our name, saying they are our pupils, disciples, and devotees. <pb n="v.5.p.60"/>Yet their way of life is utterly abominable, full of ignorance, audacity, and wantonness—no small outrage against us. Wronged by these men, father, I have fled. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="5">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">These are terrible things, daughter. But in what way especially have they wronged you? </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Judge, father, whether they are small. For when you saw that human life was full of injustice and lawlessness, since it kept company with ignorance and insolence and was troubled by them, taking pity on mankind driven along under ignorance, you sent me down, instructing me to see to it that they stop wronging one another, using violence, and living like beasts, and instead look up toward the truth and live together as citizens more peaceably. At any rate, you said to me when sending me down, <q>"What men do and how they are affected by ignorance, daughter, you yourself <corr>see</corr>; and I—for I pity them—having chosen you from among all of us, whom alone I believe able to heal what is happening, send you to heal them."</q> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="6">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> I know I said much besides this <note xml:lang="mul" type="footnote" n="v.5.p.60.n.1">Οἶδα πολλὰ καὶ ταῦτα: The expression is unusual, and possibly wrong. Various conjectures are πολλὰ καὶ τοιαῦτα, πολλὰ τοιαῦτα, and (Capps) ἄλλα πολλὰ καὶ ταῦτα. Perhaps πολλὰ κατ' αὐτά (i.e. τὰ γιγνόμενα)?</note>at that time. Now tell me what followed—how they received you when you first flew down, and what you have suffered from them now. </p> </sp><pb n="v.5.p.62"/>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> I sped off, father, not to the Greeks right away, but what seemed to me the harder part of the task—educating and teaching the barbarians—this I decided to accomplish first; the Greek world I left alone as easy to subdue <note xml:lang="mul" type="footnote" n="v.5.p.62.n.1">οἷόν τε after ὑποβαλέσθαι Mras: after χαλινὸν MSS.</note>and likely, as I thought, to accept the bridle and submit to the yoke very quickly. Setting out first for the Indians, the largest nation in the world, I persuaded them without difficulty to come down from their elephants and associate with me, so that an entire tribe, the Brahmans, bordering on the Nechraei and Oxydracae, are all enlisted under me and live <note xml:lang="mul" type="footnote" n="v.5.p.62.n.2">τε Fritzsche: γε MSS.</note>according to our tenets, honored by all their neighbors, and die a remarkable kind of death. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="7">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> You mean the gymnosophists. I hear, at any rate, <corr>both</corr> other things about them and that climbing onto a huge pyre they endure being burned without altering anything of their posture or seated position.<note xml:lang="mul" type="footnote" n="v.5.p.62.n.3">ἐκτρέποντες N, edd.; but cf. Peregr., 25.</note> But that is nothing great; just recently at Olympia I myself saw the same thing happen, and likely you too were present when the old man was being burned. </p> </sp>
+ <sp> <speaker>Philosophia</speaker>
+  <p rend="align(indent)"> I did not even go up to Olympia, father, for fear of those accursed fellows I mentioned, because I saw many of them going there to abuse the assembled pilgrims and fill the rear chamber of the temple with the noise of their barking; so I did not even see how he died. </p></sp></div><pb n="v.5.p.64"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="8">
+<sp> <speaker>Philosophia</speaker>
+<p rend="merge">After <note xml:lang="mul" type="footnote" n="v.5.p.64.n.1">δ’ οὖν Jacobitz: γοῦν MSS.</note>the Brahmans, then, I went straight to Ethiopia, then down to Egypt, and after associating with their priests and prophets and instructing them in divine matters, I departed for Babylon to initiate the Chaldaeans and Magi; then from there to Scythia, and then to Thrace, where Eumolpus and Orpheus joined me; sending them ahead into Greece—Eumolpus to initiate them, for he had learned all divine matters from us, and Orpheus to win them over by enchanting them with music—I followed immediately on their heels.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="9">
+ <sp><speaker>Philosophia</speaker>
+<p rend="align(indent) ; merge">And at first upon my arrival the Greeks neither welcomed me warmly nor altogether <corr>shut me out</corr>; but gradually, conversing with them, I won over seven companions and pupils out of all of them, and another from Samos, another from Ephesus, and another from Abdera—very few in all.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="10">
+ <sp><speaker>Philosophia</speaker>
+<p rend="align(indent) ; merge"><pb n="v.5.p.66"/>After them, the tribe of sophists somehow grew up beside me, neither pursuing my ways deeply nor completely out of tune, but like the race of Hippocentaurs—something composite and mixed, <note xml:lang="mul" type="footnote" n="v.5.p.66.n.1">μικτὸ Ν: μικρὸν ΓΒ.</note>wandering in the middle between quackery and philosophy, neither wholly attached to ignorance nor able to gaze steadily at us with clear eyes, but as if blear-eyed from dim sight, catching sight now and then of some indistinct and faint image or shadow of us; yet they thought they had understood everything accurately. From this flared up among them that useless and superfluous "wisdom," invincible as they themselves thought—those clever, baffling, and <corr>absurd</corr> answers and inextricable, labyrinthine questions.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="11">
+ <sp> <speaker>Philosophia</speaker>
+<p rend="merge">Then, when checked and refuted by my companions, they grew indignant and banded together against them, and finally dragged them into law-courts and handed them over to drink the hemlock. I ought perhaps to have fled immediately then and no longer put up with <corr>their</corr> company; instead, Antisthenes and Diogenes, and shortly after Crates and Menippus here, persuaded me to measure out a little more time to stay—would that I <corr>had never</corr> done so! For I would not have suffered so much later. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="12">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> You still have not told me, Philosophy, what wrongs you have suffered, but are only indignant. </p> </sp>
+ <sp> <speaker>Philosophia</speaker>
+  <p rend="align(indent)"> Then listen, Zeus, to how great they are. There is an abominable tribe of men, for the most part slaves and hirelings, who did not associate with us from childhood for lack of leisure; for they worked as slaves or hirelings or learned such other crafts as are natural for such men—cobbling, carpentry, tending fullers' tubs, or carding wool so that it would be easy for the women to work and wind and draw out smoothly whenever they twisted the woof or spun the warp. Practicing such things in boyhood, <note xml:lang="mul" type="footnote" n="v.5.p.68.n.1">παῖσι Ν: πᾶσι ΓΜΗΧΒϹ.</note>they did not even know our name. But when they began to be enrolled as men and saw how much respect my companions enjoy from the multitude, and how people tolerate their frankness, delight in their ministrations, obey their advice, and cower when they rebuke them, they considered all this to be no small tyranny. </p></sp></div><pb n="v.5.p.68"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="13">
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent) ; merge">Now learning everything proper to such a calling was a long task, or rather completely impossible, while their trades were meager and could scarcely provide enough even with toil; to some, moreover, slavery seemed burdensome and (as indeed it is) intolerable. So upon reflection they decided to drop their last anchor, which sailors call the "sacred" one: resorting to good old Desperation, calling in also Audacity, Ignorance, and Shamelessness—who are their chief allies—and practicing novel <note xml:lang="mul" type="footnote" n="v.5.p.68.n.2">καινὰς Γ: κενὰς Ν: τινὰς BC. Cf. Icarom., 30.</note>insults so as to have them ready on their tongues, with these as their sole credentials (you see what provisions for philosophy!), they disguise and dress themselves up very plausibly to resemble me—just as Aesop says the ass in Cyme did, who put on a lion skin and, braying harshly, claimed to be a lion himself; and no doubt there were even some who believed him.<pb n="v.5.p.70"/></p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="14">
+ <sp><speaker>Philosophia</speaker>
+<p rend="align(indent) ; merge">Our externals are very easy, as you know, and ready to imitate—I mean the visible ones—and it takes no great effort to wrap oneself in a short cloak, sling on a wallet, hold a staff in one's hand, and shout, or rather bray or bark, and abuse everyone; for respect for the garb was bound to afford them safety from suffering anything for it. Freedom is at hand against their master's will, who, even if he wants to drag them back, will be beaten with the staff. Their meal is no longer scanty, nor as before plain barley-cake, and their relish is not <note xml:lang="mul" type="footnote" n="v.5.p.70.n.1">οὐ ΝΓ1, edd.: ἢ Γ2 BA.</note>salt fish or thyme, but meats of all kinds and the sweetest wine, and gold from whomever they please; for they go around levying tribute, or, as they themselves say, "shearing the sheep," and they expect <note xml:lang="mul" type="footnote" n="v.5.p.70.n.2">οἶόν τε ΓM.</note>many to give either out of respect for the garb or for fear of being abused.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="15">
+ <sp> <speaker>Philosophia</speaker>
+<p rend="align(indent) ; merge">And indeed they saw this too, I think, that they would be placed on an equal footing with those who practice philosophy rightly, and there would be no one to judge and distinguish such matters, so long as the outward appearance is similar. <pb n="v.5.p.72"/>For in the first place they do not even submit to questioning, if anyone asks them calmly and concisely, but immediately shout and flee up to their own citadel—abuse—with their staff ready. And if you look for their deeds, their words are plentiful; while if you wish to judge them by their words, they ask you to look at their way of life.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="16">
+ <sp> <speaker>Philosophia</speaker>
+<p rend="align(indent) ; merge">Accordingly every city is filled with such knavery, and especially with those who enroll themselves under Diogenes, Antisthenes, and Crates and enlist under the dog—men who have not at all emulated whatever is useful in the nature of dogs, such as guarding, keeping house, loving their masters, or remembering favors, but barking, gluttony, thieving, frequent lechery, flattery, fawning on whoever gives, and hanging around tables—these they have perfected thoroughly.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="17">
+ <sp> <speaker>Philosophia</speaker>
+<p rend="align(indent) ;  merge">You will see shortly, then, what will happen. <corr>For</corr> all the men from the workshops will leap up and leave their crafts deserted when they see themselves toiling and laboring from dawn till evening bent over their work, barely scraping a living from such wage-earning, while idle frauds live in unlimited plenty, demanding tyrannically, taking readily, growing indignant if they do not receive, and giving no praise even if they do. This seems to them the life in the age of Cronus, and literally honey itself flowing into their mouths from the sky.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="18">
+ <sp> <speaker>Philosophia</speaker>
+<p rend="align(indent) ;  merge"><pb n="v.5.p.74"/>And the matter would be less terrible if, being such as they are, they committed no other outrage against us; but though they appear very solemn and stern outwardly and in public, if they get hold of a handsome boy or a pretty woman, or hope to, <note xml:lang="mul" type="footnote" n="v.5.p.74.n.1">ἐλπίσωσιν Fritzsche reads καὶ λήσειν ἐλπίσωσιν. But Lucian is thinking of incidents like that in his Symp., 15 (I, p. 426).</note>it is best to keep silent about what they do. Some even carry off the wives of their own hosts to commit adultery, like that young man of Troy, on the pretext that the women too will study philosophy; then offering them in common to all their associates, they think they are carrying out a doctrine of Plato, not knowing in what way that sacred man thought women should be held in common.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="19">
+ <sp> <speaker>Philosophia</speaker>
+<p rend="merge">As for what they do at drinking-parties and how they get drunk, it would take too long to tell. And while they do these things, you cannot imagine how they themselves denounce drunkenness, adultery, lewdness, and greed; indeed, you could not find <note xml:lang="mul" type="footnote" n="v.5.p.74.n.2">ἂν Bélin; not in MSS.</note>anything so contrary to anything else as their words and their deeds. For instance, they claim to hate flattery, though in flattery they can outdo Gnathonides or Struthias. Exhorting others to speak the truth, they cannot even move their tongue without also telling a lie. Pleasure is an enemy to all of them in word, and Epicurus a foe, yet in deed they do everything for its sake. Their quickness to anger, pettiness, and irritability surpass newborn infants; indeed, they afford no small amusement to onlookers whenever, for any trivial reason, their bile boils up, they turn livid in color, glaring recklessly and wildly, and their mouth is full of foam—or rather, venom.<pb n="v.5.p.76"/></p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="20">
+<sp>
+<p rend="align(indent)">May you never chance to be there when that foul filth pours out! <q>"Gold or silver, by Heracles, I do not even wish to possess; <note xml:lang="mul" type="footnote" n="v.5.p.76.n.1">ἀξιῳ Ν: ἀξιῶν ΓΜΗΧΒϹ.</note>an obol is enough, so that I may <corr>buy</corr> lupines; <corr>for</corr> a spring or a river will supply my drink."</q> And shortly afterward they demand not obols nor a few drachmas, but whole fortunes, so that what merchant could earn as much from his cargo as philosophy brings in for these men in profit? Then, once they have collected and provisioned themselves sufficiently, throwing away that wretched cloak, they sometimes buy farms and soft garments and long-haired boys and whole apartment-houses, bidding a long farewell to the wallet of Crates, the cloak of Antisthenes, and the jar of Diogenes.</p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="21">
+<sp>
+<p rend="align(indent)">The common people, seeing these things, now spit upon philosophy and think that all are like this, and blame me for my teaching, so that for a long time now it has become impossible for me to win over even a single one of them, and I suffer that fate of Penelope: whatever I weave is instantly unraveled again. And Ignorance and Injustice laugh at me, seeing our work unfinished and our labor endless. </p> </sp> </div><pb n="v.5.p.78"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="22">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> What things, O gods, our Philosophy has suffered at the hands of those accursed fellows! So it is time to consider what must be done and how we should go after them. The thunderbolt dispatches with a single blow, and death is quick. </p> </sp>
+<sp> <speaker>Apollon</speaker>
+<p rend="align(indent)"> I will make a suggestion to you, <note xml:lang="mul" type="footnote" n="v.5.p.78.n.1">σοι Fritzsche: τοι MSS.</note>father; for I myself already hate the impostors since they are devoid of culture, being <corr>indignant</corr> on behalf of the Muses. They are in no way worthy of a <corr>thunderbolt</corr> or of your right hand; rather, if you approve, send Hermes down against them with full authority over their punishment, since being concerned with speech himself he will very quickly recognize those who practice philosophy rightly and those who do not. Then he will praise the former, as is fitting, while the latter will be punished in whatever way seems right to him at the time. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="23">
+<sp> <speaker>Zeus</speaker>
+<p rend="align(indent)"> Well spoken, Apollo. And you too, Heracles, taking Philosophy herself along with you, go down as quickly as possible into the world. Consider that you will be accomplishing no small thirteenth labor if you wipe out such foul and shameless beasts. </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> Indeed, father, it would have been better to clean out the dung of Augeas again than to get entangled with these fellows. Let us go, however. </p> </sp><pb n="v.5.p.80"/>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Unwillingly, yet I must follow according to my father's decision. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="24">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Let us go down, so that we may crush at least a few of them today. Which way should we turn, Philosophy? For you know where they are. Or is it obvious that they are in Greece? </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Not at all—or very few, those who practice philosophy rightly, Hermes. These others have no use for Attic poverty; rather, wherever much gold or silver is mined, somewhere there we must look for them. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Then we must head straight for Thrace. </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> Well said, and I will lead the way for you; for I know all of Thrace, having visited it often. So let us turn this way now. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Which way do you mean? </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="25">
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> Do you see, Hermes and Philosophy, two mountains, the greatest and fairest of all mountains—the higher is Haemus, and the one opposite is Rhodope—<corr>and</corr> a fertile plain spread out beneath, beginning right from the foothills of each, and three very fair hills rising up, not shapeless in their ruggedness, like multiple citadels of the city below? <pb n="v.5.p.82"/><corr>For</corr> the city too is already in sight. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> By Zeus, Heracles, the greatest and fairest of <corr>all</corr>! Its beauty shines out from afar. And a very great river flows past, brushing right close to it. </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> That is the Hebrus, and the city is the work of that famous Philip. And we are already close to earth and below the clouds; <note xml:lang="mul" type="footnote" n="v.5.p.82.n.1">ὑπονέφελοι edd.: ἐπινέφελοι MSS.</note>so let us land, with good fortune. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="26">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> So be it. What then must we do, or how <note xml:lang="mul" type="footnote" n="v.5.p.82.n.2">ἢ πῶς Bekker: ὅπως MSS.</note>are we to track down the beasts? </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> That is now your job, Hermes; for you are a herald, so you had better start proclaiming right away. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Nothing hard about that, except I do not know their names. You tell me, Philosophy, what names to call, and their distinguishing marks as well. </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> I myself do not know for certain what they are named, because I have never associated with them; judging, however, from the desire they have for possessions, you would not go wrong calling out Ctesons, or Ctesippuses, or Ctesicleses, or Euctemons, or Polyctetuses.<pb n="v.5.p.84"/> </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="27">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Well said. <corr>But</corr> who are <corr>these</corr> men, or what are they too looking around for? Rather, they are coming up and want to ask something. </p> </sp>
+<sp> <speaker>Aner</speaker>
+<p rend="align(indent)"> Could you tell us, sirs—or you, good lady—whether you have seen three rogues together, and a woman with hair closely cropped in the Spartan style, boyish-looking and quite masculine? </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Aha! These people are looking for our quarry! </p> </sp>
+<sp> <speaker>Aner</speaker>
+<p rend="align(indent)"> How yours? For those fellows are all runaway slaves, and we are chiefly after the woman, who was kidnapped by them. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> You shall learn <note xml:lang="mul" type="footnote" n="v.5.p.84.n.1">δὴ Gesner: δὲ MSS.</note>why we too are looking for them. For now let us make a joint proclamation. </p>
+<p rend="align(indent)">"If anyone has seen <note xml:lang="mul" type="footnote" n="v.5.p.84.n.2">εἶδεν Fritzsche: not in MSS.</note>a Paphlagonian slave, one of the barbarians from Sinope, with a name derived from possessions, sallow, close-cropped, with a thick beard, wearing a wallet slung on him and a short cloak, <pb n="v.5.p.86"/>hot-tempered, uncultured, harsh-voiced, abusive, let him report him for a stipulated reward." </p> </sp>
+<sp> <speaker>Despotes <num>α</num> </speaker> <p/> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="28">
+<sp>
+<p rend="align(indent)">What you proclaim does not match, <note xml:lang="mul" type="footnote" n="v.5.p.86.n.1">αὐτὸν. || ἀνόμοιον, ὦ Harmon: αὐτονόμῳ. || νοῶ MSS.</note>fellow! When he was with me his name was Cantharus, and he wore long hair, plucked <corr>his</corr> beard, and <corr>knew</corr> my trade; for sitting in the fuller's shop he used to shear off the excess nap that rises on cloaks. </p> </sp>
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> That is the very man, your slave; but now he looks like a philosopher, having given himself a thorough fulling.<note xml:lang="mul" type="footnote" n="v.5.p.86.n.2">ἐπιγνάψας Γ2Χ2ΗΒΑ: ἐπιγράψας ΓΧ1Ν.</note> </p> </sp>
+<sp> <speaker>Despotes <num>α</num> </speaker>
+<p rend="align(indent)"> What audacity! Cantharus is playing the philosopher, she says, and takes no account of us!<note xml:lang="mul" type="footnote" n="v.5.p.86.n.3">οὐδεὶς λόγος In Γ the double point (:) indicating a change of speaker follows φησίν, not λογος.</note> </p> </sp>
+<sp> <speaker>Despotes</speaker>
+<p rend="align(indent)"> 2. Never mind, we shall find them all; for she knows them, as she says. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="29">
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Who is this other man approaching, Heracles—the handsome one with the lyre? </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> It is Orpheus, my shipmate on the Argo, the sweetest of <corr>all</corr> boatswains; at any rate, rowing to his song we scarcely grew tired at all. <pb n="v.5.p.88"/>Hail, best and most musical Orpheus! Surely you have not forgotten Heracles. </p> </sp>
+<sp> <speaker>Orpheus</speaker>
+<p rend="align(indent)"> And hail to you too, Philosophy, Heracles, and Hermes. But it is time to pay the reward, since I know very clearly the man you are looking for. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Then show us, son of Calliope, where he <corr>is</corr>; for you have no need of gold, I think, being a wise man. </p> </sp>
+<sp> <speaker>Orpheus</speaker>
+<p rend="align(indent)"> You speak rightly. I will show you the house where he lives, but not the man himself, so that I may not be abused by him; for he is excessively foul-mouthed and has practiced nothing else. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Just show us. </p> </sp>
+<sp> <speaker>Orpheus</speaker>
+<p rend="align(indent)"> This one nearby. And I will get out of your way, so that I may not even see him. </p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="30">
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> Hold on! Is that not a woman's voice reciting something from Homer? </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> By Zeus, yes; let us listen to what she is saying. </p> </sp><pb n="v.5.p.90"/>
+<sp> <speaker>Gyne<note xml:lang="mul" type="footnote" n="v.5.p.90.n.1">δραπετίς (N) edd. Prior to Bekker.</note></speaker>
+<p rend="align(indent)"> <quote rend="blockquote">
+<l>Hateful to me is that man as the gates of Hades, </l>
+
+<l>Who loves gold in his heart, yet speaks otherwise.</l>
+</quote> </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Then you must hate Cantharus! </p> </sp>
+<sp> <speaker>Gyne</speaker>
+<p rend="align(indent)"><quote rend="blockquote"> He wronged his host, <note xml:lang="mul" type="footnote" n="v.5.p.90.n.2">μισητέον: ξεινοδόκον Γ, thus giving (by the double point) ξεινοδόκον . . . παράσχῃ to the Wife. Other MSS. and all previous editions give these words to Hermes, reading μισητέον ὃς ξεινοδόκον.</note>who showed him hospitality.</quote> </p> </sp>
+<sp> <speaker>Aner</speaker>
+<p rend="align(indent)"> That verse is about me, whose wife he ran off with because I took him in. </p> </sp>
+<sp> <speaker>Gyne</speaker>
+<p rend="align(indent)"> <quote rend="blockquote">
+
+<l>Heavy with wine, with the eyes of a dog and the heart of a deer, </l>
+
+<l>Never of any account in war nor in council, </l>
+
+<l>Thersites of reckless speech, foremost of evil jackdaws </l>
+
+<l>To wrangle with kings idly and not in due order.</l>
+</quote> </p> </sp>
+<sp> <speaker>Despotes</speaker>
+<p rend="align(indent)"> 1. The verses fit the accursed wretch!<note xml:lang="mul" type="footnote" n="v.5.p.90.n.3">τῷ καταράτῳ Harmon: τοῦ καταράτου MSS.</note> </p></sp> <pb n="v.5.p.92"/>
+ <sp> <speaker>Gyne</speaker>
+  <p rend="align(indent)"><quote rend="blockquote">
+
+<l>Dog in front, lion behind, and she-goat in the middle, </l>
+
+<l>Breathing forth the dread, fierce <note xml:lang="mul" type="footnote" n="v.5.p.92.n.1">ἄγριον Fritzsche: ἀγρίου MSS.</note>fury of a third dog. </l>
+</quote></p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="31">
+<sp> <speaker>Aner</speaker>
+<p rend="align(indent)"> Alas, wife, what things you have suffered from so many dogs! They even say she is pregnant by them. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Take heart, she will bear you a Cerberus or a Geryon, so that Heracles here may have another labor. Look, they are coming out, so there is no need to knock at the door. </p> </sp>
+<sp> <speaker>Despotes <num>α</num> </speaker>
+<p rend="align(indent)"> I have you, Cantharus! Silent now? Come, let us see what your wallet holds—lupines perhaps, or a crust of bread.<note xml:lang="mul" type="footnote" n="v.5.p.92.n.2">Γ has double points after ἔχει and τρύφος, but the fact that μὴ θαυμάσῃς is addressed to one person favours running the speech on rather than (e.g.) giving θέρμους . . . τρύφος to ΔΕΣΠΟΤΗΣ B.</note> No, by Zeus, a purse of gold! </p> </sp>
+<sp> <speaker>Herakles</speaker>
+<p rend="align(indent)"> Do not be surprised: formerly in Greece he claimed to be a Cynic, but here he is thoroughly a Chrysippean.<note xml:lang="mul" type="footnote" n="v.5.p.92.n.3">ἀκριβῶς ἐστιν Double point in Γ.</note> <pb n="v.5.p.94"/>Accordingly you will soon see him a Cleanthes; for he will hang by his beard, foul wretch that he is. </p> </sp>
+<sp> <speaker>Despotes <num>β</num> </speaker> <p/> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="32">
+<sp>
+<p rend="align(indent)">And you, scoundrel, are you not Lecythion, my runaway slave? <note xml:lang="mul" type="footnote" n="v.5.p.94.n.1">τυγχάνεις Γ1: τυγχάνεις ὤν Γ2, cett., Cf. Plato, Gorg., 502 B and Rep. 369 B, cited by Goodwin, G. M. T., § 902, and references in F. Karsten, de Ellipseos Usu Luc. (1889), p. 36, including from Lucian Eun., 2, Abd., 15, Vit. Auct., 19; cf. also below, Eun., 8.</note>None other! What a laugh! What could not happen after this? Even Lecythion is playing the philosopher! </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> And this third one—does he have no master among you? </p> </sp>
+<sp> <speaker>Despotes <num>γ</num></speaker>
+<p rend="align(indent)"> Not at all, but I, his master, willingly let him go to perdition. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Why so? </p> </sp>
+<sp> <speaker>Despotes <num>γ</num> </speaker>
+<p rend="align(indent)"> Because he is terribly rotten; we used to call him Myropnous. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> Heracles deliverer, do you hear? And then wallet and staff! — And you there, take your wife back. </p> </sp><pb n="v.5.p.96"/>
+<sp> <speaker>Aner</speaker>
+<p rend="align(indent)"> By no means! I will not <corr>take back</corr> a woman pregnant with one of the old books. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> How a book? </p> </sp>
+<sp> <speaker>Aner</speaker>
+<p rend="align(indent)"> There is, my good fellow, a book called the Three-Headed. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)">Nothing strange in that, since there is also the Triphales.<note xml:lang="mul" type="footnote" n="v.5.p.96.n.1">καὶ Τριφάλης MSS. add ὁ (not in N) τῶν κωμικῶν εἶς, which I excise as a patent gloss, and a mistaken one.</note></p> </sp> </div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg043.perseus-grc2" n="33">
+<sp> <speaker>Philosophia</speaker>
+<p rend="align(indent)"> It is your turn, Hermes, to pass judgment next. </p> </sp>
+<sp> <speaker>Hermes</speaker>
+<p rend="align(indent)"> This is my decision: let this woman, lest she bear some many-headed monster, go back to Greece to her husband; let these two little runaways be handed over to their masters to learn what they did before—Lecythion to wash dirty linen, and Myropnous once more to mend torn garments, after both have first been flogged with mallows.<note xml:lang="mul" type="footnote" n="v.5.p.96.n.2">μαστιγωθέντε De Jong: μαστιγωθέντα MSS.</note> <pb n="v.5.p.98"/>Next, let this fellow be handed over to the pitch-plasterers, so that he may perish first by being depilated, and with filthy women's pitch besides, and then be led up to Haemus to stay naked on the snow with his feet bound together. </p> </sp>
+<sp> <speaker>Kantharos</speaker>
+<p rend="align(indent)"> Woe is me! Ototot! Pappapaiax! </p> </sp>
+<sp> <speaker>Despotes <num>α</num> </speaker>
+<p rend="align(indent)"> Why are you inserting that bit from your <note xml:lang="mul" type="footnote" n="v.5.p.98.n.1">σου Γ: σὺ other MSS. σου is right; the “dialogues” of Cantharus are his “diatribes.”</note>tragic dialogues? Come along to the pitch-plasterers right now, after first stripping off that lion skin so you may be known for the ass you are.</p> </sp> </div></div>
+</body>
+</text>
+</TEI>
