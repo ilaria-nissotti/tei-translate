@@ -30,6 +30,8 @@ Usage (from any script in the repository, run from the repository root):
     same_structure(source, hyp)  # True
 """
 
+import unicodedata
+
 from tei_translate.metrics.fragments import read_fragment, match_tags, parse_fragment, structure_key
 
 
@@ -37,16 +39,70 @@ from tei_translate.metrics.fragments import read_fragment, match_tags, parse_fra
 # Tag placement
 # ---------------------------------------------------------------------------
 
-def score(reference, hypothesis):
+def without_spaces(fragment):
+    """A read_fragment result with the spaces taken out of the text and out of the positions.
+
+    A tag's position becomes the number of non-space characters before it, so
+    a tag on either side of a space is at the same position
+    ("all, <milestone/>I" and "all,<milestone/> I" both give "all,I" with the
+    milestone at 4). read_fragment already turned all whitespace into single
+    spaces.
+    """
+    if fragment is None:
+        return None
+    text, tags = fragment
+    moved = [(label, name, pos - text[:pos].count(" ")) for label, name, pos in tags]
+    return text.replace(" ", ""), moved
+
+
+def is_punctuation(char):
+    """True for a punctuation character: any Unicode category P (. , ; : ! ? quotation marks, dashes,
+    brackets, the Greek ano teleia ·)."""
+    return unicodedata.category(char).startswith("P")
+
+
+def without_punctuation(fragment):
+    """A read_fragment result with the punctuation taken out of the text and out of the positions.
+
+    A tag's position becomes the number of non-punctuation characters before
+    it, so a tag on either side of a punctuation mark is at the same position
+    ('<q>"Go"</q>' and '"<q>Go</q>"' both give 'Go' with <q> at 0 and </q> at 2).
+    """
+    if fragment is None:
+        return None
+    text, tags = fragment
+    moved = [(label, name, pos - sum(1 for char in text[:pos] if is_punctuation(char)))
+             for label, name, pos in tags]
+    return "".join(char for char in text if not is_punctuation(char)), moved
+
+
+def score(reference, hypothesis, ignore_whitespace=False, ignore_punctuation=False):
     """Compare the tags of a hypothesis with those of the reference.
 
     Both are XML fragments with the same text. Returns a dict with the
     fields described in tests/fixtures/metrics/README.md.
+
+    ignore_whitespace: if True, spaces are left out when comparing the texts
+    and counting positions, so a tag on the other side of a space counts as
+    correct (tag-placement case 15), and texts that differ only in spacing
+    (e.g. around a note) can still be compared. Positions and reference_text
+    are then without spaces.
+
+    ignore_punctuation: if True, punctuation (see is_punctuation) is left out
+    the same way, so a tag on the other side of a quotation mark, comma or
+    full stop counts as correct ('</q>"' and '"</q>'). Translators place
+    quotation marks inside or outside <q> inconsistently; this keeps that
+    convention out of the score. It also forgives a tag moved across a comma
+    when nothing else separates the two places.
     """
     ref = read_fragment(reference)
     hyp = read_fragment(hypothesis)
     if ref is None:
         raise ValueError("the reference is not well-formed XML")
+    if ignore_whitespace:
+        ref, hyp = without_spaces(ref), without_spaces(hyp)
+    if ignore_punctuation:
+        ref, hyp = without_punctuation(ref), without_punctuation(hyp)
     ref_text, ref_tags = ref
 
     result = {
@@ -78,7 +134,8 @@ def score(reference, hypothesis):
         "reference_tag_count": len(ref_tags),
         "correct_count": len(correct),
         # Missing tags count as wrong: divide by all reference tags.
-        "tag_accuracy": len(correct) / len(ref_tags),
+        # A reference without tags has nothing to place: no accuracy.
+        "tag_accuracy": len(correct) / len(ref_tags) if ref_tags else None,
         # Only paired tags have a distance.
         "average_distance": sum(distances) / len(distances) if distances else None,
         "misplaced_tags": [

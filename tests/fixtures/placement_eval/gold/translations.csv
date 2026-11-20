@@ -1,0 +1,2 @@
+gold_file,greek_file,english_references,translator,date,status,notes
+test.test001.perseus-grc1.en.xml,texts/test.test001/greek/test.test001.perseus-grc1.xml,,hand-made for tests,2026-11-20,partial,block 3.2 left untranslated on purpose

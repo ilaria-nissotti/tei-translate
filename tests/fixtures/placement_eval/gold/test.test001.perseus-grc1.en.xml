@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-made gold file for tests (not from Perseus). Each English sentence has the
+     same words in the same order as the Greek, so the monotone aligner links them exactly. -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt><title>Test text for the placement evaluation</title></titleStmt>
+      <publicationStmt><p>Test file.</p></publicationStmt>
+      <sourceDesc><p>Hand-made.</p></sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text xml:lang="en">
+    <body>
+      <div type="edition" n="urn:test" xml:lang="en">
+        <div type="textpart" subtype="section" n="1">
+          <p>the Pericles spoke <q>fine words</q>.</p>
+          <p>the Pericles <q>spoke fine words</q>.</p>
+          <p>the Pericles spoke. <q>departed then</q>.</p>
+        </div>
+        <div type="textpart" subtype="section" n="2">
+          <p>the Pericles <note n="n1">coni. Nilén</note>spoke.</p>
+          <p>the Pericles spoke, they then <q>hushed</q>.</p>
+          <p>the <label type="person">Pericles</label> spoke.</p>
+        </div>
+        <div type="textpart" subtype="section" n="3">
+          <p>the Pericles spoke.</p>
+          <p>ὁ <q>Περικλῆς</q> εἶπε.</p>
+          <p>the Pericles <milestone unit="section" n="3b"/>spoke.</p>
+        </div>
+      </div>
+    </body>
+  </text>
+</TEI>

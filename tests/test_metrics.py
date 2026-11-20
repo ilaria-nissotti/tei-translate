@@ -317,3 +317,61 @@ def test_node_chrf_corpus_refuses_lists_of_different_length():
 
 def test_node_chrf_corpus_on_empty_list():
     assert node_chrf_corpus([], []) is None
+
+
+# ---------------------------------------------------------------------------
+# score() options: ignoring spaces and punctuation, references without tags
+# ---------------------------------------------------------------------------
+
+def test_ignore_whitespace_treats_both_sides_of_a_space_as_the_same_place():
+    """Tag-placement case 15 counts a milestone on the other side of a space as 1 character off;
+    with ignore_whitespace=True it is correct, and positions are counted without spaces."""
+    case = next(c for c in PLACEMENT_CASES if c["id"].startswith("15_"))
+    strict = score(case["reference"], case["hypothesis"])
+    relaxed = score(case["reference"], case["hypothesis"], ignore_whitespace=True)
+    assert strict["tag_accuracy"] < 1.0                  # as documented in cases.json
+    assert relaxed["tag_accuracy"] == 1.0
+    assert " " not in relaxed["reference_text"]
+
+
+def test_ignore_whitespace_compares_texts_that_differ_only_in_spacing():
+    """A note with text, put before the next word ('then, <note>…</note>as') or after the previous one
+    ('then,<note>…</note> as'): the texts read 'then, coni.as' and 'then,coni. as', so they only match,
+    and the note is only in the same place, once spaces are ignored."""
+    reference = 'then, <note n="1">coni.</note>as allies'
+    hypothesis = 'then,<note n="1">coni.</note> as allies'
+    assert score(reference, hypothesis)["same_text"] is False
+    relaxed = score(reference, hypothesis, ignore_whitespace=True)
+    assert relaxed["same_text"] is True and relaxed["tag_accuracy"] == 1.0
+
+
+def test_ignore_punctuation_treats_both_sides_of_a_quotation_mark_as_the_same_place():
+    """The gold closes <q> after the quotation mark, the output before it: 1 character off,
+    but correct once punctuation is ignored. Positions are then counted without punctuation."""
+    reference = 'He said, <q>"Go home."</q> Then'
+    hypothesis = 'He said, "<q>Go home.</q>" Then'
+    assert score(reference, hypothesis, ignore_whitespace=True)["tag_accuracy"] == 0.0
+    relaxed = score(reference, hypothesis, ignore_whitespace=True, ignore_punctuation=True)
+    assert relaxed["tag_accuracy"] == 1.0
+    assert relaxed["reference_text"] == "HesaidGohomeThen"
+
+
+def test_ignore_punctuation_still_counts_a_tag_a_word_off():
+    """Only punctuation is skipped: a milestone one word too early is still wrong, 4 letters off ('Then')."""
+    reference = 'He left. <milestone n="2"/>Then he came.'
+    hypothesis = 'He left. Then <milestone n="2"/>he came.'
+    result = score(reference, hypothesis, ignore_whitespace=True, ignore_punctuation=True)
+    assert result["tag_accuracy"] == 0.0
+    assert result["average_distance"] == 4.0
+
+
+def test_ignore_punctuation_covers_dashes_and_the_greek_ano_teleia():
+    reference = 'this boy—<q>pointing</q>· so'
+    hypothesis = 'this boy<q>—pointing·</q> so'
+    assert score(reference, hypothesis, ignore_whitespace=True, ignore_punctuation=True)["tag_accuracy"] == 1.0
+
+
+def test_reference_without_tags_has_no_accuracy():
+    """Nothing to place: tag accuracy is None instead of a division by zero."""
+    result = score("the Pericles spoke.", "the Pericles spoke.")
+    assert result["tag_accuracy"] is None and result["reference_tag_count"] == 0

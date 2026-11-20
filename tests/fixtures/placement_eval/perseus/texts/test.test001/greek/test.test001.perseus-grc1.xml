@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-made test file (not from Perseus): one paragraph per test case. -->
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt><title>Test text for the placement evaluation</title></titleStmt>
+      <publicationStmt><p>Test file.</p></publicationStmt>
+      <sourceDesc><p>Hand-made.</p></sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text xml:lang="grc">
+    <body>
+      <div type="edition" n="urn:test" xml:lang="grc">
+        <div type="textpart" subtype="section" n="1">
+          <p>ὁ Περικλῆς εἶπε <q>καλοὺς λόγους</q>.</p>
+          <p>ὁ Περικλῆς εἶπε <q>καλοὺς λόγους</q>.</p>
+          <p>ὁ Περικλῆς εἶπε· <q>ἀπῆλθεν δέ</q>.</p>
+        </div>
+        <div type="textpart" subtype="section" n="2">
+          <p>ὁ Περικλῆς<note n="n1">coni. Nilén</note> εἶπε.</p>
+          <p>ὁ Περικλῆς εἶπε. οἱ δὲ <q>ἐσίγησαν</q>.</p>
+          <p>ὁ <label type="person">Περικλῆς</label> εἶπε.</p>
+        </div>
+        <div type="textpart" subtype="section" n="3">
+          <p>ὁ Περικλῆς εἶπε.</p>
+          <p>ὁ <q>Περικλῆς</q> εἶπε.</p>
+          <p>ὁ Περικλῆς <milestone unit="section" n="3b"/>εἶπε.</p>
+        </div>
+      </div>
+    </body>
+  </text>
+</TEI>
