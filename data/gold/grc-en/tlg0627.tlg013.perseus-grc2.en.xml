@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Ὅρκος</title>
+<author>Hippocrates</author>
+<editor>William Henry Samuel Jones</editor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Rashmi Singhal</name>
+</respStmt>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+<funder>National Library of Medicine History of Medicine Division</funder>
+</titleStmt>
+
+<publicationStmt>
+<publisher>Cultural Heritage Language Technologies</publisher>
+<pubPlace>Kansas City Missouri</pubPlace>
+<date when="2005-02-01">February 1, 2005</date>
+
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Digital Library Project</authority>
+<date type="release" when="2007" cert="medium">Perseus 4.0</date>
+<idno type="filename">tlg0627.tlg013.perseus-grc2.xml</idno>
+<availability>
+<licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+<p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+</availability>
+</publicationStmt>
+
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>Hippocrates</title>
+<author>Hippocrates</author>
+<editor>William Henry Samuel Jones</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>William Heinemann Ltd.</publisher>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date type="printing">1923</date>
+</imprint>
+<biblScope unit="volume">1</biblScope>
+</monogr>
+<series><title>Loeb Classical Library</title></series>
+<ref target="https://archive.org/details/hippocrates01hippuoft/hippocrates01hippuoft/page/298/mode/2up">Internet Archive</ref>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+
+<encodingDesc>
+<editorialDecl>
+<correction status="high">
+<p>Data Entry</p>
+</correction>
+</editorialDecl>
+<refsDecl n="CTS">
+<!--<cRefPattern n="aphorism" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+<p>This pointer pattern extracts section and aphorism.</p>
+</cRefPattern>-->
+<cRefPattern n="oath" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+<p>This pointer pattern extracts oath.</p>
+</cRefPattern>
+</refsDecl>
+<!--<refsDecl>
+<refState unit="text"/>
+<refState n="chunk" unit="section"/>
+</refsDecl>
+<refsDecl n="text=Aph.">
+<refState unit="text"/>
+<refState unit="chapter"/>
+<refState n="chunk" unit="section"/>
+</refsDecl>
+<refsDecl n="text=Epid.">
+<refState unit="text"/>
+<refState unit="book"/>
+<refState unit="chapter"/>
+<refState n="chunk" unit="section"/>
+</refsDecl>
+
+<refsDecl>
+<refState n="chunk" unit="page"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="oath" delim=":" match="div[@type='edition']/div[@subtype='oath']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+<revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+<change when="2023-01-04" who="Lisa Cerrato">CTS and EpiDoc conversion.</change>
+</revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0627.tlg013.perseus-grc2">
+<div n="urn:cts:greekLit:tlg0627.tlg013.perseus-grc2" type="edition" xml:lang="en">
+<div type="textpart" subtype="oath" xml:base="urn:cts:greekLit:tlg0627.tlg013.perseus-grc2" n="oath">
+<p>I swear by Apollo the physician, and Asclepius, and Hygieia, and Panacea, and all the gods and goddesses, making them my witnesses, that I will fulfill according to my ability and judgment this oath and this covenant: to hold him who taught me this art as equal to my parents, to share my livelihood with him, to give him a share when he is in need of money, to regard his offspring as equal to my brothers in male lineage, and to teach them <milestone ed="Loeb" n="10" unit="line"/>this art, if they wish to learn it, without fee and covenant; to impart precept, oral instruction, and all the rest of the learning to my sons, to the sons of him who taught me, and to indentured pupils who have sworn the physician's oath, but to no one else. I will use dietary regimens for the benefit of the sick according to my ability and judgment, and keep them from harm and injustice. I will neither give a deadly drug to anyone if asked for it, nor suggest such <milestone ed="Loeb" n="20" unit="line"/>counsel; likewise I will not give a woman a destructive pessary. In purity and holiness I will guard my life and my art. I will not cut, not even those suffering from stone, but will leave this to men who are practitioners of this work. <pb n="p.300"/>Into whatever houses I enter, I will go for the benefit of the sick, abstaining from every voluntary injustice and corruption, especially sexual acts upon the bodies of women and men, both free and slave. Whatever I see or hear in the course of treatment, or even outside <milestone ed="Loeb" n="30" unit="line"/>treatment in the life of men, that ought never to be spoken abroad, I will keep silent, holding such things to be unspoken secrets. If I fulfill this oath and do not violate it, may it be granted to me to enjoy both life and art, honored among all men for all time; but if I transgress <milestone ed="Loeb" n="36" unit="line"/>and swear falsely, may the opposite of these things befall me.</p></div></div>
+
+</body>
+</text>
+</TEI>

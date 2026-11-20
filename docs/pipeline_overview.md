@@ -211,13 +211,16 @@ flowchart LR
 ```
 
 - **Translation model** (`--engine`):
-  - `madlad-3b` (Google MADLAD-400, best so far, chrF 31.5),
+  - `madlad-3b` (Google MADLAD-400, best so far, chrF 31.5): **the default**,
   - `pivot-grc-el-en` (Ancient Greek → Modern Greek → English, chrF 30.4, almost as good),
   - `opus-grk-en`, `opus-bible-ine` (small and fast, but much worse),
   - test engines `identity` (copies the Greek) and `tag` (marks text as `[EN:...]`).
 
-  Note: the config file currently has `engine: identity`, so a real run needs
-  `--engine madlad-3b` (or another model). See `docs/engine_comparison.md`.
+  The default is set in `config/pairs/grc-en.yaml` (`engine: madlad-3b`, decided
+  2026-11-20, for local runs and the HF Space; the pivot chain is the fallback).
+  It needs the model extra (`pip install -e .[mt]`) and an 11.8 GB download on first
+  use; `--engine identity` or `--engine tag` run without any model. See
+  `docs/engine_comparison.md`.
 - **Word aligner** (`--aligner`): `ugarit` (default), `dragoman`, `xlmr`, or `none`.
 - **Placement** (`--placement`): `hybrid` (default) or `spanwise`.
 - **Language pair**: the design does not assume Greek → English; another pair needs
@@ -226,7 +229,7 @@ flowchart LR
 How to run it:
 
 ```powershell
-python -m tei_translate translate IN.xml --engine madlad-3b
+python -m tei_translate translate IN.xml
 ```
 
 This writes `outputs/<name>.en.xml` and prints the report.
@@ -263,7 +266,6 @@ This writes `outputs/<name>.en.xml` and prints the report.
 
 | Decision | Where it comes from |
 |---|---|
-| Final translation model, locally and on the hosted app | engine comparison (MADLAD vs pivot are close) |
 | Confirm that names and numbers stay translated by the model (changed 2026-11-20); the gold set was made with the old rules (`<num>` kept in Greek) | `tag_decisions.md`, `gold_set_handover.md` |
 | Which inline tag groups are officially in scope (editors' corrections?) | `tag_decisions.md` §5 |
 | Position of empty markers: the current rules (section 4) are a proposal to confirm | `tag_decisions.md` §3 |

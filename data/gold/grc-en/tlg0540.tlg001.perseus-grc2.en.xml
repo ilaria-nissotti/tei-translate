@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">ὑπὲρ τοῦ Ἐρατοσθένους φόνου ἀπολογία</title>
+            <author>Lysias</author>
+            <editor>W.R.M. Lamb</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <respStmt>
+               <resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+               <name>tei-translate</name>
+            </respStmt>
+            <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+
+         </titleStmt>
+         
+         
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+            <date type="release" when="1996">Perseus 2.0</date>
+            <idno type="filename">tlg0540.tlg001.perseus-grc2.xml</idno>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+               <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+            </availability>
+         </publicationStmt>	
+
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Lysias</author>
+                  <title>Lysias</title>
+                  <editor role="translator">W.R.M. Lamb</editor>
+                  <imprint>
+                     <pubPlace>London</pubPlace>
+                     <publisher>William Heinemann Ltd.</publisher>
+                     <pubPlace>Cambridge, MA</pubPlace>
+                     <publisher>Harvard University Press</publisher>
+                     <date>1930</date>
+                  </imprint>
+               </monogr>
+               <ref target="https://archive.org/details/lysiaslamb00lysiuoft/page/n35/mode/2up">Internet Archive</ref>               
+            </biblStruct>
+         </sourceDesc>
+
+      </fileDesc>
+      <encodingDesc>
+         
+         <refsDecl n="CTS">
+            <cRefPattern replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])" matchPattern="(\w+)" n="section">
+            <p>This pointer pattern extracts section</p>
+         </cRefPattern>
+         </refsDecl>
+         
+         <!--<refsDecl>
+            <state unit="section"/>
+         </refsDecl>-->
+            <refsDecl xml:id="CTS">
+        <citeStructure match="/TEI/text/body" use="@xml:base">
+          <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+        </citeStructure>
+      </refsDecl>
+</encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="grc">Greek</language>
+            <language ident="lat">Latin</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+         <change when="2023-11-20" who="Lisa Cerrato">header improvements, xml base, removed paragraph milestones</change>
+         <change when="2017-04-28" who="Lisa Cerrato">EpiDoc and CTS conversion</change>
+         <change when="2014-08-01" who="Bridget Almas">converted milestones to divs</change>
+         <change when="2014-07-01" who="Stella Dee">split composite text and converted to unicode</change>
+         <change when="1992-10-01" who="das">changed the TITLE to HEAD tags; combined the two Lysias files</change>
+         <change when="1992-07-01" who="das">fixed typos and incorrect section breaks</change>
+         <change when="1992-06-01" who="wmerrill">checkmark</change>
+         <change when="1992-02-01" who="wmerrill">revise markup</change>      
+      </revisionDesc>
+   </teiHeader>
+   
+   <text xml:lang="en">
+      <body xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" type="edition" xml:lang="en">
+            
+         <milestone unit="part" n="Intro"/>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="1">
+            <p rend="align(indent)">I should consider it a great thing, gentlemen, if you would be the same kind of judges for me in this affair as you would be for yourselves had you suffered such things. For I know well that if you held the same view regarding others as you do regarding yourselves, there is no one who would not be indignant at what has happened, and all of you would regard the penalties for those who practice such deeds as too small. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="2">
+            <p>Nor would this judgment be held only among you, but throughout all of Greece; for in the case of this offense alone, under both democracy and oligarchy, the same redress has been granted to the weakest against the most powerful, so that the humblest man obtains the same right as the noblest—so universally do all men consider this outrage the most dreadful. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="3">
+            <p>Now regarding the severity of the penalty, I think all of you are of the same mind, and no one is so indifferent as to believe that those guilty of such deeds deserve pardon or a light punishment; what I think, </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="4">
+            <p>gentlemen, I must prove is that Eratosthenes committed adultery with my wife, corrupted her, disgraced my children, and insulted me myself by entering my house; that there was no enmity between him and me except this; and that I did not do this for money, to become rich instead of poor, nor for any other gain except the vengeance prescribed by the laws. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="5">
+            <p>I shall therefore lay before you the whole of my story from the beginning, omitting nothing and telling the truth; for I regard this as my only salvation, if I am able to tell you everything that happened.<milestone unit="part" n="Narr"/>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="6">
+            <p rend="align(indent)">When I decided to marry, Athenians, and brought a wife into my house, for the first period my attitude was neither to vex her nor to leave her too much free to do whatever she pleased; I kept watch over her as far as possible and paid attention as was reasonable. Once a child was born to me, however, I trusted her and placed all my affairs in her hands, considering this the closest bond of intimacy. In that early period, </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="7">
+            <p>Athenians, she was the best of all women—a clever and thrifty <del>good</del> <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἀγαθὴ</foreign> del. Dobree.</note>housekeeper who managed everything carefully. But when my mother died, her death became the cause of all my troubles. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="8">
+            <p>For when my wife attended her funeral procession, she was seen by this man and in time was seduced; watching for the servant girl who went to the market and making proposals to her, he brought about her ruin. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="9">
+            <p>First of all, gentlemen (for I must explain this to you too), I have a small two-story house, with the upper floor equal to the lower for the women's quarters and the men's quarters. When our child was born, its mother nursed it; and so that she would not run any risk going down the ladder whenever it needed a bath, I lived upstairs and the women downstairs. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="10">
+            <p>This had become so customary that my wife often went downstairs to sleep beside the baby, to give it the breast and keep it from crying. Things went on like this for a long time, and I never suspected anything—indeed, I was so foolish that I thought my own wife was the most virtuous woman in the city. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="11">
+            <p>As time went on, gentlemen, I returned unexpectedly from the country; after dinner the baby was crying and fretting, being pinched on purpose by the servant girl to make it behave that way, because the man was inside— </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="12">
+            <p>for I learned everything afterward. I told my wife to go down and give the baby the breast so it would stop crying. At first she refused, pretending she was glad to see me back after an absence; when I grew angry and ordered her to go, <q>"Yes, so that you"</q> she said <q>"can make a pass at the little maid here! Earlier too, when you were drunk, you were pulling her about."</q> I laughed, </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="13">
+            <p>and she got up, went out, closed the door pretending to joke, and turned the key in the lock. Thinking nothing of this and suspecting nothing, I slept gladly, having come back from the country. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="14">
+            <p>Toward daybreak she came and opened the door. When I asked why the doors had creaked during the night, she said the lamp beside the baby had gone out and she had gone to get a light from the neighbors. I kept quiet and believed this was true. It did seem to me, gentlemen, that her face was powdered with white lead, though her brother had not been dead thirty days; yet even so I said nothing about it, went out, and left the house in silence. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="15">
+            <p>After this, gentlemen, when some time had passed and I was completely unaware of my own misfortune, an elderly woman approached me, sent secretly by a woman with whom he had been having an affair, as I later heard. This woman, angry and feeling wronged because he no longer visited her as before, kept watch until she discovered the reason. So the old woman came up to me near my house, where she had been lying in wait, and said: <q>"Euphiletus,"</q> she said, <q>"do not think I have approached you out of any meddlesomeness; </q>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="16">
+            <p>
+               <q>for the man who is insulting you and your wife happens to be our enemy too. If you take the servant girl who goes to market and waits on you and put her to the question, you will learn everything. It is,"</q> she said, <q>"Eratosthenes of Oe who is doing this—he has seduced not only your wife, but many others as well; for he makes this <del>the</del> <note resp="Loeb" anchored="true" xml:lang="lat">
+                     <foreign xml:lang="grc">τὴν</foreign> del. Bekker.</note>his craft."</q>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="17">
+            <p>Having said this, gentlemen, she went away, and I was instantly thrown into turmoil; everything flooded into my mind and I was full of suspicion, recalling how I had been locked in the bedroom, remembering that on that night both the inner door and the courtyard door had creaked—which had never happened before—and that my wife had seemed to have white lead on her face. All of this came into my mind, and I was full of suspicion. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="18">
+            <p>Returning home, I ordered the servant girl to follow me to the market; leading her to the house of one of my friends, I told her I had learned everything that was going on in my house. <q>"You therefore"</q> I said <q>"may choose whichever of two things you wish: either to be flogged and thrown into a mill and never stop enduring such miseries, or to tell the whole truth and suffer no harm, receiving pardon from me for your offenses. Tell no lies, but speak the whole truth."</q>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="19">
+            <p>At first she denied it and told me to do whatever I wished, for she knew nothing; but when I mentioned Eratosthenes to her and said he was the man visiting my wife, she was stunned, thinking I already knew everything accurately. Then, falling at my knees </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="20">
+            <p>and receiving a pledge from me that she would suffer no harm, she confessed first how he had approached her after the funeral, then how she herself finally delivered his message and how my wife was won over in time, the ways in which he gained entry, <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">προσίοιτο</foreign> Kayser: <foreign xml:lang="grc">προσίοι</foreign> MSS.</note>and how at the Thesmophoria, while I was in the country, she had gone to the temple with his mother; and she recounted accurately everything else that had happened. When she had told all, </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="21">
+            <p>I said: <q>"See to it that no human being learns of this; otherwise nothing of what I agreed with you will stand. And I require you to show me this in the very act; for I have no need of words, I want the deed to be caught red-handed, if it really is so."</q>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="22">
+            <p>She agreed to do this. After that, four or five days passed, <gap reason="lost"/>as I shall prove to you by strong evidence. First, however, I wish to recount what happened on the last day. Sostratus was an acquaintance and friend of mine; I met him after sunset as he was coming in from the country. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="23">
+            <p>Knowing that, arriving at that hour, he would find none <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">οὐδένα</foreign> Bekker: <foreign xml:lang="grc">οὐδὲν ἂν
+                  </foreign>MSS.</note>of his friends at home, I invited him to dine with me; we came to my house, went up to the upper room, and had dinner. When he had had enough, he went off and I went to sleep. Then Eratosthenes, gentlemen, entered, and the servant girl woke me up and immediately told me he was inside. Telling her to look after the door, I went downstairs and slipped out silently, went around to this friend and that, found some at home and others out of town. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="24">
+            <p>Taking along as many as I could from those who were in, I walked back. Picking up torches from the nearest shop, we went inside, the door having been left open and prepared by the girl. Pushing open the bedroom door, those of us who entered first saw him still lying beside my wife, while those who came after saw him standing naked on the bed. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="25">
+            <p>I, gentlemen, struck him and knocked him down, pulled his hands behind his back and tied them, and asked why he was insulting me by entering my house. He admitted his guilt, but begged and implored me not to kill him, <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἀποκτεῖναι</foreign> Hertlein: <foreign xml:lang="grc">αὐτὸν
+                     κτεῖναι</foreign> MSS.</note>but to exact money instead. I replied: <q>"It is not I who shall kill you, </q>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="26">
+            <p>
+               <q>but the law of the city, which you transgressed and esteemed less than your pleasures, choosing rather to commit such an outrage against my wife and my children than to obey the laws and behave decently."</q>
+               <milestone unit="part" n="Proof"/>
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="27">
+            <p>Thus, gentlemen, he met the fate that the laws prescribe for those who do such things—not dragged in from the street, nor having taken refuge at the hearth, as these men claim! How could he have, when he was struck and fell right in the bedroom, I tied his hands behind his back, and there were so many men inside whom he could not escape, having neither iron nor wood nor anything else with which to defend himself against those who came in? </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="28">
+            <p>No, gentlemen, I think you too know that wrongdoers do not admit their enemies speak the truth, but instead lie and contrive such stories to rouse anger in their hearers against those who act justly. First, then, read the law.
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="29">
+            <p rend="align(center)"><label>Nomos</label></p>
+            <p rend="align(indent)">He did not dispute it, gentlemen, but admitted his guilt, begging and imploring not to be killed and offering to pay money. I did not agree to his valuation, holding the law of the city to be more binding, and I exacted that penalty which you judged most just and ordained for those who practice such deeds. Come forward, witnesses to these facts.
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="30">
+            <p rend="align(center)"><label>Martyres</label></p>
+               <p rend="align(indent)">Read for me also this law <add>the one</add> <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">τὸν</foreign> add. Westermann.</note>from the pillar on the Areopagus.</p>
+               <p rend="align(center)"><label>Nomos</label></p>
+                  <p rend="align(indent)">You hear, gentlemen, that the court of the Areopagus itself—to which both by ancestral custom and in our own day the trial of homicide cases has been assigned—is expressly instructed not to convict of murder the man <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">τούτου <gap reason="lost"/> φόνον</foreign> Reiske: <foreign xml:lang="grc">τοῦτον <gap reason="lost"/> φόνου</foreign> MSS.</note>who catches an adulterer with his wife and inflicts this punishment. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="31">
+            <p>So strongly did the lawgiver consider this just in the case of wedded wives that he even imposed the same penalty in the case of concubines, who are of lesser standing. Clearly, if he had had any heavier punishment than this for wedded wives, he would have enacted it; as it was, unable to devise a stronger one for them, he thought fit that the same should apply to concubines as well. Read for me this law too.
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="32">
+            <p rend="align(center)"><label>Nomos</label></p>
+            <p rend="align(indent)">You hear, gentlemen, that it ordains that if anyone forcibly shames a free man or a boy, he shall pay double damages; and if a woman, in those cases where it is permitted to kill, he shall be liable to the same penalty. Thus, gentlemen, he judged those who use force to deserve a lighter penalty than those who use persuasion: the latter he condemned to death, while for the former he doubled the damages, considering that those who act by force are hated by their victims, </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="33">
+            <p>whereas those who persuade so corrupt their souls that they make other men's wives more closely attached to themselves than to their husbands, bringing the whole household under their control and making it uncertain whose children they are—the husbands' or the adulterers'. For this reason the lawgiver made death their penalty. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="34">
+            <p>As for me, then, gentlemen, the laws have not only acquitted me of wrongdoing, but actually commanded me to exact this penalty; and it rests with you whether they are to be binding or worthless. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="35">
+            <p>For my part, I think all cities enact their laws so that whenever we are in doubt about a matter, we may consult them and see what we must do. Well, in cases like this, they urge the wronged to exact just this penalty.
+            </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="36">
+            <p>I ask you to share their judgment; otherwise you will grant such impunity to adulterers that <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ὥστε</foreign> Baiter et Sauppe: <foreign xml:lang="grc">ὡς</foreign> MSS.</note>you will even encourage burglars to claim they are adulterers, well knowing that if they give that reason for themselves and claim they entered other people's houses for that purpose, nobody will touch them! Everyone will know that one can ignore the laws on adultery and fear only your vote, since that is supreme over everything in the city. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="37">
+            <p rend="align(indent)">Consider this too, gentlemen: they accuse me of having ordered the servant girl to go fetch the young man on that day. Now for my part, gentlemen, I would consider myself acting justly in catching the man who corrupted my wife by any means whatever— </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="38">
+            <p>if I had ordered him to be fetched when only words had been spoken and no deed had been done, I would have been in the wrong; but when everything had already been carried out and he had entered my house many times, I <add>would</add> <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ἂν</foreign> add. Taylor.</note>have thought myself acting sensibly in catching him by any means whatever. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="39">
+            <p>Yet observe that here too they are lying—you will easily see it from the following. As I said earlier, gentlemen, my close friend Sostratus met me coming from the country around sunset, dined with me, and when he had had enough, went off. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="40">
+            <p>Now first consider this, gentlemen: <del>that</del> <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ὅτι</foreign> del. Reiske.</note>if I had been plotting against Eratosthenes that night, would it have been better for me to dine elsewhere myself or to bring a dinner guest home? That way he would have been far less bold about entering the house! Next, do you think I would have let my dinner guest go and be left alone and unsupported, rather than asking him to stay <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">μεῖναι</foreign> Fuhr: <foreign xml:lang="grc">μὲν εἶναι,
+                     μένειν</foreign> MSS.</note>so he could help me punish the adulterer? </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="41">
+            <p>Furthermore, gentlemen, don't you think I would have notified my friends during the day and told them to gather at the house of <add>one</add> <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">του</foreign> add. Gernet et Bizor.</note>of my nearest friends, rather than running around at night the moment I found out, not knowing whom I would find at home and whom away? I went to Harmodius and so-and-so who were out of town (for I didn't know), found others not at home, and walked back with those I was able to round up. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="42">
+            <p>Yet if I had known beforehand, don't you think I would have had servants ready and notified my friends, so that I might go in with the greatest safety myself (for how did I know whether he too had a dagger?) and exact vengeance before as many witnesses as possible? As it was, knowing nothing of what would happen that night, I took along those I could find. Come forward, witnesses to these facts.
+               
+            </p>
+         </div>
+            <milestone unit="part" n="Concl"/>  
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="43">
+            <p rend="align(center)"><label>Martyres</label></p>
+               <p  rend="align(indent)">You have heard the witnesses, gentlemen; now consider this matter among yourselves by asking whether any enmity ever existed between Eratosthenes and me except this one. You will find none. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="44">
+            <p>He never brought malicious public prosecutions against me, nor tried to banish me from the city, nor sued me in private lawsuits, nor knew of any misdeed of mine that I wanted to kill him out of fear someone might learn of it, nor if I accomplished this <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">διαπραξαίμην</foreign> Lipsius: <foreign xml:lang="grc">διεπραξάμην</foreign> MSS.</note>did I hope to get money from anywhere <note resp="Loeb" anchored="true" xml:lang="lat">
+                  <foreign xml:lang="grc">ποθεν</foreign> Emperius: <foreign xml:lang="grc">μὲν</foreign> codd. plerique, om. duo</note>—for some people plot one another's death for reasons like those. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="45">
+            <p>So far from any abuse, drunken brawl, or other dispute having occurred between us, I had never even seen the man before that night! With what motive, then, would I have run such a risk, unless I had suffered the greatest of wrongs at his hands? </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="46">
+            <p>And further, would I myself have called in witnesses to commit an impious crime, when if I had wished to kill him unjustly I could have had no one know about it? </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="47">
+            <p rend="align(indent)">For my part, gentlemen, I do not think this punishment was exacted privately on my own behalf, but on behalf of the entire city; for those who act like this, seeing what rewards are set for such offenses, will be less inclined to wrong others if they see that you too hold the same view. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="48">
+            <p>Otherwise, it is far better to erase the existing laws and enact new ones that will punish men who guard their own wives and grant complete impunity to those who wish to sin against them. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="49">
+            <p>For that would be far more just than for citizens to be ambushed by the laws, which on the one hand bid a man who catches an adulterer to treat him as he pleases, while on the other hand the trials prove more perilous to the wronged than to those who illegally dishonor other men's wives. </p>
+         </div>
+         <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0540.tlg001.perseus-grc2" n="50">
+            <p>For I now stand in peril of my life, my property, and everything else, simply because I obeyed the laws of the city.</p>
+         </div>
+         </div>   
+      </body>
+   </text>
+</TEI>

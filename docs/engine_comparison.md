@@ -61,7 +61,59 @@ chrF per work:
     it would need 12 GB and run slower. Apache-2.0.
   - The chain is about 7 GB on disk. The ILSP adapter is CC BY-NC 4.0 (non-commercial):
     fine for the course project, but it would matter if the tool were reused commercially.
-  - MADLAD is probably too big for the free HF Space (16 GB RAM, slow CPU); the chain might fit.
+  - Whether either fits the free HF Space: see the next section (both do, on paper).
+
+## Speed and memory with 2 CPU threads (for the free HF Space)
+
+Run on 2026-11-20 with `python scripts/bench_engine_threads.py`, same laptop. The free
+HF Space has 2 vCPUs and 16 GB RAM, so each engine was limited to 2 threads
+(`torch.set_num_threads`) and compared with all 16. Passages: every 5th of the 54 above
+(11 passages, 786 Greek words, one from each work at least), with the UGARIT aligner
+loaded afterwards in the same process, as in the pipeline.
+
+| Engine | 2 threads | 16 threads | Load | Aligner (2 threads) |
+|---|---|---|---|---|
+| `pivot-grc-el-en` | **2.0 words/s** (391 s) | 2.9 words/s (270 s) | 24–33 s | 4 s load, 0.24 s per sentence |
+| `madlad-3b` | **1.75 words/s** (449 s) | 3.4 words/s (230 s) | 28–31 s | 5 s load, 0.40 s per sentence |
+
+Peak memory (2 threads, one passage, Windows process counters):
+
+| Engine | Peak in use (working set) | Peak committed | In use, with the aligner |
+|---|---|---|---|
+| `pivot-grc-el-en` | 6.2 GB | 9.2 GB | 6.8 GB |
+| `madlad-3b` | 7.8 GB | 11.9 GB | 8.4 GB |
+
+- **With 2 threads both engines are about as fast**: ~2 Greek words per second, so a
+  100-word passage takes about a minute. Going from 16 to 2 threads costs MADLAD half its
+  speed, the chain only a third.
+- **Both fit in 16 GB.** The peaks are at load time. MADLAD leaves about 4 GB for the
+  app and the aligner. The chain is less light than its size suggests: merging the
+  adapter into NLLB briefly takes about 9 GB.
+- The chain's outputs were identical to the run above (11/11). MADLAD's differed on
+  4 of 11 passages: bfloat16 rounding depends on the thread count.
+- **Not measured: the Space's own CPU.** The laptop CPU (Zen 4) speeds up bfloat16; if
+  the Space's CPU doesn't, MADLAD could be several times slower there. The chain runs in
+  float32 and is not affected. Thread limits can't imitate this; only a run on the
+  Space can. Also not measured: the cold start after the Space sleeps, which downloads
+  the model again (11.8 GB for MADLAD, ~7 GB for the chain).
+- Memory figures are from Windows; Linux counts memory a little differently, so treat
+  them as approximate.
+
+## Decision (2026-11-20)
+
+**`madlad-3b` is the default engine**, for local runs and the HF Space
+(`engine: madlad-3b` in `config/pairs/grc-en.yaml`). `pivot-grc-el-en` is the fallback.
+
+Why: slightly better chrF (5 of 7 works), Apache-2.0 licence (the chain's ILSP adapter
+is non-commercial), one model instead of two (no pivot errors carried into step 2), and
+with 2 threads it is about as fast as the chain and fits in 16 GB.
+
+Revisit if:
+- the first Space deployment is clearly slower than about 1 word/s (bfloat16 on the
+  Space CPU), or the cold start is too slow: switch to the chain;
+- the team decides to fine-tune: the chain's 600M step 1 is a much easier target than a
+  3B model;
+- a larger test set or COMET reverses the ranking (the chrF gap is within noise).
 
 ## Bugs found on the way (fixed)
 

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+        <fileDesc>
+            <titleStmt>
+                <title xml:lang="grc">Ἐγχειρίδιον</title>
+                <author>Epictetus</author>
+                <editor>Heinrich Schenkl</editor>
+                <sponsor>Perseus Project, Tufts University</sponsor>
+                <principal>Gregory Crane</principal>
+                <respStmt>
+                    <resp>Prepared under the supervision of</resp>
+                    <name>Gregory Crane</name>
+                    <name>Lisa Cerrato</name>
+                    <name>Anne Mahoney</name>
+                    <name>David Mimno</name>
+                </respStmt>
+                <funder n="org:Tufts">Tufts University</funder>
+                <respStmt>
+                    <resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+                    <name>tei-translate</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Trustees of Tufts University</publisher>
+                <pubPlace>Medford, MA</pubPlace>
+                <authority>Perseus Project</authority>
+                <date type="release" when="2003-12-05">Perseus 3.0</date>
+                <idno type="filename">tlg0557.tlg002.perseus-grc2.xml</idno>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                    <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+                </availability>
+            </publicationStmt>
+            
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <author>Epictetus</author>
+                        <title xml:lang="lat">Epicteti dissertationes ab Arriano digestae, editio maior</title>
+                        <editor>Heinrich Schenkl</editor>
+                        <imprint>
+                            <pubPlace>Leipzig</pubPlace>
+                            <publisher>Teubner</publisher>
+                            <date>1916</date>
+                        </imprint>
+                    </monogr>
+                    <ref target="https://archive.org/details/ldpd_10922736_000/page/620">The Internet Archive</ref>
+                </biblStruct>
+            </sourceDesc>
+            
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl><quotation marks="none"/></editorialDecl>
+            <refsDecl n="CTS">
+                <cRefPattern n="section"
+                    matchPattern="(\w+).(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts chapter and section</p>
+                </cRefPattern>
+                <cRefPattern n="chapter"
+                    matchPattern="(\w+)"
+                    replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts chapter</p>
+                </cRefPattern>
+            </refsDecl>
+            
+                                    <refsDecl xml:id="CTS">
+                    <citeStructure match="/TEI/text/body" use="@xml:base">
+                      <citeStructure unit="chapter" delim=":" match="div/div[@subtype='chapter']" use="@n">
+                        <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+                      </citeStructure>
+                    </citeStructure>
+                  </refsDecl>
+</encodingDesc>
+  
+  <profileDesc>
+   <langUsage>
+    <language ident="grc">Greek</language>
+    <language ident="lat">Latin</language>
+   </langUsage>
+  </profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change when="2023-12-05" who="Lisa Cerrato">EpiDoc and CTS updates to header standards and xml base</change>
+            <change when="2020-01-21" who="Lisa Cerrato">minor revisions to header</change>
+            <change when="2020-01-18" who="Gregory Crane">initial EpiDoc and CTS conversion</change>
+            <change when="2003-10-01" who="unknown">initial markup and digitization</change>
+        </revisionDesc>
+ </teiHeader>
+ <text xml:lang="en">
+  <body xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2">
+  
+      <div n="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" type="edition" xml:lang="en"> 
+          <head xml:lang="lat">The Enchiridion</head>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="1">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:1" n="1">
+    
+    <p>Some things are up to us and some are not up to us. Up to us are judgment, impulse, desire, aversion, and, in a word, whatever is our own doing; not up to us are the body, property, reputation, offices, and, in a word, whatever is not our own doing.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:1" n="2"><p>The things that are up to us are by nature free, unhindered, unimpeded; while those not up to us are weak, slavish, subject to hindrance, and not our own.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:1" n="3"><p>Remember, therefore, that if you think what is by nature slavish to be free, and what belongs to others to be your own, you will be hindered, you will grieve, you will be troubled, and you will blame both gods and men; whereas if you think only what is yours to be yours, and what belongs to another to be, as it indeed is, another's, no one will ever compel you, no one will hinder you, you will blame no one, you will accuse no one, you will do not a single thing against your will, no one will harm you, and you will have no enemy, for you will suffer nothing harmful.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:1" n="4"><p>Aiming, then, at such great things, remember that you must not take hold of them with only moderate effort, but some things you must give up entirely, and others postpone for the present. If you wish to have these things and also to hold office and be rich, perhaps you will not even obtain the latter because you aim at the former as well, and you will certainly fail to obtain the former, through which alone freedom and happiness are achieved.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:1" n="5"><p>Practice straightway, therefore, saying to every harsh impression: <q>You are an impression, and by no means what you appear to be.</q> Then examine it and test it by these rules that you possess, and first and foremost by this: whether it concerns the things that are up to us or those that are not up to us; and if it concerns something not up to us, have ready to hand the answer: <q>It is nothing to me.</q></p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="2">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:2" n="1">
+    
+    <p>Remember that desire promises the attainment of what you desire, and aversion promises not falling into what you avert from; and he who fails in desire is unfortunate, while he who falls into what he averts from is miserable. If, then, you avert only from what is contrary to nature among the things that are up to you, you will fall into none of the things you avert from; but if you avert from sickness, death, or poverty, you will be miserable.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:2" n="2"><p>Remove aversion, therefore, from everything that is not up to us, and transfer it to what is contrary to nature among the things that are up to us. As for desire, abolish it altogether for the present; for if you desire any of the things not up to us, you are bound to be unfortunate, and of the things up to us that it would be fine to desire, none is yet within your reach. Make use only of impulse to act and impulse not to act, and even that lightly, with reservation, and without straining.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="3">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:3" n="1">
+    
+    <p>With regard to every object that delights the mind, or is useful, or is fondly loved, remember to tell yourself what kind of thing it is, beginning from the smallest things: if you are fond of a jug, say, <q>I am fond of a jug.</q> For when it is broken, you will not be disturbed. If you kiss your own child or your wife, tell yourself that you are kissing a human being; for when they die, you will not be disturbed.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="4">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:4" n="1">
+    
+    <p>When you are about to undertake any action, remind yourself what kind of action it is. If you are going out to bathe, put before your mind what happens at a public bath: people splashing, pushing, using abusive language, stealing. Thus you will undertake the action more safely if you say to yourself at once, <q>I want to bathe and also to keep my moral purpose in harmony with nature.</q> And likewise in every action. For then, if any obstacle to bathing arises, you will have ready to hand the thought: <q>Well, this was not the only thing I wanted, but also to keep my moral purpose in harmony with nature; and I shall not keep it so if I am vexed at what happens.</q></p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="5">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:5" n="1">
+    
+    <p>What disturbs men is not things themselves, but their judgments about things. For example, death is nothing dreadful (else it would have seemed so to Socrates as well), but the judgment about death, that it is dreadful—that is what is dreadful. Whenever, then, we are hindered, or disturbed, or grieved, let us never blame another, but ourselves—that is, our own judgments. It is the act of an uneducated person to blame others for his own misfortunes; of one who has begun to be educated, to blame himself; and of one who is educated, to blame neither another nor himself.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="6">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:6" n="1">
+    
+    <p>Do not be elated over any excellence that is not your own. If a horse were elated and said, <q>I am handsome,</q> it would be bearable; but when you say with elation, <q>I have a handsome horse,</q> know that you are elated over a good belonging to a horse. What, then, is yours? The use of impressions. Therefore, when you act in harmony with nature in the use of impressions, then be elated; for then you will be elated over a good that is your own.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="7">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:7" n="1">
+    
+    <p>Just as on a voyage, when the ship has anchored, if you go ashore <choice><sic>to fetch water</sic><corr>to draw water</corr></choice>, you may pick up a small shellfish or a wild onion by the way, yet you must keep your mind fixed on the ship and constantly look back in case the captain should call; and if he calls, you must let all those things go so as not to be thrown on board bound like sheep. So too in life: if instead of a wild onion and a shellfish a little wife and child are given to you, nothing prevents you from having them; but if the captain calls, run to the ship, leaving all those things behind without even looking back. And if you are an old man, never go far from the ship at all, lest you fail to appear when he calls.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="8">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:8" n="1">
+    
+    <p>Do not seek to have events happen as you wish, but wish them to happen as they do happen, and your life will flow smoothly.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="9">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:9" n="1">
+    
+    <p>Sickness is an impediment to the body, but not to the moral purpose, unless the moral purpose itself wishes it. Lameness is an impediment to the leg, but not to the moral purpose. Say this to yourself at everything that befalls you; for you will find it to be an impediment to something else, but not to you.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="10">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:10" n="1">
+    
+    <p>In the case of everything that befalls you, remember to turn to yourself and inquire what faculty you have for making use of it. If you see a handsome man or a beautiful woman, you will find self-control as the faculty for dealing with that; if hardship is presented to you, you will find endurance; if abuse, you will find forbearance. And when you have been trained in this way, impressions will not sweep you away.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="11">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:11" n="1">
+    
+    <p>Never say of anything, <q>I have lost it,</q> but rather, <q>I have given it back.</q> Has your child died? It has been given back. Has your wife died? She has been given back. <q>My farm has been taken from me.</q> Well, that too has been given back. <q>But the man who took it is a scoundrel.</q> What does it matter to you through whose agency the giver demanded it back? For as long as he grants it, take care of it as something belonging to another, just as travelers treat an inn.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="12">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:12" n="1">
+    
+    <p>If you wish to make progress, abandon such reasonings as these: <q>If I neglect my affairs, I shall have nothing to live on;</q> <q>If I do not punish my slave, he will turn out bad.</q> For it is better to die of hunger free from grief and fear than to live in abundance while troubled. And it is better for your slave to be bad than for you to be wretched.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:12" n="2"><p>Begin, therefore, with small things. A little oil is spilled, a little wine is stolen; say to yourself, <q>This is the price of calm, this is the price of tranquility;</q> nothing is gained for free. And when you call your slave, bear in mind that he may not listen, and even if he listens he may do none of the things you want; yet he is not in so enviable a position that it depends on him whether you are disturbed or not.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="13">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:13" n="1">
+    
+    <p>If you wish to make progress, be content to appear foolish and simple-minded with respect to external things; do not wish to appear to know anything, and even if you seem to some people to be somebody, distrust yourself. For know that it is not easy both to keep your own moral purpose in harmony with nature and to attend to external things; rather, if you care for the one, you must inevitably neglect the other.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="14">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:14" n="1">
+    
+    <p>If you wish your children, your wife, and your friends to live forever, you are foolish; for you are wishing things not up to you to be up to you, and things belonging to others to be yours. Likewise, if you wish your slave never to do wrong, you are a fool; for you are wishing vice not to be vice, but something else. Yet if you wish not to fail in your desires, this you can do. Practice, therefore, what is within your power.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:14" n="2"><p>A person's master is whoever has the power to confer or take away what that person wants or does not want. Whoever, then, wishes to be free, let him neither wish for nor avoid anything that is in the power of others; otherwise he is bound to be a slave.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="15">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:15" n="1">
+    
+    <p>Remember that you ought to behave in life as at a banquet. Something being passed around has reached you: stretch out your hand and take a modest share. It passes by: do not detain it. It has not yet arrived: do not project your desire from afar, but wait until it reaches you. Act thus toward children, thus toward a wife, thus toward public offices, thus toward wealth, and one day you will be worthy to feast with the gods. And if you do not even take what is set before you, but pass it by, then you will not only be a fellow-banqueter with the gods, but also their fellow-ruler. For by acting thus, Diogenes, Heraclitus, and men like them were deservedly both divine and called divine.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="16">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:16" n="1">
+    
+    <p>When you see someone weeping in grief, either because his child has gone abroad or because he has lost his property, take care not to be swept away by the impression that he is in the midst of external evils; rather, have this thought ready at once: <q>What afflicts this man is not the event itself—for it does not afflict another—but his judgment about it.</q> So far as words go, however, do not hesitate to sympathize with him, and even, if the occasion arises, to groan with him; only take care that you do not groan inwardly as well.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="17">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:17" n="1">
+    
+    <p>Remember that you are an actor in a play of whatever sort the playwright chooses: if short, a short one; if long, a long one. If he wants you to play a beggar, see that you play even that role well; and so too if a cripple, a magistrate, or a private citizen. For this is your business: to play well the role that is assigned to you; to choose it belongs to another.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="18">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:18" n="1">
+    
+    <p>When a raven croaks inauspiciously, do not let the impression sweep you away; instead, make a distinction immediately in your own mind and say: <q>None of these omens portends anything for me, but either for my poor body, or my petty property, or my paltry reputation, or my children, or my wife. For me, however, every omen is auspicious if I so choose; for whatever may come of these things, it is in my power to derive benefit from it.</q></p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="19">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:19" n="1">
+    
+    <p>You can be invincible if you enter no contest in which victory is not up to you.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:19" n="2"><p>See that you never, upon seeing someone honored above others or possessing great power or otherwise held in high repute, pronounce him happy, swept away by the impression. For if the essence of the good lies in the things that are up to us, neither envy nor jealousy has any place; and you yourself will not wish to be a general, a magistrate, or a consul, but free. And there is only one road to this: contempt for the things that are not up to us.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="20">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:20" n="1">
+    
+    <p>Remember that it is not the person who reviles or strikes you who insults you, but your judgment about these things as insulting. Whenever someone provokes you, therefore, know that it is your own opinion that has provoked you. First of all, then, strive not to be swept away by the impression; for once you gain time and delay, you will more easily master yourself.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="21">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:21" n="1">
+    
+    <p>Let death and exile, and all other things that appear terrible, be before your eyes every day, and above all death; and you will never entertain any abject thought nor crave anything excessively.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="22">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:22" n="1">
+    
+    <p>If you desire philosophy, prepare yourself from the very outset to be laughed at, to be mocked by many, and to hear them say, <q>All of a sudden he has come back to us a philosopher!</q> and <q>Where did he get this haughty brow?</q> For your part, do not put on a haughty brow, but hold fast to the things that seem best to you as one appointed by God to this station; and remember that if you abide by the same principles, those very people who mocked you at first will admire you afterward, whereas if you are worsted by them, you will incur double ridicule.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="23">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:23" n="1">
+    
+    <p>If it ever happens that you turn outward to wish to please someone, know that you have lost your plan of life. Be content, therefore, in every circumstance to be a philosopher; and if you also wish to seem <del>to be one</del>, appear so to yourself, and you will be able to do that.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="24">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:24" n="1">
+    
+    <p>Do not let these reflections distress you: <q>I shall live without honor, and be a nobody anywhere.</q> For if lack of honor is an evil, you cannot be in evil through another's doing any more than you can be in what is shameful. Is it then your business to obtain office or to be invited to a banquet? By no means. How, then, is this still a lack of honor? And how will you be a nobody anywhere, when you ought to be somebody only in the things that are up to you, in which it is in your power to be of the greatest worth?</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:24" n="2"><p>But your friends will be left without help. What do you mean by "without help"? They will not receive small change from you, nor will you make them Roman citizens. Who told you, then, that these things are among those up to us, rather than the business of others? And who can give to another what he does not possess himself? <q>Acquire them, then,</q> someone says, <q>so that we may have them.</q></p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:24" n="3"><p>If I can acquire them while preserving my own self-respect, trustworthiness, and magnanimity, show me the way and I will acquire them. But if you ask me to lose my own good things so that you may secure things that are not good, see for yourselves how unfair and inconsiderate you are. Besides, which do you prefer: money, or a trustworthy and self-respecting friend? Help me, then, toward this rather, and do not demand that I do those things by which I shall lose these very qualities.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:24" n="4"><p><q>But my country, so far as depends on me,</q> he says, <q>will be left without help.</q> Again, what kind of help is this? It will not have porticoes or baths thanks to you. And what of that? Neither does it have shoes thanks to the blacksmith, nor arms thanks to the shoemaker; it is enough if each person fulfills his own task. If you were providing it with another trustworthy and self-respecting citizen, would you be doing it no service? <q>Yes.</q> Well then, neither would you yourself be useless to it. <q>What place, then,</q> he asks, <q>shall I have in the city?</q> Whatever place you can hold while keeping your trustworthiness and self-respect.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:24" n="5"><p>But if in wishing to benefit your country you throw these away, of what use could you be to it once you have become shameless and untrustworthy?</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="25">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:25" n="1">
+    
+    <p>Has someone been preferred before you at a banquet, or in a greeting, or in being called in for consultation? If these things are good, you ought to rejoice that he has obtained them; if they are bad, do not be vexed that you did not obtain them. And remember that you cannot expect an equal share without doing the same things to obtain what is not up to us.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:25" n="2"><p>For how can one who does not wait at a man's door have an equal share with one who does? Or one who does not escort him with one who does? Or one who does not flatter him with one who does? You will be unjust and insatiable, then, if you refuse to pay the price for which these things are sold, yet wish to get them for free.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:25" n="3"><p>Well, for how much are lettuces sold? For an obol, let us say. If someone, then, pays the obol and gets lettuces, while you do not pay it and do not get them, do not think that you are worse off than the one who got them. For just as he has the lettuces, so you have the obol that you did not spend.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:25" n="4"><p>In the very same way here too: you were not invited to someone's banquet? That is because you did not pay the host the price for which he sells his dinner. He sells it for praise; he sells it for flattery. Pay the price, then, for which it is sold, if it is to your advantage. But if you wish both not to pay the one and to receive the other, you are insatiable and foolish.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:25" n="5"><p>Have you nothing, then, instead of the dinner? Indeed you have: you have not praised the man you did not wish to praise, and you have not had to put up with the insolence of his doorkeepers.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="26">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:26" n="1">
+    
+    <p>We may learn the will of nature from those matters in which we do not differ from one another. For instance, when another person's slave breaks a cup, we are ready at once to say, <q>These things happen.</q> Know, then, that when your own cup is broken, you ought to be just as you were when the other person's was broken. Transfer the same principle to greater things as well. Someone else's child or wife has died: there is no one who would not say, <q>Such is the human lot.</q> Yet when a person's own child dies, at once it is <q>Alas, wretch that I am!</q> We ought to remember how we feel when we hear the same thing about others.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="27">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:27" n="1">
+    
+    <p>Just as a mark is not set up in order to be missed, so neither does the nature of evil exist in the universe.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="28">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:28" n="1">
+    
+    <p>If someone handed your body over to any passerby, you would be indignant; yet that you hand your own mind over to whoever comes along, so that if he reviles you it is disturbed and confounded—are you not ashamed of this?</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="29">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="1">
+    
+    <p>In every undertaking, consider what precedes it and what follows from it, and only then approach it. Otherwise, you will set out eagerly at first because you have not thought through any of the consequences, and afterward, when some difficulties appear, you will disgracefully give up. Do you want to win at the Olympic games?</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="2"><p>So do I, by the gods, for it is a fine thing. But consider what precedes it and what follows from it, and then set to work. You must observe discipline, eat by rule, abstain from pastries, exercise under compulsion at an appointed hour, in heat and in cold, not drink cold water, not drink wine whenever you please—in short, you must hand yourself over to your trainer as to a physician; and then in the contest you must dig into the sand, sometimes dislocate a wrist, sprain an ankle, swallow plenty of dust, sometimes be flogged, and after all that, be defeated.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="3"><p>Having considered all this, if you still wish to, enter upon athletic training. Otherwise, you will behave like children, who now play wrestlers, now gladiators, now blow trumpets, then act in tragedies; so too you will be now an athlete, now a gladiator, then an orator, then a philosopher, yet nothing with your whole soul; instead, like an ape, you imitate every spectacle you see, and one thing after another takes your fancy. For you did not approach anything with reflection or after examining it all around, but at random and out of a half-hearted whim.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="4"><p>Thus some people, having seen a philosopher and heard someone speaking as Euphrates speaks (though who can speak as he does?</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="5"><p>), want to be philosophers themselves too. Man, first examine what sort of thing it is; then examine your own nature as well, to see whether you can bear it. Do you want to be a pentathlete or a wrestler? Look at your arms, your thighs, examine your loins.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="6"><p>For different people are naturally suited for different things. Do you think that by doing this you can eat in the same way, drink in the same way, have the same desires and the same dislikes as before? You must stay awake at night, endure toil, leave your household behind, be looked down on by a slave-boy, be laughed at by those you meet, and come off worse in everything—in honor, in office, in court, in every petty affair.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:29" n="7"><p>Consider these things: whether you are willing to exchange them for calm, freedom, and tranquility; if not, do not approach philosophy. Do not be like children—a philosopher today, a tax-collector later, then an orator, then a procurator of Caesar. These things do not go together. You must be one single person, either good or bad; you must cultivate either your own ruling principle or external things, apply your skill either to what is within or to what is without—that is, either hold the station of a philosopher or that of a layman.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="30">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:30" n="1">
+    
+    <p>Appropriate actions are in general measured by our relationships. He is a father: this prescribes taking care of him, yielding to him in everything, putting up with him when he reviles or strikes you. <q>But he is a bad father.</q> Were you then joined by nature to a good father? No, simply to a father. <q>My brother wrongs me.</q> Keep, then, your own place toward him, and do not consider what he is doing, but what you must do for your moral purpose to remain in harmony with nature. For another will not harm you unless you wish it; you will be harmed only when you judge that you are harmed. In this way, then, you will discover your appropriate duty from the relationship of neighbor, citizen, or general, if you accustom yourself to look at your relationships.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="31">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:31" n="1">
+    
+    <p>Know that the chief element of piety toward the gods is this: to hold right opinions about them—that they exist and govern the universe well and justly—and to have stationed yourself to obey them, to yield to all that happens, and to follow willingly as to things accomplished by the best intelligence. For thus you will never blame the gods nor accuse them of neglecting you.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:31" n="2"><p>And this cannot be achieved in any other way unless you remove good and evil from the things not up to us and place them solely in the things that are up to us. For if you suppose any of those external things to be good or evil, it is altogether inevitable that whenever you fail to get what you want and fall into what you do not want, you will blame and hate those responsible.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:31" n="3"><p>For every living creature is so constituted by nature as to flee and turn away from things that appear harmful and their causes, and to pursue and admire things that are beneficial and their causes. It is impossible, therefore, for someone who thinks he is being harmed to delight in what seems to harm him, just as it is impossible to delight in the harm itself.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:31" n="4"><p>Hence even a father is reviled by his son when he does not share with the boy what are thought to be good things; and this is what made Polynices and Eteocles enemies to one another—thinking tyranny to be a good. For this reason the farmer reviles the gods, for this reason the sailor, for this reason the merchant, for this reason those who lose their wives and children. For where advantage lies, there lies piety too. Consequently, whoever takes care to desire and avert as he ought, in that very act takes care of piety as well.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:31" n="5"><p>And it is fitting on each occasion to pour libations, offer sacrifices, and present firstfruits according to ancestral custom, with purity, and neither slovenly nor carelessly, nor yet stingily nor beyond one's means.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="32">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:32" n="1">
+    
+    <p>When you consult divination, remember that you do not know what the outcome will be—that is what you have come to learn from the diviner—but what sort of thing it is you already know before coming, if indeed you are a philosopher. For if it is one of the things not up to us, it is altogether necessary that it be neither good nor evil.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:32" n="2"><p>Do not, therefore, bring desire or aversion with you to the diviner, nor approach him trembling, but with the conviction that every outcome is indifferent and nothing to you, and that whatever it may be, it will be in your power to make good use of it, and no one will prevent this. Go with confidence, then, to the gods as to counselors; and afterward, when some advice has been given you, remember whom you took as counselors and whom you will be disregarding if you disobey.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:32" n="3"><p>Resort to divination, as Socrates recommended, in those cases where the whole inquiry turns solely on the outcome and neither reason nor any other art affords means for discerning the matter at hand. Accordingly, when you must share a danger with a friend or your country, do not consult a diviner as to whether you should share the danger. For even if the diviner tells you that the omens are unfavorable, it is clear that this signifies death, or the maiming of some part of the body, or exile; yet reason dictates that even with these risks you must stand by your friend and share the danger of your country. Pay heed, therefore, to the greater diviner, Pythian Apollo, who cast out of his temple the man who did not aid his friend when he was being murdered.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="33">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="1">
+    
+    <p>Prescribe for yourself at once a certain character and pattern to maintain both when you are by yourself and when you meet with others.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="2"><p>Let silence be the rule for the most part, or let only what is necessary be said, and in few words. Rarely, when occasion calls upon us to speak, speak indeed, but not about ordinary topics—not about gladiators, not about horse races, not about athletes, not about food or drink, the usual subjects everywhere; and above all not about people, blaming, praising, or comparing them.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="3"><p>If you are able, then, turn the conversation of your companions by your own words to what is proper; but if you happen to be caught among strangers, keep silent.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="4"><p>Let your laughter not be frequent, nor at many things, nor unrestrained.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="5"><p>Refuse to take oaths altogether, if possible; if not, as far as circumstances allow. Decline banquets with outsiders and laymen;</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="6"><p>but if an occasion ever arises, keep your attention taut lest you slip into the ways of the layman. For know that if your companion is soiled, the one who rubs against him must inevitably become soiled too, even if he himself happens to be clean.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="7"><p>In matters pertaining to the body, take only what bare necessity requires—such as food, drink, clothing, house, and servants—and cut away everything aimed at show or luxury. As for sexual pleasures, keep yourself pure before marriage as far as you can;</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="8"><p>and if you do partake of them, take only what is lawful. Do not, however, become harsh or censorious toward those who indulge in them, nor frequently bring up the fact that you yourself do not.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="9"><p>If someone reports to you that so-and-so is speaking ill of you, do not make a defense against what was said, but answer: <q>He did not know my other faults, or else he would not have mentioned only these.</q></p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="10"><p>It is not necessary to go often to the theaters; but if an occasion ever arises, show no partisanship for anyone except yourself—that is, wish only what happens to happen, and only the winner to win; for thus you will suffer no hindrance. Abstain completely from shouting, laughing at anyone, or being violently excited. And after leaving, do not talk at length about what happened, except insofar as it contributes to your own improvement; for from such talk it appears that you were dazzled by the spectacle.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="11"><p>Do not attend public readings casually or readily; when you do attend, maintain a dignified and steady bearing, while at the same time avoiding being offensive.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="12"><p>When you are about to meet someone, especially one of those who are thought to be in high station, put before yourself what Socrates or Zeno would have done in such a case, and you will not be at a loss to deal properly with whatever occurs.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="13"><p>When you go to call on someone of great power, picture to yourself that you will not find him at home, that you will be shut out, that the doors will be slammed in your face, that he will pay no attention to you. And if even with all this it is your duty to go, go and bear what happens, and never say to yourself, <q>It was not worth so much;</q> for that is the mark of a layman and of one prejudiced against external things.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="14"><p>In your conversations, avoid recalling your own deeds or dangers frequently and immoderately; for just as it is pleasant for you to recall your own dangers, it is not equally pleasant for others to hear about what has happened to you.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="15"><p>Avoid trying to provoke laughter as well; for that is a slippery way into vulgarity, and at the same time apt to relax your neighbors' respect for you.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:33" n="16"><p>It is also perilous to venture into foul language. Whenever anything of the sort occurs, if the moment is opportune, rebuke the speaker; if not, make it clear by keeping silent, blushing, and frowning that you are displeased by such talk.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="34">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:34" n="1">
+    
+    <p>Whenever you receive the impression of some pleasure, guard yourself, as with other impressions, against being swept away by it; let the matter wait for you, and grant yourself some delay. Then call to mind both periods of time—the time when you will enjoy the pleasure, and the time after enjoying it when you will regret it and reproach yourself; and set against these how you will rejoice and praise yourself if you abstain. And if the moment seems right to engage in the action, take care not to be overcome by its smoothness, sweetness, and allure; rather, set against it how much better is the consciousness of having won this victory.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="35">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:35" n="1">
+    
+    <p>Whenever you do something after judging that it ought to be done, never try to avoid being seen doing it, even if the multitude is likely to form a different opinion about it. For if you are not acting rightly, shun the deed itself; but if you are acting rightly, why do you fear those who will rebuke you wrongly?</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="36">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:36" n="1">
+    
+    <p>Just as <q>It is day</q> and <q>It is night</q> have great value in a disjunctive proposition, but no value in a conjunctive one, so too choosing the larger share may have value for the body, yet has no value for preserving the proper social spirit at a banquet. When you dine with another, therefore, remember not merely to look at the value of the dishes set before you for the body, but also to preserve respect for your host.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="37">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:37" n="1">
+    
+    <p>If you assume a role beyond your capacity, you both disgrace yourself in that role and neglect the one you could have fulfilled.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="38">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:38" n="1">
+    
+    <p>Just as in walking you take care not to step on a nail or twist your foot, so too take care not to harm your own ruling principle. And if we observe this precaution in every action, we shall undertake the action more safely.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="39">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:39" n="1">
+    
+    <p>The body is the measure of property for each person, as the foot is of a shoe. If you stop at this, you will keep the proper measure; but if you go beyond it, you are bound thereafter to be carried down as over a precipice—just as with a shoe too, if you go beyond the foot, you get a gilded shoe, then a purple one, then an embroidered one. For once you pass beyond the measure, there is no limit.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="40">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:40" n="1">
+    
+    <p>Women straightway from the age of fourteen are called "mistresses" by men. Seeing, therefore, that nothing else belongs to them, and that they only go to bed with men, they begin to adorn themselves and place all their hopes in that. It is worthwhile, then, to take care that they perceive they are honored for nothing else than appearing modest and self-respecting.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="41">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:41" n="1">
+    
+    <p>It is a sign of dullness of nature to spend much time on bodily concerns—such as exercising at great length, eating at great length, drinking at great length, defecating, and having sex. Rather, these things should be done as a side matter, while all your attention should be devoted to the mind.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="42">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:42" n="1">
+    
+    <p>Whenever someone treats you ill or speaks ill of you, remember that he does or says it believing that it is appropriate for him. It is impossible, then, for him to follow what appears right to you, rather than what appears right to himself; so that if he forms a false impression, it is he who is harmed, since he is the one deceived. For if someone supposes a true conjunctive proposition to be false, it is not the proposition that is harmed, but the one who has been deceived. Starting from these principles, then, you will be gentle toward the person who reviles you; for say to yourself on each occasion, <q>So it seemed to him.</q></p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="43">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:43" n="1">
+    
+    <p>Everything has two handles, one by which it may be carried, and the other by which it cannot. If your brother wrongs you, do not take hold of the matter by that handle, that he wrongs you (for that is the handle by which it cannot be carried), but rather by the other, that he is your brother, that he was brought up with you; and you will take hold of it by the handle that makes it bearable.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="44">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:44" n="1">
+    
+    <p>These arguments are invalid: <q>I am richer than you, therefore I am better than you;</q> <q>I am more eloquent than you, therefore I am better than you.</q> Rather, these are valid: <q>I am richer than you, therefore my property is better than yours;</q> <q>I am more eloquent than you, therefore my diction is better than yours.</q> But you yourself are neither property nor diction.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="45">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:45" n="1">
+    
+    <p>Someone bathes hastily: do not say that he bathes badly, but hastily. Someone drinks a great deal of wine: do not say that he drinks badly, but a great deal. For before discerning his judgment, how do you know whether he acts badly? Thus it will not happen that you receive cognitive impressions of one thing and give assent to another.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="46">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:46" n="1">
+    
+    <p>Never call yourself a philosopher, nor talk for the most part among laymen about philosophical principles, but do what follows from those principles; for instance, at a banquet do not say how one ought to eat, but eat as one ought. Remember that Socrates had so completely eliminated ostentation from every quarter that people used to come to him wanting to be introduced by him to philosophers, and he would take them and introduce them.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:46" n="2"><p>So patiently did he bear being overlooked. And if discussion of some philosophical principle arises among laymen, keep silent for the most part; for there is great danger that you will immediately vomit up what you have not digested. And when someone tells you that you know nothing, and you are not stung by it, then know that you are beginning your work. For sheep too do not bring grass to the shepherds to show how much they have eaten, but digesting their fodder inwardly, they produce wool and milk outwardly. So you too, do not display your philosophical principles to laymen, but rather the actions that come from having digested them.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="47">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:47" n="1">
+    
+    <p>When you have adapted your body to frugal living, do not plume yourself upon it, nor, if you drink water, say on every occasion that you drink water. And if you ever wish to train yourself for endurance, do it for yourself and not for outsiders: do not embrace statues, but when you are intensely thirsty, take a mouthful of cold water, spit it out, and tell no one.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="48">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:48" n="1">
+    
+    <p>The posture and character of a layman: he never expects benefit or harm from himself, but from external things. The posture and character of a philosopher: he expects all benefit and harm from himself.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:48" n="2"><p>Signs of one making progress: he blames no one, praises no one, finds fault with no one, accuses no one, says nothing about himself as though he were someone or knew something. Whenever he is hindered or prevented, he blames himself. If someone praises him, he laughs silently to himself at the one praising him; if someone blames him, he makes no defense. He goes about like convalescents, careful not to disturb anything that is healing before it has gained firmness.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:48" n="3"><p>He has removed all desire from himself, and has transferred aversion solely to what is contrary to nature among the things up to us. He uses impulse gently toward everything. If he appears foolish or ignorant, he does not care. In a word, he keeps watch over himself as over an enemy and a plotter.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="49">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:49" n="1">
+    
+    <p>Whenever someone prides himself on being able to understand and expound the books of Chrysippus, say to yourself, <q>If Chrysippus had not written obscurely, this man would have nothing to pride himself on.</q> But what do I want? To learn nature and follow her. I seek, then, who expounds her; and hearing that Chrysippus does, I go to him. Yet I do not understand what is written; so I seek an expositor. Up to this point there is nothing to be proud of yet. When I have found the expositor, it remains to put the precepts into practice; this alone is something to be proud of. But if I admire the mere act of expounding, what else have I become than a grammarian instead of a philosopher, except that I am expounding Chrysippus instead of Homer? Rather, when someone says to me, <q>Read Chrysippus with me,</q> I blush when I cannot show deeds matching and harmonizing with his words.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="50">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:50" n="1">
+    
+    <p>Whatever rules are set before you, abide by them as laws, as though it would be impiety to transgress them. And whatever anyone says about you, pay no attention; for this is no longer yours.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="51">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:51" n="1">
+    
+    <p>How long will you still put off demanding the best for yourself and in no instance transgressing the discriminating judgment of reason? You have received the philosophical principles with which you ought to engage, and you have engaged with them. What sort of teacher are you still waiting for, that you put off your own amendment until his coming? You are no longer a boy, but already a grown man. If you are now negligent and lazy, always adding resolution to resolution and fixing one day after another after which you will attend to yourself, you will fail to notice that you have made no progress, and will live and die a layman.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:51" n="2"><p>Resolve right now, then, to live as a mature man and one making progress; and let everything that appears best be to you an inviolable law. And if anything laborious or pleasant, glorious or inglorious, is set before you, remember that now is the contest, already the Olympic games are here, it is no longer possible to postpone, and that on a single day and a single action progress is either lost or saved.</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:51" n="3"><p>Thus Socrates attained perfection, paying heed to nothing else in all that befell him than to reason. And you, even if you are not yet Socrates, ought to live as one who wishes to be Socrates.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="52">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:52" n="1">
+    
+    <p>The first and most necessary division in philosophy is the application of principles, such as not lying; the second is that of demonstrations, such as why one ought not to lie; the third confirms and articulates these very demonstrations, such as why this is a demonstration—for what is a demonstration, what is entailment, what is contradiction, what is truth, what is falsehood?</p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:52" n="2"><p>Accordingly, the third division is necessary on account of the second, and the second on account of the first; but the most necessary, and the one where we ought to rest, is the first. Yet we do the opposite: we linger in the third division and spend all our zeal upon it, while utterly neglecting the first. Consequently, we tell lies, while having ready at hand the demonstration of why one ought not to lie.</p>
+   </div>
+   </div>
+
+<div type="textpart" subtype="chapter" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2" n="53">
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:53" n="1">
+    
+    <p>On every occasion these words must be kept ready at hand: <quote rend="blockquote"><lb/>Lead me, O Zeus, and thou, O Destiny, <lb/>whithersoever I have been appointed by you; <lb/>for I will follow without hesitation; and even if I refuse, <lb/>having grown wicked, I shall follow nonetheless.</quote></p></div>
+
+    <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:53" n="2"><p><quote rend="blockquote">
+      <lb/>Whoever has yielded nobly to necessity <lb/>is wise in our eyes, and understands things divine.</quote>
+    </p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:53" n="3"><p>
+    <q>Well, Crito, if so it pleases the gods, so let it be.</q>
+    </p></div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0557.tlg002.perseus-grc2:53" n="4"><p>
+    <q>Anytus and Meletus can indeed kill me, but they cannot harm me.</q></p>
+</div>
+</div>
+      </div>
+  </body>
+ </text>
+
+</TEI>

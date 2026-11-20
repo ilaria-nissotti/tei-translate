@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Ὑπὲρ τῆς δωδεκαετίας</title>
+<author>Demades</author>
+<editor>J. O. Burtt</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Lisa Cerrato</name>
+<name>William Merrill</name>
+<name>Elli Mylonas</name>
+<name>David Smith</name>
+</respStmt>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+<funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+</titleStmt>
+	
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+<date type="release" when="1996">Perseus 2.0</date>
+<idno type="filename">tlg0535.tlg001.perseus-grc2.xml</idno>
+<availability>
+<licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+<p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+</availability>
+</publicationStmt>	
+	
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title>Minor Attic Orators</title>
+<author>Demades</author>
+	<editor>J. O. Burtt</editor>
+	<imprint>
+		<pubPlace>London</pubPlace>
+		<publisher>William Heinemann, Ltd.</publisher>
+		<pubPlace>Cambridge, MA</pubPlace>
+		<publisher>Harvard University Press</publisher>
+		<date>1954</date>
+		<date type="printing">1962</date>
+	</imprint>
+	<biblScope unit="volume">2</biblScope>
+</monogr>
+	<ref target="https://archive.org/details/minoratticorator02maiduoft/page/336/mode/2up">Internet Archive</ref>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<refsDecl>
+<refState unit="speech"/>
+<refState unit="section"/>
+</refsDecl>
+	
+<refsDecl n="CTS">
+<cRefPattern n="section" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body//tei:div/tei:div[@n='$1'])">
+<p>This pointer pattern extracts section.</p>
+</cRefPattern>
+</refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+	
+<profileDesc>
+    <langUsage>
+	<language ident="grc">Greek</language>
+	<language ident="eng">English</language>
+    </langUsage>
+</profileDesc>
+	
+<revisionDesc>
+  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+<change when="2023-11-16" who="Lisa Cerrato">EpiDoc and CTS Conversion</change>
+<change when="2014-08-01" who="Stella Dee">edited markup</change>
+<change when="2014-07" who="Stella Dee">split composite text and converted to unicode</change>
+<change when="1992-06" who="W. Merrill">checkmark</change>
+<change when="1992-05" who="W. Merrill">Change markup in accordance with orator dtd</change>
+</revisionDesc>
+</teiHeader>
+	
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2">
+<div n="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" type="edition" xml:lang="en"> 
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="1">
+<p rend="align(indent)">You have received from the laws, men of Athens, the authority both to save and to punish those who stand in peril. Yet neither can a physician skillfully treat the sick unless he understands the cause of the disease, nor can a juror cast a righteous vote unless he has clearly <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">σαφῶς</foreign>add. e.</note>followed the just grounds of the trial.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="2">
+<p>Having myself fallen into the midst of the <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">μέσην τὴν τῶν</foreign>Sauppe: <foreign xml:lang="grc">τὴν τῶν</foreign>E: <foreign xml:lang="grc">μέσην τῶν</foreign>cett.</note>orators' hostility, I beg to obtain your help just as I do the help of the gods. For they slander my life, thinking they will make my speech untrustworthy. Yet whether dead or alive I am nothing; for what does it matter to Athenians if <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">εἰ]; ἢ</foreign>Stephanus.</note>Demades is an incidental loss? <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">παρανάλωμα]; παραναλοῦμαι</foreign>Blass.</note> <note resp="Loeb" xml:lang="eng">Post<foreign xml:lang="grc">Δημάδης</foreign>verba<foreign xml:lang="grc">ἐμοῦ δὲ τὴν εἰρήνην συμβουλεύοντος</foreign>add. e.</note>Weeping for my ruin will not be the soldier <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">στρατιώτης]; στρατός</foreign>e.</note>—how could he, whom war enriches and peace does not feed?—but the man who farms the land, the man who sails the sea, and everyone who loves a quiet life, for whom I walled Attica, surrounding the borders of our territory not with stones but with the security of the city.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="3">
+<p>Something dangerous happens to many jurors, gentlemen <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ὦ ἄνδρες</foreign>X corr.: <foreign xml:lang="grc">ωδε</foreign>X pr.: <foreign xml:lang="grc">ὦ</foreign>N.</note>of the jury. Just as a disease of the eyes clouds the vision and prevents one from seeing what lies before one, so an unjust speech slipping into the minds of jurors <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">δικαστῶν]; δικαίων</foreign>e.</note>does not allow them, through anger, to discern the truth. Therefore you ought to watch cautiously over defendants rather than accusers; for the latter from the outset, by speaking first, have the juror just as they want him, whereas the former are forced to set their case against angry judges.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="4">
+<p>If then I appear guilty of the charges, condemn me and do not spare me—I do not beg off; but if I am found clear of the accusations by justice, by the laws, and by expediency, do not abandon me to the cruelty of my accusers. Yet if by dying I shall genuinely contribute anything to the common safety, as these men claim, I am ready to die; for it is noble to win public goodwill <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">εὔνοιαν]; εὐδαιμονίαν</foreign>Sauppe.</note>by one's private death, provided it is our country's need and not these men's speech that takes away my life. <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ζῆν</foreign>Sauppe: <foreign xml:lang="grc">νῦν</foreign>codd.</note> <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ἀφαιρήσηται</foreign>C: <foreign xml:lang="grc">ἀφαιρήσεται</foreign>cett.: <foreign xml:lang="grc">ἀφαιρῆται</foreign>Bekker.</note></p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="5">
+<p>Grant me then, in the name of the gods, men of Athens, grant me to speak to you as I choose about the justice of my case. I am thought to have the ability to help others as well, yet in this trial fear hinders my speech. Otherwise it is not the examination of the facts that I fear, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">δέδοικα</foreign>om. codd. praeter C.</note>but solely the slander of my opponents, which <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">τὴν τῶν ἀντιδίκων διαβολὴν μόνον, ἥτις</foreign>C: <foreign xml:lang="grc">τῇ τῶν ἀδίκων μόνον, ὃς</foreign>cett.: <foreign xml:lang="grc">τὸν τῶν ἀντιδίκων φθόνον, ὃς</foreign>Sauppe.</note>does not judge wrongdoers, but attaches itself to those who have a reputation <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">δοκοῦσι]; εὖ δοκοῦσι</foreign>Bekker: <foreign xml:lang="grc">δοκοῦσί τι</foreign>Sauppe.</note>for speaking or acting.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="6">
+<p>My hope in you, however, is just; <add>for</add> <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">γάρ</foreign>add. Blass.</note>no small weight toward safety for a man in peril is the goodwill of his hearers arrayed on the side of justice. If I obtain this, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">κατατύχω</foreign>C: <foreign xml:lang="grc">κατατυχών</foreign>cett.</note>I shall clear away all the slanders; without it, neither argument, nor the laws, nor the truth of the facts can <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">δύνανται</foreign>X: <foreign xml:lang="grc">δύναται</foreign>e: <foreign xml:lang="grc">δύναιντ’ ἂν</foreign>C.</note>save one who is unjustly tried. You are not unaware that many accusers have often seemed to speak justly during the prosecution, yet when the defense was set beside it were themselves found to be malicious informers—which indeed I am confident will happen to these men now if you choose to listen with goodwill.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="7">
+<p rend="align(indent)">Since they have also tried to attack the rest of my public career, I wish to say a few words about it before passing on to the remaining defense, so they may not deceive you unnoticed. Born, men of Athens, of my father Demeas, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">Δημέου</foreign>Blass (iam<foreign xml:lang="grc">Δημαίου</foreign>Lhardy et Kiessling):<foreign xml:lang="grc"> Δημάδου</foreign>codd.</note>as the older among you know, for the rest of my time I lived as best I could, neither wronging the people in public nor harming anyone in the city in private, always trying by my own labors to remedy the weakness of my livelihood.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="8">
+<p>Poverty perhaps carries some inconvenience and hardship, yet it is free from disgrace, since lack of means in many cases proves, I think, not wickedness of character but the unkindness of fortune. When I entered public life, I devoted my effort not to lawsuits and the trade of speechwriting, but to outspokenness from the platform—which <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc" n="lemma">ἡ τοῖς</foreign> <foreign xml:lang="grc">αὕτη δὲ τοῖς</foreign>e.</note>renders life hazardous for speakers, yet gives the greatest opportunity for success to those who take heed; <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc" n="lemma">εὐλαβουμένοις</foreign> <foreign xml:lang="grc">εὐλαβῶς ἀκροωμένοις</foreign>Blass.</note>for the safety of our country must not be cast aside for the sake of a speaker's favor.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="9">
+<p>The burial of a thousand Athenians bears witness for me, tended by the hands of our enemies, which I turned from hostile to friendly toward the dead. Taking charge of affairs at that crisis, I proposed the peace—I admit it; I also proposed honors for Philip—I do not deny it. For it was after securing for you two thousand prisoners without ransom, a thousand bodies of citizens without a herald, and Oropus without an embassy that I proposed these measures.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="10">
+<p>What guided my writing hand was not Macedonian bribery, as these men falsely allege, but the crisis, necessity, our country's interest, and the king's humanity. For having entered the danger as an enemy, he departed from the struggle as a friend, bestowing the prize of the victors upon the defeated.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="11">
+<p>Then again another crisis came upon the city—to pass over the intervening dangers willingly: all the inhabitants of Greece were elevating Alexander to the leadership, and by their decrees inflating an ambition greater than was fitting in a young and glory-loving man. We and the Lacedaemonians alone remained, having as our bulwark of safety neither abundance of money, nor preparations of arms, nor an array of infantry, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">οὐχὶ πεζῶν]; οὐχ ἱππέων καὶ πεζῶν</foreign>Blass.</note>but a great desire with weak and humble power.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="12">
+<p>For the danger at Leuctra had stripped the latter <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ὧν μὲν γὰρ]; τῶν Λακεδαιμονίων</foreign>e.</note>of their strength, and the Eurotas, previously untried by an enemy trumpet, saw <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">εἶδεν</foreign>Ald.: <foreign xml:lang="grc">εἶχεν</foreign>codd. et e.</note>Boeotians encamped in Laconia; for the Theban sheared off the flower of Sparta and enclosed in ashes the youth who had been set as the boundaries of Laconia. Meanwhile war had used up our own preparations, and the disaster of the dead had shattered the hope of the living.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="13">
+<p>The Thebans had the Macedonian garrison as their heaviest chain, by which not only were their hands bound, but their freedom of speech was taken away; for time buried the power of the Thebans along with the body of Epaminondas. Meanwhile the Macedonians were at the height of all their resources, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">σύμπασιν</foreign>Blass: <foreign xml:lang="grc">σώμασιν</foreign>codd. et e.</note>and fortune was already carrying them in their hopes across to the scepter and the treasures of the Persians. <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">Περσῶν</foreign>inter<foreign xml:lang="grc">τὰ</foreign>et<foreign xml:lang="grc">σκῆπτρα</foreign>transtulit Blass.</note></p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="14">
+<p>At that juncture likewise Demosthenes carried a decree for war, introducing to the citizens counsel fair in words but not saving in deeds. Yet when the enemy stood near Attica, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ὁ πολέμιος</foreign>add. e.</note>the countryside was being shut up inside the city, the much-fought-for and universally admired town was filling up like a fold with cattle, sheep, and flocks, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">καὶ τῶν βοσκημάτων</foreign>om. e.</note>and there was no hope of help from anywhere, I proposed the peace.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="15">
+<p>I admit it, and I maintain that I acted nobly and expediently; for it is better to turn aside from an oncoming cloud than to be swept away with a rushing torrent. I ask, men of Athens, that the grief arising from events not breed any ill-will against me among you. For I do not control fortune, but fortune controls life, through which it faces peril; and an adviser, like a physician, ought not to bear the blame for the disease, but to receive gratitude for the cure.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="16">
+<p>Setting aside, then, what happened through external causes, view my policy bare and simply on the facts. After this a third danger was brought <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ἐπήγετξ</foreign>X: <foreign xml:lang="grc">ἐγένετο</foreign>T: <foreign xml:lang="grc">ἐπὶ</foreign>N: <foreign xml:lang="grc">ἐπῄει</foreign>Scheibe.</note>upon the city, the hardest of all—no longer sent by fortune, but brought on by the orators of the day.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="17">
+	<p rend="align(indent)">Recall for me what happened when Demosthenes and Lycurgus, drawing up their battle-line in words, were defeating the Macedonians among the Triballi, all but laying out Alexander's corpse visibly on the platform, and in the Assembly anointing with fine speeches and whetting the spirits of the Theban exiles present with the hope of freedom, while calling me gloomy and despondent for not agreeing <gap reason="lost" rend=". . ."/> </p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="18">
+	<p rend="align(indent)">The speech of truth has something bitter in it when someone, using unmixed frankness, takes away the expectation of great advantages; whereas pleasing words, even if false, persuade the hearers.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="19">
+	<p rend="align(indent)">The danger was expected to reach Attica.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="20">
+	<p rend="align(indent)">Shortly afterward the spear-points of the Macedonians were already touching Attica, and with disaster at our doors and Greece cowering in fear, it was necessary to stroke and tame <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">τιθασεύειν</foreign>Haupt: <foreign xml:lang="grc">τιθασσεύειν</foreign>cod.</note>the king's anger aroused against the people.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="21">
+<p rend="align(indent)">It is not the giving of money that does harm, but the action of the receiver, if it is contrary to the public interest.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="22">
+<p rend="align(indent)">Saying this he raises the torch of war, and the enemy encamps at the gates.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="23">
+<p rend="align(indent)">He decided the war with blood.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="24">
+<p rend="align(indent)">For not in order to take gold, as they falsely allege, but in order to do this.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="25">
+<p rend="align(indent)"><gap reason="lost" rend=". . ."/>had suspicion as an ally.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="26">
+<p rend="align(indent)">Would that the Thebans too had had a Demades! For Thebes would still be a city; but now it is the empty site of a city and remnants of ruin, leveled to the ground by the hands of its enemies.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="27">
+<p rend="align(indent)">It was not noble to welcome enemy blood and Macedonian fire into Attica, nor to keep silent and look on passively while the city was sinking like a ship.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="28">
+<p rend="align(indent)">Yet those wretched advisers, leading the flower of the city out into Boeotia, led them into a common grave.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="29">
+<p rend="align(indent)">It is peace, <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">εἰρήνην</foreign>Haupt: <foreign xml:lang="grc">εἰρῄνης</foreign>cod.</note>not speech, that must be arrayed against the Macedonian phalanx; for zeal in speaking is useless for those whose power is smaller than their will.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="30">
+<p rend="align(indent)">For the anger of the wronged is softened when the one to blame does not quarrel, but makes the wronged party the judge of the clemency to be shown him.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="31">
+<p rend="align(indent)">They buried the envoys in a well, acting nobly in their anger, yet not piously in their punishment.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="32">
+<p rend="align(indent)">Sparta was distressed by her misfortunes.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="33">
+<p rend="align(indent)">Demosthenes, that bitter informer, twisting the matter by the cleverness of his phrases, slandered it.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="34">
+<p rend="align(indent)">I knew well that the life of statesmen is unstable, the future unseen, the shifts of fortune <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">τύχης</foreign>Haupt: <foreign xml:lang="grc">ψυχῆς</foreign>cod.</note>varied, and the crises gripping Greece unpredictable; therefore the law I was about to lay down against others.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="35">
+<p rend="align(indent)">It was not I who advised these things, but our country, the crisis, and events that demanded through my voice that we do them; it is not just, then, that an adviser be held to account for circumstances and for things whose outcome lies with fortune.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="36">
+<p rend="align(indent)">Slain by his own hand, he departed life.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="37">
+<p rend="align(indent)">The daughters of Erechtheus conquered the womanly weakness of their soul by the nobility of virtue, and love for the soil that nurtured them made the frailty of their nature manly.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="38">
+<p rend="align(indent)">Old men cling to life at the sunset of their days.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="39">
+<p rend="align(indent)"><gap reason="lost" rend=". . ."/>lit up Greece all around with hostile fire.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="40">
+<p rend="align(indent)">Speech uttered emptily sharpens swords, but applied skillfully blunts even whetted spears; diplomacy accomplishes more than force.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="41">
+<p rend="align(indent)">The barbarian trusted the words and did not examine the meaning; for he judged the promise with his ears for pleasure, not for truth. Yet it was not mere words, for deeds followed immediately.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="42">
+<p rend="align(indent)">By force man cannot master even the smallest things, but by intelligence and method he has yoked the ox to the plow for tilling the land, bridled the horse, set a rider on the elephant, and crossed the measureless sea on wood. Of all these things the architect and craftsman is the mind; using it as our guide, we must not pursue everything according to our own impulsiveness, but according to the natures and shifts of events. In just this way I too, taming Alexander like some fearsome wild beast with gratifying words, made him manageable for the future.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="43">
+<p rend="align(indent)">Manly speech and frankness worthy of the name of the Athenians.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="44">
+<p rend="align(indent)">I hate the demagogues because they stir up the people and shatter the achievement of my policy, peace, with a decree of war.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="45">
+<p rend="align(indent)">Our ancestors abandoned the city and took the sea as their city; whereas defeat in the naval battle shattered our land force as well.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="46">
+<p rend="align(indent)">Freedom does not fear an eavesdropper.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="47">
+<p rend="align(indent)">Slippery and continual are the changes brought about by events.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="48">
+<p rend="align(indent)">For by a decree of goodwill the altar of immortality is established.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="49">
+<p rend="align(indent)">You will set over them Time as a herald speaking out.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="50">
+<p rend="align(indent)">Alexander, who linked his hopes to the hegemony of the inhabited world.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="51">
+<p rend="align(indent)">Demosthenes, a puny creature made up of syllables and tongue.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="52">
+<p rend="align(indent)">For those words lulled the king's anger as if in sleep.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="53">
+<p rend="align(indent)">For then the forces of the city and the spirit of Greece were still at their height, and fortune flowed with the people; but now everything useful has been ostracized from public affairs, the sinews of the cities have been cut out, men's lives have inclined toward laxity and luxury, concord no longer remains, and the hopes of our friends have turned false.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="54">
+<p rend="align(indent)">War hung like a cloud from every quarter of Europe, shutting down my freedom of speech in the Assembly and taking away the voice of liberty and glory.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="55">
+<p rend="align(indent)">Judge the truth from the facts, and do not prefer false charges to acknowledged deeds.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="56">
+<p rend="align(indent)"><gap reason="lost" rend=". . ."/>through events foretells hostile fire. This letter of Alexander <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc" n="lemma">Ἀλεξάνδρου</foreign> secl. Blass.</note>shattered my mind; containing war in the shape of written characters, it all but seized me by the hand and roused me; passing through my thoughts, it did not allow me to keep quiet—for danger was at the gates.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="57">
+<p rend="align(indent)">My policy and the commotion of that time rallied the city, prevented a wave from flooding Attica on all sides, and turned the armament in Boeotia against the Persians.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="58">
+<p rend="align(indent)">The fear of war, like a storm-cloud, does not present the same appearance when looming over us and when dispersed.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="59">
+<p rend="align(indent)">Therefore it seems hardest of all to render an account in peacetime for policies pursued in war; for each man judges by the present quiet, not by the past danger. Yet when one removes the circumstances of actions, the justice of the deed is removed along with them.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="60">
+<p rend="align(indent)">Each offense has its own proper procedure: some require the council <add>of</add> <note resp="Loeb" xml:lang="eng"><foreign xml:lang="grc">ἐξ</foreign>add. Blass.</note>the Areopagus, others the lesser courts, others the Heliaea; all of these are distinguished by their names, subject matter, times, penalties, procedures, and number of jurors.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="61">
+<p rend="align(indent)">My informers bring unjust prosecutions against me; for they do not bring a charge of conspiracy—their malice is unsworn, whereas the jurors' verdict is under oath.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="62">
+<p rend="align(indent)">An unjust verdict differs from an unjust punishment in name only.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="63">
+<p rend="align(indent)">They suppose they will push me underwater.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="64">
+<p rend="align(indent)">It is not right that the safety of a defendant should become a resource for blackmail to men ready to dare anything, nor to consider an accusation made of words stronger than a defense resting on deeds.</p></div>
+	
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0535.tlg001.perseus-grc2" n="65">
+<p rend="align(indent)">Greece has become one-eyed now that the city of the Thebans has been destroyed.</p></div>
+
+</div>	
+</body></text></TEI>

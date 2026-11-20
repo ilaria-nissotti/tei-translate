@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Κατ’ ἰητρεῖον</title>
+<author>Hippocrates</author>
+<editor>Émile Littré</editor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Rashmi Singhal</name>
+</respStmt>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+<funder>National Library of Medicine History of Medicine Division</funder>
+</titleStmt>
+
+<publicationStmt>
+<publisher>Cultural Heritage Language Technologies</publisher>
+<pubPlace>Kansas City Missouri</pubPlace>
+<date when="2005-06-01">June 1, 2005</date>
+
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Digital Library Project</authority>
+<date type="release" when="2007" cert="medium">Perseus 4.0</date>
+<idno type="filename">tlg0627.tlg008.perseus-grc2.xml</idno>
+<availability>
+<licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+<p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+</availability>
+</publicationStmt>
+	
+<sourceDesc>
+<biblStruct>
+<monogr>
+<title xml:lang="fre">Oeuvres complètes d’Hippocrate</title>
+<author>Hippocrates</author>
+<editor>Émile Littré</editor>
+<imprint>
+<pubPlace>Amsterdam</pubPlace>
+<publisher>Adolf M. Hakkert</publisher>
+<date type="reprint">1961</date>
+</imprint>
+<biblScope unit="volume">3</biblScope>
+</monogr>
+<ref target="https://archive.org/details/oeuvrescomplte03hippuoft/page/272/mode/2up">Internet Archive</ref>
+</biblStruct>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction status="high">
+<p>Data Entry</p>
+</correction>
+</editorialDecl>
+<!--<refsDecl>
+<refState unit="text"/>
+<refState n="chunk" unit="section"/>
+</refsDecl>
+<refsDecl n="text=Aph.">
+<refState unit="text"/>
+<refState unit="chapter"/>
+<refState n="chunk" unit="section"/>
+</refsDecl>
+<refsDecl>
+<refState unit="page"/>
+</refsDecl>-->
+
+<refsDecl n="CTS">
+<!--<cRefPattern n="section" matchPattern="(\w+).(\w+)"
+replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+<p>This pointer pattern extracts speech and section.</p>
+</cRefPattern>-->
+<cRefPattern n="section" matchPattern="(\w+)"
+replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+<p>This pointer pattern extracts section.</p>
+</cRefPattern>
+</refsDecl>
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+	<revisionDesc>
+	  <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+		<change when="2023-01-03" who="Lisa Cerrato">CTS and EpiDoc conversion.</change>
+	</revisionDesc>
+</teiHeader>
+	
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2"> 
+<div n="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" type="edition" xml:lang="en"> 
+<head rend="align(center)">IN THE SURGERY.</head> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="1"> 
+<label>1.</label> <p>It is the business of the physician to know, in the first place, things similar and things dissimilar—beginning from the most important, the easiest, and those known in every way: what can be seen, touched, and heard; what can be perceived by sight, touch, hearing, nose, tongue, and understanding; what can be known by all the means through which we acquire knowledge.</p> </div> <pb n="274"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="2"> 
+<label>2.</label> <p>The things relating to surgery in the operating room are: the patient; the operator; the <pb n="276"/>assistants; the instruments; the light; where and how; how many and how; where the body and the appliances are; the time; the manner; the place.</p> </div> <pb n="278"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="3"> 
+<label>3.</label> <p>The operator, whether sitting or standing, should be positioned conveniently with respect to himself, to the part being operated on, and to the light. Now of light there are two kinds, natural and artificial; the natural is not in our power, whereas the artificial is in our power. Each of these has two uses: direct light or oblique light. Oblique light is little used, and its proper degree is obvious. As for direct light, from the available and suitable lights, turn the part being operated on toward the brightest—except such parts as ought to be concealed or are indecent to expose. Thus the part operated on should face the light, and the operator should face the part operated on, except so as not to cast a shadow; <pb n="280"/>for in that way the operator will see, while the part operated on will not be exposed to view. With respect to himself, when seated, his feet should be in a straight line directly beneath his knees, and slightly apart; his knees a little higher than the groins, and spaced apart to support and rest his elbows. His garment should be neat, orderly, even, and uniform over elbows and shoulders. With respect to the part operated on: far and near, above and below, to one side or the other, or in the middle. The limit of far and near is that the elbows should not pass forward beyond the knees nor backward beyond the sides; of above, not to hold the hands higher than the breasts; <pb n="282"/>of below, not lower than where, with the chest resting on the knees, the hands are at right angles to the upper arms. So much for the middle position; as for to one side or the other, he should not go beyond his seat, but shift his body and the working part of his body in proportion to the turn. When standing, he should inspect while standing evenly on both feet, well balanced, but operate with his weight on one foot—not the one on the side of the operating hand; the height of the knee to the groins as when seated, and the other limits the same. The patient should assist the operator with the other part of his body, whether standing, sitting, or lying, so as most easily to maintain the required posture, guarding against slipping, <pb n="284"/>sinking, twisting, and leaning, so that both the posture and the form of the part operated on are preserved during presentation, operation, and subsequent positioning.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="4"> 
+<label>4.</label> <p>The nails should neither project beyond nor fall short of the fingertips; <pb n="286"/>use is made of the tips of the fingers. Practice with the fingertips, mostly the index finger against the thumb; with the whole hand prone; with both hands opposed. A good natural conformation of the fingers is a wide space between the fingers and the thumb opposed to the index finger. It is clear that it is a harmful defect in those who from birth or upbringing are accustomed to hold the thumb down under the other <pb n="288"/>fingers. Practice all operations with each hand separately and with both together (for both are alike), aiming to act well, neatly, quickly, painlessly, gracefully, and readily.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="5"> 
+<label>5.</label> <p>The instruments, when and of what sort, will be stated later. Where they should be: neither in the way of the work nor in the way of picking them up, but beside the working part of the body; if another hands them, let him be ready a little beforehand, and act when you give the order.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="6"> 
+<label>6.</label> <p>Those attending the patient should present the part being operated on as directed, and hold the rest of the body steady so it does not move, keeping silent and obeying the one in charge.</p> </div> <pb n="290"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="7"> 
+<label>7.</label> <p>There are two aspects of bandaging: the finished work and the process of doing it. The process should be quick, painless, ready, and graceful: quick in completing the work, painless in acting easily, ready for every requirement, graceful so as to be pleasant to look upon; by what exercises these are acquired has been stated. The finished work should be good and neat: neat means simple and well-ordered—either like and equal parts bound equally and alike, or unequal and unlike parts [unequally and unlike]. The forms are: the simple, <pb n="292"/>the adze-shaped, the snub-nosed, the eye, the rhombus, and the half-rhombus; fit the form to the shape and affection of the part being bandaged.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="8"> 
+<label>8.</label> <p>There are two useful purposes of bandaging: strength, <pb n="294"/>either by pressure or by the number of bandages. On the one hand, the bandaging itself heals; on the other, it serves the healing dressings. Such is the general rule; the most important points of bandaging are these: pressure such that what is laid on neither comes loose nor presses hard, but is fitted closely without being forced—less at the extremities, least in the middle. The knot and seam should run <pb n="296"/>not downward, but upward, in presentation, posture, bandaging, and pressure. The ends should be placed not over the wound, but where the knot is. The knot should be neither where it rubs, nor where there is action, <pb n="298"/>nor where it is useless; and knot and seam should be soft, not bulky.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="9"> 
+<label>9.</label> <p>Know well that every bandage tends to slip toward the sloping and tapering parts, <pb n="300"/>such as the top of the head and the bottom of the shin. Bandage from right to left and from left to right, except the head, which should be bandaged straight across. Opposite parts should be bandaged from two heads; if from one head, bring it to a similar fixed point, such as the middle of the head or whatever else is like it. Moving parts, such as joints, should be wrapped as lightly and neatly as possible where they flex, as at the hollow of the knee, and with simple, broad turns where they extend, as at the kneecap. Add extra turns to secure the parts around them and to support the whole bandage on the motionless <pb n="302"/>and narrower parts of the body, such as above and below the knee. For the shoulder, the turn around the opposite armpit corresponds; for the groin, that around the opposite <unclear/>flank; and for the shin, that above the calf. Where the tendency to slip is upward, the counter-hold is from below; where downward, the opposite; where there is none, as on the head, make the securing turns on the most even part and use the least oblique bandaging, so that the firmest part, wrapped last, holds in place the parts most prone to shift. Where linen bandages cannot easily secure or support, make the supports with stitches by laying or sewing together.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="10"> 
+<label>10.</label> <p>Bandages should be clean, light, soft, and thin. Practice rolling them with both hands together and with each hand separately. Use the proper kind, judging by the breadth and thickness of the parts. <pb n="304"/>The heads of the rolls should be firm, even, and neat. Bandages about to fall off are worse than those that have quickly fallen off; they should neither constrict nor fall off.</p> </div> <pb n="306"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="11"> 
+<label>11.</label> <p>What bandaging, under-bandaging, or both accomplish: under-bandaging serves either to press together separated parts, or to draw together gaping parts, or to separate contracted parts, or to straighten distorted parts, or the opposites. Prepare linen bandages that are light, thin, soft, clean, broad, without seams or loose edges, and sound enough to bear tension, or even a little stronger; not dry, but moistened with the liquid suited to each case. For separated parts, so that the raised portions touch the base without pressing it; begin from the sound part and end <pb n="308"/>at the wound, so that what lies underneath is milked out and no more collects. Bandage straight parts straight and oblique parts obliquely, in a painless posture in which there will be neither constriction nor separation, so that when the part is moved into a sling or resting position, muscles, veins, sinews, and bones will not shift, but remain in the same state where they are best placed and held; it should be slung or laid in a painless, natural posture. <pb n="310"/>For parts that are to be kept apart, do the opposite. Where gaping parts are to be drawn together, follow the same rules in other respects, but begin the drawing together from some distance and apply pressure gradually—least at first, then more, the limit of the greatest pressure being contact. Where contracted parts are to be separated, with inflammation do the opposite; without inflammation, use the same preparation but opposite bandaging. To straighten distorted parts, follow the same rules in other respects; bring back displaced parts by under-bandaging, agglutination, and slinging, and the opposites in the opposite way.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="12"> 
+<label>12.</label> <p>For fractures, the length, breadth, thickness, and number of compresses: <pb n="312"/>length equal to the bandaging; breadth of three or four fingers; thickness of three or four folds; number enough to encircle without overlapping or falling short. Those used for straightening should be long enough to go around, with breadth and thickness judged by the deficiency, not filling it all at once. Of the linen bandages there are two under-bandages: the first running from the injury upward, the second from the injury downward and from below back upward. Press most at the injury, least at the ends, and the rest in proportion; let the bandaging take in a good deal of the sound part. As for the outer bandages—their number, length, and breadth: in number, enough not to give way to the injury, yet not to cause pressure from splints, nor burden, nor slipping, nor softening; in length and breadth, three, four, <pb n="314"/>five, or six cubits in length and as many fingers in breadth. Turns of the retaining strips should be just enough not to compress; soft, not thick; all proportioned to the length, breadth, and thickness of the affected part. Splints should be smooth, even, tapering at the ends, slightly shorter at both ends than the bandaging, and thickest where the fracture projects. Where parts are naturally convex and fleshless, guard against the prominences, such as at the fingers or ankles, either by position or by shortness. Secure with retaining strips, <pb n="316"/>without pressing at first. Wrap with soft, smooth, clean cerate.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="13"> 
+<label>13.</label> <p>Water: its warmth and quantity. For warmth, test by pouring over one's own hand; for quantity, to relax and reduce swelling the <pb n="318"/>greatest amount is best, to build flesh and soften, a moderate amount. The measure of pouring: stop while the part is still swelling up, before it subsides; for at first it rises, and afterward it shrinks.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="14"> 
+<label>14.</label> <p>The resting position should be soft, even, and sloping upward for the projecting parts of the body, such as heel and hip, so that it neither bends back, bends away, nor twists. Use a gutter-splint for the whole leg or half of it; look to the affection, and the other things that cause harm are obvious.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="15"> 
+<label>15.</label> <p>Presentation, extension, setting, and the rest should be according to nature. Nature in actions is to be judged by the performance of the action desired; for this, judge from the state of rest, from the intermediate state, <pb n="320"/>and from habit: from rest and relaxation, observe the straight alignments, as of the arm; from the intermediate state, extension and flexion, such as the nearly right angle of the forearm to the upper arm; from habit, because no other postures can be borne as well, such as extension for the legs—for in these they can most easily remain longest without changing. In the change after extension, muscles, veins, sinews, and bones should remain in the same relation for posture or position where they are best placed and held.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="16"> 
+<label>16.</label> <p>Extension should be greatest for the largest and thickest bones and where both are broken; second, where the lower bone is broken; least, where the upper. <pb n="322"/>More than moderate extension is harmful, except in children. Keep the limb slightly elevated. The model for straightening is the corresponding, paired, like, healthy limb.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="17"> 
+<label>17.</label> <p>Rubbing can loosen, bind, build flesh, and reduce it: hard rubbing binds, soft loosens, much reduces, moderate thickens.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="18"> 
+<label>18.</label> <p>For the first bandaging: let the patient say it feels tightest at the injury and least at the ends; well fitted, not compressed; supported by number of turns, not by force. On that day and night it should feel slightly tighter, on the next less so, and on the third loose. On the next day there should be found a soft swelling at the extremities; on the third day, when untied, the bandaged part should be thinner—this holds for all <pb n="324"/>bandagings. At the next bandaging, ascertain whether it was properly bandaged; from then on press more and with more turns, and on the third bandaging still more and with more turns. On the seventh day from the first bandaging, when untied, the bones should be found slender and loose. Once bound in splints, if the parts are slender, free of itching, and without ulceration, leave them until twenty days from the injury; if anything is suspected, untie in the meantime. Tighten the splints every third day.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="19"> 
+<label>19.</label> <p>Slinging, resting position, and bandaging are to maintain the same posture. The chief points of postures are the habits and natures of each limb; their forms are judged from running, walking, standing, lying, working, and resting.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="20"> 
+<label>20.</label> <p>Use strengthens, idleness wastes away.</p> </div> <pb n="326"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="21"> 
+<label>21.</label> <p>Pressure should be achieved by the number of bandages, not by force.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="22"> 
+<label>22.</label> <p>In cases of ecchymoses, contusions, sprains, or swellings without inflammation, blood is forced out of the injured part, mostly toward the upper part of the body, and a little also downward; do not keep the arm or leg hanging down. Place the beginning of the bandage <pb n="328"/>over the injury, pressing most there, least at the ends, and moderately in between; let the final turn run toward the upper part of the body by bandaging and pressure—yet here too by number of turns rather than force. For these cases especially use thin, light, soft, clean, broad, sound linen bandages, as without splints, and use affusion of water.</p> </div> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="23"> 
+<label>23.</label> <p>For dislocations, sprains, separations, avulsions, fractures, or distortions—such as clubfoot, inclining to one side—give way on the side from which it is displaced and draw tight on the side toward which it inclines, so that it tends to the opposite direction, both when bandaged and before bandaging, slightly more than to bring it straight; and do this with bandages, compresses, slings, postures, extension, rubbing, and setting, together with more abundant affusion.</p> </div> <pb n="330"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="24"> 
+<label>24.</label> <p>For atrophied limbs, bandage taking in a good deal of the sound part, so that by the influx the wasted parts, <pb n="332"/>altered by the different bandaging, may incline more toward growth and restoration of flesh than they wasted away. It is better also to bandage the upper part, such as the thigh above the shin, and the sound leg as well, so that it may be more alike, rest alike, and alike be cut off from and receive nourishment—using a number of bandages, not pressure; loosening first the part most in need, and using flesh-building rubbing and affusion, without splints.</p> </div> <pb n="334"/> 
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0627.tlg008.perseus-grc2" n="25"> 
+<label>25.</label> <p>As for supports and stays—such as for the chest, ribs, head, and other such parts—some are for the sake of pulsations, so they do not jar; others for separations at the sutures in the bones of the head, for support; and for coughing, sneezing, or other movement, such as the supports used for the chest and head. For all of these the same proportions of bandaging apply: where the injuries are, press most; place underneath something soft suited to the affection; bandage with no more pressure than suffices to keep pulsations from jarring, nor more than to bring the edges of separated sutures into contact, nor so as to check <pb n="336"/>coughing and sneezing, but so as to serve as a support, preventing both forcing apart and jarring.</p> </div> </div> </body>
+</text>
+
+</TEI>
