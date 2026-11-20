@@ -1,0 +1,1984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="eng">
+      <fileDesc>
+         <titleStmt>
+            <title xml:lang="grc">Εὐμενίδες</title>            
+            <author>Aeschylus</author>
+            <editor>Herbert Weir Smyth</editor>
+            <sponsor>Perseus Project, Tufts University</sponsor>
+            <principal>Gregory Crane</principal>
+            <respStmt>
+               <resp>Prepared under the supervision of</resp>
+               <name>Lisa Cerrato</name>
+               <name>William Merrill</name>
+               <name>Elli Mylonas</name>
+               <name>David Smith</name>
+            </respStmt>
+            <funder n="org:AnnCPB">The Annenberg CPB/Project</funder>
+            <respStmt>
+               <resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+               <name>tei-translate</name>
+            </respStmt>
+         </titleStmt>
+         <extent>About 70Kb</extent>
+         <publicationStmt>
+            <publisher>Trustees of Tufts University</publisher>
+            <pubPlace>Medford, MA</pubPlace>
+            <authority>Perseus Project</authority>
+             <availability>
+                 <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+                 <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+             </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <author>Aeschylus</author>
+                  <title>Aeschylus</title>
+                  <editor role="translator">Herbert Weir Smyth</editor>
+                  <imprint>
+                     <pubPlace>New York</pubPlace>
+                     <pubPlace>London</pubPlace>                     
+                     <publisher>William Heinemann</publisher>
+                     <publisher>G.P. Putnam's Sons</publisher>
+                     <date>1926</date>
+                  </imprint>
+                  <biblScope unit="volume">2</biblScope>
+               </monogr>
+               <ref target="https://archive.org/details/aeschyluswitheng02aescuoft/page/272/mode/2up">Internet Archive</ref>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl><quotation marks="none"/></editorialDecl>
+         <refsDecl n="CTS">
+            <cRefPattern n="line" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div//tei:l[@n='$1'])">
+               <p>This pointer pattern extracts lines</p>
+            </cRefPattern>
+            
+         </refsDecl>
+         <refsDecl xml:id="CTS">
+            <citeStructure match="/TEI/text/body" use="@xml:base">
+              <citeStructure unit="scene" delim=":" match="div/div[@type]" use="concat((.//l)[1]/@n, '-', (.//l)[last()]/@n)" n="chunk"/>
+            </citeStructure>
+         </refsDecl>
+
+         <refsDecl xml:id="CTS-card">
+             <citeStructure match="/TEI/text/body" use="@xml:base">
+                 <citeStructure unit="card" delim=":" match="div//milestone[@unit='card']"
+                     use="@n" n="chunk" />
+             </citeStructure>
+         </refsDecl>
+</encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="grc">Greek</language>
+         </langUsage>
+      </profileDesc>
+      <revisionDesc>
+         <change who="Hypotactic" when="2026-11">typographic errors</change>
+        <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+        <change who="Charles Pletcher" when="2026-08-27">Add CTS-card refsDecl</change>
+         <change when="2017-03-08" who="Lisa Cerrato">review of structure, adding line numbers, removing entities and quotes, etc.</change>
+<change when="2016-01-14" who="TDBuck">p4 to p5</change>
+<change when="2013-09-13" who="balmas01">moving Greg's work-in-progress on CTS-izing greco-roman collection texts to a Work directory</change>
+<change when="2013-06-13" who="gcrane">tagging now should be compatible with CTS</change>
+<change when="2011-09-07" who="rsingh04">adding rend attribute to lb tags which are numbered</change>
+<change when="2011-01-13" who="gcrane">more refinements making these files SDL compatible</change>
+<change when="2010-12-25" who="gcrane">now using LB milestones rather than L tags</change>
+<change when="2010-12-24" who="gcrane">ADD tags replace lt/gt entities; DEL tags replace lsqb/rsqb entities; GAP tags replace "..."</change>
+<change when="2010-12-24" who="gcrane">base SDL file</change>
+<change when="2009-10-09" who="rsingh04">more reorganizing of texts module by collection</change>
+<change when="2009-10-07" who="rsingh04">began reorganizing texts module by collection.  created separate work directory in texts module to keep hopper files separate from in progress files</change>
+<change when="2005-08-01" who="packel">really removed item tags</change>
+<change when="2005-08-01" who="packel">removed stray item tags</change>
+<change when="2005-07-25" who="packel">Converted to XML</change>
+<change when="2004-04-21" who="mimno">added card 1s</change>
+<change when="2003-07-01" who="yorkc">Updated texts to TEI P4 and Perseus P4 extensions; minor cleanup (esp. character encodings and typos.)</change>
+<change when="2000-03-04" who="dasmith">Added separate funder entity to TEI header.</change>
+<change when="2000-02-17" who="amahoney">use n on sp for speeches interrupted by cardbreaks;  put cards at ends of such speeches after the close tag;  put sp and speaker tags on the divs of the choruses, which were not marked at all (but div2 closes sp, so we lost the speaker info)</change>
+<change when="1999-12-22" who="amahoney">convert to P3</change>
+<change when="1991-08-01" who="Bill Merrill">Compare with TLG text for missing words or other scanner omissions.</change>
+<change when="1991-08-01" who="EM">Revise DTDs and recheck texts.</change>
+         <change when="1990-09-19" who="EM">Final check of cardbreaks, tags, and linenumbers.</change>   
+         <change when="1988" who="EM, Scott Ettinger and Roger Travis">Text scanned at U. Chicago in 1988. Basic SGML tagging by EM, Scott Ettinger and Roger Travis.</change>
+         </revisionDesc>
+   </teiHeader>
+   <text xml:lang="en">
+      <body xml:base="urn:cts:greekLit:tlg0085.tlg007.perseus-grc2">
+         <div n="urn:cts:greekLit:tlg0085.tlg007.perseus-grc2" type="edition" xml:lang="en">
+            <milestone n="1" unit="card"/>
+         <div type="textpart" subtype="episode">
+            
+            <sp>
+               <speaker>Pythias</speaker>
+               <l n="1">First in this prayer I honor above all gods</l>
+               <l n="2">the primal prophetess, Earth; and after her, Themis,</l>
+               <l n="3">who second took her seat upon this</l>
+               <l n="4">oracular throne of her mother, as a story tells; and in the third</l>
+               <l n="5">allotment, by her consent and with no force from any,</l>
+               <l n="6">another Titaness, child of Earth, took her seat here,</l>
+               <l n="7">Phoebe; and she gave it as a birthday gift</l>
+               <l n="8">to Phoebus, who bears his name derived from Phoebe.</l>
+               <l n="9">Leaving the lake and rocky ridge of Delos,</l>
+               <l n="10">he landed on the ship-frequented shores of Pallas</l>
+               <l n="11">and came to this land and the dwellings of Parnassus.</l>
+               <l n="12">They escorted him and held him in great reverence,</l>
+               <l n="13">the road-building sons of Hephaestus, making</l>
+               <l n="14">the untamed earth into a tamed land.</l>
+               <l n="15">When he arrived, the people paid him great honor,</l>
+               <l n="16">and Delphus, lord and helmsman of this country.</l>
+               <l n="17">Zeus inspired his mind with the prophetic art</l>
+               <l n="18">and established him fourth seer upon these thrones;</l>
+               <l n="19">and Loxias is the spokesman of Zeus his father.</l>
+               <l n="20">
+                  <milestone ed="P" unit="para"/>These gods I invoke in the prelude of my prayers.</l>
+               <l n="21">Pallas of the Fore-Temple is also honored in my words;</l>
+               <l n="22">and I revere the Nymphs where the Corycian rock</l>
+               <l n="23">lies hollow, beloved of birds, the haunt of spirits.</l>
+               <l n="24">Bromius holds the region—nor do I forget him—</l>
+               <l n="25">ever since the god led the Bacchants in battle</l>
+               <l n="26">and contrived for Pentheus a death like a hunted hare.</l>
+               <l n="27">Calling upon the springs of Plistus, the might of Poseidon,</l>
+               <l n="28">and Zeus the Most High, the Fulfiller,</l>
+               <l n="29">I then take my seat as prophetess upon the throne.</l>
+               <l n="30">May they grant me now to obtain far the best fortune</l>
+               <l n="31">of all my former entrances; and if any Greeks are here,</l>
+               <l n="32">let them enter as the lot assigns, according to custom;</l>
+               <l n="33">for I prophesy as the god leads me.</l>
+            </sp>
+         
+               <milestone n="34" unit="card"/>
+                  <sp>
+                     <speaker>Pythias</speaker>
+               <l n="34">Things dreadful to tell, dreadful for eyes to behold,</l>
+               <l n="35">have sent me back out of the house of Loxias,</l>
+               <l n="36">so that I have neither strength nor power to lift my steps;</l>
+               <l n="37">I run with my hands, not with swiftness of legs,</l>
+               <l n="38">for a frightened old woman is nothing—no better than a child.</l>
+               <l n="39">
+                  <milestone ed="P" unit="para"/>I was making my way toward the garlanded inner shrine,</l>
+               <l n="40">and I see at the navel-stone a man hateful to the gods</l>
+               <l n="41">occupying the suppliant's seat, his hands</l>
+               <l n="42">dripping with blood, holding a newly drawn sword</l>
+               <l n="43">and a high-grown branch of olive,</l>
+               <l n="44">duly wreathed with a great tuft of wool,</l>
+               <l n="45">a gleaming fleece; for on this point I will speak clearly.</l>
+               <l n="46">
+                  <milestone ed="P" unit="para"/>In front of this man a wondrous band</l>
+               <l n="47">of women sleeps, seated upon thrones.</l>
+               <l n="48">No, not women, but Gorgons I call them—</l>
+               <l n="49">nor yet can I liken them to Gorgon shapes.</l>
+               <l n="50">Once before I saw painted creatures carrying off</l>
+               <l n="51">the banquet of Phineus; yet these are wingless to behold,</l>
+               <l n="52">black, and utterly loathsome in every way.</l>
+               <l n="53">They snore with blasts no one can approach,</l>
+               <l n="54">and from their eyes they drip a hateful ooze;</l>
+               <l n="55">and their attire is fit to bring neither before the images</l>
+               <l n="56">of the gods nor into the roofs of men.</l>
+               <l n="57">The tribe of this company I have never seen,</l>
+               <l n="58">nor what land boasts of breeding this race</l>
+               <l n="59">with impunity without groaning afterward for its labor.</l>
+               <l n="60">
+                  <milestone ed="P" unit="para"/>From here on, let what follows be the care</l>
+               <l n="61">of the master of this house himself, mighty Loxias;</l>
+               <l n="62">for he is a healer-prophet and reader of portents,</l>
+               <l n="63">and for others too a purifier of households.</l>
+            </sp>
+            
+         <milestone n="64" unit="card"/>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="64">I will not betray you; to the very end your guardian,</l>
+               <l n="65">standing close beside you and even when far away,</l>
+               <l n="66">I will not be gentle to your enemies.</l>
+               <l n="67">Even now you see these raging creatures caught;</l>
+               <l n="68">fallen in sleep are the loathsome maidens,</l>
+               <l n="69">aged ancient children, with whom mingles</l>
+               <l n="70">no god, nor man, nor any beast ever.</l>
+               <l n="71">For the sake of evils they were born, since they inhabit</l>
+               <l n="72">evil darkness and Tartarus beneath the earth,</l>
+               <l n="73">objects of hatred to men and to the Olympian gods.</l>
+               <l n="74">Nevertheless, flee and do not grow faint;</l>
+               <l n="75">for they will drive you even across the long mainland</l>
+               <l n="76">as you stride ever over the wanderer-trodden earth,</l>
+               <l n="77">and over the sea and sea-girt cities.</l>
+               <l n="78">Do not grow weary beforehand, brooding on this</l>
+               <l n="79">toil; go to the city of Pallas</l>
+               <l n="80">and sit clasping her ancient image in your arms.</l>
+               <l n="81">There, with judges of this cause and soothing</l>
+               <l n="82">words, we shall find means</l>
+               <l n="83">to release you completely from these toils;</l>
+               <l n="84">for it was I who persuaded you to slay your mother's body.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="85">Lord Apollo, you know how not to do wrong;</l>
+               <l n="86">and since you know this, learn also not to neglect me.</l>
+               <l n="87">Your power to do good is a sure pledge.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="88">Remember, let not fear overcome your mind.</l>
+               <l n="89">And you, my own brother in blood and of a common father,</l>
+               <l n="90">Hermes, guard him; true to your title,</l>
+               <l n="91">be his Escort, shepherding this</l>
+               <l n="92">my suppliant—Zeus indeed respects this right of outlaws—</l>
+               <l n="93">as he sets forth with fair-escorting fortune among mortals.</l>
+               
+            </sp>
+         <milestone n="94" unit="card"/>
+            <sp>
+               <speaker>Klytaimestras Eidolon</speaker>
+               <l n="94">You would sleep, ah! And what use is there for sleepers?</l>
+               <l n="95">While I, thus dishonored by you</l>
+               <l n="96">among the other dead—for the reproach of those I slew</l>
+               <l n="97">never ceases among the departed,</l>
+               <l n="98">and I wander in disgrace; and I declare to you that</l>
+               <l n="99">I bear the heaviest accusation from them;</l>
+               <l n="100">yet though I suffered such dreadful things from my dearest kin,</l>
+               <l n="101">not one of the spirits is wroth on my behalf,</l>
+               <l n="102">slaughtered as I was by matricidal hands.</l>
+               <l n="103">Behold these wounds in my heart, and whence they came!</l>
+               <l n="104">For the sleeping mind is made bright with eyes,</l>
+               <l n="105">whereas in daytime the fate of mortals is unforeseen.</l>
+               <l n="106">
+                  <milestone ed="P" unit="para"/>Many indeed are the offerings of mine you have lapped up—</l>
+               <l n="107">wineless libations, sobering appeasements,</l>
+               <l n="108">and solemn nightly banquets upon the hearth of fire</l>
+               <l n="109">I sacrificed, at an hour shared by no other of the gods.</l>
+               <l n="110">And all these things I see trampled underfoot.</l>
+               <l n="111">He has escaped and is gone like a fawn,</l>
+               <l n="112">and lightly too out of the midst of the hunting-nets</l>
+               <l n="113">he has bounded away, mocking you aloud.</l>
+               <l n="114">Hear me, for I have spoken for my very</l>
+               <l n="115">life: come to your senses, O goddesses beneath the earth!</l>
+               <l n="116">For in a dream I, Clytemnestra, now call upon you.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="117"><stage type="delivery">(A whimpering moan.)</stage></l>
+            </sp>
+            <sp>
+               <speaker>Klytaimestras Eidolon</speaker>
+               <l n="118">Whimper if you will, but the man is gone, fleeing far away;</l>
+               <l n="119">for he has friends unlike mine.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="120"><stage type="delivery">(A whimpering moan.)</stage></l>
+            </sp>
+            <sp>
+               <speaker>Klytaimestras Eidolon</speaker>
+               <l n="121">You slumber too deeply and do not pity my suffering;</l>
+               <l n="122">Orestes, murderer of this mother, is gone.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="123"><stage type="delivery">(A groan.)</stage></l>
+            </sp>
+            <sp>
+               <speaker>Klytaimestras Eidolon</speaker>
+               <l n="124">You groan, you slumber! Will you not rise at once?</l>
+               <l n="125">What task is fated for you except to work harm?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="126"><stage type="delivery">(A groan.)</stage></l>
+            </sp>
+            <sp>
+               <speaker>Klytaimestras Eidolon</speaker>
+               <l n="127">Sleep and toil, mighty conspirators,</l>
+               <l n="128">have drained the fierceness of the dreadful she-dragon.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="129"><stage type="delivery">(A sharp double moan.)</stage></l>
+               <l n="130">Seize him, seize him, seize him, seize him! Mark him well!</l>
+                           </sp>
+         <milestone n="131" unit="card"/>
+            
+            <sp>
+               <speaker>Klytaimestras Eidolon</speaker>
+               <l n="131">In a dream you pursue your prey, and bay like</l>
+               <l n="132">a hound that never gives up its care for the chase.</l>
+               <l n="133">What are you doing? Rise up, let not weariness conquer you,</l>
+               <l n="134">nor remain unaware of your loss, softened by sleep.</l>
+               <l n="135">Feel the sting in your heart from just reproaches;</l>
+               <l n="136">for to the wise they serve as goads.</l>
+               <l n="137">Breathe your bloody blast upon him,</l>
+               <l n="138">wither him with vapor, with the fire of your belly,</l>
+               <l n="139">follow, waste him away with a renewed pursuit!</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="140">Wake, wake her too, as I wake you!</l>
+               <l n="141">Are you sleeping? Arise, and kicking off sleep,</l>
+               <l n="142">let us see whether anything in this prelude is in vain.</l>
+               
+            </sp></div>
+         <milestone n="143" unit="card"/>
+            <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="143">Ah, ah, shame! We have suffered, sisters—</l>
+                  <l n="144">truly much have I suffered, and in vain—</l>
+                  <l n="145">we have suffered a bitter grief, alas,</l>
+                  <l n="146">an unbearable wrong!</l>
+                  <l n="147">Out of the nets the beast has fallen and is gone!</l>
+                  <l n="148">Overcome by sleep, I have lost my prey.</l>
+                  
+               </sp></div>
+         <milestone n="149" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="149">Oh, son of Zeus, you are a thief!</l>
+                  <l n="150">Young, you have ridden down aged goddesses,</l>
+                  <l n="151">honoring your suppliant, a godless man and</l>
+                  <l n="152">bitter to his parents;</l>
+                  <l n="153">the matricide you have stolen away, though you are a god!</l>
+                  <l n="154">Who will say that any of this is just?</l>
+                  
+               </sp></div>
+         <milestone n="155" unit="card"/>
+            <div type="textpart" subtype="strophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="155">Reproach coming to me from dreams</l>
+                  <l n="156">has struck me like a charioteer</l>
+                  <l n="157">with a goad grasped in the middle,</l>
+                  <l n="158">beneath my midriff, beneath my heart.</l>
+                  <l n="160">I feel the harsh, the crushing chill</l>
+                  <l n="161">of the public scourger's cruel lash.</l>
+                  
+               </sp></div>
+         <milestone n="162" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="162">Such are the deeds of the younger gods,</l>
+                  <l n="163">who rule all things beyond the bounds of justice—</l>
+                  <l n="164">a blood-dripping throne</l>
+                  <l n="165">about its foot, about its head!</l>
+                  <l n="166">One may behold earth's navel-stone taking upon itself</l>
+                  <l n="167">a dread pollution of blood to bear.</l>
+                  
+               </sp></div>
+         <milestone n="169" unit="card"/>
+            <div type="textpart" subtype="strophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="169">Though a prophet, with hearth-pollution</l>
+                  <l n="170">he has defiled his own shrine, self-impelled, self-invited,</l>
+                  <l n="171">honoring mortal things against the law of the gods,</l>
+                  <l n="172">and destroying the ancient apportionments.</l>
+                  
+               </sp></div>
+         <milestone n="174" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="174">Grievous to me too he is, yet him he shall not set free;</l>
+                  <l n="175">even fleeing beneath the earth he is never liberated.</l>
+                  <l n="176">Blood-guilty as he is, another avenger upon his head</l>
+                  <l n="177">from his own kin shall he acquire.</l>
+                  
+               </sp></div></div>
+            
+         <milestone n="178" unit="card"/>
+         <div type="textpart" subtype="episode">
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="179">Out, I command you, from this house at once!</l>
+               <l n="180">Go, begone from my prophetic shrine,</l>
+               <l n="181">lest you receive a winged glistening serpent</l>
+               <l n="182">sped from my golden bowstring</l>
+               <l n="183">and in agony disgorge black foam drawn from men,</l>
+               <l n="184">vomiting the clots of murder you have sucked.</l>
+               <l n="185">It is not fitting for you to come near this house;</l>
+               <l n="186">rather where beheadings and eye-gougings</l>
+               <l n="187">are the sentences, and slaughters, and by destruction of seed</l>
+               <l n="188">the vigor of boys is ruined, and mutilation,</l>
+               <l n="189">and stoning, and men moan with long lamentation</l>
+               <l n="190">impaled beneath the spine. Do you hear</l>
+               <l n="191">what sort of feast you have a fondness for, loathed</l>
+               <l n="192">by the gods? Every feature of your form reveals it.</l>
+               <l n="193">The den of a blood-drinking lion</l>
+               <l n="194">is the fitting home for such as you, not to rub your</l>
+               <l n="195">pollution upon this nearby oracular shrine.</l>
+               <l n="196">Go, roaming without a herdsman;</l>
+               <l n="197">for to such a herd no god bears goodwill.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="198">Lord Apollo, hear our side in turn.</l>
+               <l n="199">You yourself are not merely an accomplice in this,</l>
+               <l n="200">but you alone did the whole deed, bearing full guilt.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="201">How so? Extend your speech that far.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="202">You gave an oracle that the stranger should slay his mother.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="203">I gave an oracle to exact vengeance for his father. What then?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="204">And then you undertook to receive the fresh blood.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="205">Yes, and I bade him turn as suppliant to this house.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="206">And do you then revile us who escorted him here?</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="207">Yes, for it is not fitting for you to come to this house.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="208">Yet this office has been assigned to us.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="209">What honor is this? Boast of your fine privilege!</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="210">We drive matricides out from their homes.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="211">What then of a woman who slays her husband?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="212">That would not be kindred murder of one's own blood.</l>
+              
+            </sp>
+         <milestone n="213" unit="card"/>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="213">Truly you have made of no honor and set at naught</l>
+               <l n="214">the pledges of Hera the Fulfiller and of Zeus!</l>
+               <l n="215">Cypris too is cast aside in dishonor by this argument,</l>
+               <l n="216">from whom come to mortals their dearest joys.</l>
+               <l n="217">For the bed of man and wife, ordained by fate,</l>
+               <l n="218">is greater than an oath, guarded by Justice.</l>
+               <l n="219">If, then, toward those who slay one another you are lax,</l>
+               <l n="220">neither exacting vengeance nor looking upon them in wrath,</l>
+               <l n="221">I say you do not justly hound Orestes into exile.</l>
+               <l n="222">For the one deed I see you taking deeply to heart,</l>
+               <l n="223">while toward the other you clearly act more calmly.</l>
+               <l n="224">The goddess Pallas shall oversee the trial of this cause.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="225">That man I will never, ever leave.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="226">Pursue him, then, and give yourself more toil!</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="227">Do not cut short my honors by your words.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="228">I would not even accept your honors to hold them.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="229">Because in any case you are called great beside the throne of Zeus.</l>
+               <l n="230">As for me—since a mother's blood drives me on—I shall</l>
+               <l n="231">pursue this man for justice and hunt him down.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="232">And I will aid and rescue my suppliant;</l>
+               <l n="233">for dreadful among mortals and among gods is</l>
+               <l n="234">the wrath of a suppliant, if I willingly betray him.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="235">Queen Athena, at the commands of Loxias</l>
+               <l n="236">I have come; receive kindly an outcast,</l>
+               <l n="237">not one seeking purification nor with uncleansed hand,</l>
+               <l n="238">but already blunted and worn away against</l>
+               <l n="239">other houses and the beaten paths of mortals.</l>
+               <l n="240">Crossing land and sea alike,</l>
+               <l n="241">keeping the oracular injunctions of Loxias,</l>
+               <l n="242">I approach your house and your image, goddess.</l>
+               <l n="243">Keeping my post here, I await the issue of my trial.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="244">Aha! Here is a clear trace of the man.</l>
+               <l n="245">Follow the directions of our voiceless informer;</l>
+               <l n="246">for like a hound tracking a wounded fawn,</l>
+               <l n="247">by blood and drippings we hunt him out.</l>
+               <l n="248">With many man-wearying toils my chest</l>
+               <l n="249">pants; for every region of earth has been ranged over,</l>
+               <l n="250">and over the sea in wingless flight</l>
+               <l n="251">I came in pursuit, no slower than a ship.</l>
+               <l n="252">And now here he is somewhere crouching down:</l>
+               <l n="253">the scent of human blood smiles upon me.</l>
+               
+            </sp>
+         <milestone n="254" unit="card"/>
+            <milestone unit="lyric"/>
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="254">Look, look sharply again!</l>
+                  <l n="255">Gaze everywhere, lest</l>
+                  <l n="256">escaping in flight unseen go</l>
+                  <l n="257">
+                     <del>the </del>matricide, unpunished!</l>
+                  <l n="258">Here again <del>indeed</del>, finding protection,</l>
+                  <l n="259">clasped around the image of the immortal goddess,</l>
+                  <l n="260">he wishes to stand trial for his deed.</l>
+                  <l n="261">That may not be! A mother's blood upon the ground</l>
+                  <l n="262">is hard to recover, alas!</l>
+                  <l n="263">The liquid spilled on earth is gone.</l>
+                  <l n="264">Rather, in return you must let me suck from your living limbs</l>
+                  <l n="265">the red clot; from you may I</l>
+                  <l n="266">draw the pasture of a bitter draught;</l>
+                  <l n="267">and having withered you alive, I will drag you down below,</l>
+                  <l n="268">to pay in recompense the penalty of matricidal woe.</l>
+                  <l n="269">And you shall see if any other mortal has sinned,</l>
+                  <l n="270">against god or guest</l>
+                  <l n="271"><sic>impiously</sic> or against dear parents,</l>
+                  <l n="272">each receiving the just deserts of justice.</l>
+                  <l n="273">For mighty Hades is the auditor of mortals</l>
+                  <l n="274">beneath the earth,</l>
+                  <l n="275">and surveys all things with his recording mind.</l>
+                  
+               </sp>
+         <milestone n="276" unit="card"/>
+               <sp>
+                  <speaker>Orestes</speaker>
+                  <l n="276">Taught in misfortunes, I know</l>
+                  <l n="277">many rites of purification, and when it is right to speak</l>
+                  <l n="278">and likewise to keep silent; and in this present matter</l>
+                  <l n="279">I was commanded to speak by a wise teacher.</l>
+                  <l n="280">For the blood sleeps and fades from my hand,</l>
+                  <l n="281">and the matricidal pollution is washed away;</l>
+                  <l n="282">while still fresh, at the hearth of the god</l>
+                  <l n="283">Phoebus it was driven out by purifying sacrifices of swine.</l>
+                  <l n="284">It would be a long tale for me from the beginning,</l>
+                  <l n="285">how many I have approached in harmless converse.</l>
+                  <l n="286">
+                     <del>Time, as it grows old, purifies all things alike.</del>
+                  </l>
+                  <l n="287">
+                     <milestone ed="P" unit="para"/>And now from pure lips I piously invoke</l>
+                  <l n="288">Athena, queen of this land, to come</l>
+                  <l n="289">to my aid; without the spear she shall win</l>
+                  <l n="290">both myself and my land and the Argive people</l>
+                  <l n="291">as a faithful and just ally for all time.</l>
+                  <l n="292">Whether in regions of the Libyan land,</l>
+                  <l n="293">around the stream of her native river Triton,</l>
+                  <l n="294">she plants her foot upright or covered by her robe,</l>
+                  <l n="295">aiding her friends, or surveys the Phlegraean plain</l>
+                  <l n="296">like a bold commander,</l>
+                  <l n="297">may she come—for a god hears even from afar—</l>
+                  <l n="298">that she may become my deliverer from these troubles.</l>
+                  
+               </sp></div>
+         <milestone n="299" unit="card"/>
+         
+         <div type="textpart" subtype="choral">
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="299">Neither Apollo nor Athena's might</l>
+               <l n="300">could rescue you from perishing</l>
+               <l n="301">abandoned, not knowing where joy lies in your heart,</l>
+               <l n="302">bloodless fodder for spirits, a shadow.</l>
+               <l n="303">Do you not even answer, but spurn my words,</l>
+               <l n="304">you who are fattened and consecrated to me?</l>
+               <l n="305">Living you shall feast me, not even slain at an altar;</l>
+               <l n="306">and you shall hear this hymn to bind you fast.</l>
+               
+            </sp>
+         <milestone n="307" unit="card"/>
+            <div type="textpart" subtype="anapests">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="307">Come now, let us also join the dance, since</l>
+                  <l n="308">we have resolved to display</l>
+                  <l n="309">our hateful music,</l>
+                  <l n="310">and to declare how our company</l>
+                  <l n="311">dispenses the lots among mankind.</l>
+                  <l n="312">We claim to be upright in justice:</l>
+                  <l n="313">upon him who holds out clean hands</l>
+                  <l n="314">no wrath creeps from us,</l>
+                  <l n="315">and unharmed he passes through life;</l>
+                  <l n="316">but whoever has sinned like this man</l>
+                  <l n="317">and hides his blood-stained hands,</l>
+                  <l n="318">as upright witnesses for the dead</l>
+                  <l n="319">we appear beside him, exactors of blood,</l>
+                  <l n="320">revealed in full to him.</l>
+                  
+               </sp></div>
+         <milestone n="321" unit="card"/>
+            <div type="textpart" subtype="strophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="321">Mother who bore me, O Mother</l>
+                  <l n="322">Night, to the blind and to the seeing</l>
+                  <l n="323">a punishment, hear me! For Leto's</l>
+                  <l n="324">son robs me of honor,</l>
+                  <l n="325">snatching away this</l>
+                  <l n="326">cowering hare, my rightful</l>
+                  <l n="327">purification for a mother's murder.</l>
+                  
+               </sp></div>
+         <milestone n="328" unit="card"/>
+            <div type="textpart" subtype="ephymn" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="328">Over the consecrated victim</l>
+                  <l n="329">this is our song: frenzy,</l>
+                  <l n="330">distraction, mind-destroying,</l>
+                  <l n="331">a hymn from the Erinyes,</l>
+                  <l n="332">binding the mind, without</l>
+                  <l n="333">lyre, a withering to mortals.</l>
+                  
+               </sp></div>
+         <milestone n="334" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="334">For this lot all-piercing</l>
+                  <l n="335">Fate spun for us to hold steadfastly:</l>
+                  <l n="336">whenever upon mortals reckless</l>
+                  <l n="337">kin-murders fall,</l>
+                  <l n="338">to attend upon them until</l>
+                  <l n="339">he goes beneath the earth; and dead,</l>
+                  <l n="340">he is none too free.</l>
+                  
+               </sp></div>
+         <milestone n="341" unit="card"/>
+            <div type="textpart" subtype="ephymn" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="341">Over the consecrated victim</l>
+                  <l n="342">this is our song: frenzy,</l>
+                  <l n="343">distraction, mind-destroying,</l>
+                  <l n="344">a hymn from the Erinyes,</l>
+                  <l n="345">binding the mind, without</l>
+                  <l n="346">lyre, a withering to mortals.</l>
+                  
+               </sp></div>
+         <milestone n="347" unit="card"/>
+            <div type="textpart" subtype="strophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="349">At our birth these lots were ratified for us:</l>
+                  <l n="350">to keep our hands from the immortals, nor is any</l>
+                  <l n="351">a sharer of our feasts;</l>
+                  <l n="352">of pure-white robes I am allotted no portion or share.</l>
+                  <l n="353">¯˘¯˘¯˘¯</l>
+                  
+               </sp></div>
+         <milestone n="354" unit="card"/>
+            <div type="textpart" subtype="ephymn" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="354">For I have chosen the overthrow</l>
+                  <l n="355">of houses, whenever Ares,</l>
+                  <l n="356">tame within the home, slays a kinsman.</l>
+                  <l n="357">Rushing thus upon him,</l>
+                  <l n="358">strong though he be, we dim</l>
+                  <l n="359">him because of the fresh blood.</l>
+                  
+               </sp></div>
+         <milestone n="360" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="360">We are eager to relieve others of these cares</l>
+                  <l n="361">and by my offices to secure exemption for the gods,</l>
+                  <l n="362">that they need not come to trial;</l>
+                  <l n="365">for Zeus has deemed this blood-dripping, hateful tribe</l>
+                  <l n="367">unworthy of his converse.</l>
+                  
+               </sp></div>
+         <milestone n="354a" unit="card"/>
+            <div type="textpart" subtype="ephymn" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="354a">
+                     <add>For I have chosen the overthrow</add>
+                  </l>
+                  <l n="355a">
+                     <add>of houses, whenever Ares,</add>
+                  </l>
+                  <l n="356a">
+                     <add>tame within the home, slays a kinsman.</add>
+                  </l>
+                  <l n="357a">
+                     <add>Rushing thus upon him,</add>
+                  </l>
+                  <l n="358a">
+                     <add>strong though he be, we dim</add>
+                  </l>
+                  <l n="359a">
+                     <add>him because of the fresh blood.</add>
+                  </l>
+                  
+               </sp></div>
+         <milestone n="368" unit="card"/>
+            <div type="textpart" subtype="strophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="368">The glories of men, though very proud beneath the sky,</l>
+                  <l n="369">melt away beneath the earth and dwindle in dishonor</l>
+                  <l n="370">at our black-robed assaults and the</l>
+                  <l n="371">spiteful dances of our feet.</l>
+                  
+               </sp></div>
+         <milestone n="372" unit="card"/>
+            <div type="textpart" subtype="ephymn" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="372">For leaping high,</l>
+                  <l n="373">from above I bring down</l>
+                  <l n="374">the heavy-falling force of my foot,</l>
+                  <l n="375">limbs that trip <add>even</add> swift runners—</l>
+                  <l n="376">an unbearable ruin.</l>
+                 
+               </sp></div>
+         <milestone n="377" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="377">Falling, he does not know it through his mindless folly;</l>
+                  <l n="378">such <del>for</del> a dark cloud of pollution hovers over the man,</l>
+                  <l n="379">and a murky mist over his house is told</l>
+                  <l n="380">by a groan-filled rumor.</l>
+                  
+               </sp></div>
+         <milestone n="372a" unit="card"/>
+            <div type="textpart" subtype="ephymn" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="372a">
+                     <add>For leaping high,</add>
+                  </l>
+                  <l n="373a">
+                     <add>from above I bring down</add>
+                  </l>
+                  <l n="374a">
+                     <add>the heavy-falling force of my foot,</add>
+                  </l>
+                  <l n="375a">
+                     <add>limbs that trip even swift runners—</add>
+                  </l>
+                  <l n="376a">
+                     <add>an unbearable ruin.</add>
+                  </l>
+                  
+               </sp></div>
+         <milestone n="381" unit="card"/>
+            <div type="textpart" subtype="strophe" n="4">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="381">For it abides: resourceful</l>
+                  <l n="382">and decisive, mindful of evil</l>
+                  <l n="383">deeds, dread</l>
+                  <l n="384">and hard for mortals to appease,</l>
+                  <l n="385">pursuing our unhonored, unprized</l>
+                  <l n="386">lots apart from the gods in sunless</l>
+                  <l n="387">gloom, a rugged, trackless path</l>
+                  <l n="388">for the seeing and the blind alike.</l>
+                 
+               </sp></div>
+         <milestone n="389" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="4">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="389">What mortal, then, does not revere</l>
+                  <l n="390">and fear these things,</l>
+                  <l n="391">hearing from me the ordinance</l>
+                  <l n="392">ratified by Fate and granted</l>
+                  <l n="393">in full by the gods? Still to me</l>
+                  <l n="394">
+                     <add>remains</add> my ancient privilege, nor do I meet</l>
+                  <l n="395">with dishonor, even though beneath the earth</l>
+                  <l n="396">I hold my station and sunless darkness.</l>
+                  
+               </sp></div>
+         </div>
+         <milestone n="397" unit="card"/>
+         
+         <div type="textpart" subtype="episode">
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="397">From afar I heard the cry of a summons</l>
+               <l n="398">from the Scamander, as I was taking possession of the land</l>
+               <l n="399">which the leaders and chiefs of the Achaeans,</l>
+               <l n="400">a great portion of their spear-won spoils,</l>
+               <l n="401">assigned root and branch to me for all time,</l>
+               <l n="402">a choice gift for the sons of Theseus.</l>
+               <l n="403">From there I came speeding my unwearied foot,</l>
+               <l n="404">without wings, rustling the fold of my aegis.</l>
+               <l n="405">
+                  <del>having yoked this chariot with vigorous steeds</del>
+               </l>
+               <l n="406">Seeing this strange company in my land,</l>
+               <l n="407">I feel no fear, yet wonder is before my eyes.</l>
+               <l n="408">Who are you? I speak to all in common:</l>
+               <l n="409">both to this stranger seated at my image</l>
+               <l n="410">and to you, who are like no race of begotten beings,</l>
+               <l n="411">neither seen by the gods among goddesses</l>
+               <l n="412">nor resembling mortal shapes.</l>
+               <l n="413">Yet to speak ill of one's neighbors without cause</l>
+               <l n="414">is far from justice, and right stands aloof from it.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="415">You shall learn everything briefly, daughter of Zeus.</l>
+               <l n="416">We are the eternal children of Night;</l>
+               <l n="417">Curses we are called in our homes beneath the earth.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="418">I know your race and the titles by which you are called.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="419">You shall quickly learn my honors as well.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="420">I would learn them, if someone speaks a plain account.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="421">We drive homicides out from their homes.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="422">And for the slayer, where is the goal of his flight?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="423">Where joy is nowhere known.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="424">Is it such a flight you are shrilling upon this man?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="425">Yes, for he saw fit to be the murderer of his mother.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="426">Under other compulsion, or fearing someone's wrath?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="427">Where is there a goad so great as to compel matricide?</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="428">Two parties are present, and only half the tale is here.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="429">Yet he would neither accept an oath nor consent to give one.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="430">You wish to be called just rather than to act justly.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="431">How so? Instruct me, for you are not poor in wisdom.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="432">I say that unjust causes must not triumph through oaths.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="433">Then examine the case, and judge a straight judgment.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="434">Would you indeed entrust to me the decision of the charge?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="435">Why not? We revere you as worthy and of worthy stock.</l>
+               
+            </sp>
+         <milestone n="436" unit="card"/>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="436">What do you wish to say in turn to this, stranger?</l>
+               <l n="437">Declare your country, your lineage, and your</l>
+               <l n="438">misfortunes, and then ward off this charge—</l>
+               <l n="439">if indeed, trusting in justice, you sit guarding</l>
+               <l n="440">this image near my hearth,</l>
+               <l n="441">a solemn suppliant after the manner of Ixion.</l>
+               <l n="442">To all these questions give me a clear reply.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="443">Queen Athena, first from your last</l>
+               <l n="444">words I will remove a great concern.</l>
+               <l n="445">I am not a suppliant needing purification, nor with pollution</l>
+               <l n="446">upon my hand did I sit at your image.</l>
+               <l n="447">I will give you strong proof of this:</l>
+               <l n="448">it is the law that a murderer remain voiceless</l>
+               <l n="449">until at the hand of a purifier of blood</l>
+               <l n="450">the slaughter of a young suckling beast stains him with blood.</l>
+               <l n="451">Long ago at other houses we have been thus purified,</l>
+               <l n="452">both with victims and with flowing streams.</l>
+               <l n="453">
+                  <milestone ed="P" unit="para"/>This concern, then, I put out of the way.</l>
+               <l n="454">My lineage you shall quickly learn.</l>
+               <l n="455">I am an Argive, and my father you do well to ask of—</l>
+               <l n="456">Agamemnon, marshal of seafaring men,</l>
+               <l n="457">with whom you made Troy, the city of Ilium,</l>
+               <l n="458">no city at all. He perished in no noble way upon returning</l>
+               <l n="459">home; for my dark-hearted</l>
+               <l n="460">mother slew him, shrouding him in cunning toils</l>
+               <l n="461">that bore witness to his murder in the bath.</l>
+               <l n="462">And I, returning home after my former exile,</l>
+               <l n="463">slew her who bore me—I will not deny it—</l>
+               <l n="464">in blood-for-blood vengeance for my dearest father.</l>
+               <l n="465">For this deed Loxias shares responsibility,</l>
+               <l n="466">proclaiming agonies to goad my heart</l>
+               <l n="467">if I should fail to do this to the guilty.</l>
+               <l n="468">Judge whether I acted justly or not;</l>
+               <l n="469">however I fare in your hands, I shall accept it.</l>
+               
+            </sp>
+         <milestone n="470" unit="card"/>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="470">The matter is too great for any mortal to think</l>
+               <l n="471">he can judge it; nor yet is it lawful for me</l>
+               <l n="472">to decide trials of murder that arouse fierce wrath—</l>
+               <l n="473">especially since you have come to my house</l>
+               <l n="474">a seasoned, pure, and harmless suppliant,</l>
+               <l n="475">and thus being blameless I respect your right in my city;</l>
+               <l n="476">while these have an office not easy to dismiss,</l>
+               <l n="477">and if they do not win a victorious verdict,</l>
+               <l n="478">hereafter venom from their spirits,</l>
+               <l n="479">falling on the ground, will be an unbearable, lasting plague to the land.</l>
+               <l n="480">
+                  <milestone ed="P" unit="para"/>So stands the case: either way, for them to stay</l>
+               <l n="481">or to be sent away is fraught with hopeless harm for me.</l>
+               <l n="482">Yet since this matter has alighted here,</l>
+               <l n="483">I will choose sworn judges of homicide</l>
+               <l n="484">and establish an ordinance for all time.</l>
+               <l n="485">Summon your witnesses and proofs,</l>
+               <l n="486">sworn testimonies to aid the cause of justice;</l>
+               <l n="487">and having chosen the best of my citizens,</l>
+               <l n="488">I will return to decide this case truly,</l>
+               <l n="489">bound by oath to pronounce nothing unjust.</l>
+               
+            </sp></div>
+         <milestone n="490" unit="card"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="490">Now comes the overthrow of new</l>
+                  <l n="491">ordinances, if the cause</l>
+                  <l n="492"><add>and</add> wrong of this</l>
+                  <l n="493">matricide shall prevail.</l>
+                  <l n="494">At once this deed will reconcile all</l>
+                  <l n="495">mortals to recklessness;</l>
+                  <l n="496">and many real wounds inflicted by children</l>
+                  <l n="497">await parents</l>
+                  <l n="498">in time to come.</l>
+                  
+               </sp></div>
+         <milestone n="499" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="499">For no wrath from us, the mortal-watching</l>
+                  <l n="500">Maenads, shall creep</l>
+                  <l n="501">upon their deeds—</l>
+                  <l n="502">I will let loose every form of death.</l>
+                  <l n="503">One shall ask of another, proclaiming</l>
+                  <l n="504">his neighbor's woes,</l>
+                  <l n="505">for a ceasing and abatement of troubles;</l>
+                  <l n="506">and uncertain remedies the wretch</l>
+                  <l n="507"><del>indeed someone </del>recommends in vain.</l>
+                  
+               </sp></div>
+         <milestone n="508" unit="card"/>
+            <div type="textpart" subtype="strophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="508">Let no one call out</l>
+                  <l n="509">when struck by calamity,</l>
+                  <l n="510">crying this word:</l>
+                  <l n="511">"O Justice,</l>
+                  <l n="512">O thrones of the Erinyes!"</l>
+                  <l n="513">Thus perhaps some father</l>
+                  <l n="514">or newly stricken mother</l>
+                  <l n="515">may wail their lament, now that</l>
+                  <l n="516">the house of Justice falls.</l>
+                  
+               </sp></div>
+         <milestone n="517" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="517">There is a place where dread is good</l>
+                  <l n="518">and as overseer of the mind</l>
+                  <l n="519">must remain seated.</l>
+                  <l n="520">It is profitable</l>
+                  <l n="521">to learn wisdom under sorrow.</l>
+                  <l n="522">Who, if he does not nurture</l>
+                  <l n="523">his heart <add>would</add> in fear—</l>
+                  <l n="524">city or mortal alike—</l>
+                  <l n="525">would still revere Justice?</l>
+                  
+               </sp></div>
+         <milestone n="526" unit="card"/>
+            <div type="textpart" subtype="strophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="526">Neither an ungoverned life</l>
+                  <l n="527">nor one ruled by a despot</l>
+                  <l n="528">should you praise.</l>
+                  <l n="529">To every mean has God</l>
+                  <l n="530">granted power, though in different</l>
+                  <l n="531">ways he oversees different things.</l>
+                  <l n="532">I speak a word in due measure:</l>
+                  <l n="533">truly insolence is the child</l>
+                  <l n="534">of impiety;</l>
+                  <l n="535">while from health</l>
+                  <l n="536">of mind comes the all-beloved</l>
+                  <l n="537">and much-prayed-for prosperity.</l>
+                  
+               </sp></div>
+         <milestone n="538" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="538">In sum I say to you:</l>
+                  <l n="539">revere the altar of Justice,</l>
+                  <l n="540">and do not,</l>
+                  <l n="541">with an eye to gain, with godless</l>
+                  <l n="542">foot kick it in dishonor;</l>
+                  <l n="543">for punishment will follow,</l>
+                  <l n="544">and the appointed end abides.</l>
+                  <l n="545">Therefore let each duly honor</l>
+                  <l n="546">reverence for parents</l>
+                  <l n="547">and respect the guest-honoring</l>
+                  <l n="548">visitations</l>
+                  <l n="549">of his house.</l>
+                  
+               </sp></div>
+         <milestone n="550" unit="card"/>
+            <div type="textpart" subtype="strophe" n="4">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="550">He who is just willingly, without compulsion,</l>
+                  <l n="551">shall not be unblessed;</l>
+                  <l n="552">utterly destroyed <add>indeed</add> he can never be.</l>
+                  <l n="553">But the bold transgressor, I say,</l>
+                  <l n="554">who brings in a confused mass of cargo without justice,</l>
+                  <l n="555">in time by force shall strike</l>
+                  <l n="556">his sail, when trouble seizes him</l>
+                  <l n="557">and his yardarm shatters.</l>
+                  
+               </sp></div>
+         <milestone n="558" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="4">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="558">He calls on those who do not hear <add>in</add> the midst</l>
+                  <l n="559">of the fierce-wrestling whirlpool;</l>
+                  <l n="560">and the spirit laughs at the reckless man,</l>
+                  <l n="561">seeing him who boasted it would never happen</l>
+                  <l n="562">helpless in inescapable woes, unable to round the headland;</l>
+                  <l n="563">having dashed his lifelong former wealth</l>
+                  <l n="564">against the reef of Justice,</l>
+                  <l n="565">he perishes unwept, unseen.</l>
+                  
+               </sp></div></div>
+         <milestone n="566" unit="card"/>
+         
+         <div type="textpart" subtype="episode">
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="566">Herald, make proclamation and hold back the crowd;</l>
+               <l n="567">and let the piercing Tyrrhenian</l>
+               <l n="568">trumpet, filled with mortal breath,</l>
+               <l n="569">sound forth its high-pitched call to the assembly.</l>
+               <l n="570">For as this council-chamber fills,</l>
+               <l n="571">it is fitting to keep silence and learn my ordinances—</l>
+               <l n="572">both the whole city for all time to come</l>
+               <l n="573">and these litigants, so that justice may be well decided.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="574">Lord Apollo, rule over what is yours;</l>
+               <l n="575">tell us what share you have in this matter.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="576">I have come both to bear witness—for by law</l>
+               <l n="577">this man is a suppliant and hearth-guest of my</l>
+               <l n="578">house, and I am the purifier of this bloodshed—</l>
+               <l n="579">and myself to plead his cause; for I share the blame</l>
+               <l n="580">for the slaying of his mother. Open the trial,</l>
+               <l n="581">and as <add>well as</add> you know how, confirm this judgment.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="582">The word is yours, and I open the trial;</l>
+               <l n="583">for the prosecutor, speaking first from the beginning,</l>
+               <l n="584">would rightly instruct us in the case.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="585">We are many, yet we will speak concisely.</l>
+               <l n="586">Answer word for word, taking your turn:</l>
+               <l n="587">first tell us whether you killed your mother.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="588">I killed her; of that there is no denial.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="589">That is already one of the three wrestling falls.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="590">You make that boast over one who is not yet down.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="591">Yet you must say how you killed her.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="592">I say it: with sword-drawn hand, cutting her throat.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="593">By whom were you persuaded, and by whose counsels?</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="594">By this god's oracles; and he bears witness for me.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="595">The prophet instructed you to commit matricide?</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="596">Yes, and up to now I do not blame my fortune.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="597">Wait until the vote catches you—you will soon speak otherwise.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="598">I am confident; my father will send aid from the grave.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="599">Trust in the dead now, after killing your mother!</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="600">For she was stained with the taint of two pollutions.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="601">How so? Explain this to the judges.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="602">In murdering her husband, she slew my father.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="603">Yet you live, while she is free by her death.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="604">Why did you not drive her into exile while she lived?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="605">She was not of one blood with the man she slew.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="606">And am I of one blood with my mother?</l>
+               
+            </sp>
+         <milestone n="607" unit="card"/>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="607">How else could she have nourished you within her, murderer,</l>
+               <l n="608">beneath her girdle? Do you disown a mother's dearest blood?</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="609">Now bear witness, and expound for me,</l>
+               <l n="610">Apollo, whether I slew her with justice.</l>
+               <l n="611">For having done the deed as it stands I do not deny;</l>
+               <l n="612">but whether this bloodshed seems just or not to your mind,</l>
+               <l n="613">judge, so that I may declare it to these judges.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="614">I will speak justly before you, this great tribunal</l>
+               <l n="615">of Athena—and being a prophet I will not lie.</l>
+               <l n="616">Never yet have I spoken upon my prophetic throne,</l>
+               <l n="617">concerning man, woman, or city,</l>
+               <l n="618">anything that Zeus, father of the Olympians, did not command.</l>
+               <l n="619">
+                  <milestone ed="P" unit="para"/>Learn how strong this plea of justice is,</l>
+               <l n="620">and I bid you follow the will of my father;</l>
+               <l n="621">for an oath is in no way stronger than Zeus.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="622">Zeus, as you say, gave this oracle,</l>
+               <l n="623">to tell Orestes here, in avenging his father's murder,</l>
+               <l n="624">to pay no regard at all to a mother's honor?</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="625">Yes, for it is not the same thing for a noble man to die,</l>
+               <l n="626">honored with a scepter given by Zeus,</l>
+               <l n="627">and that at a woman's hand—not by fierce</l>
+               <l n="628">far-shooting arrows, as from an Amazon,</l>
+               <l n="629">but as you shall hear, Pallas, and you who sit</l>
+               <l n="630">to decide this matter by your vote.</l>
+               <l n="631">
+                  <milestone ed="P" unit="para"/>Returning from the campaign, having fared</l>
+               <l n="632"><sic>for the most part well, she welcomed him with kindly words;</sic></l>
+               <l n="633"><sic>as he stepped from the bath, at the end</sic></l>
+               <l n="634"><sic>she cast a cloak over him like a tent,</sic> and in an endless</l>
+               <l n="635">embroidered robe she tangled and struck down her husband.</l>
+               <l n="636">
+                  <milestone ed="P" unit="para"/>Such, as I have told you, was the death of the man,</l>
+               <l n="637">all-revered, the commander of the fleet.</l>
+               <l n="638">Her I have described as such, that the people may be stung to anger,</l>
+               <l n="639">who have been appointed to decide this trial.</l>
+              
+            </sp>
+         <milestone n="640" unit="card"/>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="640">Zeus honors a father's death more, by your account;</l>
+               <l n="641">yet he himself bound his aged father Cronus.</l>
+               <l n="642">How does what you say not contradict that?</l>
+               <l n="643">I call you to witness that you hear these words!</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="644">O all-hated monsters, loathed by the gods,</l>
+               <l n="645">fetters he could unloose—there is a remedy for that</l>
+               <l n="646">and many a means of release;</l>
+               <l n="647">but once the dust has drunk up a man's blood</l>
+               <l n="648">when he is dead, there is no rising up again.</l>
+               <l n="649">For that my father has made no incantations,</l>
+               <l n="650">though all other things he turns upside down and</l>
+               <l n="651">orders without panting at all in his strength.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="652">See how you plead for this man's acquittal:</l>
+               <l n="653">having poured out his mother's kindred blood upon the ground,</l>
+               <l n="654">shall he then dwell in his father's house in Argos?</l>
+               <l n="655">What public altars shall he use?</l>
+               <l n="656">What lustral water of the brotherhoods will admit him?</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="657">This too I will explain, and learn how rightly I speak.</l>
+               <l n="658">She who is called the mother of the child is not</l>
+               <l n="659">its parent, only the nurse of the newly sown seed;</l>
+               <l n="660">he who mounts begets, while she, like a stranger for a stranger,</l>
+               <l n="661">preserves the young shoot, for those whom a god does not blight.</l>
+               <l n="662">I will show you a proof of this argument:</l>
+               <l n="663">a father can beget without a mother; close by</l>
+               <l n="664">stands a witness, the child of Olympian Zeus,</l>
+               <l n="665">not nurtured in the darkness of a womb,</l>
+               <l n="666">yet such a shoot as no goddess could bear.</l>
+               <l n="667">
+                  <milestone ed="P" unit="para"/>And I, Pallas, both in all other ways as I know how,</l>
+               <l n="668">will make your city and your people great,</l>
+               <l n="669">and I sent this man as hearth-guest to your house</l>
+               <l n="670">so that he might be faithful for all time,</l>
+               <l n="671">and that you, goddess, might win him as an ally,</l>
+               <l n="672">and those after him, and that it might abide forever</l>
+               <l n="673">for their descendants to cherish these pledges.</l>
+               
+            </sp>
+         <milestone n="674" unit="card"/>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="674">Shall I now bid these judges cast a just vote</l>
+               <l n="675">according to their conscience, since enough has been said?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="676">For our part, every arrow has already been shot;</l>
+               <l n="677">I wait to hear how the contest will be decided.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="678">Well then, how shall I order this so as to be blameless in your eyes?</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="679">You have heard what you have heard; as you cast your vote,</l>
+               <l n="680">revere your oath in your hearts, strangers.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="681">Hear now my ordinance, people of Attica,</l>
+               <l n="682">judging the first trial for bloodshed.</l>
+               <l n="683">Henceforth for the people of Aegeus this council</l>
+               <l n="684">of judges shall exist forever.</l>
+               <l n="685">And this Hill of Ares, the seat and tents of the Amazons</l>
+               <l n="686">when they came campaigning out of grudge against Theseus,</l>
+               <l n="687">and built this new-founded</l>
+               <l n="688">high-towered citadel against his towers,</l>
+               <l n="689">and sacrificed to Ares—whence the rock takes its name,</l>
+               <l n="690">the Hill of Ares: upon this hill, Reverence</l>
+               <l n="691">of the citizens and her kinsman Fear shall restrain</l>
+               <l n="692">wrongdoing by day and by night alike,</l>
+               <l n="693">so long as the citizens themselves do not pollute the laws</l>
+               <l n="694">with evil innovations; for if you foul bright water</l>
+               <l n="695">with mud, you will never find a drink.</l>
+               <l n="696">
+                  <milestone ed="P" unit="para"/>Neither anarchy nor despotism</l>
+               <l n="697">do I counsel my citizens to uphold and revere,</l>
+               <l n="698">nor to cast all dread out of the city;</l>
+               <l n="699">for what mortal is just who fears nothing?</l>
+               <l n="700">Rightly standing in awe of such majesty,</l>
+               <l n="701">you will possess a bulwark of the land and salvation of the city</l>
+               <l n="702">such as no other mortals possess,</l>
+               <l n="703">neither among the Scythians nor in the realms of Pelops.</l>
+               <l n="704">Untouched by gain, this council—</l>
+               <l n="705">reverend, quick to wrath, a wakeful</l>
+               <l n="706">sentinel of the land on behalf of those who sleep—I establish.</l>
+               <l n="707">
+                  <milestone ed="P" unit="para"/>This exhortation I have spoken at length to my</l>
+               <l n="708">citizens for the future; now you must rise,</l>
+               <l n="709">take up your ballots, and decide the trial,</l>
+               <l n="710">revering your oath. My word is spoken.</l>
+              
+            </sp>
+         <milestone n="711" unit="card"/>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="711">Indeed, this grievous company in your land</l>
+               <l n="712">I advise you by no means to dishonor.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="713">And I bid you fear the oracles, both mine and those of Zeus,</l>
+               <l n="714">and not render them fruitless.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="715">Yet you concern yourself with bloody deeds not allotted to you,</l>
+               <l n="716">and no longer pure will be the oracles you dispense.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="717">Did my father then err in his counsels</l>
+               <l n="718">at the first supplication for bloodshed, that of Ixion?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="719">Talk on; but if I do not win this case,</l>
+               <l n="720">I will haunt this land again as a heavy burden.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="721">Yet both among the younger and the older</l>
+               <l n="722">gods you are without honor; and I shall win.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="723">Such things you did in the house of Pheres too:</l>
+               <l n="724">you persuaded the Fates to make mortals immortal.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="725">Is it not just to benefit one who reveres you,</l>
+               <l n="726">especially whenever he happens to be in need?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="727">It was you who destroyed the ancient apportionments</l>
+               <l n="728">and beguiled the ancient goddesses with wine.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="729">Soon you, failing to win the verdict of this trial,</l>
+               <l n="730">will vomit your venom—no burden at all to your foes.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="731">Since you, a young god, ride down my age,</l>
+               <l n="732">I wait to hear the outcome of this trial,</l>
+               <l n="733">still undecided whether to vent my wrath upon the city.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="734">It is my task to cast the final judgment;</l>
+               <l n="735">and this ballot I shall add to Orestes' side.</l>
+               <l n="736">For there is no mother who gave me birth,</l>
+               <l n="737">and I commend the male in all things, save entering marriage,</l>
+               <l n="738">with all my heart, and am wholly on the father's side.</l>
+               <l n="739">Thus I will not set higher value on the death of a woman</l>
+               <l n="740">who slew her husband, the guardian of the house.</l>
+               <l n="741">Orestes wins, even if the votes are judged equal.</l>
+               <l n="742">
+                  <milestone ed="P" unit="para"/>Turn out the ballots from the urns as quickly as possible,</l>
+               <l n="743">you judges to whom this office has been assigned.</l>
+               
+            </sp>
+         <milestone n="744" unit="card"/>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="744">O Phoebus Apollo, how will the contest be decided?</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="745">O dark Mother Night, do you behold these things?</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="746">Now comes the noose's end for me, or to look upon the light.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="747">And for us, to perish or to wield our honors henceforth.</l>
+            </sp>
+            <sp>
+               <speaker>Apollon</speaker>
+               <l n="748">Count rightly the ballots cast out, strangers,</l>
+               <l n="749">revering justice in the division.</l>
+               <l n="750">When judgment is lacking, great harm ensues,</l>
+               <l n="751">and a single cast ballot has set upright a house.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="752">This man has escaped the charge of bloodshed;</l>
+               <l n="753">for the count of the ballots is equal.</l>
+            </sp>
+            <sp>
+               <speaker>Orestes</speaker>
+               <l n="754">O Pallas, O savior of my house!</l>
+               <l n="755">Deprived of my fatherland, it is you who</l>
+               <l n="756">have restored me to my home; and a Greek shall say:</l>
+               <l n="757"><q>The man of Argos once more dwells in his father's</q></l>
+               <l n="758"><q rend="merge">estate, through the grace of Pallas and Loxias,</q></l>
+               <l n="759"><q rend="merge">and of the third, the all-accomplishing</q></l>
+               <l n="760"><q rend="merge">Savior,</q> who, respecting my father's death,</l>
+               <l n="761">saves me, looking upon these advocates of my mother.</l>
+               <l n="762">
+                  <milestone ed="P" unit="para"/>And I, to this land and to your people,</l>
+               <l n="763">for all the fullness of time hereafter,</l>
+               <l n="764">having sworn an oath, now depart to my home:</l>
+               <l n="765">that no helmsman of my land shall ever</l>
+               <l n="766">come hither bringing a well-equipped spear.</l>
+               <l n="767">For we ourselves, though then in our graves,</l>
+               <l n="768">upon those who transgress my present oaths</l>
+               <l n="769">will inflict hopeless disasters,</l>
+               <l n="770">making their marches dispirited and their crossings ill-omened,</l>
+               <l n="771">so that they repent their undertaking;</l>
+               <l n="772">but if they keep it upright, and ever honor</l>
+               <l n="773">this city of Pallas with allied spear,</l>
+               <l n="774">to them we shall be all the more gracious.</l>
+               <l n="775">
+                  <milestone ed="P" unit="para"/>Farewell, both you and your city-guarding people:</l>
+               <l n="776">may you hold an inescapable grip over your foes,</l>
+               <l n="777">bringing safety and victory in war.</l>
+               
+            </sp></div>
+       <milestone n="778" unit="card"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="778">Ah, you younger gods, you have ridden down</l>
+                  <l n="779">the ancient laws and wrenched them from my hands!</l>
+                  <l n="780">And I, dishonored, wretched, heavy with wrath,</l>
+                  <l n="781">in this land, alas,</l>
+                  <l n="782">venom, venom in requital for my grief</l>
+                  <l n="783">will let drop from my heart, a dripping</l>
+                  <l n="784">unbearable to the earth; and from it</l>
+                  <l n="785">a blight, leafless, childless—</l>
+                  <l n="786">O Justice!—rushing over the plain</l>
+                  <l n="787">shall cast man-destroying stains upon the land.</l>
+                  <l n="788">I groan: what shall I do?</l>
+                  <l n="789">I am mocked by the citizens!</l>
+                  <l n="790">Unbearable is what I have suffered!</l>
+                  <l n="791">Ah, deeply ill-fated are the daughters</l>
+                  <l n="792">of Night, grieving in dishonor!</l>
+                  
+               </sp>
+         <milestone n="793" unit="card"/>
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="793">Be persuaded by me not to bear this with heavy groans;</l>
+                  <l n="795">for you have not been defeated, but an equal-voted verdict</l>
+                  <l n="796">truly came forth, with no dishonor to you.</l>
+                  <l n="797">Rather, clear testimony from Zeus was present,</l>
+                  <l n="798">and he himself who gave the oracle was himself the witness</l>
+                  <l n="799">that Orestes should suffer no harm for doing this.</l>
+                  <l n="800">Do not be angry, nor bring down heavy wrath</l>
+                  <l n="801">upon this land, nor cause barrenness</l>
+                  <l n="802">by letting fall droppings <sic>of spirits</sic>,</l>
+                  <l n="803">fierce spears that devour the seeds.</l>
+                  <l n="804">For I promise you in all justice</l>
+                  <l n="805">seats and caverns in a righteous land,</l>
+                  <l n="806">where seated upon shining thrones at hearths</l>
+                  <l n="807">you shall be held in honor by these citizens.</l>
+                  
+               </sp></div>
+         <milestone n="808" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="808">Ah, you younger gods, you have ridden down</l>
+                  <l n="809">the ancient laws and wrenched them from my hands!</l>
+                  <l n="810">And I, dishonored, wretched, heavy with wrath,</l>
+                  <l n="811">in this land, alas,</l>
+                  <l n="812">venom, venom in requital for my grief</l>
+                  <l n="813">will let drop from my heart, a dripping</l>
+                  <l n="814">unbearable to the earth; and from it</l>
+                  <l n="815">a blight, leafless, childless—</l>
+                  <l n="816">O Justice!—rushing over the plain</l>
+                  <l n="817">shall cast man-destroying stains upon the land.</l>
+                  <l n="818">I groan: what shall I do?</l>
+                  <l n="819">I am mocked by the citizens!</l>
+                  <l n="820">Unbearable is what I have suffered!</l>
+                  <l n="821">Ah, deeply ill-fated are the daughters</l>
+                  <l n="822">of Night, grieving in dishonor!</l>
+                                </sp>
+         <milestone n="823" unit="card"/>
+            
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="823">You are not dishonored; do not in excessive rage,</l>
+                  <l n="825">goddesses, make the land of mortals past healing.</l>
+                  <l n="826">I too trust in Zeus—what need to say it?—</l>
+                  <l n="827">and I alone of the gods know the keys of the chamber</l>
+                  <l n="828">in which the thunderbolt is sealed.</l>
+                  <l n="829">Yet there is no need of it; be persuaded by me</l>
+                  <l n="830">and cast not from a reckless tongue words upon the earth</l>
+                  <l n="831">causing all things that bear fruit to fare ill.</l>
+                  <l n="832">Lull to sleep the bitter fury of the black wave,</l>
+                  <l n="833">as an august sharer of my honors and my home;</l>
+                  <l n="834">receiving forever from this broad land firstfruits</l>
+                  <l n="835">as offerings for children and the rite of marriage,</l>
+                  <l n="836">you will praise these words of mine.</l>
+                  
+               </sp></div>
+         <milestone n="837" unit="card"/>
+            <div type="textpart" subtype="strophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="837">That I should suffer this, alas!</l>
+                  <l n="838">That I, of ancient wisdom, should dwell beneath the earth,</l>
+                  <l n="839">alas, an unhonored pollution!</l>
+                  <l n="840">I breathe out fury and all my wrath!</l>
+                  <l n="841">Oh, oh, Earth, alas!</l>
+                  <l n="842">What anguish steals into my sides, <add>what</add> pain?</l>
+                  <l n="843">Hear my passion, Mother</l>
+                  <l n="845">Night! For from my ancient</l>
+                  <l n="846">honors, the gods' hard-to-wrestle</l>
+                  <l n="847">wiles have swept me away as naught.</l>
+                  
+               </sp>
+         <milestone n="848" unit="card"/>
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="848">I will bear with your anger, for you are older;</l>
+                  <l n="849">and in that indeed you <add>are</add> far wiser than I,</l>
+                  <l n="850">yet Zeus has granted no mean understanding to me as well.</l>
+                  <l n="851">If you go to a foreign land,</l>
+                  <l n="852">you will come to long for this country—I foretell it.</l>
+                  <l n="853">For oncoming time shall bring greater honor</l>
+                  <l n="854">to these citizens; and you, holding an honored</l>
+                  <l n="855">seat beside the house of Erechtheus,</l>
+                  <l n="856">shall receive from processions of men and women</l>
+                  <l n="857">such honors as you could never obtain from any other mortals.</l>
+                  <l n="858">Do not cast upon my territory</l>
+                  <l n="859">bloody whetstones, ruinous to the hearts</l>
+                  <l n="860">of the young, maddened with wineless rage,</l>
+                  <l n="861">nor, plucking out as it were the heart of fighting cocks,</l>
+                  <l n="862">implant among my citizens civil war</l>
+                  <l n="863">and bold fury against one another.</l>
+                  <l n="864">Let war be abroad, readily at hand,</l>
+                  <l n="865">in which there shall be a fierce love of glory;</l>
+                  <l n="866">the battle of the household bird I will not have.</l>
+                  <l n="867">
+                     <milestone ed="P" unit="para"/>Such terms are yours to choose from me:</l>
+                  <l n="868">doing good, receiving good, well honored,</l>
+                  <l n="869">to share in this land most beloved of the gods.</l>
+                  
+               </sp></div>
+         <milestone n="870" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="870">That I should suffer this, alas!</l>
+                  <l n="871">That I, of ancient wisdom, should dwell beneath the earth,</l>
+                  <l n="872">alas, an unhonored pollution!</l>
+                  <l n="873">I breathe out fury and all my wrath!</l>
+                  <l n="874">Oh, oh, Earth, alas!</l>
+                  <l n="875">What anguish steals into my sides, what pain?</l>
+                  <l n="876">Hear my passion, Mother</l>
+                  <l n="877">Night! For from my ancient</l>
+                  <l n="878">honors, the gods' hard-to-wrestle</l>
+                  <l n="880">wiles have swept me away as naught.</l>
+                  
+               </sp>
+         <milestone n="881" unit="card"/>
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="881">I will not tire of telling you of these blessings,</l>
+                  <l n="882">so that you may never say that by me, a younger goddess,</l>
+                  <l n="883">and by my city-guarding mortals, you, an ancient goddess,</l>
+                  <l n="884">were driven away dishonored, banished from this soil.</l>
+                  <l n="885">If you hold in awe the sacred majesty of Persuasion,</l>
+                  <l n="886">the soothing charm and enchantment of my tongue,</l>
+                  <l n="887">then stay; but if you do not wish to stay,</l>
+                  <l n="888">you could not justly bring down upon this city</l>
+                  <l n="889">any wrath or anger or harm upon its people.</l>
+                  <l n="890">For it is in your power to be a sharer of this land</l>
+                  <l n="891">with all justice and honored forever.</l>
+               </sp></div></div>
+            
+         
+         <div type="textpart" subtype="episode">
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="892">Queen Athena, what seat do you say I shall hold?</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="893">One free from all woe; accept it.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="894">Suppose I have accepted: what honor awaits me?</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="895">That no house shall prosper without you.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="896">Will you bring this about, so that I have such power?</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="897">Yes, for we will prosper the fortunes of him who reveres you.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="898">And will you give me a pledge for all time?</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="899">Yes, for I need not promise what I will not fulfill.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="900">You seem to charm me, and I lay aside my wrath.</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="901">Therefore, dwelling in this land, you shall win friends.</l>
+            </sp>
+            <sp>
+               <speaker>Choros</speaker>
+               <l n="902">What blessings, then, do you bid me chant over this land?</l>
+            </sp>
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="903">Such as aim at no evil victory,</l>
+               <l n="904">coming both from the earth, from the sea's dew,</l>
+               <l n="905">and from heaven; and that the blasts of the winds</l>
+               <l n="906">blowing with fair sunlight may pass over the land;</l>
+               <l n="907">that the fruit of the earth and abundant increase of flocks,</l>
+               <l n="908">flourishing for the citizens, may never fail with time,</l>
+               <l n="909">and that mortal seed be kept safe.</l>
+               <l n="910">May you be more favorable to the pious;</l>
+               <l n="911">for I love, like a gardener tending his plants,</l>
+               <l n="912">the race of these righteous men, untouched by grief.</l>
+               <l n="913">
+                  <milestone ed="P" unit="para"/>Such is your part; and in the famed contests of war,</l>
+               <l n="914">I will not fail to honor</l>
+               <l n="915">this city victorious among mortals.</l>
+               
+            </sp></div>
+         <milestone n="916" unit="card"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="916">I will accept a home with Pallas,</l>
+                  <l n="917">nor will I dishonor the city</l>
+                  <l n="918">which almighty Zeus and Ares</l>
+                  <l n="919">hold as the stronghold of the gods,</l>
+                  <l n="920">the altar-guarding jewel of the gods of Greece.</l>
+                  <l n="921">For her I pray,</l>
+                  <l n="922">prophesying graciously,</l>
+                  <l n="923">that abundant blessings of life</l>
+                  <l n="925">may be made to spring from the earth</l>
+                  <l n="926">by the bright radiance of the sun.</l>
+                  
+               </sp></div>
+         <milestone n="927" unit="card"/>
+            <div type="textpart" subtype="anapests">
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="927">This I gladly accomplish for these</l>
+                  <l n="928">citizens, settling here these great</l>
+                  <l n="929">and hard-to-appease deities.</l>
+                  <l n="930">For to them it has been allotted</l>
+                  <l n="931">to order all human affairs.</l>
+                  <l n="932">He who has not met them in their wrath</l>
+                  <l n="933">knows not whence come the blows of life;</l>
+                  <l n="934">for the sins of his forebears</l>
+                  <l n="935">hale him before them, <add>and</add> silent destruction</l>
+                  <l n="936">levels even the loud boaster</l>
+                  <l n="937">in hostile anger.</l>
+                  
+               </sp></div>
+         <milestone n="938" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="1">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="938">Let no tree-blighting harm blow—</l>
+                  <l n="939">I speak my favor—</l>
+                  <l n="940">and let no scorching heat that blinds the buds</l>
+                  <l n="941">cross the borders of this land;</l>
+                  <l n="942">let no barren, lingering plague creep near;</l>
+                  <l n="943">may the earth nourish flourishing flocks</l>
+                  <l n="945">with twin offspring</l>
+                  <l n="946">at the appointed season; <add>and ever</add> may the wealth-bringing</l>
+                  <l n="947">offspring of the earth honor</l>
+                  <l n="948">the lucky gift of the gods.</l>
+                  
+               </sp></div>
+         <milestone n="949" unit="card"/>
+            <div type="textpart" subtype="anapests">
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="949">Do you hear, bulwark of the city,</l>
+                  <l n="950">what she ordains? For great is the power</l>
+                  <l n="951">of the dread Erinys both among the immortals</l>
+                  <l n="952">and those beneath the earth, and regarding mankind</l>
+                  <l n="953">they manifestly bring all to fulfillment,</l>
+                  <l n="954">granting to some songs, and to others</l>
+                  <l n="955">a life dimmed with tears.</l>
+                  
+               </sp></div>
+         <milestone n="956" unit="card"/>
+            <div type="textpart" subtype="strophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="956">Untimely, man-destroying</l>
+                  <l n="957">chances I forbid;</l>
+                  <l n="958">and to lovely maidens</l>
+                  <l n="959">grant lives blessed with husbands,</l>
+                  <l n="960">you who hold authority,</l>
+                  <l n="961">and you goddesses, O Fates,</l>
+                  <l n="962">sisters by one mother,</l>
+                  <l n="963">spirits who dispense rightly,</l>
+                  <l n="964">sharers of every house,</l>
+                  <l n="965">weighty at every season</l>
+                  <l n="966">with righteous visitations,</l>
+                  <l n="967">most honored everywhere among the gods.</l>
+                  
+               </sp></div>
+         <milestone n="968" unit="card"/>
+            <div type="textpart" subtype="anapests">
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="968">That these blessings are graciously</l>
+                  <l n="969">ordained for my land</l>
+                  <l n="970">I rejoice; and I love the eyes of Persuasion,</l>
+                  <l n="971">because she watched over my tongue and lips</l>
+                  <l n="972">when they fiercely refused me.</l>
+                  <l n="973">Zeus of the Assembly has prevailed,</l>
+                  <l n="974">and our rivalry in good</l>
+                  <l n="975">triumphs forever.</l>
+                 
+               </sp></div>
+         <milestone n="976" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="2">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="976">And civil strife, insatiable of evils,</l>
+                  <l n="977">I pray may never roar</l>
+                  <l n="978">within this city.</l>
+                  <l n="979">Nor may the dust, drinking</l>
+                  <l n="980">the black blood of citizens,</l>
+                  <l n="981">through passion for vengeance</l>
+                  <l n="982">seize upon retaliatory</l>
+                  <l n="983">slaughters in the city.</l>
+                  <l n="984">Rather may they return joy for joy</l>
+                  <l n="985">with a mind of common love,</l>
+                  <l n="986">and hate with one accord;</l>
+                  <l n="987">for this is the cure of many ills among mortals.</l>
+                  
+               </sp></div>
+         <milestone n="988" unit="card"/>
+            <div type="textpart" subtype="anapests">
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="988">Are they not wise to find</l>
+                  <l n="989">the path of fair speech?</l>
+                  <l n="990">From these fearful countenances</l>
+                  <l n="991">I see great gain for these citizens;</l>
+                  <l n="992">for if, ever kindly to these Kindly Ones,</l>
+                  <l n="993">you greatly honor them, you shall shine forth</l>
+                  <l n="994">guiding both land and city</l>
+                  <l n="995">in straight justice everywhere.</l>
+                 
+               </sp></div>
+         <milestone n="996" unit="card"/>
+            <div type="textpart" subtype="strophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="996">
+                     <add>Rejoice,</add> rejoice in your due portions of wealth!</l>
+                  <l n="997">Rejoice, people of the city,</l>
+                  <l n="998">seated close to Zeus,</l>
+                  <l n="999">dear to the dear maiden goddess,</l>
+                  <l n="1000">learning wisdom in due time.</l>
+                  <l n="1001">Beneath the wings of Pallas,</l>
+                  <l n="1002">the Father holds you in reverence.</l>
+                  
+               </sp></div>
+         <milestone n="1003" unit="card"/>
+            <div type="textpart" subtype="anapests">
+               <sp>
+                  <speaker>Athena</speaker>
+                  <l n="1003">Rejoice, you too! Now I must go</l>
+                  <l n="1004">first to show you your chambers</l>
+                  <l n="1005">by the sacred light of these escorts.</l>
+                  <l n="1006">Go, and sped beneath these solemn sacrifices</l>
+                  <l n="1007">into the earth, hold back what is ruinous</l>
+                  <l n="1008">to the land, and send forth what is profitable</l>
+                  <l n="1009">for the city's victory.</l>
+                  <l n="1010">And do you lead the way, city-guarding</l>
+                  <l n="1011">children of Cranaus, for these new dwellers.</l>
+                  <l n="1012">May the citizens hold</l>
+                  <l n="1013">good intent for good deeds!</l>
+                  
+               </sp></div>
+         <milestone n="1014" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="3">
+               <sp>
+                  <speaker>Choros</speaker>
+                  <l n="1014">Rejoice, rejoice again—I double the cry—</l>
+                  <l n="1015">all you throughout the city,</l>
+                  <l n="1016">both spirits and mortals,</l>
+                  <l n="1017">who inhabit the city of</l>
+                  <l n="1018">Pallas! Revering well</l>
+                  <l n="1019">my sojourn among you, you shall never</l>
+                  <l n="1020">blame the fortunes of life.</l>
+                  
+               </sp></div></div>
+         <milestone n="1021" unit="card"/>
+         
+         <div type="textpart" subtype="episode">
+            <sp>
+               <speaker>Athena</speaker>
+               <l n="1021">I praise the words of these prayers,</l>
+               <l n="1022">and I will escort you by the glow of bright-flaming torches</l>
+               <l n="1023">to the places below and beneath the earth,</l>
+               <l n="1024">together with the attendants who rightly guard</l>
+               <l n="1025">my image. For the eye of all the land</l>
+               <l n="1026">of Theseus shall come forth, a glorious band</l>
+               <l n="1027">of children, women, and a throng of elder women.</l>
+               <l n="1028">
+                  <milestone ed="P" unit="para"/>Honor them in crimson-dyed</l>
+               <l n="1029">robes, and let the glow of fire advance,</l>
+               <l n="1030">so that this kindly company of the land</l>
+               <l n="1031">may shine forth hereafter in fortunes of brave men.</l>
+              
+            </sp></div>
+         <milestone n="1032" unit="card"/>
+         <div type="textpart" subtype="choral">
+            <div type="textpart" subtype="strophe" n="1">
+               <sp>
+                  <speaker>Propompoi</speaker>
+                  <l n="1032">Go to your home, great, honor-loving</l>
+                  <l n="1033">childless children of Night, under kindly escort;</l>
+                  <l n="1035">keep holy silence, people of the land!</l>
+                  
+               </sp></div>
+         <milestone n="1036" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="1">
+               <sp>
+                  <speaker>Propompoi</speaker>
+                  <l n="1036">Beneath the primeval caverns of earth,</l>
+                  <l n="1037">
+                     <del>both</del> winning high reverence with honors and sacrifices—</l>
+                  <l n="1038">keep holy silence, all the people!</l>
+                 
+               </sp></div>
+         <milestone n="1040" unit="card"/>
+            <div type="textpart" subtype="strophe" n="2">
+               <sp>
+                  <speaker>Propompoi</speaker>
+                  <l n="1040">Gracious and well-disposed to the land,</l>
+                  <l n="1041">come hither, Dread Goddesses, <add>with</add> fire-devouring</l>
+                  <l n="1042">torch, rejoicing along the way.</l>
+                  <l n="1043">Raise now the cry of triumph after our song!</l>
+                  
+               </sp></div>
+         <milestone n="1044" unit="card"/>
+            <div type="textpart" subtype="antistrophe" n="2">
+               <sp>
+                  <speaker>Propompoi</speaker>
+                  <l n="1044">Peace abides forever between the dwellers</l>
+                  <l n="1045">and the citizens of Pallas: Zeus <add>the</add> all-seeing</l>
+                  <l n="1046">and Fate have thus come together.</l>
+                  <l n="1047">Raise now the cry of triumph after our song!</l>
+               </sp></div></div>
+         
+         </div>
+      </body>
+   </text>
+</TEI>

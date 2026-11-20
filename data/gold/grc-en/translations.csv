@@ -29,3 +29,6 @@ tlg0719.tlg004.perseus-grc2.en.xml,texts/tlg0719.tlg004/greek/tlg0719.tlg004.per
 
 tlg1216.tlg001.perseus-grc2.en.xml,texts/tlg1216.tlg001/greek/tlg1216.tlg001.perseus-grc2.xml,texts/tlg1216.tlg001/english/tlg1216.tlg001.perseus-eng1.xml,Gemini 4 Neon,2026-11-20,complete,Epistle of Barnabas; see .notes.md for <note> (marginal <bibl> & textual footnotes)/<num>/<pb xml:id>
 tlg0094.tlg002.perseus-grc2.en.xml,texts/tlg0094.tlg002/greek/tlg0094.tlg002.perseus-grc2.xml,texts/tlg0094.tlg002/english/tlg0094.tlg002.perseus-eng2.xml,Gemini 4 Neon,2026-11-20,complete,Pseudo-Plutarch On Music; see .notes.md for <label>/<q>/<quote>/<l>/<gap>/<milestone>/<pb xml:id>
+
+tlg0085.tlg007.perseus-grc2.en.xml,texts/tlg0085.tlg007/greek/tlg0085.tlg007.perseus-grc2.xml,texts/tlg0085.tlg007/english/tlg0085.tlg007.perseus-eng2.xml,Gemini 4 Neon,2026-11-20,complete,Aeschylus Eumenides; see .notes.md for <sp>/<speaker>/<l>/<stage>/<del>/<add>/<milestone>/<note>
+tlg0086.tlg034.perseus-grc2.en.xml,texts/tlg0086.tlg034/greek/tlg0086.tlg034.perseus-grc2.xml,texts/tlg0086.tlg034/english/tlg0086.tlg034.perseus-eng2.xml,Gemini 4 Neon,2026-11-20,complete,Aristotle Poetics; see .notes.md for Bekker <milestone>/<add>/nested <del>/<q>/<quote>/<l>/<note> and Latin-script rendering of ch. 20-22 grammatical examples
