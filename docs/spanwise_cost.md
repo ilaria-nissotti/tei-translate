@@ -80,3 +80,36 @@ chrF barely moves, but the errors are visible to a reader:
   no signal.
 - `whole` joins a passage's blocks. For multi-block prose passages this also removes block
   boundaries, but paragraphs end at sentence ends, so that has little effect.
+
+## Hybrid placement with the pivot model (2026-11-20)
+
+After the hybrid mode was built (tags removed, sentences translated whole, tags put back with
+the `UGARIT/grc-alignment` word aligner; see `CLAUDE.md`), `compare_spanwise.py` got a fourth
+condition, **hybrid**, which runs the real hybrid pipeline. Blocks it cannot place go span-wise,
+as in the pipeline.
+
+Run: engine `pivot-grc-el-en`, every second passage of the 32 cut passages above
+(`--reuse outputs/spanwise/20261120-madlad-split --every 2`): 16 passages, 852 Greek words,
+all prose. Output: `outputs/spanwise/20261120-pivot-half/` (git-ignored).
+
+| Condition | chrF | BLEU | Time (s) |
+|---|---|---|---|
+| whole | 21.7 | 3.3 | 169 |
+| split | 21.6 | 3.4 | 171 |
+| pipeline (span-wise) | 21.6 | 3.4 | 184 |
+| **hybrid** | **21.9** | 3.2 | 198 |
+
+- **Hybrid matches whole-passage translation** (9 of 16 outputs identical to `whole`) and is
+  0.3 chrF above span-wise. That is within the noise (about ±0.4), as expected from the MADLAD
+  result above: chrF barely sees the broken sentences.
+- **Per passage**, hybrid beats span-wise by more than 2 chrF in 2 passages and loses by more
+  than 2 in 2. The wins are where cuts broke the sentence: Xenophon 4.1.27, cut by `del`
+  (34.3 → 41.4, the fragments "It lasts. … He's good too." are gone); Herodotus 4.47.2, cut by
+  `gap`/`note` (32.7 → 35.8). The losses are passages where the pivot's whole-sentence
+  translation happens to be worse than its pieces (Xenophon 3.4.16, cut by `sic`: 45.7 → 36.1,
+  although the span-wise text ends with a dangling "Archers;").
+- **Placement:** 13 of 17 blocks placed in hybrid mode. Three fell back to span-wise because
+  UGARIT could not align a one-word `<add>` (2 unaligned, 1 too wide); one block contains
+  other blocks.
+- **Cost:** about 15 s more than span-wise, mostly the second engine batch for the blocks
+  that fell back; the aligner took 1.4 s.
