@@ -49,7 +49,7 @@ Check it worked with `python -c "import torch; print(torch.cuda.is_available())"
 src/tei_translate/     the Python package (import it as tei_translate)
   pipeline/            pipeline stages (empty for now)
   engines/             MT engines: test engines + Hugging Face models (Opus-MT, MADLAD)
-  metrics/             evaluation metrics (fragments.py, scores.py, translation_scores.py, comet_score.py)
+  metrics/             evaluation metrics (fragments.py, scores.py, translation_scores.py, comet_score.py, placement_eval.py)
   ui/                  Gradio app (empty for now)
 scripts/
   data/                download and describe the Perseus data (count_tags.py, build_dataset.py, make_work_types.py)
@@ -136,6 +136,19 @@ python scripts/compare_engines.py --reuse outputs/compare/<earlier run> --engine
 
 It writes `outputs/compare/<timestamp>/report.md` (scores overall and per work, with examples), `translations.jsonl` (every passage with each engine's output, plus the Modern Greek in between for `pivot-grc-el-en`) and `run.json` (settings, models, timings). `--reuse` takes the passages and translations of an earlier run and only runs the engines it doesn't have yet, so adding an engine to a comparison doesn't re-run the others. For a slow engine, add `--subset N` (first N passages per work) and/or `--max-words W` (only passages up to W Greek words): every engine is then scored on that smaller set.
 
+### `eval_placement.py`
+Scores how well the hybrid pipeline places the tags, against the hand-checked gold set in `data/gold/grc-en/gold.jsonl` (format and plan in `docs/gold_set_handover.md`):
+
+```
+python scripts/eval_placement.py                                   # aligners none and monotone (no models)
+python scripts/eval_placement.py --aligners ugarit dragoman monotone none
+python scripts/eval_placement.py --gold tests/fixtures/placement_eval/gold.jsonl   # try it on the test items
+```
+
+For every gold item and aligner, the pipeline translates the Greek block with a *replay* engine that returns the gold English sentences, so the output has exactly the gold text and only the tag positions can differ. Each block is then scored with tag accuracy and average distance (Zenkel et al. 2021). A block the pipeline could not place (it fell back to span-wise translation) gets no score and counts in the fallback rate. Names, numbers and other fixed elements are scored *before* the pipeline replaces their English with their own content (otherwise the text would no longer match the gold); `--policy-as-is` turns this off. The model aligners need `pip install -e .[mt]`.
+
+It writes `outputs/eval_placement/<timestamp>/report.md` (tag accuracy, average distance and fallback rate per aligner, accuracy per tag type and per text type, fallback reasons), `results.jsonl` (every item with its status, scores and output), `summary.json` and `run.json`.
+
 ### Running the tests
 From the repository root, with the package installed (see Installation):
 
@@ -153,7 +166,7 @@ The metric tests are in `tests/test_metrics.py`. Each hand-made case in `tests/f
 - `translation_cases.json`: removing tags (also from broken XML), and chrF and BLEU: several references are handled correctly, and the scores equal sacrebleu's on the plain text.
 - `node_chrf_cases.json`: Node-chrF from Song et al. (2025): which elements are paired, with which texts, and the resulting scores.
 
-COMET is tested in `tests/test_comet.py`, mostly with a simple stand-in for the model; the tests with the real model run only with `TEI_TRANSLATE_RUN_MODELS=1`.
+The placement evaluation is tested in `tests/test_placement_eval.py`, on hand-made gold items (`tests/fixtures/placement_eval/`). COMET is tested in `tests/test_comet.py`, mostly with a simple stand-in for the model; the tests with the real model run only with `TEI_TRANSLATE_RUN_MODELS=1`.
 
 A failing test shows the case's description and which values differ from the expected ones.
 
