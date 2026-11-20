@@ -1,0 +1,2 @@
+gold_file,greek_file,english_references,translator,date,status,notes
+tlg0062.tlg001.perseus-grc2.en.xml,texts/tlg0062.tlg001/greek/tlg0062.tlg001.perseus-grc2.xml,texts/tlg0062.tlg001/english/tlg0062.tlg001.perseus-eng2.xml;texts/tlg0062.tlg001/english/tlg0062.tlg001.perseus-eng4.xml,Gemini 4 Neon,2026-11-20,complete,Lucian Phalaris I-II; see .notes.md for edition diffs and <corr>/<pb> placement

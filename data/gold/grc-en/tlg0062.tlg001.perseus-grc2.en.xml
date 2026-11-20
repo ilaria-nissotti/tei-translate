@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Φάλαρις</title>
+<author>Lucian of Samosata</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+</respStmt>
+
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+<respStmt>
+<resp>gold translation (grc to en), translator: Gemini 4 Neon, with the Perseus English translations as reference</resp>
+<name>tei-translate</name>
+</respStmt>
+</titleStmt>
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg001.perseus-grc2.xml</idno>
+ <availability>
+  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+  <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+ </availability>
+</publicationStmt>
+
+<sourceDesc>
+<listBibl>
+<biblStruct>
+<monogr>
+<author>Lucian</author>
+<title>Lucian</title>
+<editor>Austin Morris Harmon</editor>
+<imprint>
+<pubPlace>London</pubPlace>
+<publisher>William Heinemann Ltd.</publisher>
+<pubPlace>Cambridge, MA</pubPlace>
+<publisher>Harvard University Press</publisher>
+<date>1913</date>
+</imprint>
+<biblScope unit="volume">1</biblScope>
+</monogr>
+   <series>
+      <title>Loeb Classical Library</title>
+   </series>
+ <ref target="https://archive.org/details/lucianha01luciuoft/page/n19/mode/2up">Internet Archive</ref>
+</biblStruct>
+</listBibl>
+</sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+    <cRefPattern n="section" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+   <p>This pointer pattern extracts book and section</p>
+  </cRefPattern>
+    <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts book</p>
+  </cRefPattern>
+ </refsDecl>
+
+<!--<refsDecl doctype="TEI.2">
+<state unit="book" delim="."/>
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+      <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+    </citeStructure>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+    <revisionDesc>
+      <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+       <change who="Lisa Cerrato" when="2023-04-10">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+    </revisionDesc>
+</teiHeader>
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2" type="edition" xml:lang="en">
+<pb n="v.1.p.2"/>
+  <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2" n="1">
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="1">
+<p rend="align(indent)"> Our ruler Phalaris has sent us, men of Delphi, to bring this bull to the god and to say to you what is fitting both on behalf of himself and on behalf of the offering. The reasons why we have come, then, <corr>are</corr> these; and what he instructed us to say to you is as follows:<note xml:lang="mul" type="footnote" n="v.1.p.2.n.1">τάδε Herwerden: not in MSS. Lacuna noted by E. Schwartz, Nilén.</note></p>
+ <p>"I," he says, "men of Delphi, would give anything to be regarded among all the Greeks as the sort of man I really am, and not as the sort that rumor, coming from those who hate and envy me, has handed down to the ears of those who do not know me, and above all among you, inasmuch as you are holy and associates of the Pythian god, and almost housemates and sharers of the same roof with the god. For I believe that if I should defend myself before you and persuade you that I have been thought cruel without reason, I shall also have cleared myself before all the rest through you. And I call the god himself as witness of what I am about to say, whom it is certainly impossible to deceive by sophistry and to <corr>mislead</corr> by false speech. <pb n="v.1.p.4"/>For to cheat men is perhaps easy, but to escape the notice of a god, and especially this god, is impossible.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="2">
+    <p rend="align(indent)"> "For I, not being one of the obscure in Acragas, but as well-born as anyone, liberally brought up and devoted to education, always continued to show myself public-spirited toward the city, and reasonable and moderate toward my fellow citizens; and no one ever charged my earlier life with any violent, rude, insolent, or overbearing act. But when I saw that my political opponents were plotting against me and seeking by <corr>every</corr> means to destroy me—for our city was divided at that time—I found this one escape and security, which was at the same time salvation for the city as well: if by seizing the government I should curb those men and stop them from plotting, and compel the city to be sensible. And indeed there were not a few who approved these measures, moderate and patriotic men, who knew both my purpose and the necessity of the enterprise. Using these men, then, <note xml:lang="mul" type="footnote" n="v.1.p.4.n.1">οὖν Nilén.: not in MSS.</note>as allies, I easily prevailed<note xml:lang="mul" type="footnote" n="v.1.p.4.n.2">ἐκρατησα Herwerden: ἐκράτησα τῆς ἐπιχειρήσεως MSS.</note>.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="3">
+    <p rend="align(indent)"> "From then on they no longer caused disturbances, but obeyed, while I ruled and the city was free from faction. Neither slaughters nor banishments nor confiscations did I inflict even upon those who had plotted against me, although it is necessary <note xml:lang="mul" type="footnote" n="v.1.p.4.n.3">ὂν Νilen: not in MSS.</note>to venture such measures especially at the beginning of a reign. <pb n="v.1.p.6"/>For by humanity and mildness and gentleness, and by treating them on terms of equality, I marvellously hoped to win them over to obedience. Right away, at any rate, I made peace and was reconciled with my enemies, and I used most of them as counsellors and table companions. And seeing the city itself ruined by the neglect of its leaders, since most of them were stealing, or rather plundering, the public funds, I restored it with aqueducts, adorned it with the erection of buildings, and strengthened it with a circuit of walls; the public revenues I easily increased through the diligence of my overseers; I cared for the youth, provided for the elderly, and kept the people entertained with spectacles, distributions, festivals, and public banquets; while outrages against maidens, or the corruption of youths, or the abduction of wives, or the sending of bodyguards, or any despotic threat were things I abhorred even to hear of.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="4">
+<p> "Already I was even considering giving up my office and laying down my power, thinking only how one might retire safely, since ruling itself and managing everything already seemed to me burdensome and, when attended by envy, wearisome; what I was still seeking was how the city would no longer need any such care. And while I, simple-minded as I was, was occupied with these matters, they were already banding together against me, considering the manner of their plot and revolt, organizing conspiracies, collecting arms, raising money, calling upon our neighbors, and sending embassies to Greece, to the Spartans and Athenians. <pb n="v.1.p.8"/><corr>What</corr> they had already decided regarding me myself, if I should be caught, <corr>and</corr> <corr>how</corr> they threatened to tear me to pieces with their own hands, and what punishments they devised, they confessed when tortured in public. That I suffered no such fate is due to the gods, who detected the plot, and above all to the Pythian god, who showed me dreams in advance and sent men to disclose every detail.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="5">
+    <p rend="align(indent)"> "Here now, men of Delphi, I ask you to place yourselves in imagination in the same state of alarm today and advise me on what I should have done then, when, caught almost off my guard, I was seeking some safety in the crisis. Travel in thought for a little while to Acragas to join me, see their preparations and hear their threats, and tell me what one should <note xml:lang="mul" type="footnote" n="v.1.p.8.n.1">δεῖ MSS.: ἔδει Cobet.</note>do? Should I still treat them with humanity, and spare them, and endure them when I am about to suffer the worst the very next moment? Or rather bare my naked throat at once and watch my nearest and dearest perishing before my eyes? Or would such conduct be that of a complete fool, and ought I instead, forming a noble and manly resolve and taking up the anger of a sensible and wronged man, to punish those men and provide for my own future security as best I could? This I know you would have advised.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="6">
+    <p rend="align(indent)"> "What then did I do after this? <pb n="v.1.p.10"/>Summoning the guilty, giving them a hearing, producing the proofs, and clearly proving every point, when they themselves could no longer deny it, I defended myself, indignant mostly not because I had been plotted against, but because I had not been allowed by them to remain in that policy which I had adopted from the beginning. And from that time on I have continued to guard myself and to punish those of them who at any time plot against me. And then men blame me for cruelty, no longer considering on which side of us the first beginning of these things lay; omitting all that went between and the reasons for which they were punished, they found fault with the punishments themselves and the seeming cruelties in them—just as if someone among you, seeing a temple-robber being thrown from the rock, should take no account of what he had dared to do, how he had entered the temple by night, pulled down the offerings, and laid hands on the sacred image, and should accuse you of great savagery because, calling yourselves Greeks and holy men, you brought yourselves to inflict such a punishment upon a Greek near the temple (for the rock is said to be not very far from the city). But I think you yourselves will laugh if anyone says this against you, and all others will praise your cruelty toward the impious.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="7">
+    <p rend="align(indent)"> "On the whole, peoples do not examine what sort of man the head of affairs is, whether just or unjust, but simply hate the very name of tyranny, and even if the tyrant is an Aeacus or Minos or Rhadamanthus, they are equally eager to destroy him by every means, keeping the wicked ones before their eyes and including the good ones in the same hatred because of the shared title. <pb n="v.1.p.12"/>I hear, at any rate, that among you Greeks too there have been many wise tyrants who, under a name thought bad, have displayed a good and gentle character, of some of whom even brief sayings are stored in your temple as treasures and offerings to the Pythian god.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="8">
+    <p rend="align(indent)"> "You see also that lawgivers assign the greatest share to the punitive class of laws, since the others are of no use if fear and the expectation of punishment are not present. For us tyrants this is much more necessary, inasmuch as we govern <corr>by</corr> necessity and live among men who both hate us and plot against us, where not even bugbears are of any help to us, but the situation resembles the myth of the Hydra: for the more we cut off, the more occasions for punishing sprout up for us. Yet we must endure it and keep cutting off what sprouts up and, by Zeus, searing it like Iolaus, if we are to <corr>prevail</corr>. For the man who has once been forced to fall into such circumstances must himself be suited to his role, or else perish by sparing those around him. In general, whom do you suppose to be so savage or inhuman a man as to take pleasure in flogging, in hearing groans, and in watching men being slaughtered, unless he had some great reason for punishing? How often, indeed, have I wept while others were being flogged, and how often am I forced to lament and bewail my own fortune, enduring myself a greater and longer-lasting punishment? For to a man who is good by nature, but harsh through necessity, punishing is far harder than <corr>being punished</corr>.</p>
+   </div><pb n="v.1.p.14"/>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="9">
+    <p rend="align(indent)"> "If I may speak frankly, I <corr>for my part</corr>, if a choice were offered to me whether I <corr>wish</corr> to punish some men unjustly or to die myself, know well that without hesitation I would choose to die rather than punish those who have done no wrong. But if someone should say, 'Do you wish, Phalaris, to die unjustly yourself or to punish conspirators justly?' this I <corr>would</corr> wish; for once again I call upon you as counsellors, men of Delphi: is it better to die unjustly or to save unjustly the man who has plotted against you? No one, I think, is so foolish that he would not prefer to live rather than perish by saving his enemies. Yet how many even of those who made attempts on me and were clearly convicted have I nevertheless spared? For instance Acanthus here, and Timocrates, and his brother Leogoras, remembering my old friendship with them.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="10">
+    <p rend="align(indent)"> "Whenever you wish to know my character, ask the strangers who visit Acragas how I behave toward them and whether I treat those who put into port with humanity—I who even keep watchmen and scouts at the harbors to find out who has sailed in and from where, so that I may send them on their way honoring them according to their merit. Some even come to visit me on purpose, the wisest of the Greeks, and do not shun my company, just as recently the wise Pythagoras came to us, having heard different reports about me; but when he had experienced me, he went away praising me for my justice and pitying me for my necessary cruelty. Do you then suppose that a man who is humane toward foreigners would treat his own countrymen so harshly <note xml:lang="mul" type="footnote" n="v.1.p.14.n.1">ἂν πικρῶς Herwerden: ἀδίκως MSS.</note>if he had not been exceptionally wronged?<pb n="v.1.p.16"/></p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="11">
+    <p rend="align(indent)"> "This then is the defense I have made to you on my own behalf, true and just and, as I persuade myself, worthy of praise rather than hatred. Concerning the offering, it is time for you to hear from where and how I acquired this bull. I did not myself commission it from the sculptor—may I never be so mad as to desire such possessions!—but there was a certain Perilaus, a countryman of ours, a good bronze-worker, but a wicked man. Having completely mistaken my character, he thought he would gratify me if he invented some new punishment, as though I desired to punish by every means. And so, having fashioned the bull, he came bringing it to me, most beautiful to behold and modeled with the utmost precision; for it lacked only movement and bellowing to seem actually alive. And <corr>seeing</corr> it, I cried out at once, 'The possession is worthy of the Pythian god; the bull must be sent to the god!' But Perilaus, standing beside me, said, 'What if you should learn the cleverness within it and the use it provides?' And at the same time opening the bull along its back, he said, 'Whenever you wish to punish someone, put him into this contrivance, lock him in, attach these pipes to the nostrils of the bull, and order a fire to be kindled beneath. He will groan and shriek, gripped by unceasing pains, and his cry through the pipes will produce for you the clearest melodies, piping mournfully and bellowing most piteously, so that while he is punished, you are entertained meanwhile by the flute-music.'</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="12">
+<p><pb n="v.1.p.18"/>"When I heard this, I loathed the wicked ingenuity of the man and hated the idea of the contrivance, and I imposed upon him a fitting punishment. 'Come now, Perilaus,' I said, 'if this is not merely an empty promise, get inside yourself and show us the truth of your craft, and imitate those crying out, so that we may know whether the melodies you speak of really sound through the pipes.' Perilaus complied, and when he was inside, I locked him in and ordered a fire to be kindled beneath, saying, 'Receive the worthy reward of your wondrous craft, so that you, the teacher of music, may be the first to play the pipe yourself!' And he suffered justly, enjoying the fruit of his own ingenuity. But ordering the man to be taken out while still breathing and alive, lest he pollute the work by dying inside it, I commanded that he be thrown unburied over the cliffs; and having purified the bull, I sent it up to you to be dedicated to the god. And I ordered the whole story to be inscribed upon it: my name as dedicator, the craftsman Perilaus, his idea, my justice, the fitting punishment, the melodies of the clever bronze-worker, and the first trial of the music.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="13">
+    <p rend="align(indent)"> "And you, men of Delphi, will do what is right if you sacrifice on my behalf with the ambassadors and set up the bull in a fine place in the sanctuary, so that all may know what sort of man I am toward the wicked and how I requite their excessive desires for evil. Indeed, this alone is enough to show my character: Perilaus punished, and the bull dedicated and no longer kept for the pipings of others being punished, nor having sung any other melody except only the bellowings of its craftsman, and that in him alone I both made trial of the craft and put an end to that unmusical and inhuman song. <pb n="v.1.p.20"/>And these are my present offerings to the god; and I shall dedicate many others besides, whenever he grants that I no longer need punishments."</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:1" n="14">
+    <p rend="align(indent)"> This, men of Delphi, is the message from Phalaris, all of it true and each thing just as it happened; and we would rightly be believed by you when we bear witness, since we both know the facts and have no reason now to lie. And if we must also entreat on behalf of a man who is wrongly thought wicked and has been forced to punish against his will, we Acragantines, being Greeks and of ancient Dorian stock, beseech you to welcome the man who wishes to be your friend and is eager to confer many benefits both publicly and privately upon each of you. Take the bull, then, dedicate it, and pray both for Acragas and for Phalaris himself; and neither send us away empty-handed, nor insult him, nor deprive the god of an offering at once most beautiful and most just.</p>
+</div>
+</div>
+  <div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2" n="2">
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="1">
+    <p rend="align(indent)"> I am neither a public representative of the Acragantines, men of Delphi, nor a personal guest-friend of Phalaris himself, nor do I have any other private ground for goodwill toward him or hope of future friendship. <pb n="v.1.p.22"/>But having heard the ambassadors who came from him speaking reasonable and moderate words, and having in view both piety and the common interest and especially what is fitting for Delphi, I have risen to advise you neither to insult a pious ruler nor to reject an offering already vowed to the god—and that too one that will become forever a memorial of three very great things: most beautiful craft, most wicked invention, and just punishment.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="2">
+<p> For my part, I consider even that you <note xml:lang="mul" type="footnote" n="v.1.p.22.n.1">ὑμᾶς MSS.: bracketed by Nilén, following E. Schwartz</note>should hesitate at all about this and put before us the deliberation whether we ought to accept the offering or send it back again to be already unholy, or rather to leave no room for greater impiety. For the matter is nothing other than temple-robbery, far worse than any other kind, inasmuch as not even to allow those who wish to dedicate to do so in the first place is more impious than to plunder what has already been dedicated.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="3">
+    <p rend="align(indent)"> And I beg you, being myself a Delphian and sharing equally both in the public renown, if it is preserved, and in the opposite reputation, if it should come upon us from the present affair, neither to close the sanctuary to the pious nor to bring the city into ill repute before all mankind as one that quibbles over what is sent to the god and puts dedicators on trial by vote and law-court; for no one would dare to dedicate anything anymore knowing that the god will not accept whatever has not first been approved by the Delphians.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="4">
+<p> The Pythian god, then, has already <corr>cast</corr> his just vote concerning the offering. At any rate, if he hated Phalaris or loathed his gift, it would have been easy to sink it in the middle of the Ionian Sea together with the merchant ship carrying it; instead, quite to the contrary, he granted them, as they say, to cross in fair weather and to put safely into port at Cirrha.<pb n="v.1.p.24"/></p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="5">
+<p> By this too it is clear that he accepts the monarch's piety. You also must vote the same way as he and add this bull to the other ornaments of the sanctuary; for this would be the most absurd of all things, that someone who has sent so magnificent a gift to a god should receive a condemning vote from the sanctuary and get as the reward of his piety the judgment of being unworthy even of making an offering.<note xml:lang="mul" type="footnote" n="v.1.p.24.n.1">ἄξιον Herwerden: ἄξιος MSS.</note></p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="6">
+    <p rend="align(indent)"> The man who takes the opposite view to mine, as though he had just sailed in from Acragas, declaimed dramatically about certain <corr>slaughters</corr> and acts of violence and robberies and abductions of the tyrant, all but saying that he had been an eyewitness—a man whom we know has not even traveled as far as the ship! Yet in such matters we ought not even to put much trust in those who claim to have suffered them when they tell their stories—for it is unclear whether they are speaking the truth—much less ourselves bring accusations about things we do not know.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="7">
+<p> Even if something of this sort has indeed been done in Sicily, it is not necessary for Delphians to meddle in it, unless we now claim to be judges instead of priests, and when we ought to be sacrificing and performing the other services to the god and helping to dedicate whatever someone sends, we sit examining whether some people across the Ionian Sea are ruled justly or unjustly by a tyrant.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="8">
+    <p rend="align(indent)"> Let the affairs of others stand as they please; for us it is necessary, I think, to know our own affairs—how they stood of old, how they stand now, and by doing what it will be better for us. <pb n="v.1.p.26"/>That we ourselves dwell among crags and farm rocks, we need not wait for Homer to reveal to us, for anyone can see it. And so far as the soil is concerned, we would always be living with deep famine; but the sanctuary, the Pythian god, the oracle, those who sacrifice, and the pious—these are the plains of Delphi, these are our revenue, from these comes our plenty, from these comes our <corr>sustenance</corr>—for we must speak the truth at least among ourselves—and as the poets say, unsown and unploughed all things grow for us <corr>under</corr> the god as our husbandman, who provides not only the good things produced among the Greeks, but whatever is found among the Phrygians or Lydians or Persians or Assyrians or Phoenicians or Italians or even the Hyperboreans, all arrives at Delphi. And second after the god we are honored by all, and we live in plenty and prosperity: thus it was of old, thus it is up to now, and may we never cease living thus.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="9">
+    <p rend="align(indent)"> No one remembers a vote ever being taken among us about an offering, nor anyone being prevented from sacrificing or dedicating. And for this very reason, I think, the sanctuary itself has grown extraordinarily and is overflowing with offerings. <pb n="v.1.p.28"/>Therefore we must neither make any innovation at present nor establish a law contrary to our ancestral ways, sorting out offerings and tracing the pedigree of what is sent—from where, from whom, and of what sort—but rather receive them without fuss and dedicate them, serving both the god and the pious.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="10">
+<p> It seems to me, men of Delphi, that you will deliberate <note xml:lang="mul" type="footnote" n="v.1.p.28.n.1">βουλεύσεσθαι Reitz: βουλεύεσθαι MSS.</note>best about the present matter if you consider concerning <note xml:lang="mul" type="footnote" n="v.1.p.28.n.2">ὑπὲρ Sοmmerbrodt: πρῶτον ὑπὲρ MSS.</note>how many and how great issues the inquiry is: first, concerning the god, the sanctuary, sacrifices, offerings, ancient customs, old ordinances, and the reputation of the oracle; next, concerning the whole city and the interests both of our community and of each Delphian individually; and above all, concerning our good repute or ill repute among all mankind. For I do not know whether, if you are in your right minds, you could consider anything greater or more vital than these.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="11">
+<p> What we are deliberating about, then, is this: not Phalaris, a single tyrant, nor this bull, nor bronze alone, but all kings and all rulers who now make use of the sanctuary, and gold and silver and all other precious things that will often be dedicated to the god; for first of all what concerns the god deserves to be examined.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="12">
+<p> For what reason, then, should we not manage the matter of offerings as always and as of old? Or finding what fault with our ancient customs should we innovate? And what has never happened among us since we have inhabited the city and the Pythian god has given oracles and the tripod has spoken and the priestess has been inspired, shall we now establish—that dedicators be judged and examined? <pb n="v.1.p.30"/>And indeed, from that ancient custom of unrestricted access for all, you see with how many good things the sanctuary is filled, as all make offerings and some even bestow gifts upon the god beyond their existing means.</p>
+</div>
+   <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg001.perseus-grc2:2" n="13">
+<p> But if you set yourselves up as examiners and inquisitors over offerings, I fear we shall soon have no one left to examine, since no one will submit to putting himself on trial, and after spending and lavishing his own wealth, to be judged and risk everything. Or for whom is life worth living, if he is judged unworthy of making an offering?</p>
+</div>
+</div></div>
+</body>
+</text>
+</TEI>
