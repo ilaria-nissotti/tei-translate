@@ -1,8 +1,8 @@
 # Gold translations of long texts: chunks
 
-Long Greek files are split into chunks so several translators can work in parallel. The
-translation rules are in [gold_set_handover.md](gold_set_handover.md); this file only covers the
-splitting and joining.
+Long Greek files are split into chunks so several translators can work in parallel. This file
+only covers the splitting and joining; what to do with each tag is in
+[tag_decisions.md](tag_decisions.md) and `config/policy.yaml`.
 
 ## Steps
 

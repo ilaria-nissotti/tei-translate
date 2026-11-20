@@ -45,7 +45,27 @@ The result goes to `outputs/<name>.en.xml` and a report is printed. Models downl
 | `identity`, `tag` | none | test engines: copy the input / wrap it as `[EN:...]` |
 | `marian:<id>`, `madlad:<id>` | any Opus-MT / MADLAD model | e.g. `madlad:google/madlad400-7b-mt` |
 
-Other options: `--aligner ugarit|xlmr|dragoman|monotone|none`, `--placement hybrid|spanwise`.
+Other options:
+
+- `-o/--output OUT.xml`: where to write the result (default `outputs/<name>.<tgt>.xml`).
+- `--aligner ugarit|xlmr|dragoman|monotone|none` and `--placement hybrid|spanwise`: how tags are
+  put back into the translation.
+- `--pair PAIR.yaml`: language-pair config (default `config/pairs/grc-en.yaml`).
+- `--policy POLICY.yaml`: a different tag-rules file.
+
+The defaults for engine, aligner, placement, policy and schema come from the pair config, so the
+options above only override it.
+
+## Configuration
+
+- **Tag rules**: `config/policy.yaml` says what happens to each TEI tag (translate, keep,
+  transliterate, copy unchanged) and how it is placed back. The code only knows these rules, never
+  tag names, so changing how a tag is handled means editing this file. The reasons for each rule
+  are in [tag_decisions.md](docs/tag_decisions.md).
+- **Language pairs**: `config/pairs/grc-en.yaml` holds everything pair-specific (`src`, `tgt`,
+  engine, aligner, placement, policy, schema). For another pair, copy it, change the values and
+  pass it with `--pair`. The engine must support the pair, and transliteration is only
+  implemented for Greek.
 
 To read the output comfortably, open it in the [Mano Project viewer](https://mano-project.github.io/viewer.html).
 
@@ -57,6 +77,15 @@ Data (no install needed):
   Greek works with English translations (`data/catalog/`) and tag counts (`data/stats/`).
 - `python scripts/data/build_dataset.py`: downloads those Greek/English pairs into `data/perseus/`
   and labels each work as prose, poetry or drama.
+- `python scripts/data/count_perseus_tags.py`: tag counts over `data/perseus/` (needs
+  `build_dataset.py` first), written to `data/stats/perseus_tag_frequencies_{greek,all}.csv`.
+
+Gold set:
+
+- `python scripts/gold/check_gold.py GREEK.xml GOLD.xml`: checks a gold English translation
+  against its Greek source: runs the pipeline's validation checks, lists missing or extra tags per
+  block, and flags Greek left untranslated outside kept elements. Run it before adding a file to
+  `data/gold/grc-en/`.
 
 Experiments (need `data/perseus/` and the `mt` extra; results go to `outputs/`):
 
@@ -90,7 +119,8 @@ The metric test cases are in `tests/fixtures/metrics/` (explained in its README)
 ## Using the metrics
 
 ```python
-from tei_translate.metrics.scores import tag_accuracy, average_distance, score, xml_accuracy, xml_matching
+from tei_translate.metrics.scores import (tag_accuracy, average_distance, score,
+    is_valid_xml, xml_accuracy, same_structure, xml_matching)
 from tei_translate.metrics.translation_scores import chrf, bleu, node_chrf, node_chrf_corpus
 from tei_translate.metrics.comet_score import comet          # needs the comet extra
 ```
@@ -133,6 +163,23 @@ Docs:
 - [tag_decisions.md](docs/tag_decisions.md): what we do with each TEI tag, and why.
 - [engine_comparison.md](docs/engine_comparison.md): which translation model, and why MADLAD.
 - [spanwise_cost.md](docs/spanwise_cost.md): what it costs to cut sentences at tags.
-- [gold_set_handover.md](docs/gold_set_handover.md) and [gold_chunk_workflow.md](docs/gold_chunk_workflow.md): how the gold translations are made.
-- `Essentials_Proposal.pdf`, `feedback_overview.md`, `proposed_tasks.md`: proposal, feedback, task split.
-- `HANDOVER.md`: the first design draft (partly out of date).
+- [gold_chunk_workflow.md](docs/gold_chunk_workflow.md): how long texts are split up for the gold translations.
+- `Essentials_Proposal.pdf`: the project proposal.
+
+## Not built yet
+
+A Gradio app (`app.py`) for translating in the browser, run locally and on a free Hugging Face
+Space. `src/tei_translate/ui/` is a placeholder for it.
+
+## Credits and licences
+
+University group project for *Essentials of Text and Speech Processing*, by Ennio, Andjela and
+Ilaria.
+
+- Texts: Perseus Digital Library,
+  [canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit), CC BY-SA 4.0.
+- Schema: TEI P5 `tei_all` 4.12.0 (see `config/schemas/README.md`).
+- Models are downloaded at run time and keep their own licences. Check them before reusing the
+  output: `ilsp/nllb-200-600M-ag-mg-lora` (used by `pivot-grc-el-en`) is CC BY-NC (non-commercial),
+  and the UGARIT and Dragoman aligners are CC BY 4.0. MADLAD-400 and Opus-MT list their licences
+  on their Hugging Face model pages.
