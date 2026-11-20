@@ -245,5 +245,6 @@ def translate_document(path, pair: str | Path | dict = DEFAULT_PAIR, engine=None
     if not _add_resp_stmt(root, engine.name, src, tgt):
         report.warnings.append("no teiHeader/fileDesc/titleStmt: respStmt not added")
 
-    report.checks = validate(source, tree, policy, src, tgt)
+    schema = pair_cfg.get("schema", "config/schemas/tei_all.rng")
+    report.checks = validate(source, tree, policy, src, tgt, schema=schema and REPO_ROOT / schema)
     return Result(tree, report)

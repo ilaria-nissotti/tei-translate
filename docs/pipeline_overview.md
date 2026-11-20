@@ -72,7 +72,9 @@ Each step in plain words:
    model did the translation.
 7. **Check.** The output is compared with the input: is it valid XML, are all tags
    still there under the same parents, are protected parts unchanged, is the header
-   unchanged. The program prints a report and fails if a check fails.
+   unchanged, is it valid TEI (the official `tei_all` schema, TEI P5 4.12.0, stored
+   in `config/schemas/`; a source file that is already invalid only fails if the
+   output has *new* errors). The program prints a report and fails if a check fails.
 
 ---
 
@@ -257,7 +259,7 @@ This writes `outputs/<name>.en.xml` and prints the report.
 | **Tag placement evaluation** | the scoring code exists (`metrics/scores.py`); the gold set of hand-checked English TEI files is in progress (`data/gold/grc-en/`, 8 Lucian works so far); not yet run on hybrid output |
 | **Names and numbers handled by our own code** (not the model) | for now the model translates them (section 3). If that turns out unreliable: transliterate the dictionary form stored in each name's `key` attribute and/or use a name list; for numbers, a Greek-numeral parser plus Latin letters for Euclid's point labels |
 | **COMET score** | planned in the proposal; only chrF and BLEU exist now |
-| **TEI schema check** (`tei_all`) | the checks only test that the XML is well formed and has the same structure as the input, not the full TEI schema |
+| **TEI Schematron rules** | the `tei_all` check (built 2026-11-20) covers the RELAX NG grammar only; the extra Schematron rules inside the TEI schema are not run (would need an XSLT 2 processor) |
 | **Fine-tuning a model** | in the original plan; nothing done, and it depends on hardware |
 | **Error analysis** per tag type / per document, small human rating | proposed in the feedback, not done |
 | **Speed** | MADLAD on a laptop CPU does ~5.5 Greek words per second: fine for passages, slow for whole works; the free HF Space has no GPU |
