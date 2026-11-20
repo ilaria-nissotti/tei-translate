@@ -197,6 +197,15 @@ def test_same_unit_milestones_keep_their_order():
     assert first < second
 
 
+def test_markers_in_different_levels_keep_their_order():
+    # pb 1 (block level) goes to the nearer sentence edge, the end, which is also the end of
+    # the <q>; pb 2 (inside the <q>) would then be written before it -> span-wise.
+    xml = 'α β γ δ ε <pb n="1"/>ζ <q>η <pb n="2"/>θ.</q>'
+    links = {0: {(i, i) for i in range(9)}}
+    with pytest.raises(Fallback, match="pb:out-of-order"):
+        run(xml, ["a b c d e f g h ."], links)
+
+
 def test_point_inside_a_sibling_is_moved_out():
     out = run("<q>α β γ</q> δ<note>n</note> ε.", ["a b d c e ."],
               {0: {(0, 0), (1, 1), (2, 3), (3, 2), (4, 4), (5, 5)}})
