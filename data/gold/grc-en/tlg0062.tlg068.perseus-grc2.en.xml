@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+<title xml:lang="grc">Θεῶν Διάλογοι</title>
+<author>Lucian</author>
+<editor>Karl Jacobitz</editor>
+    <sponsor>Perseus Project, Tufts University</sponsor>
+    <principal>Gregory Crane</principal>
+    <respStmt>
+        <resp>Prepared under the supervision of</resp>
+        <name>Bridget Almas</name>
+        <name>Lisa Cerrato</name>
+        <name>Rashmi Singhal</name>
+    </respStmt>
+    <respStmt>
+        <resp>Translated to English by Gemini 4 Neon (2026-11-20)</resp>
+        <name>tei-translate</name>
+    </respStmt>
+    <funder n="org:Google">Google Digital Humanities Awards Program</funder>
+</titleStmt>
+    
+    <publicationStmt>
+        <publisher>Trustees of Tufts University</publisher>
+        <pubPlace>Medford, MA</pubPlace>
+        <authority>Perseus Project</authority>
+        <date type="release" when="2011-03-14">Perseus 4.0</date>
+        <idno type="filename">tlg0062.tlg068.perseus-grc2.xml</idno>
+        <availability>
+            <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+            <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p> 
+        </availability>
+    </publicationStmt>
+    
+    <sourceDesc>
+        <biblStruct>
+            <monogr>
+                <title xml:lang="lat">Luciani Samosatensis Opera</title>
+                <author>Lucian</author>
+                <editor>Karl Jacobitz</editor>
+                <imprint>
+                    <publisher>Teubner</publisher>
+                    <pubPlace>Leipzig</pubPlace>
+                    <date>1909</date>
+                </imprint>
+                <biblScope unit="volume">1</biblScope>
+            </monogr>
+            <ref target="https://archive.org/details/operaexrecogniti01luciuoft/page/72/mode/2up">Internet Archive</ref>
+        </biblStruct>
+    </sourceDesc>
+</fileDesc>
+
+        <encodingDesc>
+            <editorialDecl>
+                <correction method="silent">
+                    <p>keyboarding</p>
+                </correction>
+            </editorialDecl>
+            
+            <refsDecl n="CTS">
+                <cRefPattern n="section" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1']/tei:div[@n='$2'])">
+                    <p>This pointer pattern extracts book and section.</p>
+                </cRefPattern>
+                <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+                    <p>This pointer pattern extracts book.</p>
+                </cRefPattern>
+            </refsDecl>
+            
+            <!--<refsDecl doctype="TEI.2">
+<state unit="chapter" n="chunk"/>
+<state unit="altsection"/>
+</refsDecl>-->
+                <refsDecl xml:id="CTS">
+          <citeStructure match="/TEI/text/body" use="@xml:base">
+            <citeStructure unit="book" delim=":" match="div/div[@subtype='book']" use="@n">
+              <citeStructure unit="section" delim="." match="div[@subtype='section']" use="@n"/>
+            </citeStructure>
+          </citeStructure>
+        </refsDecl>
+</encodingDesc>
+        
+        <profileDesc>
+            <langUsage>
+                <language ident="grc">Greek</language>
+                <language ident="eng">English</language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+          <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+            <change who="Lisa Cerrato" when="2023-05-03">EpiDoc and CTS conversion and other cleanup</change>
+        </revisionDesc>
+    </teiHeader>
+    
+<text xml:lang="en">
+<body xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2"> 
+
+<div n="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" type="edition" xml:lang="en"> <pb n="p.72"/> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="1"> 
+<head rend="align(center)">Prometheus and Zeus</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:1" n="1"> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> Release me, Zeus; I have suffered dreadful things already. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Release you, you say—you who ought to wear heavier fetters, have the whole Caucasus piled on top of your head, and not only have your liver torn by sixteen vultures, but your eyes gouged out too, in return for molding such creatures as human beings for us, stealing fire, and fashioning women? As for how you cheated me in the division of the meat by serving up bones covered with fat while keeping the better portion for yourself, why even mention it? </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> Have I not already paid a sufficient penalty, nailed for so long a <milestone unit="Reitz_page" n="205"/>time to the Caucasus and feeding that most accursed of birds, the eagle, on my liver? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> That is not even a tiny fraction of what you ought to suffer. </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> Yet you will not release me for nothing; I will reveal to you something, Zeus, that is utterly vital. </p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:1" n="2"> 
+<sp>
+<speaker>Zeus</speaker> 
+<p rend="align(indent)">You are trying to trick me, Prometheus. </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> And what would I gain by that? You won't forget where the Caucasus is, nor will you run short of chains if I am caught playing tricks. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Tell me first what payment you will make that is so vital to us. </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> If I tell you where you are going right now, will you trust me when I prophesy the rest too? </p></sp>
+ <pb n="p.73"/> 
+<sp><speaker>Zeus</speaker> 
+ <p rend="align(indent)">Of course! </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> To Thetis, to lie with her. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> You knew that much; what comes next then? It looks as if you are going to tell the truth. </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> Have nothing to do with the Nereid, Zeus; for if she conceives a child by you, the offspring will do to you the very same thing you did— </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Do you mean I shall be cast down from my rule? </p> </sp> 
+<sp><speaker>Prometheus</speaker> 
+<p rend="align(indent)"> Heaven forbid, Zeus! Still, union with her threatens just that. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Farewell to Thetis, then! And let Hephaestus unchain you in return for this. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="2"> 
+<head rend="align(center)">Eros and Zeus</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:2" n="1"> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> Even if I did do some wrong, Zeus, forgive me; I am only a child and still foolish. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> You a child, Eros—you who are far older than Iapetus? Just because you haven't grown a beard or gray hairs, on that <milestone unit="Reitz_page" n="206"/>account do you expect to be taken for a baby when you are an old and cunning rogue? </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> What great wrong have I done you—old man though you call me—that you even intend to put me in chains? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+    <p rend="align(indent)"> Consider, you accursed creature, whether it is a small thing! You make such sport of me that there is nothing you haven't turned me into—a satyr, a bull, gold, a swan, an eagle—yet you have never made a single woman fall in love with me, nor have I ever found myself pleasing to a woman through your doing; instead I have to use magic tricks on them and disguise myself, while they love the bull or the swan, and if they see me, they die of fright.  </p> </sp> </div> <pb n="p.74"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:2" n="2"> 
+<sp>
+<speaker>Eros</speaker> 
+<p rend="align(indent)">Naturally—being mortal, Zeus, they cannot bear the sight of you. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> How then do Branchus and Hyacinthus love Apollo? </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> Yet Daphne fled from him too, even though he has long hair and no beard. If you want to be lovable, stop shaking your aegis and carrying your thunderbolt; make yourself as sweet as possible, letting curls hang down on either side bound up with a headband, wear a purple robe, <milestone unit="Reitz_page" n="207"/>put on gilded slippers, step in rhythm to flute and tambourines, and you will see more women following you than the Maenads of Dionysus! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Get out! I wouldn't choose to be lovable at the price of becoming like that! </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> Then don't want to fall in love either, Zeus; that much is easy. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> No—I want to fall in love, all right, but to win them with less trouble. On those very terms I let you go. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="3"> 
+<head rend="align(center)">Zeus and Hermes</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:3" n="1"> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Do you know the beautiful daughter of Inachus, Hermes? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Yes—you mean Io. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> She is no longer a girl, but a heifer. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> That is monstrous! How was she transformed? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Out of jealousy Hera changed her. And she has contrived another novel torment for the poor girl: she has set over her a many-eyed herdsman named Argus, who pastures the heifer without ever sleeping. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+    <p rend="align(indent)"> What then must we do?  </p> </sp> <pb n="p.75"/>
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Fly down to Nemea—somewhere there Argus is herding—kill him, and lead Io across <milestone unit="Reitz_page" n="208"/>the sea to Egypt and make her Isis. Henceforth let her be a goddess of the people there, let her bring up the Nile, send the winds, and save sailors. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="4"> 
+<head rend="align(center)">Zeus and Ganymede</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:4" n="1"> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Come, Ganymede—for we have arrived where we needed to be—kiss me now, so you may see that I no longer have a hooked beak or sharp talons or wings, as I appeared to you when I seemed to be a bird. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Sir, weren't you an eagle just now, and didn't you swoop down and snatch me from the middle of my flock? How have those wings fallen off you, and how have you turned into someone else already? <milestone unit="Reitz_page" n="209"/> </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> You see neither a man, lad, nor an eagle; I here am the king of all the gods, who changed myself for the occasion. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> What do you mean? Are you that famous Pan? Then why don't you have a panpipe or horns or hairy legs? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Do you think he is the only god? </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Yes! And we sacrifice an uncastrated billy-goat to him, leading it to the cave where his statue stands; whereas you seem to me to be some kind of kidnapper. </p></sp></div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:4" n="2"> 
+<sp>
+<speaker>Zeus</speaker> 
+<p rend="align(indent)">Tell me, haven't you heard the name of Zeus, or seen on Gargarus the altar of him who sends rain and thunders and makes lightning? </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Do you say you are the one, good sir, who poured all that hail on us the other day—the one said to live up above, who makes the noise, to whom my father sacrificed the ram? <milestone unit="Reitz_page" n="210"/> <pb n="p.76"/>Then what wrong did I do that you carried me off, king of the gods? Meanwhile the wolves will probably tear my sheep to pieces now, falling upon them unattended. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Do you still care about sheep now that you have become immortal and will live here with us? </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> What are you saying? Won't you take me back down to Ida today? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Not at all—otherwise I would have turned from a god into an eagle for nothing! </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Then my father will look for me and be angry when he doesn't find me, and I'll get a beating later for abandoning the flock. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Where could he ever see you? </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Please don't—I miss him already! If you take me back, I promise you he will sacrifice another ram as a ransom for me. We have the three-year-old, the big one that leads the way to pasture. </p></sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:4" n="3"> 
+<sp>
+<speaker>Zeus</speaker> 
+<p rend="align(indent)">How innocent and simple-hearted the boy is—truly still a child!—Come, Ganymede, bid all those things farewell and forget them, both the flock and Ida. Since you are now a dweller in heaven, you will bestow many blessings from here upon both your father and your country; instead of cheese and milk you will eat ambrosia and drink <milestone unit="Reitz_page" n="211"/>nectar—indeed you yourself will pour and serve it to the rest of us too. And best of all, you will no longer be a mortal man, but will become immortal, and I will make your star shine most brightly, and in every way you will be happy. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> And if I want to play, who will play with me? On Ida there were many boys my own age. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Here too you have Eros here to play with you, and plenty of knucklebones. Only take heart and be cheerful, and don't pine for anything down below. </p> </sp> </div><pb n="p.77"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:4" n="4"> 
+<sp>
+<speaker>Ganymedes</speaker> 
+<p rend="align(indent)">What use could I be to you? Or will I have to herd sheep here too? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> No, you will be cupbearer, put in charge of the nectar, and look after the banquet. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> That's not hard; I know how to pour milk and hand over the wooden bowl. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Look, here he is mentioning milk again and thinking he is going to wait on humans! This is heaven, and we drink nectar, as I told you. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Is it sweeter than milk, Zeus? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> You'll know in a moment, and once you've tasted it you won't miss milk anymore. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> And where shall I sleep at night? With my age-mate Eros? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> No—the very reason I carried you off was so that we might sleep together. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Couldn't you sleep alone, then? Is it nicer for you <milestone unit="Reitz_page" n="212"/>to sleep with me? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Yes, with someone like you, Ganymede, so handsome. </p> </sp></div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:4" n="5"> 
+<sp>
+<speaker>Ganymedes</speaker> 
+<p rend="align(indent)">How will my looks help you sleep? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> They have a sweet charm and bring sleep on more softly. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Actually, my father used to get annoyed with me sleeping beside him and would tell me in the morning how I ruined his sleep by tossing and turning and kicking and talking in my sleep; so he mostly sent me to sleep with my mother. It's high time, if that's why you carried me off as you say, to put me back down on earth, or you'll have trouble staying awake—I'll keep bothering you by tossing about. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> That is the very sweetest thing you could do for me, <pb n="p.78"/>if I stay awake with you, kissing and embracing you again and again. </p> </sp> 
+<sp><speaker>Ganymedes</speaker> 
+<p rend="align(indent)"> Suit yourself; I'll just sleep while you kiss me. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> We'll see then what is to be done. For now, take him away, Hermes, and once he has drunk of immortality, bring him to pour our wine, after first teaching him how to present the cup. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="5"> 
+<head rend="align(center)">Hera and Zeus</head> <milestone unit="Reitz_page" n="213"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:5" n="1"> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Ever since you snatched this Phrygian lad from Ida and brought him up here, Zeus, you pay less attention to me. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Are you jealous even of him now, Hera—so innocent and utterly harmless as he is? I thought you were harsh only toward the women who have anything to do with me. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:5" n="2"> 
+    <sp> <speaker>Hera</speaker>
+<p rend="align(indent)">Not that you behave well or decently in those affairs either, when you, master of all the gods, leave me, your lawful wife, and go down to earth to commit adultery disguised as gold or a satyr or a bull. Still, those women at least stay on earth for you, whereas you snatched up this little boy from Ida and flew back, most noble of gods, and he lives right with us, brought in over my head, supposedly to pour wine! Were you so short of cupbearers, and have Hebe and <milestone unit="Reitz_page" n="214"/>Hephaestus given up waiting at table? And you can't even take the cup from him without kissing him first in front of everyone, and his kiss is sweeter to you than nectar, which is why you often ask for a drink even when you aren't thirsty! Sometimes you just take a sip and hand it to him, and when he has drunk, you take the cup back and drink whatever is left in it from the exact spot where the boy drank and pressed his lips, <pb n="p.79"/>so that you may drink and kiss at the same time! And the other day the king and father of all laid aside his aegis and thunderbolt and sat playing knucklebones with him, with that huge beard hanging down! So I see all of this—don't imagine you are escaping notice. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:5" n="3"> 
+    <sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">And what is so terrible, Hera, about kissing so handsome a lad while drinking and enjoying both the kiss and the nectar? Why, if I let him kiss you even once, you will no longer blame me for thinking his kiss preferable to nectar. </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> That is the talk of pederasts. May I never be so mad as to put my lips to this soft, effeminate Phrygian! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Don't abuse my darling, most noble lady; for this girlish, barbarian, soft boy <milestone unit="Reitz_page" n="215"/>is sweeter and more desirable to me—but I won't say it, lest I provoke you further. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:5" n="4"> 
+    <sp> <speaker>Hera</speaker>
+<p rend="align(indent)">Why don't you marry him too, for all I care! Only remember how outrageously you treat me because of this cupbearer. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+    <p rend="align(indent)"> No, I suppose your son Hephaestus ought to pour our wine, limping along straight from the forge, still covered in sparks, having just put down his tongs, and we ought to take the cup from those fingers of his and draw him close to kiss him in between—a fellow whom not even you, his mother, would gladly kiss with his face blackened by soot! That's much sweeter, isn't it? Far more fitting for the gods' banquet is that cupbearer, while Ganymede must be sent back down to Ida—because he is clean and rosy-fingered and hands over the cup skillfully and, what annoys you most, kisses sweeter than nectar!  </p> </sp> </div> <pb n="p.80"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:5" n="5"> 
+    <sp> <speaker>Hera</speaker> 
+<p rend="align(indent)">Now Hephaestus is lame, Zeus, and his fingers are unworthy of your cup, and he is full of soot, and you feel sick looking at him—ever since Ida reared this handsome long-haired boy! Formerly you didn't notice these things, and neither the sparks nor the forge kept you <milestone unit="Reitz_page" n="216"/>from drinking from his hand. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> You are only tormenting yourself, Hera, nothing else, and intensifying my love by your jealousy. If you dislike receiving the cup from a handsome boy, let your son pour for you; and you, Ganymede, hand the cup to me alone, and kiss me twice for every cup—both when you hand it to me full and again when you take it back from me. What's this? Are you crying? Don't be afraid; whoever tries to hurt you will regret it! </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="6"> 
+<head rend="align(center)">Hera and Zeus</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:6" n="1"> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> What sort of character do you think this Ixion is, Zeus? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> A worthy man, Hera, and good company at table; otherwise he wouldn't be dining with us if he were unworthy of the banquet. </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Well, he is unworthy, being insolent; so let him dine with us no longer. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> What insolence did he commit? I ought to know too, I think. <milestone unit="Reitz_page" n="217"/> </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> What else?—Yet I am ashamed to say it, such is what he dared. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+    <p rend="align(indent)"> All the more reason to tell it, the more shameful his attempt was. Did he make advances to someone? For I gather what sort of shameful thing you would hesitate to speak of.  </p> </sp> <pb n="p.81"/>
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:6" n="2"> 
+    <sp> <speaker>Hera</speaker>
+<p rend="align(indent)">To me myself, no one else, Zeus, for a long time now! At first I didn't understand why he kept staring intently at me; then he began sighing and shedding quiet tears, and whenever I drank and handed the cup back to Ganymede, he would ask to drink from that very same one, and taking it would kiss it as he drank, press it to his eyes, and look back at me again. By then I realized these were signs of love. For a long while I was embarrassed to tell you, thinking the man would get over his madness; but when he actually dared to make proposals to me, I left him still weeping and throwing himself at my feet, stopped up my ears so as not even to hear his insolent entreaties, and came away to tell you. Now see for yourself how you will deal with the man. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:6" n="3"> 
+    <sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">Well done, the accursed wretch—aiming at me myself, even at the bed of Hera! Has he grown so drunk on nectar? <milestone unit="Reitz_page" n="218"/>Still, we ourselves are to blame, being hospitable beyond measure in making mortals our drinking-companions. They are excusable, then, if after drinking the same drink as we and seeing heavenly beauties such as they never saw on earth, they are seized by love and desire to enjoy them. Love is a violent force, and rules not only mortals, but sometimes even us ourselves. </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Of you indeed he is quite the absolute master, leading and dragging you around by the nose, as they say, while you follow wherever he guides you and readily change into whatever he commands—in short, you are Love's property and plaything! And now I know why you pardon Ixion: because you yourself once seduced his wife, who bore you Pirithous. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:6" n="4"> 
+    <sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">Do you still remember those things—whatever little sport I had when I went down to earth? Still, do you know what I think we should do about <pb n="p.82"/>Ixion? Don't punish him at all or drive him from the banquet—that would be boorish; instead, since he is in love and, as you say, weeps and suffers unbearably— </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> What, Zeus? I'm afraid you're going to say something insolent too! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Not at all! Let us mold a phantom out of a cloud <milestone unit="Reitz_page" n="219"/>just like yourself, and when the banquet breaks up and he lies awake from love, as is likely, let us bring it and lay it beside him; that way he will stop tormenting himself, thinking he has attained his desire. </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Out with him! May he come to a bad end for desiring things above his station! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Still, put up with it, Hera. What real harm could you suffer from the phantom if Ixion lies with a cloud? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:6" n="5"> 
+<sp> <speaker>Hera</speaker> 
+<p rend="align(indent)">Why, the cloud will be thought to be me, and he will commit the outrage against me because of the likeness! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> There's nothing in that: neither could the cloud ever become Hera nor you a cloud; only Ixion will be deceived. </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Yes, but all men are vulgar; when he goes back down he will probably boast and tell everyone, claiming he lay with Hera and shares Zeus's bed, and perhaps he might even say I am in love with him, and they will believe him, not knowing he lay with a cloud. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+    <p rend="align(indent)"> Well then, if he says any such thing, he shall be cast into Hades, bound fast to a wheel, poor wretch, to spin around with it forever and suffer endless torment—paying the penalty not for his love (for that is nothing terrible), but for his boasting.  </p> </sp> </div> </div> <pb n="p.83"/>
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="7"> 
+<head rend="align(center)">Hephaestus and Apollo</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:7" n="1"> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Have you seen Maia's baby, Apollo, <milestone unit="Reitz_page" n="220"/>that was just born? How handsome he is, smiling at everyone and already showing that he will turn out to be some great blessing! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> That baby, Hephaestus—a great blessing, when he is older than Iapetus so far as roguery goes? </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Why, what harm could he do, being newborn? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Ask Poseidon, whose trident he stole, or Ares—for he secretly drew his sword out of its sheath too—not to mention myself, whom he disarmed of my bow and arrows! </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:7" n="2"> 
+    <sp> <speaker>Hephaistos</speaker>
+<p rend="align(indent)">That newborn did all this—the one who can barely stand, still in <milestone unit="Reitz_page" n="221"/>swaddling clothes? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> You'll find out, Hephaestus, if he just comes near you. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Actually, he already has. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Well then? Do you have all your tools, and is none of them missing? </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Every single one, Apollo. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Still, check carefully. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> By Zeus, I don't see my tongs! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Well, you'll probably find them in the baby's swaddling clothes. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Is he so light-fingered, as if he had practiced thievery in the womb? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:7" n="3"> 
+    <sp> <speaker>Apollon</speaker>
+<p rend="align(indent)">Yes, for you haven't heard him chattering away already, glib and fluent—and he wants to be our attendant too! Yesterday he challenged Eros and instantly threw him in wrestling by tripping his feet somehow; then, while he was being praised, he stole Aphrodite's girdle as she hugged <pb n="p.84"/>him for his victory, and while Zeus was still laughing he took <milestone unit="Reitz_page" n="222"/>his scepter! If the thunderbolt hadn't been too heavy and full of fire, he would have stolen that too. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> You describe a spirited child! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Not only that, he is already a musician too. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> From what can you tell that? <milestone unit="Reitz_page" n="223"/> </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:7" n="4"> 
+    <sp> <speaker>Apollon</speaker>
+<p rend="align(indent)">He found a dead tortoise somewhere and fashioned an instrument out of it: fitting arms to it and joining a crossbar, then fixing pegs and setting a bridge underneath and stretching <milestone unit="Reitz_page" n="224"/>seven strings, he played a most refined and harmonious melody, Hephaestus—so much so that even I envied him, long as I have practiced the lyre! And Maia said he doesn't even stay in heaven at night, but out of curiosity goes all the way down to Hades—obviously to steal something from there too. He has wings as well, and has made himself a rod of marvelous power with which he guides souls and leads down the dead. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> I gave him that rod to be a toy. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Well, he paid you back your wage—your tongs— </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Good thing you reminded me! I'll go right now to get them back, in case they turn up in his swaddling clothes as you say. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="8"> 
+<head rend="align(center)">Hephaestus and Zeus</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:8" n="1"> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> What must I do, Zeus? I have come as you ordered, <milestone unit="Reitz_page" n="225"/>bringing my sharpest axe, even if a stone needs to be split with a single blow. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Good, Hephaestus! Now bring it down and split my head in two. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+    <p rend="align(indent)"> Are you testing me to see if I'm mad? Come, give me some other order for whatever you really want done.  </p> </sp> <pb n="p.85"/>
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> This very thing—to split my skull! If you disobey, it won't be the first time you experience my anger. Strike with all your might and don't delay; I am dying of labor pains that are turning my brain upside down! </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Careful, Zeus, lest we do some mischief; the axe is sharp and will not act as midwife for you bloodlessly or in the manner of Eileithyia. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Just strike boldly, Hephaestus; I know what is best. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> Unwillingly, yet I will strike—what else can one do when you command? What's this? An armed maiden! A great trouble you had in your head, Zeus! No wonder you were quick-tempered, breeding so big a virgin under your skull-membrane, and in full armor at that! You had a military camp, not a head, without knowing it! Look, she leaps and dances the war-dance, shakes her shield, <milestone unit="Reitz_page" n="226"/>brandishes her spear, and is filled with divine frenzy—and best of all, she has grown very beautiful and in full bloom already in an instant! Gray-eyed, to be sure, yet even that is set off by her helmet. So, Zeus, pay me my midwife's fee by betrothing her to me right now! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> You ask what is impossible, Hephaestus; she will choose to remain a virgin forever. For my own part, however, I raise no objection. </p> </sp> 
+<sp><speaker>Hephaistos</speaker> 
+<p rend="align(indent)"> That's all I wanted! I'll take care of the rest, and I'll seize her right now. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+    <p rend="align(indent)"> If you find it easy, go ahead; though I know you are enamored of impossibilities.  </p> </sp> </div> </div> <pb n="p.86"/>
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="9"> 
+<head rend="align(center)">Poseidon and Hermes</head> <milestone unit="Reitz_page" n="227"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:9" n="1"> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> May one see Zeus now, Hermes? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Not at all, Poseidon. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Announce me to him anyway. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Don't bother him, I tell you; it is not the right time, so you cannot see him at present. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Is he with Hera? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> No, it is something quite different. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> I understand—Ganymede is inside. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Not that either; he himself is unwell. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> How so, Hermes? That is strange news you tell. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> I am embarrassed to say, it is of such a nature. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> You shouldn't be with me, your uncle! </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> He has just given birth, Poseidon. <milestone unit="Reitz_page" n="228"/> </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Nonsense! He gave birth? By whom? So he was a hermaphrodite without our knowing it? Yet his belly showed no swelling at all. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> You're right—his belly didn't hold the embryo. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> I know! He gave birth from his head again, like Athena—he has a fertile head! </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> No, he was carrying Semele's baby in his thigh. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Bravo to the noble fellow! How pregnant he is all over, in every part of his body! But who is Semele? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:9" n="2"> 
+    <sp> <speaker>Hermes</speaker>
+<p rend="align(indent)">A Theban woman, one of Cadmus's daughters. He lay with her and got her with child. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> And then he gave birth in her place, Hermes? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Indeed he did, paradoxical as it seems to you. Hera—you know how jealous she is—insinuated herself into Semele's confidence and persuaded her to ask Zeus to come to her with thunder <pb n="p.87"/>and lightning. When he agreed and came bringing his thunderbolt as well, the roof caught fire and Semele perished in the flames; he ordered me to cut open the woman's womb and bring him the still unfinished seven-month fetus. When I had done so, he split open his own thigh and put it inside to come to full term there; and now in the third month he has delivered it and is weak from the labor pains. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> Where is the baby now, then? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> I carried him off to Nysa and gave him to the Nymphs <milestone unit="Reitz_page" n="229"/>to rear, named Dionysus. </p> </sp> 
+<sp><speaker>Poseidon</speaker> 
+<p rend="align(indent)"> So our brother is both mother and father to this Dionysus? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> So it seems. Anyway, I'm off to bring him water for his wound and do the other things customary for a woman in childbed. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="10"> 
+<head rend="align(center)">Hermes and Helios</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:10" n="1"> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Helios, Zeus says not to drive out today, nor tomorrow, nor the day after, but to stay indoors, and let the time in between be one long night; so let the Hours unharness the horses again, and you put out your fire and take a long rest. </p> </sp> 
+<sp><speaker>Helios</speaker> 
+<p rend="align(indent)"> Strange and unheard-of orders you bring, Hermes! Did I seem to go off course in my run and drive outside the boundaries, so that he is angry with me and has decided to make the night three times as long as the day? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+    <p rend="align(indent)"> Nothing of the sort, nor will this be forever; he just needs the night to be somewhat longer for himself right now.  <milestone unit="Reitz_page" n="230"/> </p> </sp> <pb n="p.88"/>
+<sp><speaker>Helios</speaker> 
+<p rend="align(indent)"> Where is he, then, and from where were you sent to bring me this message? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> From Boeotia, Helios, from Amphitryon's wife, whom he is visiting because he is in love with her. </p> </sp> 
+<sp><speaker>Helios</speaker> 
+<p rend="align(indent)"> Isn't one night enough, then? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Not at all—a great god of many labors must be begotten from this union, and it is impossible to finish him in a single night. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:10" n="2"> 
+    <sp> <speaker>Helios</speaker>
+<p rend="align(indent)">Well, good luck to him in finishing his work! Still, Hermes, such things did not happen in Cronus's time—we are alone here—nor did he ever sleep away from Rhea or leave heaven to spend the night in Thebes; instead, day was day and night kept its proper measure according to the seasons, with nothing strange or out of order, nor would he ever have had anything to do with a mortal woman! Whereas now, for the sake of a wretched little woman, everything must be turned upside down, my horses must grow stiff from idleness, the road must become hard to travel from going untrodden three days in a row, and mortals must live miserably in darkness! That's the benefit they'll get from Zeus's love affairs—sitting and waiting in prolonged gloom until he finishes this champion you speak of! <milestone unit="Reitz_page" n="231"/> </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+    <p rend="align(indent)"> Hush, Helios, lest you suffer for your words! I am off to Selene and Sleep to deliver Zeus's instructions to them as well: she is to proceed slowly, and Sleep is not to release mortals, so they won't realize the night has grown so long.  </p> </sp> </div> </div> <pb n="p.89"/>
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="11"> 
+<head rend="align(center)">Aphrodite and Selene</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:11" n="1"> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> What is this they say you are doing, Selene? That whenever you are over Caria, you halt your team to gaze down at Endymion sleeping in the open air like the hunter he is, and sometimes even descend to him in the middle of your journey? </p> </sp> 
+<sp><speaker>Selenes</speaker> 
+<p rend="align(indent)"> Ask your son, Aphrodite, who is to blame for this. </p> </sp> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> Oh, he is an insolent boy! Look what he has done even to me, his own mother—now bringing me down to Ida for Anchises of Troy, now to Lebanon for that Assyrian lad, whom he also made lovable to Persephone and so robbed me of half my darling! <milestone unit="Reitz_page" n="232"/>So I have often threatened that if he doesn't stop doing such things, I'll break his bow and quiver and strip off his wings as well; and I've even spanked his bottom with my sandal! Yet somehow, though he is frightened and begs for mercy at the moment, a little later he has forgotten all about it.</p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:11" n="2"> 
+    <sp rend="merge"> <speaker>Aphrodite</speaker> 
+ <p>Still, tell me, is Endymion handsome? For that makes the misfortune easy to bear.  </p></sp> 
+<sp><speaker>Selenes</speaker> 
+    <p rend="align(indent)"> To me he seems utterly handsome, Aphrodite, especially when he spreads his cloak on the rock and sleeps with his javelins in his left hand already slipping from his grasp, while his right arm is bent up around his head, framing his face gracefully, and relaxed in sleep he breathes out that ambrosial breath. Then I come down silently, stepping on tiptoe so he won't wake up and be startled—you know the rest; why should I tell you what follows? Only this: I am dying of love!  </p> </sp> </div> </div> <pb n="p.90"/>
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="12"> 
+<head rend="align(center)">Aphrodite and Eros</head> <milestone unit="Reitz_page" n="233"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:12" n="1"> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> My child Eros, see what you are doing! I don't mean on earth—all the things you persuade mortals to do against themselves or one another—but even in heaven: you make a spectacle of Zeus in many shapes, changing him into whatever suits you at the moment; you bring Selene down from the sky; you sometimes force Helios to linger with Clymene, forgetting his chariot-driving; and as for the outrages you commit against me, your mother, you do them boldly enough. Now, you reckless creature, you have even persuaded Rhea herself, old woman and mother of so many gods though she is, to fall in love with a boy and pine for that Phrygian lad! And now she has gone mad because of you: yoking her lions and taking along the Corybantes, who are just as crazed themselves, they roam up and down Ida, she shrieking over Attis, while among the Corybantes one slashes his forearm with a sword, another lets his hair loose and rushes madly <milestone unit="Reitz_page" n="234"/>through the mountains, another blows on a horn, another booms on a tambourine or clashes a cymbal—in short, everything on Ida is uproar and madness! So I am terrified of everything—I who gave birth to such a pest as you—terrified that Rhea in a fit of madness, or rather while still in her senses, may order the Corybantes to seize you and tear you limb from limb or throw you to the lions! That is what I fear when I see the danger you are in. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:12" n="2"> 
+    <sp> <speaker>Eros</speaker>
+<p rend="align(indent)">Take heart, Mother, for I am already on friendly terms with the lions themselves! I often climb onto their backs, grab their manes, and drive them, and they wag their tails at me, take my hand in their mouths, lick it all over, and give it back. As for Rhea herself, when would <pb n="p.91"/>she ever have time for me, absorbed as she is in Attis? Besides, what wrong do I do by showing beautiful things as they are? You should simply stop desiring what is beautiful—so don't blame me for it! Or <milestone unit="Reitz_page" n="235"/>would you yourself like to stop being in love, Mother—neither you with Ares nor he with you? </p> </sp> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> How clever you are, and you master everyone! Still, one day you will remember my words. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="13"> 
+<head rend="align(center)">Zeus, Asclepius, and Heracles</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:13" n="1"> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Stop quarreling with each other like mortals, Asclepius and Heracles! This is unseemly and out of place at the banquet of the gods. </p> </sp> 
+<sp><speaker>Herakles</speaker> 
+<p rend="align(indent)"> Do you really want this druggist, Zeus, to recline above me? </p> </sp> 
+<sp><speaker>Asklepios</speaker> 
+<p rend="align(indent)"> By Zeus, yes—for I am the better man! </p> </sp> 
+<sp><speaker>Herakles</speaker> 
+<p rend="align(indent)"> In what respect, you thunderstruck fool? Because Zeus <milestone unit="Reitz_page" n="236"/>struck you with a thunderbolt for doing what was forbidden, and now out of pity you have been granted immortality again? </p> </sp> 
+<sp><speaker>Asklepios</speaker> 
+<p rend="align(indent)"> Have you forgotten that you too were burned to ashes on Oeta, Heracles, that you reproach me with fire? </p> </sp> 
+<sp><speaker>Herakles</speaker> 
+<p rend="align(indent)"> Our lives are not at all equal or alike! I am Zeus's son and have performed so many labors cleansing human life, conquering monsters and punishing insolent men; whereas you are a root-cutter and a quack—useful perhaps to sick people for applying poultices, but having never shown a single manly deed! </p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:13" n="2"> 
+    <sp> <speaker>Asklepios</speaker>
+<p rend="align(indent)">Well said—considering I healed your burns <milestone unit="Reitz_page" n="237"/>when you came up here the other day half-roasted, your body ruined by both the tunic and then the fire! For my part, if nothing else, I never served as a slave like you, nor <pb n="p.92"/>carded wool in Lydia dressed in a purple robe and beaten by Omphale with a golden sandal, nor did I go mad and kill my wife and children! </p> </sp> 
+<sp><speaker>Herakles</speaker> 
+<p rend="align(indent)"> If you don't stop abusing me, you'll find out right away that your immortality won't help you much—I'll pick you up and throw you headlong out of heaven, so that not even Paeon <milestone unit="Reitz_page" n="238"/>will be able to heal your smashed skull! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Stop it, I say, and don't disturb our gathering, or I'll send both of you away from the banquet! Still, it is reasonable, Heracles, for Asclepius to recline above you, seeing that he died first. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="14"> 
+<head rend="align(center)">Hermes and Apollo</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:14" n="1"> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Why so gloomy, Apollo? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Because I am unlucky in love, Hermes. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> That is certainly cause for grief. What is your misfortune? Does the affair with Daphne still trouble you? <milestone unit="Reitz_page" n="239"/> </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Not at all—I am mourning my Laconian darling, the son of Oebalus. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Tell me, is Hyacinthus dead? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Yes, indeed. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> By whose hand, Apollo? Who was so unfeeling as to kill that handsome lad? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> It was my own doing. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Did you go mad, Apollo? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> No, it was an involuntary accident. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> How? I want to hear how it happened. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:14" n="2"> 
+    <sp> <speaker>Apollon</speaker>
+<p rend="align(indent)">He was learning to throw the discus, and I was throwing with him; now Zephyrus, most accursed of winds, had long been in love with him too, and being neglected and unable to bear the slight—when I tossed the discus up into the air as we were accustomed to do, he blew down from Taygetus and drove it straight onto the boy's head, <pb n="p.93"/>so that from the blow much blood flowed and the boy died <milestone unit="Reitz_page" n="240"/>on the spot. I took revenge on Zephyrus at once, shooting him with my arrows and pursuing him as he fled all the way to the mountain; for the boy I raised a burial mound at Amyclae where the discus struck him down, and from his blood I caused the earth to send up a flower, the sweetest and fairest of all flowers, Hermes, still bearing letters that lament the dead boy. Do you think I grieve without reason? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Yes, Apollo—you knew you had taken a mortal as your darling, so don't be upset that he died. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="15"> 
+<head rend="align(center)">Hermes and Apollo</head> <milestone unit="Reitz_page" n="241"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:15" n="1"> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> To think that he—lame and a blacksmith by trade, Apollo—has married the two loveliest goddesses, Aphrodite and Charis! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> A stroke of good luck, Hermes; still, what I marvel at is that they can bear living with him, especially when they see him streaming with sweat, hunched over the forge, with thick soot on his face! Yet even so they embrace him, kiss him, and sleep with him. <milestone unit="Reitz_page" n="242"/> </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> That is what annoys me too, and makes me envy Hephaestus! Go ahead, Apollo, wear your long hair, play your lyre, and be proud of your beauty, and I'll be proud of my fine physique and my lyre—and then when bedtime comes, we'll sleep alone! </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:15" n="2"> 
+    <sp> <speaker>Apollon</speaker>
+<p rend="align(indent)">For my part, I am generally unlucky in <pb n="p.94"/>love anyway: of the two I loved most, Daphne and Hyacinthus, Daphne hated me so much she chose to become a tree rather than be with me, and Hyacinthus I lost to the discus—so now instead of them I have garlands! </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Well, I did once have Aphrodite—but one mustn't boast. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> I know, and she is said to have borne Hermaphroditus to you. Still, tell me this, if you know: why isn't Aphrodite jealous of Charis, or Charis of her? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:15" n="3"> 
+    <sp> <speaker>Hermes</speaker>
+<p rend="align(indent)">Because, Apollo, Charis lives with him on Lemnos, whereas Aphrodite is in heaven; besides, she is mostly occupied with Ares and is in love with him, so she cares little about this blacksmith. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> And do you think Hephaestus knows this? <milestone unit="Reitz_page" n="243"/> </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> He knows; but what could he do, seeing that Ares is a strapping young man and a soldier? So he keeps quiet—though he does threaten to contrive some kind of chains for them and catch them in a net on the bed. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> I don't know—I'd wish to be the one caught myself! </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="16"> 
+<head rend="align(center)">Hera and Leto</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:16" n="1"> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Fine children indeed you bore to Zeus, Leto! </p> </sp> 
+<sp><speaker>Leto</speaker> 
+<p rend="align(indent)"> Not all of us, Hera, can bear such children as Hephaestus! </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> Well, lame though he is, he is useful at least, being an excellent craftsman who has adorned heaven for us, married Aphrodite, and is cherished by <pb n="p.95"/>her; whereas as for your children, one of them is unfemininely masculine and haunts the mountains, and most recently has gone off to Scythia where everyone knows what she eats, slaughtering strangers and imitating the Scythians themselves, who are cannibals! <milestone unit="Reitz_page" n="244"/>And Apollo pretends to know everything—archery, lyre-playing, medicine, and prophecy—and having set up prophecy workshops at Delphi, Claros, and Didyma, he deceives those who consult him by giving crooked, ambiguous answers that fit either side of the question, so there is no risk of being wrong! He grows rich from this, of course, since fools are plentiful and let themselves be hoodwinked; yet the more sensible people are well aware that most of it is charlatanry. Why, the prophet himself didn't know he was going to kill his darling with the discus, nor did he foresee that Daphne would flee from him, handsome and long-haired though he is! So I fail to see how you were thought to have finer children than Niobe. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:16" n="2"> 
+    <sp> <speaker>Leto</speaker>
+<p rend="align(indent)">Yet I know how it pains you to see these very children—the slayer of strangers and the false prophet—among the gods, especially when she is praised for her beauty and he plays the lyre at the banquet to everyone's admiration. </p> </sp> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> You make me laugh, Leto! Him admirable—whom Marsyas would have flayed after beating him in music, if the Muses had been willing to judge fairly! As it was, the poor fellow was cheated and perished after an unjust verdict. And your pretty virgin is so pretty that when she learned Actaeon had seen her, afraid the young man would tell everyone <milestone unit="Reitz_page" n="245"/>how ugly she was, she set her hounds on him! Not to mention that she wouldn't even be acting as midwife to women in labor if she were truly a virgin herself! </p> </sp> 
+<sp><speaker>Leto</speaker> 
+<p rend="align(indent)"> You are proud, Hera, because you live with Zeus and <pb n="p.96"/>share his throne, and so you hand out insults without fear; yet I shall soon see you weeping again, whenever he leaves you and goes down to earth turned into a bull or a swan. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="17"> 
+<head rend="align(center)">Apollo and Hermes</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:17" n="1"> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Why are you laughing, Hermes? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Because I saw the most hilarious sight, Apollo! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Tell me then, so I can hear it and laugh along with you. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Aphrodite has been caught in bed with Ares, and Hephaestus captured them and tied them up! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> How? It sounds like you have a delightful story to tell. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Knowing about it for a long time, I suppose, he lay in wait for them; he arranged invisible chains around the bed and went off to work at his forge. Then Ares slipped in unseen, as he thought, but Helios spotted him and told Hephaestus. Once they climbed into bed, got to work, and were inside the net, the chains wrapped <milestone unit="Reitz_page" n="246"/>around them and Hephaestus walked in! She—being naked, of course—had no way to cover herself in her shame, while Ares at first tried to escape, hoping to break the chains, and then, realizing he was trapped beyond escape, began begging for mercy. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:17" n="2"> 
+    <sp> <speaker>Apollon</speaker>
+<p rend="align(indent)">Well? Did Hephaestus untie them? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Not yet! Instead he called the gods together and is showing off the adultery to them. There they both are, naked, heads bowed, tied together and blushing—and the sight seemed utterly delightful to me, almost like watching the act itself! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Isn't that blacksmith ashamed to put his own marital disgrace on display? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> By Zeus, no—he's standing over them laughing! <pb n="p.97"/>For my part, to tell the truth, I envied Ares not only for committing adultery with the loveliest goddess, but even for being tied up with her! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> So you'd even put up with being tied up on those terms? <milestone unit="Reitz_page" n="247"/> </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Wouldn't you, Apollo? Just go and look—I'll congratulate you if you don't wish the same for yourself when you see them! </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="18"> 
+<head rend="align(center)">Hera and Zeus</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:18" n="1"> 
+<sp><speaker>Hera</speaker> 
+<p rend="align(indent)"> I would be ashamed, Zeus, if I had such a son—so effeminate and ruined by drunkenness, his hair bound up with a headband, spending most of his time with frenzied women, softer than they are themselves, dancing to tambourines, flute, and cymbals—in short, resembling anyone rather than you, his father. </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Yet this very headband-wearing fellow, softer than women, not only subdued Lydia, Hera, <milestone unit="Reitz_page" n="248"/>captured the dwellers on Mount Tmolus, and brought the Thracians under his sway, but marched against the Indians with that womanish army of his, took their elephants, conquered their land, and led away captive their king who dared to resist for a moment—and he did all this while dancing and leaping, using ivy-wreathed thyrsi, drunk, as you say, and inspired! And if anyone tried to revile him by insulting his rites, he punished him too, either binding him with vine-shoots or having him torn to pieces like a fawn by his own mother. Do you see how manly these deeds are, and not unworthy of his father? If playfulness and luxury go along with them, there is no harm in that—especially if one considers what he would be like sober, when he accomplishes this much while drunk!  </p> </sp> 
+</div><pb n="p.98"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:18" n="2"> 
+    <sp> <speaker>Hera</speaker>
+<p rend="align(indent)">Next you look ready to praise his invention too—the vine and wine—even though you see what drunkards do, staggering about, turning to violence, <milestone unit="Reitz_page" n="249"/>and going utterly mad from drink! Why, Icarius, to whom he first gave the vine-shoot, was killed by his own drinking-companions beating him with mattocks! </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> There's nothing in that: neither wine nor Dionysus causes such things, but immoderate drinking and guzzling unmixed wine beyond what is proper. Whoever drinks in moderation becomes more cheerful and pleasant, and would never do to any fellow drinker what happened to Icarius. No, you still seem to be jealous, Hera, and to remember Semele, when you slander Dionysus's finest achievements. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="19"> 
+<head rend="align(center)">Aphrodite and Eros</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:19" n="1"> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> Why on earth, Eros, have you conquered all the other gods—Zeus, Poseidon, <milestone unit="Reitz_page" n="250"/>Apollo, Rhea, and me your mother—yet you keep away from Athena alone, and against her your torch has no fire, your quiver is empty of arrows, and you are without bow or aim? </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> I am afraid of her, Mother! She is terrifying, fierce-eyed, and dreadfully mannish; whenever I draw my bow and advance on her, she shakes her helmet-crest and scares me so that I start trembling and my arrows slip right out of my hands. </p> </sp> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> Wasn't Ares even more terrifying? Yet you disarmed and defeated him. </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> Yes, but he welcomes me willingly and invites me in, whereas Athena always eyes me with suspicion; once I just happened <pb n="p.99"/>to fly past nearby with my torch, and she said, "If you come near me, by my father, I'll run you through with my spear, or grab you by the foot and hurl you into Tartarus, or tear you apart myself and make an end of you!" Many such threats she made; besides, she has a piercing gaze, and on her chest she wears a frightful face with vipers for hair, which I fear most of all—it scares me like a bogeyman and I run away whenever I see it! <milestone unit="Reitz_page" n="251"/> </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:19" n="2"> 
+    <sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)">Well, you are afraid of Athena, as you say, and of the Gorgon—even though you didn't fear Zeus's thunderbolt. But why are the Muses unwounded by you and out of range of your shafts? Do they shake helmet-crests and display Gorgons too? </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> I respect them, Mother; they are august, always deep in thought and devoted to song, and I often stand beside them charmed by their melody. </p> </sp> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> Leave them alone too, then, since they are august. But why don't you wound Artemis? </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> First of all, it isn't even possible to catch her, always fleeing through the mountains; besides, she is already in love with a passion of her own. </p> </sp> 
+<sp><speaker>Aphrodite</speaker> 
+<p rend="align(indent)"> With what, my child? </p> </sp> 
+<sp><speaker>Eros</speaker> 
+<p rend="align(indent)"> Hunting, stags, and fawns—chasing them down and shooting them with arrows; she is completely absorbed in that. For as to her brother, even though he is an archer too and a far-shooter— </p> </sp> 
+<sp><speaker>Aphrodite</speaker> 
+    <p rend="align(indent)"> I know, my child—you have shot him many a time!  </p> </sp> </div> </div> <pb n="p.100"/>
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="20"> 
+    <head rend="align(center)">The Judgment of the Goddesses <note xml:lang="eng" resp="perseus" place="inline">This is listed as a separate work, <title ref="urn:cts:greekLit:tlg0062.tlg032.perseus-grc2">The Council of the Gods</title> </note> </head> 
+</div> 
+  <pb n="p.108"/> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="21"> 
+<head rend="align(center)">Ares and Hermes</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:21" n="1"> 
+<sp><speaker>Ares</speaker> 
+<p rend="align(indent)"> Did you hear what Zeus threatened us with, Hermes—how arrogant and unbelievable? "If I wish," he says, "I will let down a chain from heaven, and you can hang onto it and try with all your might to pull me down, yet you will toil in vain, for you will never drag me down; whereas if I should wish to pull up, I will haul up and suspend not only you, but earth and sea together with you!"—and all the rest that you <milestone unit="Reitz_page" n="268"/>heard too. Now I wouldn't deny that he is better and stronger than any one of us individually, but that he surpasses all of us together so that we couldn't overpower him even if we added earth and sea to our weight—I could never be convinced of that! </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:21" n="2"> 
+    <sp> <speaker>Hermes</speaker>
+<p rend="align(indent)">Watch your tongue, Ares! It isn't safe to say <pb n="p.109"/>such things, lest we suffer some harm for our loose talk. </p> </sp> 
+<sp><speaker>Ares</speaker> 
+<p rend="align(indent)"> Do you think I would say this to everyone, and not just to you alone, whom I knew could keep a secret? Anyway, what struck me as most laughable as I listened to his threat I simply can't keep quiet about to you: I remember not long ago, when Poseidon, Hera, and Athena rose up and plotted to seize and bind him, how frantic with terror he was—against just three of them!—and if Thetis hadn't taken pity on him and summoned the hundred-handed Briareus as his ally, he would have been tied up, thunderbolt, thunder, and all! Remembering that, I couldn't help laughing at his fine speeches. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Be quiet, I say! It is safe neither for you to speak nor for me to hear such things. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="22"> 
+<head rend="align(center)">Pan and Hermes</head> <milestone unit="Reitz_page" n="269"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:22" n="1"> 
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> Greetings, Father Hermes! </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Greetings to you too. Wait—how am I your father? </p> </sp> 
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> Aren't you Cyllenian Hermes? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Indeed I am. How then are you my son? </p> </sp> 
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> I am a love-child, begotten by you out of wedlock. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> By Zeus, of some billy-goat committing adultery with a she-goat, perhaps! How could you be mine, with horns, a nose like that, a shaggy beard, cloven goat-legs, and a tail above your rump? </p> </sp> 
+<sp><speaker>Pan</speaker> 
+    <p rend="align(indent)"> Whatever taunts you throw at me, your own son, Father, you bring disgrace on me—or rather on yourself, for begetting and fathering such offspring; I am not to blame!  </p> </sp> <pb n="p.110"/>
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Who do you say your mother is, then? Did I somehow commit adultery with a she-goat without realizing it? </p> </sp> 
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> You didn't commit adultery with a she-goat; just recall whether you once forced a freeborn maiden in Arcadia. Why are you biting your finger and racking your brains in perplexity? I mean Penelope, daughter of Icarius! <milestone unit="Reitz_page" n="270"/> </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Then what came over her to bear you looking like a goat instead of me? </p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:22" n="2"> 
+    <sp> <speaker>Pan</speaker>
+<p rend="align(indent)">I'll give you her very own words! When she sent me off to Arcadia, she said: "My child, I am your mother, Spartan Penelope, and know that you have as your father the god Hermes, son of Maia and Zeus. If you have horns and goat-legs, let it not grieve you; for when your father lay with me, he disguised himself as a goat so as not to be recognized, and that is why you turned out like a goat." </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> By Zeus, I do remember doing something of the sort! So I, <milestone unit="Reitz_page" n="271"/>who pride myself on my beauty and am still beardless myself, am to be called your father and become a laughingstock to everyone for my fine offspring? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:22" n="3"> 
+    <sp> <speaker>Pan</speaker>
+<p rend="align(indent)">Yet I won't disgrace you, Father! I am musical and play the panpipe with a very crisp tone, and Dionysus can do nothing without me, but has made me his companion and fellow reveler, and I lead his chorus; and if you saw my flocks, all the ones I have around Tegea and over Mount Parthenium, you would be delighted! I rule all of Arcadia too; and recently, fighting alongside the Athenians, <milestone unit="Reitz_page" n="272"/>I acquitted myself so nobly at Marathon that a prize of valor was voted to me—the cave beneath the Acropolis! If you go to Athens, you'll see how great the name of Pan is there. </p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:22" n="4"> 
+    <sp><speaker>Hermes</speaker>  
+        <p rend="align(indent)">Tell me, Pan—that's what they call you, I think—are you married yet?  </p> </sp> <pb n="p.111"/>
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> Not at all, Father; I am amorous and couldn't be content living with just one. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> So you make advances to the she-goats, obviously. </p> </sp> 
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> You may mock, but I have Echo and Pitys and all of Dionysus's Maenads, and I am very much sought after by them! </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Do you know, my child, what first favor you can grant me? </p> </sp> 
+<sp><speaker>Pan</speaker> 
+<p rend="align(indent)"> Command me, Father; we will see to it. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Come visit me and be friendly—only make sure you never call me "Father" within anyone else's hearing! </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="23"> 
+<head rend="align(center)">Apollo and Dionysus</head> <milestone unit="Reitz_page" n="273"/> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:23" n="1"> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> What can we say, Dionysus, to the fact that Eros, Hermaphroditus, and Priapus are brothers by the same mother, yet utterly unlike in form and habits? The first is wholly beautiful, an archer, and invested with no small power, ruling over all; the second is effeminate, half-man, and ambiguous in appearance—you couldn't tell whether he is a youth or a maiden; and the third, Priapus, is masculine beyond all decency! </p> </sp> 
+<sp><speaker>Dionysos</speaker> 
+<p rend="align(indent)"> Don't be surprised, Apollo; Aphrodite is not the reason for this, but their different fathers—considering that even children of the same father from a single womb <milestone unit="Reitz_page" n="274"/>are often born one male and one female, just like you and your sister. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Yes, but we look alike and follow the same pursuits—we are both archers. </p> </sp> 
+<sp><speaker>Dionysos</speaker> 
+    <p rend="align(indent)"> Up to the bow you are the same, Apollo, but in other respects you aren't alike: Artemis slaughters strangers among the Scythians, while you prophesy and heal the sick.  </p> </sp> <pb n="p.112"/>
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Do you think my sister enjoys being with the Scythians, when she is all ready, if any Greek ever arrives in Tauris, to sail away with him, loathing those sacrifices? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:23" n="2"> 
+    <sp> <speaker>Dionysos</speaker>
+<p rend="align(indent)">Good for her! As for Priapus, though—I'll tell you a funny story: recently when I was in Lampsacus, I was passing by the city and he welcomed me and entertained me at his house; after we went to rest following the banquet, well-soaked with wine, right around midnight the fine fellow got up—I'm embarrassed to say it. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> He made a pass at you, Dionysus? </p> </sp> 
+<sp><speaker>Dionysos</speaker> 
+<p rend="align(indent)"> Something like that. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> And what did you do about it? </p> </sp> 
+<sp><speaker>Dionysos</speaker> 
+<p rend="align(indent)"> What else could I do but laugh? </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Well done, not taking it harshly or angrily! He is excusable, after all, for making a pass at someone as handsome as you. </p> </sp> 
+<sp><speaker>Dionysos</speaker> 
+<p rend="align(indent)"> On that score, Apollo, he might try it on you too— <milestone unit="Reitz_page" n="275"/>you're so handsome and long-haired that Priapus would make an attempt on you even when sober! </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Oh, he won't try it, Dionysus—along with my long hair, I have my bow! </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="24"> 
+<head rend="align(center)">Hermes and Maia</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:24" n="1"> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Is there any god in heaven more miserable than I am, Mother? </p> </sp> 
+<sp><speaker>Maia</speaker> 
+<p rend="align(indent)"> Don't say any such thing, Hermes. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Why shouldn't I say it, when I have so much trouble, toiling all alone and torn in pieces by so many chores? At dawn I have to get up and sweep the banquet hall, spread the couches, tidy everything up, and then wait <pb n="p.113"/>on Zeus and carry his messages up and down all day like a courier; and when I get back, still covered in dust, I have to serve the ambrosia—and before this newly bought cupbearer arrived, I used to pour the nectar too! Worst of all, I alone of all the gods don't even sleep at night, because even then I have to escort souls for Pluto, <milestone unit="Reitz_page" n="276"/>act as conductor of the dead, and attend the court! As if my daytime duties weren't enough—being in the wrestling-schools, acting as herald in assemblies, and training orators—I still have to be split in two to help run the business of the dead!</p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:24" n="2"> 
+    <sp rend="merge"><speaker>Hermes</speaker>  
+<p>Yet Leda's two sons spend alternate days in heaven and in Hades, whereas I have to do both jobs every single day! And the sons of Alcmene and Semele, born of wretched mortal women, feast without a care, while I, son of Maia daughter of Atlas, wait on them! And just now, the moment I got back from Sidon from Cadmus's daughter—where he sent me to see what the girl is doing—without even letting me catch my breath he has sent me off again to Argos to check on Danaë; "and then from there," he says, "go to Boeotia and on the way <milestone unit="Reitz_page" n="277"/>take a look at Antiope!" I am completely worn out! Honestly, if it were possible, I would gladly ask to be sold to a new master, like slaves on earth who are badly treated. </p> </sp> 
+<sp><speaker>Maia</speaker> 
+<p rend="align(indent)"> Never mind that, my child; you must obey your father in everything while you are young. Now hurry off to Argos as you were sent, and then to Boeotia, lest you get a beating for dawdling—lovers are quick-tempered! </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="25"> 
+<head rend="align(center)">Zeus and Helios</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:25" n="1"> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> What have you done, worst of Titans? You have ruined everything on earth by entrusting your chariot to a foolish boy, <milestone unit="Reitz_page" n="278"/> <pb n="p.114"/>who burned up some regions by driving close to the ground, caused others to perish from cold by drawing the fire far away from them, and in short threw everything into confusion and chaos—and if I hadn't realized what was happening and struck him down with my thunderbolt, not a remnant of mankind would have survived! What a fine charioteer and driver you sent out for us! </p> </sp> 
+<sp><speaker>Helios</speaker> 
+<p rend="align(indent)"> I did wrong, Zeus, yet do not be angry that I gave in to my son's many entreaties; how could I ever have expected so great a disaster to happen? </p> </sp> 
+<sp><speaker>Zeus</speaker> 
+<p rend="align(indent)"> Didn't you know how much precision the task required, and that if someone strayed even slightly from the road, everything is lost? And didn't you know the spirit of your horses, how firmly one must hold the bit? If anyone slacks off, they bolt immediately—just as they ran away with him, now to the left, a moment later to the right, sometimes in the opposite direction of the course, and up and down, wherever they pleased; and he had no idea how to handle them. </p> </sp> </div> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:25" n="2"> 
+    <sp> <speaker>Helios</speaker> 
+<p rend="align(indent)">I knew all of that, and for that reason <milestone unit="Reitz_page" n="279"/>I resisted for a long time and wouldn't trust him with the driving; but when he begged me in tears, and his mother Clymene along with him, I helped him onto the chariot and instructed him how to stand, how far upward to let them go before turning, then how to incline downward again, and how to keep firm control of the reins and not give in to the horses' temper; I also told him how great the danger was if he didn't drive straight. But he—being a boy—once he mounted such a blazing fire and looked down into the yawning abyss, was naturally terrified; and when the horses sensed it wasn't me aboard, despising the lad they swerved off the road and caused all this havoc, while he let go of the reins—afraid of falling out himself, I suppose—and clung to the chariot rail. <pb n="p.115"/>Still, he has already paid the penalty, and my grief, Zeus, is enough. </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:25" n="3"> 
+    <sp> <speaker>Zeus</speaker>
+<p rend="align(indent)">"Enough," you say, after daring such a thing? Well, for now I pardon you, but in the future, if you break the law like this again or send out any such substitute for yourself, you shall learn at once how much hotter my thunderbolt is than your fire! So let his sisters bury him <milestone unit="Reitz_page" n="280"/>beside the Eridanus where he fell from the chariot, weeping amber over him, and let them become poplars in their grief; as for you, mend your chariot—for the pole is broken and one of the wheels is smashed—hitch up the horses, and drive! And remember all of this. </p> </sp> </div> </div> 
+
+<div type="textpart" subtype="book" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2" n="26"> 
+<head rend="align(center)">Apollo and Hermes</head> 
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:26" n="1"> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Can you tell me, Hermes, which of these two is Castor and which is Pollux? For I <milestone unit="Reitz_page" n="281"/>couldn't tell them apart. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> The one who was with us yesterday was Castor, and this one is Pollux. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> How do you tell? They look identical. </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Because this one, Apollo, has the marks of wounds on his face that he got from his opponents in boxing, especially all the ones he received from the Bebrycian Amycus when sailing with Jason; whereas the other shows nothing of the sort, but has a clear and unscarred face. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> You've done me a favor by teaching me the distinguishing marks, since everything else is identical—the half-eggshell, the star above, the javelin in hand, and a white horse for each— <milestone unit="Reitz_page" n="282"/> <milestone unit="Reitz_page" n="283"/> <pb n="p.116"/> <milestone unit="Reitz_page" n="284"/>so that I have often addressed the one as Castor when he was <milestone unit="Reitz_page" n="285"/>Pollux, and the other by Pollux's name! Now <milestone unit="Reitz_page" n="286"/>tell me this too: why on earth aren't both of them with us together, instead of taking half-shares so that each is now a dead man, now a god? </p> </sp> 
+</div>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg068.perseus-grc2:26" n="2"> 
+    <sp> <speaker>Hermes</speaker>
+<p rend="align(indent)">They do this out of brotherly love; since one of Leda's sons had to die and one be immortal, they divided immortality between themselves in this way. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> Not a very clever division, Hermes, since this way they won't even see each other, which I suppose is what they wanted most! How could they, when one is among the gods and the other among the dead? Anyway, just as I prophesy, Asclepius heals, <milestone unit="Reitz_page" n="287"/>you teach wrestling as an expert trainer, Artemis acts as midwife, and each of the others has some skill useful to gods or mortals, what will these two do for us? Or will they just feast idly, big fellows as they are? </p> </sp> 
+<sp><speaker>Hermes</speaker> 
+<p rend="align(indent)"> Not at all—they have been assigned to serve Poseidon: they must ride over the sea, and if they see sailors caught in a storm anywhere, alight upon the ship and save those aboard. </p> </sp> 
+<sp><speaker>Apollon</speaker> 
+<p rend="align(indent)"> A noble and saving craft you describe, Hermes! </p> </sp> </div> </div> </div> </body>
+</text>
+</TEI>

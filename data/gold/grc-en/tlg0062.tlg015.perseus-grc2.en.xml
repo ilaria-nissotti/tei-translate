@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://epidoc.stoa.org/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader xml:lang="eng">
+<fileDesc>
+<titleStmt>
+ <title xml:lang="grc">Συμπόσιον ἢ Λαπίθαι</title>
+<author>Lucian</author>
+<editor>Austin Morris Harmon</editor>
+<sponsor>Perseus Project, Tufts University</sponsor>
+<principal>Gregory Crane</principal>
+<respStmt>
+<resp>Prepared under the supervision of</resp>
+<name>Bridget Almas</name>
+<name>Lisa Cerrato</name>
+<name>Gregory Crane</name>
+<name>Rashmi Singhal</name>
+</respStmt>
+<respStmt>
+<resp>Translated to English by Gemini 4 Neon (2026-11-20)</resp>
+<name>tei-translate</name>
+</respStmt>
+<funder n="org:NEH">The National Endowment for the Humanities</funder>
+<funder n="org:HarvardCL">Harvard Library Arcadia Fund</funder>
+<funder n="org:Google">Google Digital Humanities Awards Program</funder>
+</titleStmt>
+
+<extent/>
+<publicationStmt>
+<publisher>Trustees of Tufts University</publisher>
+<pubPlace>Medford, MA</pubPlace>
+<authority>Perseus Project</authority>
+ <date type="release" when="2010-12-13">Perseus 4.0</date>
+ <idno type="filename">tlg0062.tlg015.perseus-grc2.xml</idno>
+ <availability>
+  <licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution-ShareAlike (CC BY-SA) license.</licence>
+  <p>Reuse must credit the Perseus Digital Library in a standard bibliographic format, including a link to <ref target="https://www.perseus.tufts.edu/">https://www.perseus.tufts.edu/</ref>. Each text reused should be individually identified and linked to its source GitHub repository whenever possible, either in its citation or in an accompanying source list. All corrections must be offered to the Perseus Digital Library.</p>
+ </availability>
+</publicationStmt>
+
+ <sourceDesc>
+  <listBibl>
+   <biblStruct>
+    <monogr>
+     <author>Lucian</author>
+     <title>Lucian</title>
+     <editor>Austin Morris Harmon</editor>
+     <imprint>
+      <pubPlace>London</pubPlace>
+      <publisher>William Heinemann Ltd.</publisher>
+      <pubPlace>Cambridge, MA</pubPlace>
+      <publisher>Harvard University Press</publisher>
+      <date>1913</date>
+     </imprint>
+     <biblScope unit="volume">1</biblScope>
+    </monogr>
+    <series>
+     <title>Loeb Classical Library</title>
+    </series>
+    <ref target="https://archive.org/details/lucianha01luciuoft/page/412/mode/2up">Internet Archive</ref>
+   </biblStruct>
+  </listBibl>
+ </sourceDesc>
+</fileDesc>
+
+<encodingDesc>
+<editorialDecl>
+<correction method="silent">
+<p>optical character recognition</p>
+</correction>
+</editorialDecl>
+
+ <refsDecl n="CTS">
+  <cRefPattern n="section" matchPattern="(\w+)"
+   replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+   <p>This pointer pattern extracts section.</p>
+  </cRefPattern>
+ </refsDecl>
+
+<!--<refsDecl doctype="TEI.2">
+<state unit="section" n="chunk"/>
+</refsDecl>-->
+<refsDecl xml:id="CTS">
+  <citeStructure match="/TEI/text/body" use="@xml:base">
+    <citeStructure unit="section" delim=":" match="div/div[@subtype='section']" use="@n"/>
+  </citeStructure>
+</refsDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="grc">Greek</language>
+</langUsage>
+</profileDesc>
+  <revisionDesc>
+    <change who="Charles Pletcher" when="2026-08-26">Add citeStructure refsDecl</change>
+   <change who="Lisa Cerrato" when="2023-04-10">EpiDoc and CTS conversion and other cleanup</change>
+   <change who="Gregory Crane" when="2023-07-21">(1) extracted notes from the 1st1K version of these files and added them here; (2) used access to a second version of the Greek edition to compare the two and correct errors here.</change>
+  </revisionDesc>
+</teiHeader>
+
+<text xml:lang="en">
+ <body xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2">
+ <div n="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" type="edition" xml:lang="en">
+<pb n="v.1.p.412"/>
+
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="1">
+<sp> <speaker>Philon</speaker>
+<p rend="align(indent)"> They say you had a lively entertainment yesterday at Aristaenetus's dinner, Lycinus, that some philosophical speeches were made and no small quarrel broke out over them, and—if Charinus wasn't lying—that the affair even went as far as wounds and the party finally broke up in bloodshed! </p> </sp>
+
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> And how did Charinus know about this, Philo? He wasn't dining with us. </p> </sp>
+
+<sp> <speaker>Philon</speaker>
+ <p rend="align(indent)"> He said he heard it from Dionicus the physician; Dionicus was one of the dinner guests himself, I think. </p> </sp>
+
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> Very much so; yet even he was not present for everything from the beginning, but arrived late when the battle was already nearly halfway through, just shortly before the wounds. So I wonder if he could tell anything clear without having followed the events from which their rivalry started before ending in blood. </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="2">
+<sp> <speaker>Philon</speaker>
+ <p rend="align(indent)"> That is why Charinus himself told us to come to you if we wanted to hear the truth and how everything happened. <pb n="v.1.p.414"/>He said Dionicus himself remarked that while he had not been there for everything, you knew accurately what <corr>happened</corr> and would <note xml:lang="mul" type="footnote" n="v.1.p.414.n.1">ἂν Bekker: not in MSS.</note>even recall the speeches themselves, since you listen to such things seriously and not casually. So waste no time in serving us this most delightful banquet—I know of none <note xml:lang="mul" type="footnote" n="v.1.p.414.n.2">οὐκ οἶδα τίς Bekker: οὐκ οἱδʼ ἄν τις MSS.</note>more delightful to me, especially since we shall feast soberly, in peace, bloodlessly, and out of range of missiles, whether it was old men or young who misbehaved in their cups at dinner, led on by unmixed wine to say and do things they least ought to have done! </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="3">
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> You are asking something rather indiscreet of me, Philo—to broadcast these things to the public and go through a narrative of things done in wine and drunkenness, when we ought to consign them to oblivion and consider them all the work of the god Dionysus, who has never, I think, left anyone uninitiated and untouched by his frenzy at his rites. Take care, then, lest it be the mark of malicious people to scrutinize closely things that are best left behind in the banquet hall when one leaves. For as the poetic saying puts it, <q>"I hate"</q> <q>"a drinking-companion with a long memory."</q> Nor did Dionicus do right to blab these things to Charinus and pour so much stale wine-dregs over philosophers. As for me—perish the thought! I wouldn't say any such thing. </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="4">
+<sp> <speaker>Philon</speaker>
+ <p rend="align(indent)"> You are playing coy, Lycinus! You really shouldn't act like that with me, who knows well that you are far more <pb n="v.1.p.416"/>eager to tell than I am to hear—indeed, it seems to me that if you ran short of listeners, you would gladly walk up to a pillar or a statue and pour it all out in one continuous breath! Why, if I choose to leave right now, you won't let me go without hearing it, but will hold onto me, <note xml:lang="mul" type="footnote" n="v.1.p.416.n.1">ἕξει Fritzsche: ἕξεις (ἤξεις) MSS.</note>follow me, and beg me. So I'll play coy with you in my turn: <corr>if</corr> you like, let's go off and ask someone else about it, and don't you tell! </p> </sp>
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> Don't get <corr>angry</corr>! I'll tell the story, since you are so eager—only make sure you don't repeat it to many people. </p> </sp>
+ <sp> <speaker>Philon</speaker>
+  <p rend="align(indent)"> Unless I have completely forgotten Lycinus, you yourself will do that job better and beat me to telling everyone, so there'll be no need of me! </p></sp>
+</div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="5">
+ <sp rend="merge"> <speaker>Philon</speaker>
+<p>First tell me this: was Aristaenetus giving the banquet for his son Zeno's wedding? </p> </sp>
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> <corr>No,</corr> he was giving his daughter Cleanthis in marriage to the son of Eucritus the moneylender—the one who studies philosophy. </p> </sp>
+<sp> <speaker>Philon</speaker>
+ <p rend="align(indent)"> A very handsome lad, by Zeus, though still quite tender and scarcely of marriageable age. </p> </sp>
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> Well, he had no one more suitable, I suppose. Since the boy seemed well-behaved and inclined toward <pb n="v.1.p.418"/>philosophy, and moreover was the only son of the wealthy Eucritus, he chose him as bridegroom above all others. </p> </sp>
+<sp> <speaker>Philon</speaker>
+ <p rend="align(indent)"> Eucritus's wealth is no small reason! Well then, Lycinus, who were the dinner guests? </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="6">
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> Why tell you the rest? The <corr>men</corr> of philosophy and letters, whom I suppose you most want to hear about, were Zenothemis the old man from the Stoa, and with him Diphilus surnamed "Labyrinth," who is the teacher of Aristaenetus's son Zeno; from the Peripatetics, Cleodemus—you know the talkative, argumentative fellow whose students call him "Sword" and "Cleaver." The Epicurean Hermon was there too, and the moment he walked in the Stoics glared at him and turned away, clearly loathing him as some kind of parricide and accursed wretch. These had been invited to dinner as friends and acquaintances of Aristaenetus himself, along with Histiaeus the grammarian and Dionysodorus the rhetorician.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="7">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+  <p>On account of the bridegroom Chaereas, Ion the Platonist was a guest as his teacher—a majestic man to look at, godlike, showing great decorum in his countenance; in fact most people call him "The Rule" in view of the uprightness of his judgment. When he entered, everyone rose slightly for him and greeted him like one of the higher powers; in short, the presence of the admirable Ion was like the visitation of a god. </p> </sp> </div><pb n="v.1.p.420"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="8">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+  <p rend="align(indent)">When it was time to recline, nearly everyone being present, on the right as you enter the women occupied that entire row of couches—no small number of them—and among them the bride, very closely veiled and surrounded by the women; facing the door was the rest of the company, each according to his rank.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="9">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p>Directly opposite the women reclined Eucritus first, then Aristaenetus. Next there was hesitation over whether Zenothemis the Stoic should take precedence as an old man, or Hermon the Epicurean, since he was a priest of the Twin Gods and of the foremost family in the city. But Zenothemis solved the dilemma: <q>"If you place me,"</q> he said, <q>"Aristaenetus, second to this man here— <note xml:lang="mul" type="footnote" n="v.1.p.420.n.1">τουτουὶ τοῦ ἀνδρός MSS.: τουτουί, ἀνδρός Bekker.</note>to call him nothing worse—an Epicurean, I will walk out and leave your whole banquet behind!"</q> And at the same time he called his slave and made as if to leave. Hermon said, <q>"Take the first place, Zenothemis;</q> <q>yet even if <note xml:lang="mul" type="footnote" n="v.1.p.420.n.2">εἰ καὶ MSS.: εἰ Fritzsche: κἂν?</note>for no other reason, it would have been proper to yield to a priest, however much you despise Epicurus."</q> <q>"What a joke!"</q> said Zenothemis, <q>"An Epicurean priest!"</q> And as he spoke he reclined, and after him Hermon nonetheless, then Cleodemus the Peripatetic, then Ion, and below him the bridegroom, then myself, and beside me Diphilus, and below him his pupil Zeno, then Dionysodorus the rhetorician and Histiaeus the grammarian. </p> </sp> </div><pb n="v.1.p.422"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="10">
+<sp> <speaker>Philon</speaker>
+ <p rend="align(indent)"> Goodness, Lycinus, you describe a veritable academy of wise men for the most part! For my part I praise <corr>Aristaenetus</corr> for choosing, on the occasion of his most joyful festival, to entertain the wisest men before all others, plucking the very flower from every school—not some and leaving out others, but all mixed together. </p> </sp>
+ <sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> Yes, my friend, he is not one of the ordinary rich men, but cares about culture and spends most of his life in their company. </p></sp></div>
+ <div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="11">
+  <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p rend="align(indent)">So we feasted quietly at first, and a varied spread had been prepared. Still, I don't think there's any need to enumerate those things—sauces, pastries, and seasoned dishes—for everything was abundant. Meanwhile Cleodemus leaned over to Ion and said, <q>"Do you see"</q> <q>"the old man"</q>—meaning Zenothemis, for I overheard— <q>"how he is stuffing himself with the dishes, his cloak is splattered with gravy, and how much food he is handing to his slave standing behind him, thinking no one else notices and forgetting those seated behind him? Point this out to Lycinus too, so he can be a witness!"</q> I had no need of Ion pointing it out to me, having watched it all from my vantage point long before.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="12">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p rend="align(indent)">No sooner had Cleodemus said this than Alcidamas the Cynic burst in uninvited, cracking that familiar joke about <q>"Menelaus coming of his own accord."</q> <pb n="v.1.p.424"/>Most of the guests thought he had acted shamelessly and chimed in with the readiest quips—one murmuring "You are out of your wits, Menelaus," another, <quote rend="blockquote">"Yet it pleased not the heart of <corr>Atreus's</corr> son Agamemnon,"</quote> and others <note xml:lang="mul" type="footnote" n="v.1.p.424.n.1">ἄλλοι Bekker: not in MSS.</note>muttering other apt and witty lines for the occasion. Openly, however, no one dared <corr>speak</corr>, for they were afraid of Alcidamas, who was truly "good at the war-cry" and the loudest barker of all the Cynics, for which reason he was considered superior and was most feared by everyone.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="13">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p rend="align(indent)">Aristaenetus welcomed him and invited him to take a chair and sit beside Histiaeus and Dionysodorus. But he said, <q>"Nonsense!"</q> <q>"It is womanish and soft to sit on a chair or a stool, just as you lot feast reclining practically flat on your backs on this soft bed with purple covers spread beneath you! I'll dine standing up, walking about the banquet hall; and if I get tired, I'll spread my cloak <note xml:lang="mul" type="footnote" n="v.1.p.424.n.2">ὑποβαλόμενος Jacobitz: ὑποβαλλόμενος MSS.</note>on the floor and lie on my elbow the way they paint Heracles!"</q> <q>"So,"</q> said Aristaenetus, <q>"let it be,"</q> <q>"if you prefer."</q> And from then on Alcidamas dined while strolling around in a circle, shifting like the Scythians to wherever the pasture was richest and tagging along with the servants carrying the dishes.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="14">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p>Even while eating he was active, lecturing on virtue and vice between bites and <corr>jeering</corr> at the gold and silver—for instance, he asked Aristaenetus what he wanted with so many huge cups when earthenware ones work just as well. <pb n="v.1.p.426"/>Aristaenetus put a stop to his pestering for the moment by nodding <note xml:lang="mul" type="footnote" n="v.1.p.426.n.1">διανεύσας Fritzsche: δὲ νεύσας Ω.</note>to the slave to hand him a sizable goblet poured rather strong; and he thought he had hit on an excellent idea, not knowing what a world of trouble that goblet had started! Taking it, Alcidamas fell silent for a little while and, throwing himself on the floor, lay half-naked just as he had threatened, propping his elbow upright while holding the goblet in his right hand—just like Heracles at Pholus's cave as depicted by painters.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="15">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+<p rend="align(indent)">By now the cup was circulating briskly among the rest too, with toasts and conversation, and lights had been brought in. Meanwhile, noticing the handsome young wine-pourer standing beside Cleodemus smiling faintly—for I think one should mention the side-incidents of the feast as well, especially if anything rather piquant happened—I kept a sharp eye out to see what he was smiling at. A moment later the boy stepped up to take the bowl back from Cleodemus, who squeezed his finger and slipped, I think, two drachmas along with the bowl; the boy smiled again at the finger-squeeze, but didn't notice the coins, I suppose, so since he didn't catch them, the two drachmas clinked as they fell, and both of them blushed unmistakably! Those nearby wondered whose coins they were, the boy denying he had dropped them and Cleodemus, beside whom the clink occurred, pretending he hadn't let them fall. So the matter was passed over and ignored, not <pb n="v.1.p.428"/>many having seen it except, as it seemed to me, Aristaenetus alone; for a little later he quietly moved the boy away out of sight and nodded for one of the older, burly servants—some muleteer or groom—to wait on Cleodemus. Thus that incident passed off, though it would <note xml:lang="mul" type="footnote" n="v.1.p.428.n.1">ἂν Bekker: not in MSS.</note>have caused great embarrassment to Cleodemus if it had spread to everyone instead of being hushed up at once, Aristaenetus handling the drunken slip very tactfully.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="16">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+  <p rend="align(indent)">Now Alcidamas the Cynic—for he had already been drinking—having asked what the bride was called, <note xml:lang="mul" type="footnote" n="v.1.p.428.n.2">καλοῖτο MSS. καλοῖτο (??) and ἐκαλεῖτο.</note>called for silence in a loud voice, looked toward the women, and said, <q>"I drink to you,"</q> <q>"Cleanthis, in the name of Heracles our founder!"</q> When everyone laughed at this, he shouted, <q>"Did you laugh,"</q> <q>"you scum, because I toasted the bride in the name of <corr>our</corr> god Heracles? Know well <corr>that</corr> unless she takes the goblet from me, she will never bear a son like me—unyielding in strength, free in spirit, and so stout of body!"</q> And at the same time he exposed himself further to the point of utter indecency! The guests laughed again at this, and he grew indignant and started to get up with a fierce, wild look, clearly no longer intending to keep the peace. He might well have brought his stick down on someone, had not a huge cake been brought in at just the right moment; looking at it, he grew gentler, dropped his anger, and walked around stuffing himself with it.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="17">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p>By now most of them were drunk <pb n="v.1.p.430"/>and the banquet hall was full of <corr>shouting</corr>: Dionysodorus the rhetorician was reciting alternate rebuttal speeches <note xml:lang="mul" type="footnote" n="v.1.p.430.n.1">ἀντιρρήσεις Gertz: αὐτοῦ δήσεις MSS. “his own speeches “</note>and being applauded by the servants standing behind him; Histiaeus the grammarian, reclining further down, was reciting rhapsodies, mashing together Pindar, Hesiod, and Anacreon so as to produce one utterly ridiculous song out of the lot—especially these lines, as if prophesying what was to come: <quote rend="blockquote">"Together they dashed their ox-hide shields,"</quote> and <quote rend="blockquote">"Then rose the groaning and the boasting of men."</quote> Zenothemis, meanwhile, took a finely written <note xml:lang="mul" type="footnote" n="v.1.p.430.n.2">λεπτόγραφόν Herwerden: λεπτόγραμμόν MSS.</note>roll from his slave and began reading.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="18">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p rend="align(indent)">When there was a brief pause, as usual, in the serving of the dishes, Aristaenetus, contriving that even that interval should not be dull or empty, ordered the jester to come in and say or do something funny to put the guests in an even merrier mood. In came an ugly fellow with a shaved head and just a few hairs standing upright on his <corr>crown</corr>; he danced, doubling himself up and twisting around to look even funnier, rattled off anapests in an Egyptian accent, <corr>and</corr> finally started poking fun at the guests.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="19">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p>The others laughed whenever they were teased, but when he aimed something similar at <pb n="v.1.p.432"/>Alcidamas, calling him a "Maltese lapdog," Alcidamas grew furious—he had long been visibly jealous of the fellow for being <corr>applauded</corr> and holding the party's attention—threw off his cloak, and challenged him to a pancratium bout, saying he would lay his stick across him if he refused! So poor Satyrion—for that was the jester's name—squared up and fought a pancratium match! It was a hilarious spectacle: a philosopher squaring off against a jester, giving and taking blows in turn! Some of the guests felt ashamed while others laughed, until Alcidamas gave up under the beating, worsted by a tough little shrimp of a man. Great laughter poured forth at them!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="20">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p rend="align(indent)">At that point Dionicus the physician arrived, not long after the bout; he had been delayed, he explained, treating Polyprepon the flute-player, who had come down with brain-fever. He even told a funny story: he said he had gone in to see him without realizing he was already in the grip of the fit, and the man quickly jumped up, bolted the door, drew a dagger, handed him the flutes, and ordered him to <corr>play</corr>; then, when he couldn't, he beat him on his upturned palms with a leather strap! Finally, in such danger, he hit upon this plan: he challenged him to a contest for a set number of blows, first played <corr>badly</corr> himself, and then, handing <note xml:lang="mul" type="footnote" n="v.1.p.432.n.1">παραδοὸς Bekker: παραδόντα ΜSS.</note>the flutes over to him, took the strap and the <pb n="v.1.p.434"/>dagger from him and quickly flung them through the skylight into the open courtyard; from then on, wrestling with him more safely, he shouted for the neighbors, who broke open the door and rescued him. <note xml:lang="mul" type="footnote" n="v.1.p.434.n.1">αὐτός Bekker: αὐτόν MSS.</note>He even showed the marks of the blows and some scratches on his face. </p>
+  <p rend="align(indent)">Dionicus, having won no less applause than the jester for his story, squeezed himself in beside Histiaeus and dined on what was left—sent to us not without some god's providence, since he proved very useful for what followed!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="21">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p>For a slave stepped into the middle of the room, saying he had come from Hetoemocles the Stoic with a letter, and that his master had <corr>ordered</corr> him to read it aloud publicly in everyone's hearing and then go straight <corr>back</corr>. Aristaenetus gave permission, so he stepped up to the lamp and began reading. </p> </sp>
+<sp> <speaker>Philon</speaker>
+<p rend="align(indent)"> No doubt a eulogy of the bride or a wedding-hymn, Lycinus, like the many people write? </p> </sp> 
+
+ <sp> <speaker>Lykinos</speaker>
+  <p rend="align(indent)"> Of course we thought <corr>so</corr> too—but it wasn't even close! Here is what was written in it: </p></sp></div>
+  
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="22">
+<sp rend="merge"> <speaker>Lykinos</speaker>
+<p rend="align(center)"><q>"Hetoemocles the philosopher to Aristaenetus."</q></p>
+<p rend="align(indent)"> <q rend="merge">"My entire past life <corr>could</corr> bear witness to my attitude toward dinners: though many men far wealthier than you pester me daily, I have never yet given myself over to them, <pb n="v.1.p.436"/>knowing the uproars and drunken brawls at <note xml:lang="mul" type="footnote" n="v.1.p.436.n.1">ἐπὶ MSS.: ἐν Fritsche, perhaps rightly.</note>banquets. In your case alone, however, I think I have good reason to be indignant: after being so assiduously courted by me for so long, you did not see fit to include me too among your other friends—I alone am left out by you, and living right next door at that! I am grieved mostly for your sake, that you have shown yourself so ungrateful; for my happiness does not consist in a portion of wild boar or hare or cake, which I enjoy in abundance at the houses of others who know their duties—in fact, even today, when I could have dined on a sumptuous meal, so they say, at my pupil Pammenes's house, I refused his entreaties, foolishly saving myself for you."</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="23">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p><q rend="merge">"You, however, pass me over and feast others—naturally, since you cannot yet distinguish what is better, nor do you possess the 'apprehensive presentation.' Still, I know where this comes from: from your admirable philosophers Zenothemis and Labyrinth, whose mouths—may Nemesis forgive me!—I think I could quickly stop with a single syllogism. Let either of them tell us: what is philosophy? Or these elementary points: how does a 'state' differ from a 'habit'?—not to mention any of the puzzles, the Horned, the Sorites, or the Reaper argument! <pb n="v.1.p.438"/>Well, much joy may you have of them! As for me, considering only moral nobility to be good, I shall bear the slight lightly."</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="24">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p><q rend="merge">"Yet, so that you cannot fall back on that excuse later and say you forgot amid all the bustle and business, I greeted you twice today—at dawn at your house and later while you were sacrificing at the temple of the Twin Gods. Thus much I have stated in my defense to those present."</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="25">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p rend="align(indent)"><q rend="merge">"If I seem to you to be angry for the sake of a dinner, <corr>consider</corr> the case of Oeneus: you will see that even Artemis was indignant when he left her alone uninvited to his sacrifice while feasting the other gods. Homer speaks of them somewhat as follows: <quote rend="blockquote">"Either he forgot or took no heed, and greatly sinned in heart;"</quote> and Euripides: <quote rend="blockquote"><l>"This is the land of Calydon, across the strait </l>
+<l><corr>from</corr> Pelops's soil, possessing fertile plains;"</l>
+</quote> and Sophocles: <quote rend="blockquote">"A monstrous boar upon the fields of Oeneus <l>Leto's child, the far-shooting goddess, loosed."</l>
+</quote>"</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="26">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+  <p rend="align(indent)"><q rend="merge">"I have cited these few passages out of many so that you may learn what sort of man you passed over while feasting Diphilus and entrusting your son to him—naturally, <pb n="v.1.p.440"/>since he is pleasant to the lad and associates with him to his liking! Were it not shameful for me to speak of such things, I would even <note xml:lang="mul" type="footnote" n="v.1.p.440.n.1">κἄν Fritzsche: καὶ ἄν MSS.</note>add something whose truth you could learn, if you wish, from Zopyrus the tutor. Yet one must not make a scene at weddings or accuse others, especially on such shameful charges; for even if Diphilus deserves it, having already enticed away two of my pupils, I for the sake of philosophy itself will hold my tongue."</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="27">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p rend="align(indent)"><q rend="merge">"I have instructed this slave, if you offer him any portion of boar or venison or sesame-cake to <corr>carry</corr> back to me as an apology for the dinner, not to accept it, lest we seem to have sent him for that purpose."</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="28">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+  <p rend="align(indent)">While this was being read, my friend, I broke out in a sweat from embarrassment and, as the saying goes, wished the earth would open and swallow me, seeing the guests laughing at every sentence—especially those who knew Hetoemocles, a gray-haired man thought to be respectable! They marveled at what sort of man had been hiding from them, taken in as they were by his beard and his stern expression. As for Aristaenetus, it seemed to me he had not overlooked <note xml:lang="mul" type="footnote" n="v.1.p.440.n.2">παριδεῖν MSS. παριδεῖν (urged by Fritzsche) and περιιδεῖν.</note>him out of neglect, but because he never expected that if invited he would accept <corr>or</corr> lend himself to such an occasion, so he hadn't even thought it worth trying.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="29">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p> When the slave finally finished reading, the whole party looked at Zeno and Diphilus, who were terrified and turning pale, and by the distress <pb n="v.1.p.442"/>on their faces confirmed Hetoemocles's accusations! Aristaenetus was flustered and full of confusion, yet he urged us to drink and tried to smooth over what had happened with a forced smile, sending the slave away with the message that he would attend to the matter. Shortly afterward Zeno slipped quietly out, his tutor nodding to him to leave as if on his father's orders.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="30">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p rend="align(indent)">Cleodemus, who had long been looking for an opening—for he wanted to tangle with the <corr>Stoics</corr> and was bursting for lack of a reasonable pretext—now that the letter gave him his cue, said: <q>"That is the sort of thing"</q> <q>"your fine Chrysippus, your admirable Zeno, and Cleanthes produce—miserable catchphrases, quibbles, and the mere poses of philosophers, while in all else most of them are Hetoemocleses! Look how senile his letters are—and to top it off, Aristaenetus is Oeneus and Hetoemocles is Artemis! By Heracles, what auspicious words, and how fitting for a wedding feast!"</q> </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="31">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p> <q>"By Zeus,"</q> said Hermon, who reclined above him, <q>"he had heard, I suppose, that a boar had been prepared for Aristaenetus's dinner, so it seemed not out of place to mention the Calydonian one! Come, in Hestia's name, Aristaenetus, send him some first-fruits as fast as you can, before the old man wastes away from hunger like Meleager! Not that he would suffer anything <corr>terrible</corr>—for Chrysippus considered such things 'indifferent'!"</q> </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="32">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p> <q>"You mention <pb n="v.1.p.444"/>Chrysippus?"</q> shouted Zenothemis, raising himself up <corr>and</corr> bellowing at the top of his lungs, <q>"Or do you measure wise men like Cleanthes and Zeno by a single man who practices philosophy improperly, Hetoemocles the charlatan? And who <note xml:lang="mul" type="footnote" n="v.1.p.444.n.1">τινες Βekker: οἵτινες MSS.</note>are you to talk like that? Haven't you already sheared off the golden curls of the Dioscuri, Hermon? You'll pay for it yet when you're handed over to the executioner! And you, Cleodemus, committed adultery with the wife of your pupil Sostratus, and when caught suffered the most shameful punishment! Won't you shut up, with things like that on your own consciences?"</q> <q>"At least I'm not a pimp for my own wife,"</q> retorted Cleodemus, <q>"like you! Nor did I take a foreign pupil's travel money on deposit and then swear by Athena Polias that I hadn't received it! Nor do I lend money at four drachmas a month, nor throttle my pupils if they don't pay their fees on time!"</q> <q>"Well, one thing,"</q> said Zenothemis, <q>"you couldn't deny—selling Crito poison to use on his father!"</q></p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="33">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p>And with that—for he happened to be drinking—he flung whatever was left in his cup, nearly half of it, right over both of them! Ion too got his share from sitting next door, not undeservedly. Hermon leaned forward and wiped the unmixed wine off his head, calling on the guests to witness what he had suffered. Cleodemus, having no cup, turned around, spat on Zenothemis, grabbed him by the beard with his left hand, and was about to strike him on the temple—and would have killed the <pb n="v.1.p.446"/>old man had not Aristaenetus caught his hand and, stepping over Zenothemis, reclined right between the two of them so they would be separated and keep the peace with himself as a partition wall!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="34">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p rend="align(indent)">While this was going on, Philo, I turned over many thoughts in my mind—such as <note xml:lang="mul" type="footnote" n="v.1.p.446.n.1">οἷν Fritzsche: not in MSS.</note>that obvious truth that there is no benefit in mastering learning unless one also orders one's life for the <corr>better</corr>: there I saw men extraordinary in their speeches making themselves laughingstocks in their actions! Then it occurred to me that perhaps what ordinary people say is true, and that education leads astray from sound reason those who stare intently only at books and the ideas in them. With so many philosophers present, not even by chance could one see a single one free from fault; some did shameful things, and others said even more shameful ones! Nor could I any longer blame the wine for what was happening, considering what Hetoemocles had written before eating or drinking a drop!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="35">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p>So the tables were completely turned: the laymen could be seen dining in thorough decorum, neither getting rowdy nor misbehaving, only laughing and, I think, looking down on the very men they used to admire and think important because of their bearing; while the wise men were acting lewdly, hurling abuse, gorging themselves, shouting, and coming to blows! Meanwhile the admirable Alcidamas actually urinated <note xml:lang="mul" type="footnote" n="v.1.p.446.n.2">καὶ ἐούρει Buttmann: καὶ ἐνούρει MSS.: κἂν ἐούρει Fritzsche.</note>right in the middle of the room without <pb n="v.1.p.448"/>any shame before the women! To me, to make the best comparison, the scene at the banquet seemed most like what the poets <corr>say</corr> about Strife: not invited to the wedding of Peleus, she threw the apple into the feast, from which arose the great war at Troy. Just so, Hetoemocles seemed to me to have thrown his letter into our midst like an apple, causing disasters no smaller than the Iliad!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="36">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+  <p rend="align(indent)">For Zenothemis and Cleodemus did not stop wrangling once Aristaenetus got between them. <q>"For now,"</q> said Cleodemus, <q>"it is enough to expose your ignorance; tomorrow I'll deal with you in the proper way! Answer me, Zenothemis—either you or the ultra-respectable Diphilus—why, when you claim the possession of money is 'indifferent,' you aim at nothing else in the world so much as acquiring more of it, and for that reason constantly hang around the rich, lend money, practice usury, and teach for pay? And again, while hating pleasure and attacking the Epicureans, you yourselves do and endure the most shameful things for the sake of pleasure, flying into a rage if someone doesn't invite you to <corr>dinner</corr>—and if you <corr>are</corr> invited, eating <corr>so much</corr> and handing so much back to your slaves!"</q>—and as he spoke he tried to snatch away the napkin that Zenothemis's slave was holding, stuffed full of all kinds of meat, intending to untie it and dump them on the floor; but the slave held on tight and wouldn't let go. </p> </sp> </div><pb n="v.1.p.450"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="37">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+  <p>Hermon chimed in, <q>"Well said,"</q> <q>"Cleodemus! Let them tell us why they attack pleasure when they themselves claim a bigger share of enjoyment than anyone else!"</q> <q>"No, you,"</q> snapped Zenothemis, <q>"tell us, Cleodemus, why you don't consider wealth indifferent!"</q> <q>"Not at all—you tell us!"</q> This went on for a long while, until Ion leaned forward into fuller view and said: <q>"Stop it!"</q> <q>"If you agree, I will lay before you topics of discussion worthy of the present <corr>occasion</corr>, and you shall speak and listen without contention, just as in our master Plato's Symposium most of the time was spent in speeches."</q> Everyone present applauded, especially <corr>Aristaenetus</corr> and Eucritus, hoping to be rid of the unpleasantness this way at least. Aristaenetus even moved back to his own place, thinking peace had been restored,</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="38">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+  <p>and at the same moment what is called the "complete" course was brought in to us—a fowl for each guest, pork, <corr>hare</corr>, fried fish, sesame-cakes, and various sweetmeats—and we were allowed to take them home. However, there was not a separate platter for each person; instead, Aristaenetus and Eucritus shared one on a single table, each meant to take what was in front of <corr>him</corr>; Zenothemis the Stoic and Hermon the Epicurean likewise shared one; next Cleodemus and Ion; after them the bridegroom and myself; while Diphilus had both portions, since Zeno had left. Remember this, Philo, because there is something <note xml:lang="mul" type="footnote" n="v.1.p.450.n.1">τι Bekker: καὶ MSS. excised by Fritzsche.</note>in it essential to the story! </p> </sp><pb n="v.1.p.452"/>
+<sp> <speaker>Philon</speaker>
+<p rend="align(indent)"> I'll certainly remember. </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="39">
+<sp> <speaker>Lykinos</speaker>
+ <p rend="align(indent)"> Well then, Ion said, <q>"I shall begin first,"</q> <q>"if you approve."</q> Pausing a moment, <q>"Perhaps,"</q> he said, <q>"with such men present, I ought to speak about the Forms, incorporeal things, and the immortality of the soul; but so that those who do not follow the same <note xml:lang="mul" type="footnote" n="v.1.p.452.n.1">ταὐτὰ vulg: ταῦτα MSS.</note>philosophy may not contradict me, I shall say what is appropriate about marriage. Now the best thing would be to have no need of marriage at all, but following Plato and Socrates to love <corr>boys</corr>—for only such men can attain perfection in virtue. Yet if marriage with women is also necessary, then according to Plato's views women ought <note xml:lang="mul" type="footnote" n="v.1.p.452.n.2">ἐχρῆν du Soul: ἐκείνων MSS.</note>to be held in common, so that we may be free from jealousy."</q> </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="40">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+  <p rend="align(indent)">Laughter broke out at this, as being completely out of place! Dionysodorus said, <q>"Stop"</q> <q>"chanting barbaric nonsense at <corr>us</corr>! Where and in whom would we find 'jealousy' in that sense?"</q> <q>"Are you opening your mouth too, you scum?"</q> snapped Ion, <note xml:lang="mul" type="footnote" n="v.1.p.452.n.3">ὁ Ἴων Schafer, Bekker: οἶμαι MSS.</note>and Dionysodorus gave back abuse in kind. But good Histiaeus the grammarian said, <q>"Stop!"</q> <q>"I will read you a wedding-hymn."</q> And he began reading. </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="41">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p>These, if I remember rightly, were the elegiac verses: <quote rend="blockquote">
+<l> Or such as she who once in Aristaenetus's halls, </l>
+
+<l>Divine queen Cleanthis, was tenderly reared, </l>
+<pb n="v.1.p.454"/>
+<l>Surpassing all other maidens whatsoever, </l>
+
+<l>Better than Cythera and at once <note xml:lang="mul" type="footnote" n="v.1.p.454.n.1">ἅμα Guyet: αὖ MSS.</note>than Helen! </l>
+
+<l>Bridegroom, hail to you too, mightiest of mighty youths, <note xml:lang="mul" type="footnote" n="v.1.p.454.n.2">ἐφήβων Hopelessly corrupt: κράτιστε τεῶν συνεφήβων Dindorf.</note> </l>
+
+<l>Better than Nireus and Thetis's <corr>son</corr>! </l>
+
+<l>And we in turn shall often sing this bridal hymn </l>
+
+<l>In common over both of you! </l>
+</quote>  </p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="42">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+<p rend="align(indent)">After the inevitable laughter at these verses, it was time to gather up the portions set before us: Aristaenetus and Eucritus each took what lay before him, I took mine, Chaereas what was set for him, and Ion and Cleodemus likewise. Diphilus, however, claimed to take away the portion set for the absent <note xml:lang="mul" type="footnote" n="v.1.p.454.n.3">ἀπόντι Hartman, Herwerden: ἀπιόντι MSS.</note>Zeno as well, insisting it had been <corr>served</corr> to him alone, and fought with the servants—they tugged back and forth on the fowl as if fighting over the corpse of Patroclus! In the end he was beaten and let go, providing plenty of laughter for the guests, especially when he grew indignant afterward as though he had suffered the greatest injustice.</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="43">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p rend="align(indent)">Now Hermon and Zenothemis were reclining together, as I said—Zenothemis above and Hermon below <corr>him</corr>. Everything else set before them was equal, and they gathered it up peacefully; <pb n="v.1.p.456"/>but the fowl in front of Hermon happened to be fatter, just by chance, I suppose. Each was supposed to take his own of these too. At that point Zenothemis—and pay very close attention to me now, Philo, for we are right at the climax of what happened!—Zenothemis, I say, leaving his own bird, picked up the one in front of Hermon because, as I said, it was <corr>fatter</corr>; Hermon grabbed hold of it in return and wouldn't let him take more than his share. Shouting broke out at once; they grappled and began beating each other in the face with the fowls themselves, and grabbing each other's beards called for help—Hermon calling Cleodemus, Zenothemis calling Alcidamas and Diphilus—and the guests lined up, some on one side and some on the other, except Ion alone;</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="44">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+ <p>he kept himself neutral in the middle. The others clinched and fought: Zenothemis picked up a goblet lying on the table in front of Aristaenetus and hurled it at Hermon— <quote rend="blockquote">"Him he missed, and it swerved aside from him"</quote>—and split the bridegroom's skull in two with a very thorough and deep wound! A scream went up from the women, and most of them rushed into the no-man's-land between the combatants, especially the boy's mother when she saw the blood; the bride too leaped up in terror for him. Meanwhile Alcidamas performed feats of valor fighting alongside Zenothemis: swinging his stick, he cracked Cleodemus's skull, crushed Hermon's jaw, and <corr>wounded</corr> several of the servants who tried to help them. They did not give way, however: <pb n="v.1.p.458"/>Cleodemus drove a stiff finger into Zenothemis's eye to gouge it out and fastened his teeth on his nose and bit it off, while Hermon pitched Diphilus, who had come to Zenothemis's aid, headfirst off the couch!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="45">
+ <sp rend="merge"> <speaker>Lykinos</speaker>
+<p>Histiaeus the grammarian was wounded too while trying to separate them—kicked in the teeth, I think, by Cleodemus, who mistook him for Diphilus! So the poor wretch lay there, in the words of his own Homer, <note xml:lang="mul" type="footnote" n="v.1.p.458.n.1">γοῦν Harmon: οὖν MSS.</note><q>"vomiting blood."</q> Everywhere was full of uproar and tears: the women were wailing as they crowded around Chaereas, <gap reason="lost" rend="..."/><note xml:lang="mul" type="footnote" n="v.1.p.458.n.2">περιχυθεῖσαι Lacuna Gertz: οἱ δὲ ἄλλοι οἰκέται Fritzsche: οἱ δὲ ἄτρωτοι Bekker. </note>while the others tried to stop the fight. Worst menace of all was Alcidamas, who once he had routed those facing him began clubbing anyone he ran into—and many, believe me, would have fallen if he hadn't broken his stick! As for me, I stood upright against the wall watching everything without getting mixed up in it, having learned from Histiaeus's example how risky it is to break up such brawls. You would have said <note xml:lang="mul" type="footnote" n="v.1.p.458.n.3">εἶπες ἄν, εἰ εἶδες Gertz: εἶδες ἄν MSS.</note>it was the Lapiths and Centaurs, had you seen tables overturned, blood spilled, and goblets flying!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="46">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p rend="align(indent)">Finally Alcidamas knocked over the lampstand and plunged everything into deep darkness, and the situation naturally became far worse; for they could not easily get another light, and many dreadful things were done in the dark. When someone finally arrived <pb n="v.1.p.460"/>bringing a lamp, Alcidamas was caught stripping the flute-girl and trying to force himself on her, while Dionysodorus was caught having done something else hilarious: a goblet tumbled out of his tunic when he stood up! By way of excuse he claimed Ion had picked it up in the confusion and handed it to him so it wouldn't get lost, and Ion said he had done so out of concern for his host's property!</p> </sp> </div>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="47">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p rend="align(indent)">With that the banquet broke up, ending from tears back into laughter at Alcidamas, Dionysodorus, and Ion. The wounded were carried out in a <corr>sorry</corr> state—especially old Zenothemis, clutching his nose with one hand and his eye with the other, screaming that he was dying of pain, so that even Hermon, badly off as he was (having had two teeth knocked out), called everyone to witness, saying: <q>"Remember, Zenothemis, that you do not consider pain 'indifferent'!"</q> The bridegroom, after Dionicus dressed his wound, was taken home with his head wrapped in bandages, hoisted onto the very carriage in which he was supposed to take home his bride—poor wretch, celebrating a bitter wedding! Dionicus attended to the rest as best he could, and most of them were led off to bed vomiting in the streets. Alcidamas, however, <corr>stayed</corr> right there: they couldn't throw the man out once he had flung himself sideways across a couch and gone to sleep. </p> </sp> </div><pb n="v.1.p.462"/>
+<div type="textpart" subtype="section" xml:base="urn:cts:greekLit:tlg0062.tlg015.perseus-grc2" n="48">
+ <sp rend="merge"><speaker>Lykinos</speaker>
+ <p rend="align(indent)">There you have the end of our banquet, good Philo—or better yet, to add those tragic lines: <quote rend="blockquote"><l> Many are the shapes of heaven's workings, </l>
+<l>Many things the gods bring to pass beyond expectation, </l>
+<l>And what was looked for was not fulfilled! </l>
+</quote> For truly this too turned out quite unexpectedly. One thing at least <note xml:lang="mul" type="footnote" n="v.1.p.462.n.1">γε μὴν Bekker, Dindorf: μὴν not in MSS.: γε not in all MSS.</note>I have learned by now: it is not safe for a peaceable man to dine with such philosophers!</p> </sp> </div></div>
+</body>
+</text>
+</TEI>
