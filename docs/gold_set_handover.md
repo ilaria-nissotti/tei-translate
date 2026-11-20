@@ -31,7 +31,7 @@ If `data/perseus/` is missing, download it first: `python scripts/data/build_dat
 All output goes in **`data/gold/grc-en/`** (in the repo and tracked in git, not git-ignored: the gold set is small, hand-made and cannot be re-created by a script; delete the `.gitkeep` once the first file is there).
 
 - **Gold file:** `data/gold/grc-en/<greek file stem>.en.xml`, e.g. `tlg0059.tlg007.perseus-grc2.en.xml` (the same naming as the pipeline's `outputs/<name>.en.xml`).
-- **Notes file (optional):** `data/gold/grc-en/<greek file stem>.notes.md` for anything debatable: places where the references disagree with our Greek, unclear tag positions, unusual cases. Don't put such notes in the XML.
+- **Notes file (optional):** `data/gold/grc-en/<greek file stem>.notes.md` (e.g. `tlg0059.tlg007.perseus-grc2.notes.md`, not `...en.notes.md`; one per gold file) for anything debatable: places where the references disagree with our Greek, unclear tag positions, unusual cases. Don't put such notes in the XML.
 - **Index:** `data/gold/grc-en/translations.csv`, one row per gold file:
 
 | Column | Meaning |
