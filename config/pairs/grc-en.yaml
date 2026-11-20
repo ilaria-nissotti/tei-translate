@@ -6,4 +6,10 @@ tgt: en
 # opus-grk-en | opus-bible-ine | madlad-3b | marian:<HF model id> | madlad:<HF model id>
 # (model engines need: pip install -e .[mt]; see tei_translate/engines/__init__.py)
 engine: identity
+# hybrid: whole sentences to the engine, tags placed afterwards (default)
+# spanwise: every text piece translated where it is (tags never move)
+placement: hybrid
+# word aligner for hybrid placement: ugarit | dragoman | xlmr | embed:<HF id> | none | monotone (test)
+# (model aligners need: pip install -e .[mt]; see tei_translate/align/__init__.py)
+aligner: ugarit
 policy: config/policy.yaml   # relative to the repository root

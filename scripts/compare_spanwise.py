@@ -13,6 +13,9 @@ and notes removed):
             and numbers too). Difference to `whole` = cost of fragmentation alone.
 - pipeline: the real span-wise pipeline with config/policy.yaml (names
             transliterated, <num>/<bibl>/<foreign> kept, ...).
+- hybrid:   the hybrid pipeline (tags removed, sentences translated whole, tags
+            placed back with the word aligner --aligner); blocks it cannot place
+            go span-wise, as in the real pipeline.
 
 A passage is "split" when at least one of its blocks reaches the model in more
 than one piece. By default only split passages are sampled (that is where the
@@ -21,6 +24,10 @@ random sample) and reuses its `whole` translations for the engine.
 
     python scripts/compare_spanwise.py --engine opus-grk-en --per-work 4
     python scripts/compare_spanwise.py --engine madlad-3b --reuse outputs/compare/20261119-madlad
+    python scripts/compare_spanwise.py --engine pivot-grc-el-en --reuse outputs/spanwise/20261120-madlad-split --every 2
+
+--reuse also takes an earlier outputs/spanwise/<run>/ folder (same passages); --every K keeps
+every K-th passage of the selection (e.g. half of it, spread over the works).
 
 Writes outputs/spanwise/<timestamp>/report.md, translations.jsonl and run.json.
 Needs data/perseus/ (scripts/data/build_dataset.py) and pip install -e .[mt].
@@ -45,13 +52,15 @@ from lxml import etree
 # Sibling script: passage selection and plain-text extraction are shared.
 from compare_engines import PERSEUS, REPO_ROOT, SKIP, WORKS, plain_text, units
 
+from tei_translate.align import get_aligner
 from tei_translate.engines import get_engine
 from tei_translate.metrics.translation_scores import bleu, chrf
 from tei_translate.pipeline.document import Report, apply_spans
+from tei_translate.pipeline.hybrid import run_hybrid
 from tei_translate.pipeline.policy import Policy, local_name
 from tei_translate.pipeline.spans import WalkReport, collect_spans, has_letters
 
-CONDITIONS = ("whole", "split", "pipeline")
+CONDITIONS = ("whole", "split", "pipeline", "hybrid")
 log = logging.getLogger("tei_translate")
 
 
@@ -174,6 +183,22 @@ def run_spanwise(samples, policy: Policy, engine) -> tuple[list[str], Report]:
     return [flat(plain_text(div)) for div in copies], report
 
 
+def run_hybrid_passages(samples, policy: Policy, engine, aligner) -> tuple[list[str], Report]:
+    """Hybrid translation of every passage (one engine batch, one aligner batch, then the
+    span-wise batch for what is left); returns plain-text outputs."""
+    copies = [copy.deepcopy(s["div"]) for s in samples]
+    spans = []
+    walk = WalkReport()
+    for div in copies:
+        s, w = collect_spans(div, policy)
+        spans += s
+        walk.cases.update(w.cases)
+    report = Report(engine.name, "grc", "en", walk, placement="hybrid", aligner=aligner.name)
+    rest = run_hybrid(spans, policy, engine, aligner, "grc", "en", report.hybrid)
+    apply_spans(rest, engine, "grc", "en", report)
+    return [flat(plain_text(div)) for div in copies], report
+
+
 def score(samples, hyps, idx=None):
     idx = range(len(samples)) if idx is None else idx
     refs = [samples[i]["references"] for i in idx]
@@ -190,6 +215,9 @@ def main(argv=None) -> int:
     parser.add_argument("--reuse", type=Path, metavar="RUN_DIR",
                         help="an outputs/compare/<run>/ folder: use its passages (and its `whole` "
                              "translations if it has this engine) instead of sampling split passages")
+    parser.add_argument("--every", type=int, default=1, metavar="K",
+                        help="keep every K-th passage of the selection (default 1: all)")
+    parser.add_argument("--aligner", default="ugarit", help="word aligner for the hybrid condition")
     parser.add_argument("--out", type=Path, help="default: outputs/spanwise/<timestamp>/")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
@@ -202,11 +230,16 @@ def main(argv=None) -> int:
     whole = None
     if args.reuse:
         samples, whole = load_reused(args.reuse, args.engine)
-        selection = f"the {len(samples)} passages of {args.reuse.as_posix()} (random sample)"
+        selection = f"the {len(samples)} passages of {args.reuse.as_posix()}"
     else:
         samples = sample_split(args.per_work, args.seed, args.min_words, policy)
         selection = (f"{len(samples)} split passages, up to {args.per_work} per work "
                      f"(seed {args.seed}, at least {args.min_words} words)")
+    if args.every > 1:
+        keep = list(range(0, len(samples), args.every))
+        samples = [samples[i] for i in keep]
+        whole = [whole[i] for i in keep] if whole is not None else None
+        selection += f", every {args.every}. passage kept ({len(samples)})"
     for s in samples:
         s["greek"] = flat(plain_text(s["div"]))
         s.update(fragmentation(s["div"], cut_policy))
@@ -229,6 +262,13 @@ def main(argv=None) -> int:
         start = time.perf_counter()
         hyps[name], reports[name] = run_spanwise(samples, pol, engine)
         seconds[name] = time.perf_counter() - start
+    aligner = get_aligner(args.aligner)
+    aligner.align([(["λόγος"], ["word"])])  # load the aligner outside the timing
+    log.info("hybrid: translating")
+    start = time.perf_counter()
+    hyps["hybrid"], reports["hybrid"] = run_hybrid_passages(samples, policy, engine, aligner)
+    seconds["hybrid"] = time.perf_counter() - start
+    h = reports["hybrid"].hybrid
 
     out = args.out or REPO_ROOT / "outputs" / "spanwise" / datetime.now().strftime("%Y%m%d-%H%M%S")
     out.mkdir(parents=True, exist_ok=True)
@@ -240,7 +280,10 @@ def main(argv=None) -> int:
     run = {"engine": args.engine, "model": engine.name, "selection": selection, "seed": args.seed,
            "seconds": seconds,
            "segments": {c: reports[c].translated_spans for c in reports},
-           "transliterated": {c: reports[c].transliterated_spans for c in reports}}
+           "transliterated": {c: reports[c].transliterated_spans for c in reports},
+           "hybrid": {"aligner": aligner.name, "blocks_placed": h.blocks, "sentences": h.sentences,
+                      "aligned_sentences": h.aligned_sentences, "spanwise_blocks": dict(h.spanwise),
+                      "placements": dict(h.placements)}}
     (out / "run.json").write_text(json.dumps(run, indent=2), encoding="utf-8")
 
     split_idx = [i for i, s in enumerate(samples) if s["split_blocks"]]
@@ -249,7 +292,10 @@ def main(argv=None) -> int:
              f"Engine `{args.engine}` (`{engine.name}`). {selection}; {words} Greek words. "
              f"{len(split_idx)} of {len(samples)} passages have a block cut into pieces; "
              f"{reports['split'].translated_spans} pieces sent in `split` for {blocks} blocks. "
-             "Corpus chrF / BLEU against the Perseus English, notes/bibl/head removed.", "",
+             "Corpus chrF / BLEU against the Perseus English, notes/bibl/head removed. "
+             f"hybrid (aligner `{aligner.name}`): {h.blocks} blocks placed, "
+             f"{sum(h.spanwise.values())} span-wise ({', '.join(f'{k} {v}' for k, v in h.spanwise.most_common()) or '-'}); "
+             f"tags placed: {', '.join(f'{k} {v}' for k, v in sorted(h.placements.items())) or '-'}.", "",
              "| Condition | chrF (all) | BLEU (all) | chrF (split passages) | BLEU (split passages) | Time (s) |",
              "|---|---|---|---|---|---|"]
     for c in CONDITIONS:
@@ -267,14 +313,14 @@ def main(argv=None) -> int:
             n_split = sum(bool(samples[i]["split_blocks"]) for i in idx)
             lines.append(f"| {label} | {len(idx)} | {n_split} | " + " | ".join(cells) + " |")
 
-    drops = sorted(split_idx, key=lambda i: score(samples, hyps["split"], [i])[0]
-                   - score(samples, hyps["whole"], [i])[0])
-    lines += ["", "## Largest drops (whole → split, passage chrF)", ""]
-    for i in drops[:4]:
+    gains = sorted(split_idx, key=lambda i: score(samples, hyps["pipeline"], [i])[0]
+                   - score(samples, hyps["hybrid"], [i])[0])
+    lines += ["", "## Largest differences (pipeline → hybrid, passage chrF)", ""]
+    for i in gains[:3] + gains[-2:]:
         s = samples[i]
         d = {c: score(samples, hyps[c], [i])[0] for c in CONDITIONS}
         lines += [f"### {s['label']}, {s['ref']} (cut by: {', '.join(s['cutters'])})", "",
-                  f"chrF whole {d['whole']:.1f}, split {d['split']:.1f}, pipeline {d['pipeline']:.1f}", "",
+                  ", ".join(f"chrF {c} {d[c]:.1f}" for c in CONDITIONS), "",
                   f"- **Greek:** {s['greek']}", f"- **Reference:** {s['references'][0]}"]
         lines += [f"- **{c}:** {hyps[c][i]}" for c in CONDITIONS] + [""]
     (out / "report.md").write_text("\n".join(lines), encoding="utf-8")

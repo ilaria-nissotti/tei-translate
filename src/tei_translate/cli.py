@@ -1,4 +1,4 @@
-"""Command line: python -m tei_translate translate IN.xml [-o OUT.xml] [--engine tag]"""
+"""Command line: python -m tei_translate translate IN.xml [-o OUT.xml] [--engine tag] [--placement spanwise]"""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import logging
 import sys
 from pathlib import Path
 
-from tei_translate.pipeline.document import DEFAULT_PAIR, load_pair, translate_document
+from tei_translate.pipeline.document import DEFAULT_PAIR, PLACEMENTS, load_pair, translate_document
 from tei_translate.pipeline.policy import REPO_ROOT, Policy
 
 
@@ -22,6 +22,11 @@ def main(argv=None) -> int:
     t.add_argument("--engine", help="override the engine from the pair config: identity, tag, opus-grk-en, "
                                     "opus-bible-ine, madlad-3b, marian:<HF model id>, madlad:<HF model id>")
     t.add_argument("--policy", type=Path, help="override the policy file from the pair config")
+    t.add_argument("--placement", choices=PLACEMENTS,
+                   help="hybrid: whole sentences translated, tags placed afterwards; "
+                        "spanwise: every text piece translated where it is (default: from the pair config)")
+    t.add_argument("--aligner", help="override the word aligner from the pair config (hybrid only): ugarit, dragoman, xlmr, "
+                                     "embed:<HF model id>, none, monotone")
 
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
@@ -31,7 +36,8 @@ def main(argv=None) -> int:
 
     pair = load_pair(args.pair)
     policy = Policy.load(args.policy) if args.policy else None
-    result = translate_document(args.input, pair, engine=args.engine, policy=policy)
+    result = translate_document(args.input, pair, engine=args.engine, policy=policy,
+                                placement=args.placement, aligner=args.aligner)
 
     output = args.output or REPO_ROOT / "outputs" / f"{args.input.stem}.{pair['tgt']}.xml"
     output.parent.mkdir(parents=True, exist_ok=True)
