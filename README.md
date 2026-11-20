@@ -3,6 +3,22 @@
 Translates TEI XML files from Ancient Greek to English and keeps the tags in the right places.
 How it works: [docs/pipeline.md](docs/pipeline.md).
 
+## About
+
+TEI is the standard XML format for encoding historical texts. General translation tools such as
+DeepL or Google Translate break it: they translate text that should stay untouched (tags,
+foreign-language quotes, attributes) and lose the structure. This project translates Ancient
+Greek TEI documents from the Perseus Digital Library into English and keeps the XML valid.
+
+The idea is that the translation model never sees any markup. The pipeline takes the Greek text
+out of the TEI, translates plain sentences, and puts every tag back into the English text. A
+tag policy (`config/policy.yaml`) decides what happens to each tag, and word alignment (UGARIT)
+finds where tags go. On our gold set the hybrid approach gives 100% XML matching with a chrF of
+47.2, close to plain-text translation, and 46.3% strict tag placement accuracy, better than the
+other aligners and the heuristic baselines. Placing tags remains the hard part. The full
+description and results are in the project report:
+[docs/Essentials_Report.pdf](docs/Essentials_Report.pdf).
+
 ## Install
 
 You need Python 3.10+ and `git`. From the repo folder:
@@ -104,34 +120,10 @@ pytest
 Tests that download real models are skipped unless you set `$env:TEI_TRANSLATE_RUN_MODELS = "1"`.
 The metric test cases are in `tests/fixtures/metrics/` (explained in its README).
 
-## Using the metrics
+## Metrics
 
-```python
-from tei_translate.metrics.scores import (tag_accuracy, average_distance, score,
-    is_valid_xml, xml_accuracy, same_structure, xml_matching)
-from tei_translate.metrics.translation_scores import chrf, bleu, node_chrf, node_chrf_corpus
-from tei_translate.metrics.comet_score import comet          # needs the comet extra
-```
-
-Inputs are XML fragments as strings. The reference (or Greek input) always comes first.
-
-| Function | Gives |
-|---|---|
-| `tag_accuracy(ref, hyp)` | share of tags in the right place (0–1); text must be the same in both |
-| `average_distance(ref, hyp)` | how many characters the tags are off |
-| `score(ref, hyp)` | both, plus misplaced/missing/extra tags and a score per tag type |
-| `is_valid_xml(hyp)`, `xml_accuracy(hyps)` | is the output valid XML / share that is |
-| `same_structure(src, hyp)`, `xml_matching(srcs, hyps)` | same tags as the input / share that has |
-| `chrf(refs, hyps)`, `bleu(refs, hyps)` | corpus score (0–100), tags removed; a reference can be a list |
-| `node_chrf(ref, hyp)` | are the right words inside each tag? |
-| `comet(srcs, refs, hyps)` | COMET, tags removed |
-
-`chrf` and `bleu` score the whole test set at once (don't average per-passage scores). A score
-that can't be computed is `None`.
-
-```python
-tag_accuracy('Then <name>Socrates</name> said.', 'Then Socrates <name>said</name>.')  # 0.0
-```
+The evaluation metrics (tag accuracy, XML matching, chrF/BLEU, Node-chrF, COMET) are in
+`src/tei_translate/metrics/`. How to use them: [src/tei_translate/metrics/README.md](src/tei_translate/metrics/README.md).
 
 ## Layout
 
@@ -152,6 +144,7 @@ Docs:
 - [engine_comparison.md](docs/engine_comparison.md): which translation model, and why MADLAD.
 - [spanwise_cost.md](docs/spanwise_cost.md): what it costs to cut sentences at tags.
 - [gold_chunk_workflow.md](docs/gold_chunk_workflow.md): how long texts are split up for the gold translations.
+- `Essentials_Report.pdf`: the project report (method, results).
 - `Essentials_Proposal.pdf`: the project proposal.
 
 ## Not built yet
@@ -161,8 +154,8 @@ Space. `src/tei_translate/ui/` is a placeholder for it.
 
 ## Credits and licences
 
-University group project for *Essentials of Text and Speech Processing*, by Ennio, Andjela and
-Ilaria.
+University group project for *Essentials of Text and Speech Processing* at the University of
+Zurich, by Ennio, Andjela and Ilaria.
 
 - Texts: Perseus Digital Library,
   [canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit), CC BY-SA 4.0.
