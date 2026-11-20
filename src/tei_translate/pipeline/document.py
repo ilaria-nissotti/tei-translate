@@ -1,7 +1,7 @@
 """Translate one TEI document: the library entry point used by the CLI (and later Gradio).
 
     from tei_translate.pipeline.document import translate_document
-    result = translate_document("in.xml", engine="tag")
+    result = translate_document("in.xml", engine="tag", placement="hybrid", aligner="monotone")
     result.tree.write("out.xml", encoding="UTF-8", xml_declaration=True)
     print(result.report.summary())
 """
@@ -16,7 +16,9 @@ from pathlib import Path
 import yaml
 from lxml import etree
 
+from tei_translate.align import get_aligner
 from tei_translate.engines import get_engine
+from tei_translate.pipeline.hybrid import HybridReport, run_hybrid
 from tei_translate.pipeline.policy import REPO_ROOT, Policy, local_name
 from tei_translate.pipeline.spans import WalkReport, collect_spans, has_letters, split_ws, write_back
 from tei_translate.pipeline.transliterate import get_transliterator
@@ -28,12 +30,18 @@ TEI_NS = "http://www.tei-c.org/ns/1.0"
 XML_LANG = "{http://www.w3.org/XML/1998/namespace}lang"
 DEFAULT_PAIR = REPO_ROOT / "config" / "pairs" / "grc-en.yaml"
 
-# Supported values per treatment parameter; anything else gives a warning.
+# Supported values per rule parameter, default first; anything else gives a warning.
 SUPPORTED_PARAMS = {
-    "convert": {"none"},       # keep (num): Arabic conversion not implemented yet
-    "scheme": {"simple"},      # transliterate
-    "position": {"in-place"},  # empty markers
+    "convert": ("none",),                            # keep (num): Arabic conversion not implemented yet
+    "scheme": ("simple",),                           # transliterate
+    # Hybrid placement (ignored in span-wise mode), see pipeline/placement.py:
+    "placement": ("align", "boundary"),              # default: align for elements with text, boundary for points
+    "fallback": ("spanwise", "boundary", "sentence"),
+    "anchor": ("left", "right"),                     # points placed by alignment
+    "mt_input": ("source", "remove"),                # fixed content: shown to the model or removed
 }
+# hybrid: whole sentences to the model, tags placed afterwards; spanwise: every text piece where it is.
+PLACEMENTS = ("hybrid", "spanwise")
 
 
 @dataclass
@@ -48,6 +56,9 @@ class Report:
     lang_updated: int = 0
     warnings: list = field(default_factory=list)
     checks: dict = field(default_factory=dict)
+    placement: str = "spanwise"
+    aligner: str | None = None
+    hybrid: HybridReport = field(default_factory=HybridReport)
 
     @property
     def ok(self) -> bool:
@@ -59,8 +70,20 @@ class Report:
             f"spans: {self.translated_spans} translated, {self.transliterated_spans} transliterated, "
             f"{self.skipped_spans} skipped (no letters)",
             f"xml:lang updated on {self.lang_updated} elements",
-            "rules fired:",
         ]
+        if self.placement == "hybrid":
+            h = self.hybrid
+            lines.append(f"placement: hybrid, aligner: {self.aligner}; {h.blocks} blocks placed "
+                         f"({h.sentences} sentences translated, {h.aligned_sentences} aligned), "
+                         f"{sum(h.spanwise.values())} blocks span-wise")
+            if h.placements:
+                lines.append("  tags placed: " + ", ".join(f"{k} ({v})" for k, v in sorted(h.placements.items())))
+            if h.spanwise:
+                lines.append("  span-wise because: " + ", ".join(
+                    f"{k} ({v})" for k, v in h.spanwise.most_common()))
+        else:
+            lines.append("placement: spanwise")
+        lines.append("rules fired:")
         lines += [f"  {rule_id}: {n}" for rule_id, n in sorted(self.walk.rules_fired.items())]
         if self.walk.unknown_tags:
             lines.append("unknown tags (default rule): " + ", ".join(
@@ -101,8 +124,7 @@ def _check_params(policy: Policy) -> list[str]:
             if key not in SUPPORTED_PARAMS:
                 warnings.append(f"{rule.rule_id}: unknown parameter {key!r} ignored")
             elif value not in SUPPORTED_PARAMS[key]:
-                warnings.append(f"{rule.rule_id}: {key}={value!r} not implemented yet, using "
-                                f"{sorted(SUPPORTED_PARAMS[key])[0]!r}")
+                warnings.append(f"{rule.rule_id}: {key}={value!r} not supported, using the default")
     return warnings
 
 
@@ -162,7 +184,7 @@ def apply_spans(spans, engine, src: str, tgt: str, report: Report) -> None:
         else:
             scheme = span.params.get("scheme", "simple")
             if scheme not in SUPPORTED_PARAMS["scheme"]:
-                scheme = "simple"
+                scheme = SUPPORTED_PARAMS["scheme"][0]
             write_back(span, get_transliterator(src, scheme)(core))
             report.transliterated_spans += 1
 
@@ -174,10 +196,15 @@ def apply_spans(spans, engine, src: str, tgt: str, report: Report) -> None:
     report.translated_spans += len(to_translate)
 
 
-def translate_document(path, pair: str | Path | dict = DEFAULT_PAIR, engine=None, policy: Policy | None = None) -> Result:
-    """Translate a TEI file. `engine` (name or object) overrides the pair config."""
+def translate_document(path, pair: str | Path | dict = DEFAULT_PAIR, engine=None, policy: Policy | None = None,
+                       placement: str | None = None, aligner=None) -> Result:
+    """Translate a TEI file. `engine` and `aligner` (name or object) and `placement`
+    (hybrid | spanwise) override the pair config."""
     pair_cfg = pair if isinstance(pair, dict) else load_pair(pair)
     src, tgt = pair_cfg["src"], pair_cfg["tgt"]
+    placement = placement or pair_cfg.get("placement", "hybrid")
+    if placement not in PLACEMENTS:
+        raise ValueError(f"unknown placement {placement!r}; use one of {', '.join(PLACEMENTS)}")
     if policy is None:
         policy = Policy.load(REPO_ROOT / pair_cfg.get("policy", "config/policy.yaml"))
     engine = engine or pair_cfg.get("engine", "identity")
@@ -204,7 +231,13 @@ def translate_document(path, pair: str | Path | dict = DEFAULT_PAIR, engine=None
     for tag, n in walk.unknown_tags.items():
         log.warning("unknown tag <%s> (%d times): default rule used", tag, n)
 
-    report = Report(engine.name, src, tgt, walk, warnings=_check_params(policy))
+    report = Report(engine.name, src, tgt, walk, warnings=_check_params(policy), placement=placement)
+    if placement == "hybrid":
+        aligner = aligner or pair_cfg.get("aligner", "none")
+        if isinstance(aligner, str):
+            aligner = get_aligner(aligner)
+        report.aligner = aligner.name
+        spans = run_hybrid(spans, policy, engine, aligner, src, tgt, report.hybrid)
     apply_spans(spans, engine, src, tgt, report)
 
     for text_elem in texts:

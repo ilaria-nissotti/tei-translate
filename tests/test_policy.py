@@ -33,9 +33,19 @@ def test_override_by_attribute():
 
 
 def test_empty_detected_not_listed():
-    for xml in ['<pb n="1"/>', '<milestone unit="para"/>', '<gap/>', '<somethingNew/>']:
+    for xml in ['<pb n="1"/>', '<lb/>', '<somethingNew/>']:
         rule = policy.classify(tei(xml))
         assert (rule.role, rule.rule_id) == ("empty", "empty"), xml
+        assert rule.params == {"placement": "boundary"}
+
+
+def test_listed_empty_markers_follow_the_words():
+    milestone = policy.classify(tei('<milestone unit="section" n="2"/>'))
+    assert (milestone.role, milestone.rule_id) == ("empty", "tags.milestone")
+    assert milestone.params["placement"] == "align" and milestone.params["anchor"] == "right"
+    para = policy.classify(tei('<milestone unit="para"/>'))
+    assert (para.role, para.rule_id, para.params) == ("empty", "overrides[1]", {"placement": "boundary"})
+    assert policy.classify(tei("<gap/>")).params["anchor"] == "left"
 
 
 def test_tag_entry_wins_over_empty():

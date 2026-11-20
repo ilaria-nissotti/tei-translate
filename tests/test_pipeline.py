@@ -20,7 +20,7 @@ def find(tree, xpath):
 @pytest.mark.parametrize("path", ALL, ids=[p.name for p in ALL])
 @pytest.mark.parametrize("engine", ["identity", "tag"])
 def test_all_checks_pass(path, engine):
-    result = translate_document(path, engine=engine)
+    result = translate_document(path, engine=engine, placement="spanwise")
     failed = {k: v for k, v in result.report.checks.items() if not v["ok"]}
     assert not failed, result.report.summary()
 
@@ -29,7 +29,7 @@ def test_all_checks_pass(path, engine):
 def test_identity_roundtrip_keeps_translated_text(path):
     """With the identity engine only names (transliterated), xml:lang and the respStmt change."""
     source = etree.parse(str(path))
-    result = translate_document(path, engine="identity")
+    result = translate_document(path, engine="identity", placement="spanwise")
     src_text = find(source, "//t:text")[0]
     out_text = find(result.tree, "//t:text")[0]
     src_nodes = [e for e in src_text.iter() if isinstance(e.tag, str)]
@@ -42,7 +42,7 @@ def test_identity_roundtrip_keeps_translated_text(path):
 
 
 def tagged():
-    return translate_document(HANDMADE, engine="tag").tree
+    return translate_document(HANDMADE, engine="tag", placement="spanwise").tree
 
 
 def test_translated_spans_are_wrapped():
@@ -95,7 +95,7 @@ def test_block_inside_inline():
 
 
 def test_report_and_header():
-    result = translate_document(HANDMADE, engine="tag")
+    result = translate_document(HANDMADE, engine="tag", placement="spanwise")
     report = result.report
     assert report.walk.unknown_tags["unknownTag"] == 1
     assert report.walk.rules_fired["overrides[0]"] == 1

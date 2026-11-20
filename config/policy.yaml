@@ -9,6 +9,21 @@
 # treatment:  translate | keep | transliterate | keep-subtree
 # params:     optional options for the treatment's handler
 #
+# Placement params (hybrid mode only; see src/tei_translate/pipeline/placement.py).
+# Hybrid mode removes the tags of a block, translates it sentence by sentence and
+# puts every tag back in the English text:
+#   placement: align     find the place through word alignment (default for elements with text)
+#              boundary  nearest edge of the English sentence (default for points: empty markers,
+#                        notes, comments); markers between two sentences always stay between them
+#   anchor:    left      a point goes after the English of the previous Greek word (notes, refs)
+#              right     a point goes before the English of the next Greek word (milestones)
+#   fallback:  spanwise  (default) the whole block is translated span-wise instead
+#              boundary  points only: nearest sentence edge
+#              sentence  translated elements only: wrap the whole English sentence
+#   mt_input:  source    (default) the model sees a kept/transliterated element's Greek; its English
+#                        is then replaced by the element's own content
+#              remove    the element is left out of the model input and placed as a point
+#
 # Lookup order for an element: overrides (first match) -> tags -> empty -> default.
 # Tag names are local names (the TEI namespace is ignored).
 
@@ -16,8 +31,10 @@
 default: {role: inline, treatment: translate, warn: true}
 
 # Any element with no text and no child elements (pb, lb, milestone, gap, ...).
-# It is copied unchanged and stays in place. A `tags` entry wins over this.
-empty: {treatment: keep, params: {position: in-place}}
+# It is copied unchanged. A `tags` entry wins over this. In hybrid mode it goes to the
+# nearest sentence edge: pb/lb mark the printed Greek page/line, which has no exact
+# place in the English.
+empty: {treatment: keep, params: {placement: boundary}}
 
 # Copied as-is, never walked.
 untouched: [teiHeader]
@@ -43,12 +60,19 @@ tags:
   list:    {role: container}
   choice:  {role: container}
 
-  # Editors' notes: copied unchanged, in place (tag_decisions §1)
-  note:    {role: inline, treatment: keep-subtree}
+  # Empty markers whose position carries meaning (tag_decisions §3, open: "position of
+  # empty markers"). Citation milestones (section, Stephanus page, line, ...) are
+  # mostly mid-clause and are cited by scholars, so they follow the words; gap marks
+  # lost text at a precise place. See also the milestone override below.
+  milestone: {role: empty, treatment: keep, params: {placement: align, anchor: right, fallback: boundary}}
+  gap:       {role: empty, treatment: keep, params: {placement: align, anchor: left, fallback: boundary}}
+
+  # Editors' notes: copied unchanged, in place (tag_decisions §1); a note follows the word it comments on
+  note:    {role: inline, treatment: keep-subtree, params: {placement: align, anchor: left, fallback: boundary}}
 
   # Inline groups (tag_decisions §5)
   num:     {role: inline, treatment: keep, params: {convert: none}}
-  bibl:    {role: inline, treatment: keep}
+  bibl:    {role: inline, treatment: keep, params: {mt_input: remove, placement: align, anchor: left, fallback: boundary}}
   term:    {role: inline, treatment: keep}
   foreign: {role: inline, treatment: keep}
 
@@ -75,3 +99,5 @@ tags:
 # Attribute-based exceptions, checked first; the first match wins.
 overrides:
   - {tag: name, attr: {type: ethnic}, role: inline, treatment: translate}
+  # Paragraph milestones already sit at sentence ends (97% in the Greek files).
+  - {tag: milestone, attr: {unit: para}, role: empty, treatment: keep, params: {placement: boundary}}

@@ -25,11 +25,10 @@ import time
 from typing import Callable
 
 from tei_translate.pipeline.policy import REPO_ROOT
+from tei_translate.pipeline.sentences import SENTENCE_END
 
 log = logging.getLogger(__name__)
 
-# Sentence ends: . ! ? and the Greek question mark (";" U+003B or U+037E).
-SENTENCE_END = re.compile(r"(?<=[.!?;;])\s+")
 # Weaker breaks for over-long sentences: comma, colon, Greek ano teleia (U+0387, U+00B7).
 SOFT_BREAK = re.compile(r"(?<=[,:··])\s+")
 WORD_BREAK = re.compile(r"\s+")
