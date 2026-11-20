@@ -26,6 +26,11 @@ mt = [
     "sentencepiece",   # Marian (Opus-MT), MADLAD and NLLB tokenizers
     "peft",            # LoRA adapters (NLLB Ancient -> Modern Greek, pivot-grc-el-en)
 ]
+# COMET metric (tei_translate.metrics.comet_score): pip install -e .[comet]
+# Also needs torch; downloads the Unbabel/wmt22-comet-da model (~2.3 GB) on first use.
+comet = [
+    "unbabel-comet>=2.2",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/tei_translate"]

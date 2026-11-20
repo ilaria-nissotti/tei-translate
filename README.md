@@ -14,7 +14,7 @@ python -m venv .venv
 pip install -e .[dev]
 ```
 
-This installs the `tei_translate` package in editable mode (your code changes apply straight away) plus `pytest`. It also installs the dependencies listed in `pyproject.toml` (for now only `sacrebleu`, used for chrF and BLEU); new ones are added there when code needs them.
+This installs the `tei_translate` package in editable mode (your code changes apply straight away) plus `pytest`. It also installs the dependencies listed in `pyproject.toml` (`lxml` and `pyyaml` for the pipeline, `sacrebleu` for chrF and BLEU); new ones are added there when code needs them. This is enough for the pipeline with the test engines, all metrics except COMET, and the tests.
 
 To translate with a real MT model, also install the `mt` extra (PyTorch, Transformers, SentencePiece; about 1 GB on disk):
 
@@ -22,12 +22,34 @@ To translate with a real MT model, also install the `mt` extra (PyTorch, Transfo
 pip install -e .[dev,mt]
 ```
 
+To compute **COMET** scores, install the `comet` extra. The first time COMET runs it downloads its model (`Unbabel/wmt22-comet-da`, about 2.3 GB), so allow about 5 GB of disk space in total:
+
+```
+pip install -e .[dev,comet]
+```
+
+Extras can be combined: `pip install -e .[dev,mt,comet]`. Only the person computing the final scores needs COMET; nothing else depends on it.
+
+**Running models on an NVIDIA graphics card (optional).** MT models and COMET run on any laptop, on the processor (CPU), just more slowly. With an NVIDIA graphics card they run much faster, but on Windows `pip` installs the CPU-only version of PyTorch by default. To get the GPU version, run this **before** installing the extras:
+
+```
+pip install torch --index-url https://download.pytorch.org/whl/cu126
+```
+
+Check it worked with `python -c "import torch; print(torch.cuda.is_available())"`: `True` means the GPU is used. Macs and laptops without an NVIDIA card skip this step and use the CPU automatically.
+
+**If `import torch` fails on Windows** with `OSError: [WinError 1114] ... c10.dll`: this happens when the virtual environment was created from **Anaconda's** Python. Anaconda ships an old copy of a Windows C++ library (`msvcp140.dll`), which is loaded instead of the recent one Windows has, and PyTorch cannot start with it. Create the virtual environment from the official Python instead ([python.org](https://www.python.org/downloads/), or `winget install Python.Python.3.11`), e.g.:
+
+```
+& "$env:LOCALAPPDATA\Programs\Python\Python311\python.exe" -m venv .venv
+```
+
 ## Repository layout
 ```
 src/tei_translate/     the Python package (import it as tei_translate)
   pipeline/            pipeline stages (empty for now)
   engines/             MT engines: test engines + Hugging Face models (Opus-MT, MADLAD)
-  metrics/             evaluation metrics (fragments.py, scores.py, translation_scores.py)
+  metrics/             evaluation metrics (fragments.py, scores.py, translation_scores.py, comet_score.py)
   ui/                  Gradio app (empty for now)
 scripts/
   data/                download and describe the Perseus data (count_tags.py, build_dataset.py, make_work_types.py)
@@ -131,6 +153,8 @@ The metric tests are in `tests/test_metrics.py`. Each hand-made case in `tests/f
 - `translation_cases.json`: removing tags (also from broken XML), and chrF and BLEU: several references are handled correctly, and the scores equal sacrebleu's on the plain text.
 - `node_chrf_cases.json`: Node-chrF from Song et al. (2025): which elements are paired, with which texts, and the resulting scores.
 
+COMET is tested in `tests/test_comet.py`, mostly with a simple stand-in for the model; the tests with the real model run only with `TEI_TRANSLATE_RUN_MODELS=1`.
+
 A failing test shows the case's description and which values differ from the expected ones.
 
 ## Using the metrics in your own code
@@ -140,6 +164,7 @@ The metrics are in `src/tei_translate/metrics/`, one function per metric: tag pl
 from tei_translate.metrics.scores import tag_accuracy, average_distance, score
 from tei_translate.metrics.scores import is_valid_xml, xml_accuracy, same_structure, xml_matching
 from tei_translate.metrics.translation_scores import chrf, bleu, node_chrf, node_chrf_corpus
+from tei_translate.metrics.comet_score import comet, comet_scores          # needs pip install -e .[comet]
 ```
 
 If you get `ModuleNotFoundError: No module named 'tei_translate'`, the package is not installed in the Python you are using: activate the virtual environment, or run `pip install -e .` again.
@@ -159,9 +184,11 @@ All inputs are XML fragments as strings, e.g. `'<said who="#Σωκράτης"><l
 | `bleu(references, hypotheses)` | BLEU of the whole test set (0–100), tags removed | as for `chrf` |
 | `node_chrf(reference, hypothesis)` | are the right words inside each tag? chrF per element, averaged (0–100) | one passage; the reference must have the same tags as the output should have |
 | `node_chrf_corpus(references, hypotheses)` | average `node_chrf` over passages (0–100) | two lists in the same order, one reference per passage |
+| `comet(sources, references, hypotheses)` (in `tei_translate.metrics.comet_score`) | COMET of the whole test set (usually 0–1), tags removed: the average of the passages' scores | three lists in the same order: Greek inputs, references (one string or a list per passage), outputs |
+| `comet_scores(sources, references, hypotheses)` | COMET of each passage | as for `comet` |
 | `strip_tags(fragment)` (in `tei_translate.metrics.fragments`) | the text without tags, whitespace normalised | one fragment |
 
-`chrf` and `bleu` score the **whole test set at once**: averaging per-passage scores would give a different, wrong number. With several references, chrF uses the best-matching one for each passage; BLEU lets words match in any of them. Outputs that are not valid XML are still scored: everything of the form `<...>` is removed first, and the broken XML shows up in `xml_accuracy` instead.
+`chrf` and `bleu` score the **whole test set at once**: averaging per-passage scores would give a different, wrong number. With several references, chrF uses the best-matching one for each passage; BLEU lets words match in any of them; COMET scores each passage against every reference and keeps the best score (like chrF). Outputs that are not valid XML are still scored: everything of the form `<...>` is removed first, and the broken XML shows up in `xml_accuracy` instead.
 
 A score that cannot be computed is `None`: e.g. `tag_accuracy` when the output is not valid XML, or its text differs from the reference. What each metric means, with examples, is explained in `tests/fixtures/metrics/README.md`.
 
