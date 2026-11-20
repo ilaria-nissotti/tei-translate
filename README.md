@@ -137,17 +137,52 @@ python scripts/compare_engines.py --reuse outputs/compare/<earlier run> --engine
 It writes `outputs/compare/<timestamp>/report.md` (scores overall and per work, with examples), `translations.jsonl` (every passage with each engine's output, plus the Modern Greek in between for `pivot-grc-el-en`) and `run.json` (settings, models, timings). `--reuse` takes the passages and translations of an earlier run and only runs the engines it doesn't have yet, so adding an engine to a comparison doesn't re-run the others. For a slow engine, add `--subset N` (first N passages per work) and/or `--max-words W` (only passages up to W Greek words): every engine is then scored on that smaller set.
 
 ### `eval_placement.py`
-Scores how well the hybrid pipeline places the tags, against the hand-checked gold set in `data/gold/grc-en/gold.jsonl` (format and plan in `docs/gold_set_handover.md`):
+Scores how well the hybrid pipeline places the tags, against the gold set in `data/gold/grc-en/` (English TEI files with the tags placed correctly, listed in `translations.csv`; see `docs/gold_set_handover.md`):
 
 ```
-python scripts/eval_placement.py                                   # aligners none and monotone (no models)
-python scripts/eval_placement.py --aligners ugarit dragoman monotone none
-python scripts/eval_placement.py --gold tests/fixtures/placement_eval/gold.jsonl   # try it on the test items
+python scripts/eval_placement.py                                   # the baselines none, monotone, sentence (no models)
+python scripts/eval_placement.py --aligners none monotone sentence xlmr ugarit
+python scripts/eval_placement.py --gold-dir tests/fixtures/placement_eval/gold --perseus tests/fixtures/placement_eval/perseus   # the test data
 ```
 
-For every gold item and aligner, the pipeline translates the Greek block with a *replay* engine that returns the gold English sentences, so the output has exactly the gold text and only the tag positions can differ. Each block is then scored with tag accuracy and average distance (Zenkel et al. 2021). A block the pipeline could not place (it fell back to span-wise translation) gets no score and counts in the fallback rate. Names, numbers and other fixed elements are scored *before* the pipeline replaces their English with their own content (otherwise the text would no longer match the gold); `--policy-as-is` turns this off. The model aligners need `pip install -e .[mt]`.
+Methods to compare (`--aligners`): the word aligners `ugarit` (the pipeline's default, trained for Ancient Greek) and `xlmr` (the same kind of model without Ancient Greek training); and three baselines without a model: `none` (no alignment: a tag that needs it takes its fallback, usually the block is not placed), `monotone` (assumes the English words follow the Greek order) and `sentence` (no alignment: a tag that needs it covers its whole English sentence). `dragoman` is left out for now: its tokenizer does not load with the installed Transformers version, so almost every block would be an aligner error.
 
-It writes `outputs/eval_placement/<timestamp>/report.md` (tag accuracy, average distance and fallback rate per aligner, accuracy per tag type and per text type, fallback reasons), `results.jsonl` (every item with its status, scores and output), `summary.json` and `run.json`.
+The Greek source of each gold file is read from `data/perseus/` or, if that folder is missing, from the local Perseus clone `data/raw/canonical-greekLit/`. The model aligners need `pip install -e .[mt]`.
+
+How it works: each Greek text block (paragraph) is paired with the gold block in the same position (both files have the same structure). The pipeline's placement step then places the Greek block's tags into the **gold English text** (not into its own translation), so the only thing that can differ from the gold is where the tags are. The pipeline places tags sentence by sentence, so the gold English sentences are matched to the Greek ones: one to one if there are as many; if the translator split a Greek sentence, consecutive English sentences are grouped per Greek sentence by length; if there are fewer English sentences, the whole block is one unit. The result is compared with the gold tags:
+- **strict accuracy** (the headline number): gold tags at exactly the right place, over all gold tags of the placeable blocks; tags in blocks the method could not place (or where the aligner failed) count as wrong, so every method is measured on the same tags;
+- **tag accuracy**: the same, but only over the blocks the method could place (a method that gives up on hard blocks looks better, so this number does not compare methods);
+- **average distance**: how many characters off the tags are;
+- **fallback rate**: blocks the pipeline could not place (it would translate them span-wise).
+
+Scoring rules: positions are counted without spaces and without punctuation, so a tag on either side of a space, quotation mark, comma or full stop is at the same place (translators put quotation marks inside or outside `<q>` inconsistently; `--keep-punctuation` counts punctuation, for a stricter check); an opening and a closing tag count as two tags; notes and references count as single points (their content is copied unchanged and not compared); fixed elements (`label`, `speaker`, `term`, `foreign`, which the pipeline keeps or transliterates) are scored before the pipeline replaces their English with their own content (`--policy-as-is` turns this off). Names and numbers are translated by the model, so they are ordinary tags.
+
+It writes `outputs/eval_placement/<timestamp>/report.md` (the scores per aligner, per tag type, per sentence mode and per gold file, and why blocks could not be placed), `results.jsonl` (every block with its status, scores and rebuilt text), `summary.json` and `run.json`.
+
+### `eval_translation.py`
+Translation quality per MT engine: chrF, BLEU and COMET, on the passages and translations of a `compare_engines.py` run (so no engine has to run again):
+
+```
+python scripts/eval_translation.py --run outputs/compare/<run>             # chrF, BLEU, COMET
+python scripts/eval_translation.py --run outputs/compare/<run> --no-comet  # only chrF and BLEU
+```
+
+References are the Perseus English translations. Text only: tags play no part. COMET (`Unbabel/wmt22-comet-da`) compares each translation with its best reference and also reads the Greek; it was not trained on Ancient Greek, so treat it as a second opinion next to chrF. It needs `pip install -e .[comet]` and downloads the model (about 2.3 GB) the first time. A quick version: `compare_engines.py --engines madlad-3b opus-bible-ine --per-work 3` (21 passages) and then this script.
+
+It writes `outputs/eval_translation/<timestamp>/report.md` (scores per engine, overall and per work), `scores.jsonl` (COMET per passage), `summary.json` and `run.json`.
+
+### `eval_end_to_end.py`
+Translation and tags together: runs the real pipeline (MT engine + aligner) on the Greek source of the gold files and compares its English TEI with the gold English TEI:
+
+```
+python scripts/eval_end_to_end.py --files tlg0062.tlg006 tlg0062.tlg054 --conditions plain hybrid spanwise --comet
+python scripts/eval_end_to_end.py --max-files 3 --max-blocks 40           # first 40 text blocks of the first 3 gold files
+python scripts/eval_end_to_end.py --engine identity --aligner monotone    # quick check without models
+```
+
+Conditions: `hybrid` (the pipeline's default), `spanwise` (every text piece translated where it is) and `plain` (the text without tags, as one segment per block: the upper bound for translation quality). Every condition is scored on the same blocks: those the hybrid pipeline handles, where the gold block is translated. Scores: share of files passing the pipeline's validator, structure match (blocks with exactly the gold's tags), chrF / BLEU / COMET on the text, and Node-chrF (the right words inside the right tags). The defaults are `madlad-3b` and `ugarit`, as in the pipeline. MADLAD does about 5–8 Greek words per second on a laptop CPU, so choose a few files with `--files` (dot-separated ids, e.g. `tlg0062.tlg006`), `--max-files` or `--max-blocks`.
+
+It writes `outputs/eval_end_to_end/<timestamp>/report.md`, `units.jsonl` (every scored block: Greek, gold and each condition's output), `summary.json`, `run.json`, and the English TEI files in `hybrid/` and `spanwise/`.
 
 ### Running the tests
 From the repository root, with the package installed (see Installation):
@@ -166,7 +201,7 @@ The metric tests are in `tests/test_metrics.py`. Each hand-made case in `tests/f
 - `translation_cases.json`: removing tags (also from broken XML), and chrF and BLEU: several references are handled correctly, and the scores equal sacrebleu's on the plain text.
 - `node_chrf_cases.json`: Node-chrF from Song et al. (2025): which elements are paired, with which texts, and the resulting scores.
 
-The placement evaluation is tested in `tests/test_placement_eval.py`, on hand-made gold items (`tests/fixtures/placement_eval/`). COMET is tested in `tests/test_comet.py`, mostly with a simple stand-in for the model; the tests with the real model run only with `TEI_TRANSLATE_RUN_MODELS=1`.
+The placement evaluation is tested in `tests/test_placement_eval.py`, on a hand-made Greek file and its gold translation (`tests/fixtures/placement_eval/`); the end-to-end evaluation in `tests/test_end_to_end.py`, on the same files with a word-by-word test engine; the translation evaluation in `tests/test_translation_eval.py`, on a tiny made-up `compare_engines.py` run. COMET is tested in `tests/test_comet.py`, mostly with a simple stand-in for the model; the tests with the real model run only with `TEI_TRANSLATE_RUN_MODELS=1`.
 
 A failing test shows the case's description and which values differ from the expected ones.
 
