@@ -27,7 +27,7 @@ Layout decisions agreed with the user (don't relitigate):
 
 Notes on the scripts:
 - `scripts/data/` scripts are stdlib-only and resolve paths from the repo root (`Path(__file__).resolve().parents[2]`), so they work from any folder without installing. `build_dataset.py` imports its sibling `make_work_types.py` by plain name (`from make_work_types import ...`), so the two must stay in the same folder.
-- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` was run and gives the same CSVs as before. The metric checks, then a script (`check_metric_cases.py`), are now pytest tests in `tests/test_metrics.py` (104 pass).
+- Since the move, `build_dataset.py` / `make_work_types.py` were only checked with `--help` (a full run downloads every pair from GitHub). `count_tags.py` was run and gives the same CSVs as before. The metric checks, then a script (`check_metric_cases.py`), are now pytest tests in `tests/test_metrics.py`.
 - On Windows, printing Greek can raise `UnicodeEncodeError: 'charmap'`: set `PYTHONUTF8=1` (PowerShell: `$env:PYTHONUTF8 = "1"`).
 
 ## Pipeline (built)
